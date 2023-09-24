@@ -1,11 +1,12 @@
-
+import CompaniesPlan from '../../components/CompaniesPlan/CompaniesPlan'
+import Testimonials from '../../components/Testimonials/Testimonials'
 
 function Home() {
   return (
-    <div>
-      <h1>HOME</h1>
-      
-    </div>
+    <>
+      <CompaniesPlan />
+      <Testimonials />
+    </>
   )
 }
 
