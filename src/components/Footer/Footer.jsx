@@ -12,39 +12,39 @@ function Footer() {
         <div className="w-64 h-32 flex items-center justify-center gap-2.5">
           <img className="w-full h-full" src={Logo} alt="Logo" />
         </div>
-        <div className="text-blue-800 text-xl font-normal text-center my-4">
+        <div className="text-primary text-xl font-normal text-center my-4">
           <FaRegClock className="w-6 h-5 inline-flex mr-1" />
           Lun-Vie: 8:00 am - 5:00 pm
         </div>
-        <div className="text-blue-800 text-xl font-normal text-center my-4">
+        <div className="text-primary text-xl font-normal text-center my-4">
           <AiOutlineMail className="w-6 h-5 inline-flex mr-1" />
           futurefc@example.com
         </div>
-        <div className="text-blue-800 text-xl font-normal text-center my-4">
+        <div className="text-primary text-xl font-normal text-center my-4">
           <FiMapPin className="w-6 h-5 inline-flex mr-1" />
           Caracas, Venezuela
         </div>
-        <div className="text-blue-800 text-xl font-normal text-center my-4">
+        <div className="text-primary text-xl font-normal text-center my-4">
           <BsTelephoneForward className="w-6 h-5 inline-flex mr-1" />
           +58 212-2675132 / 412-9713806
         </div>
         <div className="w-full h-0.5 bg-primary border text-primary my-4" />
-        <div className="text-blue-800 text-xl font-normal text-center my-4">
+        <div className="text-primary text-xl font-normal text-center my-4 hover:text-purple">
           <Link to="/">Inicio</Link>
         </div>
-        <div className="text-blue-800 text-xl font-normal text-center my-4">
+        <div className="text-primary text-xl font-normal text-center my-4 hover:text-purple">
           <Link to="/servicios">Servicios</Link>
         </div>
-        <div className="text-blue-800 text-xl font-normal text-center my-4">
+        <div className="text-primary text-xl font-normal text-center my-4 hover:text-purple">
           <Link to="/planes">Planes</Link>
         </div>
-        <div className="text-blue-800 text-xl font-normal text-center my-4">
+        <div className="text-primary text-xl font-normal text-center my-4 hover:text-purple">
           <Link to="/nosotros">Nosotros</Link>
         </div>
-        <div className="text-blue-800 text-xl font-normal text-center my-4">
+        <div className="text-primary text-xl font-normal text-center my-4 hover:text-purple">
           <Link to="/legal">Políticas y Privacidad</Link>
         </div>
-        <div className="opacity-50 text-blue-800 text-sm text-center my-4 font-normal">
+        <div className="opacity-50 text-primary text-sm text-center my-4 font-normal">
           Copyright © 2023 • Future Financial Consultants C.A.
         </div>
       </div>
@@ -88,19 +88,19 @@ function Footer() {
           <div className="w-[80%] h-px opacity-20 bg-blue-800 border" />
           <div className="justify-start items-start gap-80 inline-flex">
             <div className="justify-start items-start gap-10 flex">
-              <div className="text-blue-800 text-base font-light">
+              <div className="text-primary hover:text-purple text-base font-light">
                 <Link to="/">Inicio</Link>
               </div>
-              <div className="text-blue-800 text-base font-light">
+              <div className="text-primary hover:text-purple text-base font-light">
                 <Link to="/servicios">Servicios</Link>
               </div>
-              <div className="text-blue-800 text-base font-light">
+              <div className="text-primary hover:text-purple text-base font-light">
                 <Link to="/planes">Planes</Link>
               </div>
-              <div className="text-blue-800 text-base font-light">
+              <div className="text-primary hover:text-purple text-base font-light">
                 <Link to="/nosotros">Nosotros</Link>
               </div>
-              <div className="text-blue-800 text-base font-light">
+              <div className="text-primary hover:text-purple text-base font-light">
                 <Link to="/legal">Políticas y Privacidad</Link>
               </div>
             </div>

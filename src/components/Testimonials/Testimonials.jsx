@@ -2,9 +2,9 @@ import { FaStarHalfAlt, FaStar, FaRegStar } from 'react-icons/fa'
 
 function Testimonials() {
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 md:pt-28">
       <h2 className="text-2xl font-medium text-primary">Testimonios</h2>
-      <p className="text-[3rem] text-primary font-bold">
+      <p className="md:text-[3rem] text-primary font-bold text-2xl">
         Nuestros clientes nos recomiendan...
       </p>
       <div className="grid md:px-32 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
