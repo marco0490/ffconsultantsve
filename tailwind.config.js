@@ -1,5 +1,4 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+module.exports =  {
   content: [
     "./index.html",
     "./src/**/**/*.{scss,js,ts,jsx,tsx}",
@@ -20,6 +19,6 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }
 
