@@ -22,14 +22,14 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Root />} errorElement={<NotFound />}>
         <Route index element={<Home />} />
-        <Route path="/agentes" element={<Agent />} />
-        <Route path="/blog" element={<Blog />} />
+        {/* <Route path="/agentes" element={<Agent />} /> */}
+        {/* <Route path="/blog" element={<Blog />} /> */}
         <Route path="/contacto" element={<Contact />} />
-        <Route path="/cotizador" element={<Cotizador />} />
-        <Route path="/planes" element={<Plans />} />
-        <Route path="/legal" element={<Legal />} />
-        <Route path="/servicios" element={<Services />} />
-        <Route path="/nosotros" element={<We />} />
+        {/* <Route path="/cotizador" element={<Cotizador />} /> */}
+        {/* <Route path="/planes" element={<Plans />} /> */}
+        {/* <Route path="/legal" element={<Legal />} /> */}
+        {/* <Route path="/servicios" element={<Services />} /> */}
+        {/* <Route path="/nosotros" element={<We />} /> */}
       </Route>,
     ),
   )

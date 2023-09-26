@@ -32,7 +32,7 @@ function NotFound() {
           </button>
         </Link>
 
-        <div className="container mx-auto mb-5  max-w-[800px] relative -top-20">
+        <div className="container mx-auto mb-5  max-w-[800px] relative md:-top-20 -top-10">
           <Link to="/">
             <img className="notFound__img" src={NotFoundSVG} alt="404" />
           </Link>
