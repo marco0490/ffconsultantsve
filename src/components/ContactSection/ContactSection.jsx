@@ -15,7 +15,7 @@ function ContactSection() {
           <Link to="/">Leer más</Link>
         </button>
       </div>
-      <div className="bg-gradient-to-r from-gray-100 to-transparent relative mt-12 md:mt-0">
+      <div className="md:bg-gradient-to-r from-gray-100 to-transparent relative mt-12 md:mt-0">
         <img
           src={Image}
           alt="Chica con laptop en manos"

@@ -1,41 +1,30 @@
 {
-  "name": "ffconsultantsve",
-  "private": true,
-  "version": "1.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "lint:fix": "eslint --fix . --ext .js,.jsx",
-    "prepare": "husky install"
-  },
   "dependencies": {
-    "@tailwindcss/forms": "^0.5.6",
-    "emailjs-com": "^3.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
-    "react-icons": "^4.10.1",
-    "react-router-dom": "^6.15.0",
-    "sweetalert2": "^11.7.31"
+    "@headlessui/react": "1.7.17",
+    "@tailwindcss/forms": "0.5.6",
+    "emailjs-com": "3.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-helmet": "6.1.0",
+    "react-icons": "4.10.1",
+    "react-router-dom": "6.15.0",
+    "sweetalert2": "11.6.13"
   },
   "devDependencies": {
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.0.3",
-    "autoprefixer": "^10.4.15",
-    "eslint": "^8.45.0",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.3",
-    "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
-    "postcss": "^8.4.29",
-    "prettier": "^3.0.3",
-    "tailwindcss": "^3.3.3",
-    "vite": "^4.4.5"
+    "@types/react": "18.2.15",
+    "@types/react-dom": "18.2.7",
+    "@vitejs/plugin-react": "4.0.3",
+    "autoprefixer": "10.4.15",
+    "eslint": "8.45.0",
+    "eslint-plugin-react": "7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react-refresh": "0.4.3",
+    "husky": "8.0.3",
+    "lint-staged": "14.0.1",
+    "postcss": "8.4.29",
+    "prettier": "3.0.3",
+    "tailwindcss": "3.3.3",
+    "vite": "4.4.5"
   },
   "husky": {
     "hooks": {
@@ -50,5 +39,17 @@
     "*.{ts,js}": [
       "tslint --fix"
     ]
-  }
+  },
+  "name": "ffconsultantsve",
+  "private": true,
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint --fix . --ext .js,.jsx",
+    "prepare": "husky install",
+    "preview": "vite preview"
+  },
+  "type": "module",
+  "version": "1.0.0"
 }

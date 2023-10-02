@@ -1,11 +1,16 @@
+import { Fragment } from 'react'
 import Logo from '../../assets/Logo.svg'
 import { FaRegClock } from 'react-icons/fa'
 import { AiOutlineMail } from 'react-icons/ai'
 import { FiMapPin } from 'react-icons/fi'
 import { BsTelephoneForward } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
+import { Menu, Transition } from '@headlessui/react'
 
 function Footer() {
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
   return (
     <>
       <div className="md:hidden flex flex-col items-center bg-white text-primary p-4">
@@ -35,9 +40,52 @@ function Footer() {
         <div className="text-primary text-xl font-normal text-center my-4 hover:text-purple">
           <Link to="/servicios">Servicios</Link>
         </div>
-        <div className="text-primary text-xl font-normal text-center my-4 hover:text-purple">
-          <Link to="/planes">Planes</Link>
-        </div>
+        <Menu as="div" className="relative inline-block text-left">
+          <Menu.Button className="text-primary text-xl font-normal text-center my-4 hover:text-purple">
+            Planes
+          </Menu.Button>
+
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-100"
+            enterFrom="transform opacity-0 scale-95"
+            enterTo="transform opacity-100 scale-100"
+            leave="transition ease-in duration-75"
+            leaveFrom="transform opacity-100 scale-100"
+            leaveTo="transform opacity-0 scale-95"
+          >
+            <Menu.Items className="absolute right-15 -top-24 z-10 mt-2 w-38 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <div className="py-1">
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      to="/planes-mercantil"
+                      className={classNames(
+                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                        'block px-4 py-2 text-sm',
+                      )}
+                    >
+                      Mercantil
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      to="/planes-qualitas"
+                      className={classNames(
+                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                        'block px-4 py-2 text-sm',
+                      )}
+                    >
+                      Qualitas
+                    </Link>
+                  )}
+                </Menu.Item>
+              </div>
+            </Menu.Items>
+          </Transition>
+        </Menu>
         <div className="text-primary text-xl font-normal text-center my-4 hover:text-purple">
           <Link to="/nosotros">Nosotros</Link>
         </div>
@@ -94,9 +142,57 @@ function Footer() {
               <div className="text-primary hover:text-purple text-base font-light">
                 <Link to="/servicios">Servicios</Link>
               </div>
-              <div className="text-primary hover:text-purple text-base font-light">
-                <Link to="/planes">Planes</Link>
-              </div>
+              <Menu as="div" className="relative inline-block text-left">
+                <Menu.Button className="text-primary hover:text-purple text-base font-light">
+                  Planes
+                </Menu.Button>
+
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items className="absolute right-15 -top-24 z-10 mt-2 w-38 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <div className="py-1">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            to="/planes-mercantil"
+                            className={classNames(
+                              active
+                                ? 'bg-gray-100 text-gray-900'
+                                : 'text-gray-700',
+                              'block px-4 py-2 text-sm',
+                            )}
+                          >
+                            Mercantil
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            to="/planes-qualitas"
+                            className={classNames(
+                              active
+                                ? 'bg-gray-100 text-gray-900'
+                                : 'text-gray-700',
+                              'block px-4 py-2 text-sm',
+                            )}
+                          >
+                            Qualitas
+                          </Link>
+                        )}
+                      </Menu.Item>
+                    </div>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
+
               <div className="text-primary hover:text-purple text-base font-light">
                 <Link to="/nosotros">Nosotros</Link>
               </div>
