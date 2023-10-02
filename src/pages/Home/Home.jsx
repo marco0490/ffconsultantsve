@@ -1,11 +1,16 @@
-
+import ActionSection from '../../components/ActionSection/ActionSection'
+import CompaniesPlan from '../../components/CompaniesPlan/CompaniesPlan'
+import Howto from '../../components/Howto/Howto'
+import Testimonials from '../../components/Testimonials/Testimonials'
 
 function Home() {
   return (
-    <div>
-      <h1>HOME</h1>
-      
-    </div>
+    <>
+      <ActionSection />
+      <Howto />
+      <CompaniesPlan />
+      <Testimonials />
+    </>
   )
 }
 
