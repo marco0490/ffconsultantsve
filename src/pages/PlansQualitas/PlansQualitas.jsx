@@ -16,7 +16,7 @@ function PlansQualitas() {
         <img
           className="object-cover  h-auto"
           src={QualitasLogo}
-          alt="Mercantil_logo"
+          alt="Qualitas_logo"
         />
       </figure>
       <div className="w-full px-4 bg-white flex flex-col">
