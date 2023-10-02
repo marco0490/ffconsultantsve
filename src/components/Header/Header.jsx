@@ -23,7 +23,7 @@ function Header() {
             <img className="w-56" src={Logo} alt="logo" />
           </div>
           <div
-            className={`md:static absolute bg-white md:w-auto md:min-h-fit min-h-[50vh] left-0 w-full flex items-center px-5 
+            className={`md:static absolute bg-white md:w-auto md:min-h-fit min-h-[50vh] left-0 w-full z-10 flex items-center px-5 
               ${open ? 'top-[12%]' : 'top-[-100%]'}
             `}
           >
