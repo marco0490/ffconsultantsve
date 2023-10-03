@@ -1,7 +1,10 @@
+import { useEffect } from 'react'
+
 function Blog() {
-  return (
-    <div>Blog</div>
-  )
+  useEffect(() => {
+    window.scroll(0, 0)
+  }, [])
+  return <div>Blog</div>
 }
 
 export default Blog

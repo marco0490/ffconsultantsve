@@ -4,8 +4,14 @@ import NotFoundSVG from '../../assets/images/NotFoundSVG.svg'
 import { AiOutlineReload } from 'react-icons/ai'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
+import { useEffect } from 'react'
 
 function NotFound() {
+
+  useEffect(() => {
+    window.scroll(0, 0)
+  }, [])
+  
   return (
     <>
       <Header />

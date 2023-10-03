@@ -1,7 +1,10 @@
+import { useEffect } from 'react'
+
 function Agent() {
-  return (
-    <div>Agent</div>
-  )
+  useEffect(() => {
+    window.scroll(0, 0)
+  }, [])
+  return <div>Agent</div>
 }
 
 export default Agent
