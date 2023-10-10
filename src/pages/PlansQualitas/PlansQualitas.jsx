@@ -20,7 +20,9 @@ function PlansQualitas() {
         />
       </figure>
       <div className="w-full px-4 bg-white flex flex-col">
-        <p className="text-primary font-medium text-center">Coberturas HCM</p>
+        <p className="text-primary font-medium text-center">
+          Coberturas APS-EMERGENCIAS-COLECTIVOS
+        </p>
         <h1 className="font-bold text-4xl text-center">
           Elije una Cobertura HCM
         </h1>
@@ -52,39 +54,18 @@ function PlansQualitas() {
             Pago Anual
           </p>
         </div>
-        <div className="min-w-[280px] mx-auto grid md:grid-cols-3 gap-8">
+        <div className="min-w-[280px] mx-auto grid md:grid-cols-3 gap-8 md:my-12">
           <div className="w-full shadow-xl border border-gray-200 flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300">
             <h2 className="text-lg text-primary font-light text-center py-1">
               Desde/
             </h2>
             <p className="text-center text-4xl font-bold">
-              ${enabled ? '270.00' : '27.00'}
+              ${enabled ? '490.00' : '49.00'}
             </p>
             <h2 className="text-center text-primary font-semibold">
-              Global Benefits Access
+              Cobertura HCM
             </h2>
-            <div className="text-center font-semibold mt-4 border-t-2 border-gray-200">
-              <BsCheckLg
-                className="text-center text-[#36cd77] relative top-14 left-8"
-                size={18}
-              />
-              <p className="mx-1 mt-8 text-[#8492a7]">Rich landing pages</p>
-              <BsCheckLg
-                className="text-center text-[#36cd77] relative top-6 left-1"
-                size={18}
-              />
-              <p className="mx-3 text-[#8492a7]">100+ Unique Components</p>
-              <BsCheckLg
-                className="text-center text-[#36cd77] relative top-6 left-6"
-                size={18}
-              />
-              <p className="mx-3 text-[#8492a7]">Speedy build tooling</p>
-              <BsCheckLg
-                className="text-center text-[#36cd77] relative top-6 left-4"
-                size={18}
-              />
-              <p className="mx-3 text-[#8492a7]">6 months free support</p>
-            </div>
+            <div className="text-center font-semibold mt-4 border-t-2 border-gray-200"></div>
             <button className="text-black w-[200px] border-solid border-2 border-[#efefef] font-bold my-10 mx-auto py-3 bg-white hover:bg-primary hover:text-white">
               Cotiza este Plan
             </button>
@@ -98,35 +79,9 @@ function PlansQualitas() {
               ${enabled ? '490.00' : '49.00'}
             </p>
             <h2 className="text-center text-primary font-semibold">
-              Global Benefits Premium
+              Cobertura HCM
             </h2>
-            <div className="text-center font-semibold mt-4 border-t-2 border-gray-200">
-              <BsCheckLg
-                className="text-center text-[#36cd77] relative top-14 left-8"
-                size={18}
-              />
-              <p className="mx-1 mt-8 text-[#8492a7]">Rich landing pages</p>
-              <BsCheckLg
-                className="text-center text-[#36cd77] relative top-6 left-1"
-                size={18}
-              />
-              <p className="mx-3 text-[#8492a7]">100+ Unique Components</p>
-              <BsCheckLg
-                className="text-center text-[#36cd77] relative top-6 left-6"
-                size={18}
-              />
-              <p className="mx-3 text-[#8492a7]">Speedy build tooling</p>
-              <BsCheckLg
-                className="text-center text-[#36cd77] relative top-6 left-5"
-                size={18}
-              />
-              <p className="mx-3 text-[#8492a7]">6 months free support</p>
-              <BsCheckLg
-                className="text-center text-[#36cd77] relative top-6 left-2"
-                size={18}
-              />
-              <p className="mx-3 text-[#8492a7]">Guaranteed 100% uptime</p>
-            </div>
+            <div className="text-center font-semibold mt-4 border-t-2 border-gray-200"></div>
             <button className="text-white w-[200px] border-solid border-2 border-primary bg-primary font-bold my-6 mx-auto py-3 hover:bg-white hover:text-primary">
               Cotiza este Plan
             </button>
@@ -140,30 +95,9 @@ function PlansQualitas() {
               ${enabled ? '660.00' : '66.00'}
             </p>
             <h2 className="text-center text-primary font-semibold">
-              Global Benefits Elite
+              Cobertura HCM
             </h2>
-            <div className="text-center font-semibold mt-4 border-t-2 border-gray-200">
-              <BsCheckLg
-                className="text-center text-[#36cd77] relative top-14 left-8"
-                size={18}
-              />
-              <p className="mx-1 mt-8 text-[#8492a7]">Rich landing pages</p>
-              <BsCheckLg
-                className="text-center text-[#36cd77] relative top-6 left-1"
-                size={18}
-              />
-              <p className="mx-3 text-[#8492a7]">100+ Unique Components</p>
-              <BsCheckLg
-                className="text-center text-[#36cd77] relative top-6 left-6"
-                size={18}
-              />
-              <p className="mx-3 text-[#8492a7]">Speedy build tooling</p>
-              <BsCheckLg
-                className="text-center text-[#36cd77] relative top-6 left-4"
-                size={18}
-              />
-              <p className="mx-3 text-[#8492a7]">6 months free support</p>
-            </div>
+            <div className="text-center font-semibold mt-4 border-t-2 border-gray-200"></div>
             <button className="text-black w-[200px] border-solid border-2 border-[#efefef] font-bold my-10 mx-auto py-3 bg-white hover:bg-primary hover:text-white">
               Cotiza este Plan
             </button>

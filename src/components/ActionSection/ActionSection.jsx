@@ -4,7 +4,7 @@ import { BiRightArrowAlt } from 'react-icons/bi'
 
 function ActionSection() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-center">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-center mx-auto max-w-[1900px]">
       <div className='md:text-left md:ps-44 md:pt-16'>
         <h2 className="text-blue text-2xl md:text-5xl font-bold md:drop-shadow-xl">
           Protege a tu familia con las mejores soluciones digitales en pólizas
