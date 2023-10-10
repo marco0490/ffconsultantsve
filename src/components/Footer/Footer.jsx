@@ -21,10 +21,10 @@ function Footer() {
           <FaRegClock className="w-6 h-5 inline-flex mr-1" />
           Lun-Vie: 8:00 am - 5:00 pm
         </div>
-        <div className="text-primary text-xl font-normal text-center my-4">
+        <a href="mailto:ffconsultants124@outlook.com?subject=Consulta enviada desde WEB" className="text-primary text-xl font-normal text-center my-4">
           <AiOutlineMail className="w-6 h-5 inline-flex mr-1" />
-          futurefc@example.com
-        </div>
+          ffconsultants124@outlook.com
+        </a>
         <div className="text-primary text-xl font-normal text-center my-4">
           <FiMapPin className="w-6 h-5 inline-flex mr-1" />
           Caracas, Venezuela
@@ -112,9 +112,9 @@ function Footer() {
                 <FaRegClock className="w-6 h-5 left-0 top-[3px] absolute flex-col justify-start items-start inline-flex" />
               </div>
               <div className="w-80 h-6 left-[0.74px] top-[39px] absolute">
-                <div className="left-[29.26px] top-0 absolute text-blue-800 text-xl font-normal">
-                  futurefc@example.com
-                </div>
+                <a href="mailto:ffconsultants124@outlook.com?subject=Consulta enviada desde WEB" className="left-[29.26px] top-0 absolute text-blue-800 text-xl font-normal hover:text-purple">
+                  ffconsultants124@outlook.com
+                </a>
                 <AiOutlineMail className="w-6 h-5 left-0 top-[3px] absolute flex-col justify-start items-start inline-flex" />
               </div>
               <div className="w-80 h-6 left-[0.74px] top-[119px] absolute">
