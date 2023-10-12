@@ -29,7 +29,11 @@ function App() {
         <Route path="/contacto" element={<Contact />} />
         {/* <Route path="/cotizador" element={<Cotizador />} /> */}
         {/* <Route path="/envio-confirmado" element={<AfterCotizador />} /> */}
+<<<<<<< HEAD
         {/* <Route path="/planes-mercantil" element={<PlansMercantil />} /> */}
+=======
+        <Route path="/planes-mercantil" element={<PlansMercantil />} />
+>>>>>>> develop
         {/* <Route path="/planes-qualitas" element={<PlansQualitas />} /> */}
         <Route path="/legal" element={<Legal />} />
         {/* <Route path="/servicios" element={<Services />} /> */}

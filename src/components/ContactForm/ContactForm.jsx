@@ -81,7 +81,7 @@ function ContactForm() {
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-white mx-auto max-w-[1900px]">
       <div className="flex justify-center">
         <h2 className="md:text-4xl text-2xl md:py-12 py-4 font-bold text-primary max-w-[700px] text-center md:pt-28 px-4 underline underline-offset-8">
           Información de contacto
@@ -165,7 +165,10 @@ function ContactForm() {
             <label className="mx-1" htmlFor="contactFormAgree">
               Doy mi consentimiento para el tratamiento de los datos personales
               que facilito. He leído y acepto la{' '}
-              <a href="/legal" className="text-primary hover:text-purple font-semibold">
+              <a
+                href="/legal"
+                className="text-primary hover:text-purple font-semibold"
+              >
                 Política de privacidad
               </a>
               .
@@ -189,7 +192,12 @@ function ContactForm() {
 
           <div className="flex">
             <AiOutlineMail className="text-2xl relative top-1 pr-2" />
-            <p className="text-lg">futurefc@example.com</p>
+            <a
+              href="mailto:ffconsultants124@outlook.com?subject=Consulta enviada desde WEB"
+              className="text-lg hover:text-purple"
+            >
+              ffconsultants124@outlook.com
+            </a>
           </div>
 
           <div className="flex">

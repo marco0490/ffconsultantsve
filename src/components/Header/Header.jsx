@@ -18,7 +18,7 @@ function Header() {
     <>
       {pathname === '/' && <SecondHeader />}
       <header className="bg-white">
-        <nav className="flex justify-between items-center w-[92%] mx-auto">
+        <nav className="flex justify-between items-center w-[92%] mx-auto max-w-[1700px]">
           <div>
             <img className="w-56" src={Logo} alt="logo" />
           </div>

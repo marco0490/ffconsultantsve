@@ -5,7 +5,7 @@ import Ellipse2 from '../../assets/images/Ellipse-8.png'
 
 function Howto() {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 mx-auto max-w-[1900px]">
       <div className="flex justify-center">
         <h2 className="md:text-4xl text-xl py-12 font-bold text-primary max-w-[700px] text-center md:pt-28 px-4">
           ¿Cómo puedes cotizar en línea tu póliza de seguro de salud?

@@ -5,7 +5,7 @@ import {BiRightArrowAlt} from 'react-icons/bi'
 
 function CompaniesPlan() {
   return (
-    <div className="grid md:px-32 grid-cols-1 sm:grid-cols-2 gap-8 text-center mx-2 md:pt-28">
+    <div className="grid md:px-32 grid-cols-1 sm:grid-cols-2 gap-8 text-center mx-2 md:pt-28 mx-auto max-w-[1900px]">
       <card>
         <img
           src={MercantilLogo}
