@@ -1,11 +1,9 @@
 import { Fragment } from 'react'
 import Logo from '../../assets/Logo.svg'
-import { FaRegClock } from 'react-icons/fa'
-import { AiOutlineMail } from 'react-icons/ai'
-import { FiMapPin } from 'react-icons/fi'
-import { BsTelephoneForward } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { Menu, Transition } from '@headlessui/react'
+import Icon from '../Icon/Icon'
+import { contactInfo } from '../../data/contactInfo'
 
 function Footer() {
   function classNames(...classes) {
@@ -111,34 +109,15 @@ function Footer() {
             <div className="w-72 h-32 px-6 py-2.5 justify-center items-center gap-2.5 flex">
               <img className="w-64 h-32" src={Logo} alt="Logo" />
             </div>
-            <div className="w-80 h-36 relative">
-              <div className="w-80 h-6 left-0 top-0 absolute">
-                <div className="left-[30px] top-0 absolute text-blue-800 text-xl font-normal">
-                  Lun-Vie: 8:00 am -5:00 pm
+            <div className="w-80 h-36 flow">
+              {contactInfo.map(({ info, icon }, i) =>
+                <div key={i} className="w-80 h-6 with-icon">
+                  <Icon icon={icon} className="icon w-6 h-5" />
+                  <div className="text-blue-800 text-xl font-normal">
+                    {info}
+                  </div>
                 </div>
-                <FaRegClock className="w-6 h-5 left-0 top-[3px] absolute flex-col justify-start items-start inline-flex" />
-              </div>
-              <div className="w-80 h-6 left-[0.74px] top-[39px] absolute">
-                <a
-                  href="mailto:ffconsultants124@outlook.com?subject=Consulta enviada desde WEB"
-                  className="left-[29.26px] top-0 absolute text-blue-800 text-xl font-normal hover:text-purple"
-                >
-                  ffconsultants124@outlook.com
-                </a>
-                <AiOutlineMail className="w-6 h-5 left-0 top-[3px] absolute flex-col justify-start items-start inline-flex" />
-              </div>
-              <div className="w-80 h-6 left-[0.74px] top-[119px] absolute">
-                <div className="left-[29.26px] top-0 absolute text-blue-800 text-xl font-normal">
-                  Caracas, Venezuela
-                </div>
-                <FiMapPin className="w-6 h-5 left-0 top-[3px] absolute flex-col justify-start items-start inline-flex" />
-              </div>
-              <div className="w-80 h-6 left-[0.74px] top-[78px] absolute">
-                <div className="left-[29.26px] top-0 absolute text-blue-800 text-xl font-normal">
-                  +58 212-2675132 / 412-9713806
-                </div>
-                <BsTelephoneForward className="w-6 h-5 left-0 top-[7px] absolute flex-col justify-start items-start inline-flex" />
-              </div>
+              )}
             </div>
           </div>
         </div>
