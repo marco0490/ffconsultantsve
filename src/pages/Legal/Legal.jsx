@@ -5,12 +5,12 @@ function Legal() {
     window.scroll(0, 0)
   }, [])
   return (
-    <div className=" md:m-auto mb-5 mx-5 md:mt-[5rem] max-w-[800px] pt-7 lg:mt-[6rem]">
+    <div className=" md:m-auto mb-5 mx-5 md:mt-[5rem] max-w-[800px] pt-7 lg:mt-[6rem] space-y-2">
       <h1 className="my-5 text-center text-3xl font-bold">
         Términos y condiciones
       </h1>
 
-      <p className="my-2">
+      <p>
         futurefinancialconsultantsve.com es una marca de software de manejo de
         polizas de seguro que por ahora le ofrece de manera online una
         comparación de precios e información sobre las características de los
@@ -22,40 +22,40 @@ function Legal() {
         nuestro sitio web.
       </p>
 
-      <p className="my-2">
+      <p>
         FFCONSULTANTSVE, C. A. está inscrita en el Registro Mercantil del
         Distrito Capital en el año 1997. Nuestras funciones van acorde con la
         Ley de Empresas que requieran servicios digitales con altos estadares y
         exigencias para el mundo asegurador, así como establecer control y
         monitoreo digitales con lo ultimo en tecnología de software.
       </p>
-      <p className="my-2">
+      <p>
         FFCONAULTSNTEVE está vinculada al Corredor de Seguros Oliver Sierra,
         bajo el codigo No 4171 teniendo acuerdos de intermediación con varias
         compañías aseguradoras y sus representantes que figuran en este sitio
         web.
       </p>
-      <p className="my-2">
+      <p>
         FUTUREFINANCIALFCONSULTANTSVE.COM cuenta con un equipo de
         desarrolladores y expertos en el área de software y hardware.
       </p>
 
       <h2 className="my-2 text-2xl font-bold">Nuestros servicios </h2>
 
-      <p className="my-2">
+      <p>
         El servicio va dirigido a personas naturales, profesionales o empresas
         residentes o domiciliadas en Venezuela, que buscan la mejor opción de
         pólizas de seguro, para sí mismos o para un familiar próximo, pero no
         para comerciar con él como negocio.
       </p>
-      <p className="my-2">
+      <p>
         Cómo obtener el servicio: Una vez leído este “Aviso legal”, incluyendo
         las “Condiciones del acuerdo” y nuestra “Política de Privacidad”, y
         aceptados sus términos, seguidamente podrá llenar el cuestionario para
         obtener una cotización comparativa e información sobre los seguros de
         las diferentes aseguradoras.
       </p>
-      <p className="my-2">
+      <p>
         Una vez completado el cuestionario, revisado para evitar errores y
         aceptado por usted, se le presentará la comparativa de las cotizaciones
         e igualmente recibirá un correo electrónico con la comparativa. Podrá
@@ -64,7 +64,7 @@ function Legal() {
 
       <h2 className="my-2 text-2xl font-bold">Condiciones del usuario </h2>
 
-      <p className="my-2">
+      <p>
         A quién va dirigido: A todos aquellos particulares o profesionales,
         residentes en Venezuela, que actúan por su propia cuenta, para un
         familiar próximo, o por cuenta de una empresa domiciliada en Venezuela,
@@ -72,7 +72,7 @@ function Legal() {
         los mejores servicio y precios del mercado para su seguro y
         eventualmente contratarlo por medio de nuestra intermediación.
       </p>
-      <p className="my-2">
+      <p>
         El servicio que le ofrecemos es la información comparativa de los
         mejores precios de varias compañías aseguradoras, ajustado a su perfil y
         su elección, conforme a la información que nos proporciona en el
@@ -82,7 +82,7 @@ function Legal() {
         condiciones indicadas en la comparativa, continuando el proceso en la
         web, o dirigiéndolo vía telefónica.
       </p>
-      <p className="my-2">
+      <p>
         Cuando haya obtenido una cotización, puede ajustarla y volver a la
         página de resultados en distintos aspectos. Podrá recuperar su
         expediente en nuestra web durante los 15 días siguientes a la fecha de
@@ -91,7 +91,7 @@ function Legal() {
         guardar el número de identificación de su cotización comparativa para
         poder recuperar su oferta.
       </p>
-      <p className="my-2">
+      <p>
         -Duración de la oferta: Podrá consultar en nuestra web y recuperar su
         expediente durante los 15 días siguientes a la fecha de la cotización.
         Es importante destacar que cada compañía aseguradora ofrece diferentes
@@ -99,9 +99,7 @@ function Legal() {
         comparativo.
       </p>
 
-      <h2 className="my-2 text-2xl font-bold">
-        Asignación de resposabilidad.
-      </h2>
+      <h2 className="my-2 text-2xl font-bold">Asignación de resposabilidad.</h2>
 
       <ul className="list-disc list-inside">
         <li>
@@ -132,7 +130,7 @@ function Legal() {
         </li>
       </ul>
 
-      <p className="my-2">
+      <p>
         Nuestros servicios como desarrolladores de software de seguros,,
         negociación y administracion de sus contratos. Sus necesidades de
         seguro, incluyendo el alcance de la cobertura, las sumas aseguradas y
@@ -147,7 +145,7 @@ function Legal() {
         caso). Siempre cuando se mantenga solvente en los pagos
         correspondientes.
       </p>
-      <p className="my-2">
+      <p>
         Para la venta de seguros de salud 100% online como modelo de startup, se
         ofrece un servicio fácilmente accesible y atractivo para los usuarios.
         El servicio se enfoca en el desarrollo de indicadores KPI efectivos para
@@ -167,7 +165,7 @@ function Legal() {
         análisis de toda la información económica y financiera del asegurador en
         cuestión, preparado por los ejecutivos para satisfacer sus necesidades.
       </p>
-      <p className="my-2">
+      <p>
         En nuestra web, te ofrecemos las mejores opciones de seguros de salud
         online, con la garantía de trabajar solo con aseguradoras y
         reaseguradoras de confianza. Para ello, evaluamos su solidez económica y
@@ -179,7 +177,7 @@ function Legal() {
       <h2 className="my-2 text-2xl font-bold">
         Gestión de siniestros y pólizas
       </h2>
-      <p className="my-2">
+      <p>
         Nuestro servicio te permite gestionar tus siniestros y pólizas de forma
         rápida y fácil, sin papeleos ni complicaciones. Solo tienes que
         avisarnos de forma inmediata y digital si ocurre algún siniestro, usando
@@ -189,7 +187,7 @@ function Legal() {
         directamente con el asegurador, te ofrecemos nuestra asesoría y apoyo a
         través de nuestro call center de soporte o canales digitales.
       </p>
-      <p className="my-2">
+      <p>
         Nuestros servicios de gestión de siniestros y pólizas terminarán cuando
         nos confirmes que has contratado a otra entidad para que se encargue de
         ellos. A menos que acordemos lo contrario, te enviaremos la
@@ -202,14 +200,14 @@ function Legal() {
 
       <h2 className="my-2 text-2xl font-bold">Tus Responsabilidades </h2>
 
-      <p className="my-2">
+      <p>
         Solicitud o Propuesta de Póliza: Para emitir su póliza de seguro, debe
         completar online una solicitud o propuesta de seguro con la información
         básica y fundamental que te pedimos. Esta información es obligatoria por
         ley y solo tú puedes llenarla. Nosotros te podemos orientar, pero no
         podemos hacerlo por ti.
       </p>
-      <p className="my-2">
+      <p>
         Suministro de Información: Es su responsabilidad darnos toda la
         información que necesitamos para contratar tu póliza con las coberturas
         que quieres. Si no es suministrada a tiempo o correctamente a través de
@@ -218,7 +216,7 @@ function Legal() {
         información es relevante o cómo proporcionarla, consúltanos y te
         ayudaremos.
       </p>
-      <p className="my-2">
+      <p>
         Para garantizar que la cobertura establecida en la póliza se active
         adecuadamente, es importante que esté familiarizado con las condiciones,
         deducibles, sumas aseguradas, exclusiones, responsabilidades y
@@ -231,7 +229,7 @@ function Legal() {
         amplitud debida, todas las circunstancias y hechos materiales de la
         misma.
       </p>
-      <p className="my-2">
+      <p>
         Es importante que revise todos los documentos que le suministremos como
         garantía de las pólizas contratadas y de las coberturas de seguros
         solicitadas para ratificar que reflejen con precisión las condiciones,
@@ -246,7 +244,7 @@ function Legal() {
 
       <h2 className="my-2 text-2xl font-bold">Copy-rigth </h2>
 
-      <p className="my-2">
+      <p>
         El copyright del material contenido en esta web pertenece a Future
         Financial Consultants CA. Cualquier individuo actuando como persona
         privada puede imprimir una copia de cualquier parte de este material
@@ -268,7 +266,7 @@ function Legal() {
       </ul>
 
       <h2 className="my-2 text-2xl font-bold">Propiedad intelectual </h2>
-      <p className="my-2">
+      <p>
         Todos los logos, marcas comerciales y nombres de dominio y todos los
         derechos de propiedad intelectual relacionados de las entidades
         aseguradoras y de las sociedades cuyos sitios web contactamos para
@@ -283,7 +281,7 @@ function Legal() {
 
       <h2 className="my-2 text-2xl font-bold">Política de seguridad </h2>
 
-      <p className="my-2">
+      <p>
         En Future FUTUREFINANCIALFCONSULTANTSVE.COM nos tomamos muy en serio la
         seguridad, utilizando todos los protocolo tipo httpS-SSL-Azure
         Microsoft-VM, encriptación de datos para asegurar que toda su
@@ -301,17 +299,17 @@ function Legal() {
         Seguridad en los portales de aseguradoras
       </h2>
 
-      <p className="my-2">
+      <p>
         Si Usted accede a portales de internet a través de nuestros enlaces, le
         recomendamos que revise sus políticas de seguridad cuando las visites.
         No podemos responsabilizarnos de las políticas de privacidad y prácticas
         de otras páginas web.
       </p>
-      <p className="my-2">
+      <p>
         Esta web futurefinancialconsultantsve.com es una marca comercial
         perteneciente a Future Financial Consultants CA.
       </p>
-      <p className="my-2">
+      <p>
         Le informamos que sus datos de carácter personal, necesarios para la
         prestación del servicio de cotización, serán incorporados a una base de
         datos responsabilidad del departamento analistas de riesgo de Future
@@ -324,13 +322,13 @@ function Legal() {
         del portal de FUTUREFINANCIALCONSULTANTSVE.COM.
       </p>
 
-      <p className="my-2">
+      <p>
         Los datos relativos a las cotizaciones serán facilitados a las compañías
         de seguros con el fin de que puedan contactar con usted y, de esta
         manera, ayudarlo en su elección y promover la contratación del servicio
         cotizado o cualquier alternativa de su interés.
       </p>
-      <p className="my-2">
+      <p>
         Asimismo, solicitamos su consentimiento para que sus datos sean
         utilizados por FUTUREFINANCIALCONSULTANTSVE.COM para enviarle una
         actualización del presupuesto obtenido en función de la fecha de
@@ -340,7 +338,7 @@ function Legal() {
         que haya comparado en FUTUREFINANCIALCONSULTANTSVE.COM. Este
         consentimiento podrá ser revocado en cualquier momento.
       </p>
-      <p className="my-2">
+      <p>
         De igual manera, se informa a los posibles usuarios que este portal está
         diseñado y sólo está permitido para el uso de aquellas personas mayores
         de 18 años de edad; en consecuencia, la aceptación de las presentes
@@ -353,7 +351,7 @@ function Legal() {
         Terrorismo
       </h2>
 
-      <p className="my-2">
+      <p>
         ¿Sabías qué? la legitimación de capitales es el proceso por el cual se
         intenta ocultar o disfrazar el origen ilícito del dinero obtenido por
         actividades criminales. En Venezuela este es un delito grave, que
@@ -377,7 +375,7 @@ function Legal() {
         del dinero u otros bienes provenientes de actividades ilícitas, o para
         darles una apariencia legal.
       </p>
-      <p className="my-2">
+      <p>
         En caso de comprobarse la falsedad de algunos de los datos aportados
         después de haber suscrito el contrato, el Oficial de Cumplimiento
         analizará el caso y, de considerarlo procedente, informará dicha
@@ -386,7 +384,7 @@ function Legal() {
         Actividad Aseguradora, indicando los datos verdaderos con relación al
         cliente, si los hubiera obtenido.
       </p>
-      <p className="my-2">
+      <p>
         Es importante que actualices tus datos como mínimo una vez al año y que
         los corroboren. Ten en cuenta que el incumplimiento de las normas puede
         tener consecuencias legales.
@@ -394,29 +392,29 @@ function Legal() {
 
       <h2 className="my-2 text-2xl font-bold">Política anti-spam </h2>
 
-      <p className="my-2">
+      <p>
         Para que podamos enviarle los resultados de la búsqueda que ha realizado
         para encontrar el seguro que mejor se ajuste a sus necesidades,
         necesitamos que nos facilite su dirección de correo electrónico.
       </p>
-      <p className="my-2">
+      <p>
         Su dirección de e-mail e información de contacto serán utilizadas
         únicamente por nosotros, como viene indicado en nuestra Política de
         Privacidad y Sitio Seguro, y por la compañía que usted seleccione para
         contratar su póliza.
       </p>
-      <p className="my-2">
+      <p>
         También disponemos de acuerdos con los proveedores, intermediarios y
         representantes, cuyas páginas visitamos utilizando nuestra tecnología,
         para prevenir el envío de comunicaciones por e-mail fuera de estos
         términos.
       </p>
-      <p className="my-2">
+      <p>
         Con el objeto de evitar e-mails innecesarios o intrusivos, por favor
         comuníquenos si tiene algún problema con el envío de este tipo de
         correos a ffconsultants124@outlook.com.
       </p>
-      <p className="my-2">
+      <p>
         En FUTUREFINANCIALCONSULTANTSVE.COM respetamos su privacidad y solo
         usaremos cookies cuando su navegador nos lo permita. Una cookie es una
         pequeña pieza de código que los sitios web pueden colocar en su
@@ -433,7 +431,7 @@ function Legal() {
       <h2 className="my-2 text-2xl font-bold">Guía de Cookies </h2>
       <h2 className="my-2 text-xl font-bold">¿Qué son las cookies? </h2>
 
-      <p className="my-2">
+      <p>
         Una cookie es un pequeño archivo con una cadena de caracteres que se
         coloca y se almacena en el ordenador, móvil o cualquier otro dispositivo
         que use para navegar, cada vez que visita un sitio web. Las cookies
@@ -445,7 +443,7 @@ function Legal() {
 
       <h2 className="my-2 text-xl font-bold">Ventajas de las cookies </h2>
 
-      <p className="my-2">
+      <p>
         Algunas cookies son realmente útiles, ya que pueden facilitar en gran
         medida el uso de una página web cuando se regresa a ella tras haberla
         visitado en diversas ocasiones. Las cookies serán utilizadas para poder
@@ -459,7 +457,7 @@ function Legal() {
       <h2 className="my-2 text-2xl font-bold">Tipos de cookies </h2>
       <h2 className="my-2 text-xl font-bold">Cookies de Sesión </h2>
 
-      <p className="my-2">
+      <p>
         Estas son cookies temporales que permanecen en el archivo de cookies del
         navegador de su dispositivo hasta que se cierre el navegador. Pueden
         habilitar ciertas funcionalidades del sitio y también son utilizadas por
@@ -467,7 +465,7 @@ function Legal() {
         del usuario; por ejemplo, a través de un proceso online web para evitar
         tener que volver a introducir la información.
       </p>
-      <p className="my-2">
+      <p>
         Las cookies de sesión que utilizamos son estrictamente necesarias para
         que ASEGURAME123.COM pueda funcionar correctamente, incluyendo la
         obtención de un presupuesto o para proteger la seguridad de nuestros
@@ -475,7 +473,7 @@ function Legal() {
       </p>
 
       <h2 className="my-2 text-xl font-bold">Cookies Persistentes </h2>
-      <p className="my-2">
+      <p>
         Estas son las cookies que permanecen en el archivo de cookies de su
         navegador durante más tiempo (el tiempo depende de la duración de la
         cookie específica). En términos generales, las cookies persistentes
@@ -485,7 +483,7 @@ function Legal() {
         ayudarán a mejorar la experiencia de los usuarios en la página web,
         dándonos una idea de cómo está siendo usada.
       </p>
-      <p className="my-2">
+      <p>
         Dentro de estas se encuentran las cookies de Google Analytics, que se
         utilizan para compilar estadísticas agregadas anónimas que nos permitan
         comprender cómo los usuarios utilizan nuestro sitio web y para ayudarnos
@@ -497,7 +495,7 @@ function Legal() {
         El uso de cookies, mediante sitios web asociados y de terceros
       </h2>
 
-      <p className="my-2">
+      <p>
         Tenga en cuenta que nuestro sitio contiene enlaces hacia y desde otros
         sitios web. No aceptamos ninguna responsabilidad por el contenido de
         dichos sitios web ni de las cookies que utilizan. Si usted decide
@@ -509,7 +507,7 @@ function Legal() {
         Control y eliminación de cookies
       </h2>
 
-      <p className="my-2">
+      <p>
         Usted tiene la posibilidad de aceptar o rechazar las cookies de
         cualquier sitio web mediante la modificación de la configuración de su
         navegador. Para controlar las cookies la mayoría de los navegadores le
@@ -522,7 +520,7 @@ function Legal() {
         Ayuda del mismo.
       </p>
 
-      <p className="my-2">
+      <p>
         Sin embargo, tenga en cuenta que al eliminar o deshabilitar las cookies
         podría afectar la funcionalidad de nuestro sitio web y la posibilidad de
         acceder a ciertas áreas o características de nuestro sitio.
@@ -530,7 +528,7 @@ function Legal() {
 
       <h2 className="my-2 text-2xl font-bold">CULTURA DIGITAL</h2>
 
-      <p className="my-2">
+      <p>
         Las cookies son pequeños archivos con una cadena de caracteres que se
         colocan y almacenan en el ordenador, móvil o cualquier otro dispositivo
         que se use para navegar, cada vez que se visita un sitio web. Las
@@ -539,7 +537,7 @@ function Legal() {
         creados por otros proveedores. No se recogerá ningún dato de carácter
         personal a través de las cookies.
       </p>
-      <p className="my-2">
+      <p>
         Algunas cookies son realmente útiles, ya que pueden facilitar en gran
         medida el uso de una página web cuando se regresa a ella tras haberla
         visitado en diversas ocasiones. Las cookies serán utilizadas para poder
@@ -550,7 +548,7 @@ function Legal() {
         Ninguna de las cookies utilizadas en nuestras páginas web recopila
         información que le identifique personalmente.
       </p>
-      <p className="my-2">
+      <p>
         Existen dos tipos de cookies: las cookies de sesión y las cookies
         persistentes. Las cookies de sesión son temporales y permanecen en el
         archivo de cookies del navegador del dispositivo hasta que se cierre el
