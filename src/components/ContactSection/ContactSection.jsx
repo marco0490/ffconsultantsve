@@ -12,7 +12,7 @@ function ContactSection() {
           <Link to="/">Registrate aquí</Link>
         </button>
         <button className="bg-transparent hover:bg-primary border border-primary hover:border-0 hover:text-white text-primary font-bold py-2 px-4 rounded-none">
-          <Link to="/">Leer más</Link>
+          <Link to="/agentes">Leer más</Link>
         </button>
       </div>
       <div className="md:bg-gradient-to-r from-gray-100 to-transparent relative mt-12 md:mt-0">
