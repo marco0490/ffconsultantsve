@@ -21,7 +21,10 @@ function Footer() {
           <FaRegClock className="w-6 h-5 inline-flex mr-1" />
           Lun-Vie: 8:00 am - 5:00 pm
         </div>
-        <a href="mailto:ffconsultants124@outlook.com?subject=Consulta enviada desde WEB" className="text-primary text-xl font-normal text-center my-4">
+        <a
+          href="mailto:ffconsultants124@outlook.com?subject=Consulta enviada desde WEB"
+          className="text-primary text-xl font-normal text-center my-4"
+        >
           <AiOutlineMail className="w-6 h-5 inline-flex mr-1" />
           ffconsultants124@outlook.com
         </a>
@@ -40,6 +43,7 @@ function Footer() {
         <div className="text-primary text-xl font-normal text-center my-4 hover:text-purple">
           <Link to="/servicios">Servicios</Link>
         </div>
+
         <Menu as="div" className="relative inline-block text-left">
           <Menu.Button className="text-primary text-xl font-normal text-center my-4 hover:text-purple">
             Planes
@@ -90,6 +94,9 @@ function Footer() {
           <Link to="/nosotros">Nosotros</Link>
         </div>
         <div className="text-primary text-xl font-normal text-center my-4 hover:text-purple">
+          <Link to="/agentes">Agentes</Link>
+        </div>
+        <div className="text-primary text-xl font-normal text-center my-4 hover:text-purple">
           <Link to="/legal">Políticas y Privacidad</Link>
         </div>
         <div className="opacity-50 text-primary text-sm text-center my-4 font-normal">
@@ -112,7 +119,10 @@ function Footer() {
                 <FaRegClock className="w-6 h-5 left-0 top-[3px] absolute flex-col justify-start items-start inline-flex" />
               </div>
               <div className="w-80 h-6 left-[0.74px] top-[39px] absolute">
-                <a href="mailto:ffconsultants124@outlook.com?subject=Consulta enviada desde WEB" className="left-[29.26px] top-0 absolute text-blue-800 text-xl font-normal hover:text-purple">
+                <a
+                  href="mailto:ffconsultants124@outlook.com?subject=Consulta enviada desde WEB"
+                  className="left-[29.26px] top-0 absolute text-blue-800 text-xl font-normal hover:text-purple"
+                >
                   ffconsultants124@outlook.com
                 </a>
                 <AiOutlineMail className="w-6 h-5 left-0 top-[3px] absolute flex-col justify-start items-start inline-flex" />
@@ -141,6 +151,9 @@ function Footer() {
               </div>
               <div className="text-primary hover:text-purple text-base font-light">
                 <Link to="/servicios">Servicios</Link>
+              </div>
+              <div className="text-primary hover:text-purple text-base font-light">
+                <Link to="/agentes">Agentes</Link>
               </div>
               <Menu as="div" className="relative inline-block text-left">
                 <Menu.Button className="text-primary hover:text-purple text-base font-light">
