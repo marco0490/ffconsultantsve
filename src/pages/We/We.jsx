@@ -9,21 +9,21 @@ function We() {
     window.scroll(0, 0)
   }, [])
   return (
-    <div className="md:mt-20 mx-2 text-center">
+    <div className="md:mt-12 mx-2 text-center">
       <figure className="flex justify-center mx-4">
         <img
           src={Family}
           alt="family"
-          className="absolute items-center max-w-full mx-auto bg-gradient-to-r from-gray-100 to-gray-100"
+          className="absolute items-center max-w-full mx-auto bg-gradient-to-r from-gray-500 to-gray-500"
         />
-        <div className="absolute right-1/2 translate-x-1/2 translate-y-[calc(80%-120px)] md:translate-y-1/2">
-          <p className="flex justify-center items-center text-white font-normal text-md md:text-5xl [text-shadow:_0_2px_0_rgb(0_0_0_/_70%)]">
+        <div className="absolute max-w-[1100px] mt-8 md:mt-48">
+          <p className="flex justify-center items-center text-white font-normal text-xl md:text-5xl [text-shadow:_0_5px_0_rgb(0_0_0_/_70%)]">
             En FFC mejoramos la vida de nuestros clientes y su familia
           </p>
-          <h1 className="flex justify-center items-center text-white font-bold text-sm md:text-4xl [text-shadow:_0_2px_0_rgb(0_0_0_/_70%)]">
+          <h1 className="flex justify-center items-center text-white font-bold text-md md:text-4xl [text-shadow:_0_5px_0_rgb(0_0_0_/_70%)]">
             asegurando su bienestar y protección
           </h1>
-          <p className="flex justify-center items-center text-white font-normal text-xs md:text-3xl [text-shadow:_0_2px_0_rgb(0_0_0_/_70%)]">
+          <p className="flex justify-center items-center text-white font-normal text-sm md:text-3xl [text-shadow:_0_5px_0_rgb(0_0_0_/_70%)]">
             para el futuro
           </p>
           <div className="flex justify-center pt-6 md:pt-12">
@@ -35,11 +35,11 @@ function We() {
           </div>
         </div>
       </figure>
-      <div className="mt-[calc(85%-80px)] md:mt-[750px] flex flex-col">
-        <h1 className="text-primary flex justify-center text-base md:text-5xl font-light">
+      <div className="mt-[calc(85%-80px)] md:mt-[550px] lg:mt-[650px] flex flex-col">
+        <h1 className="text-primary flex justify-center text-xl md:text-5xl font-bold">
           ¿Quiénes somos?
         </h1>
-        <p className="max-w-[1100px] text-center mx-auto text-xs md:text-3xl mt-2 md:mt-10 font-normal">
+        <p className="max-w-[1100px] text-center mx-auto text-lg md:text-3xl mt-2 md:mt-10 font-normal">
           Somos una agencia con más de <b>40 años en el sector</b>, que brinda
           asesoría y soluciones digitales para el manejo de pólizas de seguros
           de salud a través de los mejores productos de distintas compañías del
@@ -55,27 +55,27 @@ function We() {
         <iframe
           src="https://www.youtube-nocookie.com/embed/kTBndgl6LCk?si=AMb6SfXoJQ2fa_y3"
           title="YouTube video player"
+          width="100%"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
-          className="mx-auto mt-12 md:w-[60%] md:h-[600px]"
+          className="mx-auto mt-12 md:w-[60%] md:h-[600px] w-100"
         ></iframe>
-        <div className="bg-primary w-full lg:h-[450px] top-[-250px] z-[-1] relative"></div>
+        <div className="bg-primary w-full h-48 md:h-[450px] -top-44 md:top-[-250px] z-[-1] relative"></div>
       </div>
-      <div className="mt-10 lg:mt-0">
-        <h1 className="text-primary text-2xl md:text-7xl font-bold flex justify-center">
+
+        <h1 className="text-primary text-2xl md:text-7xl font-bold flex justify-center -mt-24">
           Preguntas frecuentes
         </h1>
         <p className="max-w-[1100px] text-center mx-auto text-base md:text-4xl mt-8 font-semibold py-5">
           Si tienes alguna duda, chequea nuestras preguntas frecuentes aquí.
         </p>
-      </div>
 
       <div className="w-full flex mx-auto">
-        <div className="py-10 mx-auto max-w-7xl">
+        <div className="py-2 mx-auto max-w-7xl">
           <Disclosure as="div" className="mt-6">
             {({ open }) => (
               <>
-                <Disclosure.Button className="flex w-full h-[120px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
+                <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
                   <span>1. What services does TanahAir Offer?</span>
                   <ChevronUpIcon
                     className={`${
@@ -92,7 +92,7 @@ function We() {
           <Disclosure as="div" className="mt-6">
             {({ open }) => (
               <>
-                <Disclosure.Button className="flex w-full h-[120px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
+                <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
                   <span>
                     2. Why should i choose a Design studio like TanahAir over
                     full-service agency?
@@ -112,7 +112,7 @@ function We() {
           <Disclosure as="div" className="mt-6">
             {({ open }) => (
               <>
-                <Disclosure.Button className="flex w-full h-[120px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
+                <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
                   <span>
                     3. How does TanahAir create website content without knowing
                     our Business plan?
@@ -132,7 +132,7 @@ function We() {
           <Disclosure as="div" className="mt-6">
             {({ open }) => (
               <>
-                <Disclosure.Button className="flex w-full h-[120px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
+                <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
                   <span>4. What will be delivered? And When?</span>
                   <ChevronUpIcon
                     className={`${
@@ -149,7 +149,7 @@ function We() {
           <Disclosure as="div" className="mt-6">
             {({ open }) => (
               <>
-                <Disclosure.Button className="flex w-full h-[120px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
+                <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
                   <span>5.What often will results be reported?</span>
                   <ChevronUpIcon
                     className={`${

@@ -17,7 +17,6 @@ import PlansMercantil from './pages/PlansMercantil/PlansMercantil'
 import Agent from './pages/Agent/Agent'
 import Legal from './pages/Legal/Legal'
 import PlansQualitas from './pages/PlansQualitas/PlansQualitas'
-import AfterCotizador from './pages/AfterCotizador/AfterCotizador'
 import Complete from './pages/Complete/Complete'
 
 function App() {
@@ -30,7 +29,6 @@ function App() {
         <Route path="/contacto" element={<Contact />} />
         <Route path="/enviado" element={<Complete />} />
         <Route path="/cotizador" element={<Cotizador />} />
-        {/* <Route path="/envio-confirmado" element={<AfterCotizador />} /> */}
         <Route path="/planes-mercantil" element={<PlansMercantil />} />
         {/* <Route path="/planes-qualitas" element={<PlansQualitas />} /> */}
         <Route path="/legal" element={<Legal />} />
