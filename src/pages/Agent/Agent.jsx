@@ -13,14 +13,14 @@ function Agent() {
     <div className="flex flex-col mt-40 mx-auto">
       <div className="md:flex md:max-w-[1900px] md:gap-32 md:mx-auto">
         <div className="flex flex-col w-2/3 mx-auto md:w-[514px] md:my-auto">
-          <h1 className="text-primary font-semibold text-3xl text-start md:text-6xl">
+          <p className="text-primary font-semibold text-3xl text-start md:text-6xl">
             Sé un <span className="font-extrabold">Agente FFC</span>
             <br />
             con nosotros
-          </h1>
-          <p className="text-gray-500 font-normal text-lg text-start mt-5 md:text-2xl md:mt-10">
-            Capacítate con nuestro equipo y arma tu propia cartera de clientes.
           </p>
+          <h1 className="text-gray-500 font-normal text-lg text-start mt-5 md:text-2xl md:mt-10">
+            Capacítate con nuestro equipo y arma tu propia cartera de clientes.
+          </h1>
           <div className="my-10 mx-auto flex justify-start md:justify-start gap-3">
             <Link to="/nosotros">
               <button
@@ -122,18 +122,18 @@ function Agent() {
           className="w-96 flex justify-center mx-auto"
         />
       </div>
-      <h1 className="text-primary font-semibold text-2xl text-center md:text-4xl">
+      <p className="text-primary font-semibold text-2xl text-center md:text-4xl">
         Beneficios de ser un <span className="font-extrabold">Agente FFC</span>
-      </h1>
+      </p>
       <div className="w-full flex flex-col mb-6">
         <div className="md:flex md:mt-10 md:justify-center md:gap-5 md:items-center">
           <div className="mx-auto mt-10 flex flex-col md:mx-0">
             <div className="w-20 h-20 rounded-full bg-primary flex mx-auto">
               <MdFingerprint size={40} className="mx-auto my-auto text-white" />
             </div>
-            <h1 className="text-primary text-xl font-bold mt-4 text-center">
+            <p className="text-primary text-xl font-bold mt-4 text-center">
               Aumenta tu cartera
-            </h1>
+            </p>
             <p className="text-gray-500 text-base text-center max-w-xs mx-auto">
               Con nuestra capacitación de ventas de seguro podrás aprender
               nuevas estrategias y aumentar tu cartera de clientes
@@ -150,9 +150,9 @@ function Agent() {
                 className="mx-auto my-auto text-white"
               />
             </div>
-            <h1 className="text-primary text-xl font-bold mt-4 text-center">
+            <p className="text-primary text-xl font-bold mt-4 text-center">
               Perfil de Agente
-            </h1>
+            </p>
             <p className="text-gray-500 text-base text-center max-w-xs mx-auto">
               Crearás tu propio perfil de agente y podrás registrar tus nuevos
               clientes llevándoles un seguimiento de cobros y renovaciones.
@@ -169,9 +169,9 @@ function Agent() {
                 className="mx-auto my-auto text-white"
               />
             </div>
-            <h1 className="text-primary text-xl font-bold mt-4 text-center">
+            <p className="text-primary text-xl font-bold mt-4 text-center">
               Atención al cliente 24/7
-            </h1>
+            </p>
             <p className="text-gray-500 text-base text-center max-w-xs mx-auto">
               Podrás brindarle a tus clientes una atención en línea y soporte
               técnico las 24 horas del día todos los días de la semana.

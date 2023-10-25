@@ -5,9 +5,9 @@ function ContactSection() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:pt-8 max-w-[1900px] mx-auto">
       <div className="space-x-6 xl:ps-52 ps-12">
-        <h2 className="md:text-4xl text-2xl py-6 font-regular max-w-[650px] xl:pt-44 pt-12">
+        <h1 className="md:text-4xl text-2xl py-6 font-regular max-w-[650px] xl:pt-44 pt-12">
           Capacítate con nuestro equipo y aumenta tu propia cartera de clientes.
-        </h2>
+        </h1>
         <button className="bg-primary hover:bg-purple text-white font-bold py-2 px-4 rounded-none">
           <Link to="/agentes">Registrate aquí</Link>
         </button>
