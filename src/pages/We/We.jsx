@@ -20,9 +20,9 @@ function We() {
           <p className="flex justify-center items-center text-white font-normal text-xl md:text-5xl [text-shadow:_0_5px_0_rgb(0_0_0_/_70%)]">
             En FFC mejoramos la vida de nuestros clientes y su familia
           </p>
-          <h1 className="flex justify-center items-center text-white font-bold text-md md:text-4xl [text-shadow:_0_5px_0_rgb(0_0_0_/_70%)]">
+          <p className="flex justify-center items-center text-white font-bold text-md md:text-4xl [text-shadow:_0_5px_0_rgb(0_0_0_/_70%)]">
             asegurando su bienestar y protección
-          </h1>
+          </p>
           <p className="flex justify-center items-center text-white font-normal text-sm md:text-3xl [text-shadow:_0_5px_0_rgb(0_0_0_/_70%)]">
             para el futuro
           </p>
@@ -46,9 +46,9 @@ function We() {
           país, con múltiples opciones diseñados y especializados para que se
           adaptan a tus necesidades.
         </p>
-        <h2 className="text-primary text-xl md:text-5xl font-bold flex justify-center mt-10 md:mt-12">
+        <p className="text-primary text-xl md:text-5xl font-bold flex justify-center mt-10 md:mt-12">
           Nuestro equipo 100% especializado
-        </h2>
+        </p>
         <p className="max-w-[1100px] text-center mx-auto text-lg md:text-3xl mt-10 font-normal">
           Conoce más sobre nosotros reproduciendo este video
         </p>
@@ -63,9 +63,9 @@ function We() {
         <div className="bg-primary w-full h-48 md:h-[450px] -top-44 md:top-[-250px] z-[-1] relative"></div>
       </div>
 
-        <h1 className="text-primary text-2xl md:text-7xl font-bold flex justify-center -mt-24">
+        <p className="text-primary text-2xl md:text-7xl font-bold flex justify-center -mt-24">
           Preguntas frecuentes
-        </h1>
+        </p>
         <p className="max-w-[1100px] text-center mx-auto text-base md:text-4xl mt-8 font-semibold py-5">
           Si tienes alguna duda, chequea nuestras preguntas frecuentes aquí.
         </p>
