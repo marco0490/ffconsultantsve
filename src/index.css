@@ -1,6 +1,8 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 
+@import './css/blocks/footer-info.css';
+
 @import './css/compositions/cluster.css';
 @import './css/compositions/cover.css';
 @import './css/compositions/grid.css';
