@@ -1,5 +1,4 @@
 .footer-info {
-  --wrapper-width: clamp(16rem, 93vw, 55rem);
   --region-space: 5.75rem 4rem;
 
   display: flex;
