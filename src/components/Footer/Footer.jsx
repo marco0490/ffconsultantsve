@@ -8,7 +8,7 @@ function Footer() {
     <>
       <hr className="w-[calc(93vw-2rem)] max-w-[64rem] mx-auto bg-primary h-[1px]" />
       <footer>
-        <div className="footer-info wrapper region">
+        <div className="footer-info wrapper region" data-wrapper="narrow">
           <img aria-hidden="true" className="block w-full max-w-[256px] mx-auto" src={Logo} alt="Logo" />
           <div className='flex flex-col flow'>
             {contactInfo.map(({ info, icon }, i) =>
@@ -19,7 +19,7 @@ function Footer() {
             )}
           </div>
         </div>
-        <div className="wrapper">
+        <div className="wrapper" data-wrapper="large">
           <Copyright />
         </div>
       </footer>
