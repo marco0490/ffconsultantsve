@@ -10,7 +10,7 @@ function Home() {
   }, [])
   return (
     <>
-      <ActionSection />
+      {/* <ActionSection /> */}
       <Howto />
       <CompaniesPlan />
       <Testimonials />
