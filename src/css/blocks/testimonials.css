@@ -1,0 +1,20 @@
+.testimonial-section {
+  --region-space: 6rem 3.5rem;
+  --flow-space: 3rem;
+}
+
+.testimonials {
+  --flow-space: 1.25rem;
+  --gutter: 2rem;
+  --grid-min-item-size: 16.875rem;
+
+  justify-content: center;
+
+  .rating {
+    --gutter: 2px;
+  }
+
+  .user-info {
+    --gutter: 1rem;
+  }
+}
