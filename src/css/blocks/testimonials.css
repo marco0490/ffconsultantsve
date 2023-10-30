@@ -9,12 +9,12 @@
   --grid-min-item-size: 16.875rem;
 
   justify-content: center;
+}
 
-  .rating {
-    --gutter: 2px;
-  }
+.testimonials .rating {
+  --gutter: 2px;
+}
 
-  .user-info {
-    --gutter: 1rem;
-  }
+.testimonials .user-info {
+  --gutter: 1rem;
 }
