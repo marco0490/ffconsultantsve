@@ -2,7 +2,7 @@ function Stepper() {
   return (
     <div>
       <ul
-        className="relative m-1 w-full list-none overflow-hidden p-0 md:ps-56"
+        className="relative m-1 w-full list-none overflow-hidden p-0 pb-28"
         data-te-stepper-type="vertical"
       >
         <li className="relative h-fit after:absolute after:left-[2.45rem] after:top-[3.6rem] after:mt-px after:h-[calc(100%-2.45rem)] after:w-px after:bg-primary after:content-['']">

@@ -3,6 +3,7 @@
 
 @import './css/blocks/company-plans.css';
 @import './css/blocks/footer-info.css';
+@import './css/blocks/stepper.css';
 @import './css/blocks/testimonials.css';
 
 @import './css/compositions/cluster.css';
