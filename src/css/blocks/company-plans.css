@@ -1,0 +1,11 @@
+.plans {
+  --grid-placement: auto-fit;
+  --grid-min-item-size: clamp(16rem, 50vw, 30rem);
+  --gutter: 2.5rem;
+
+  justify-items: center;
+}
+
+.plans .stack {
+  --stack-space: 2rem;
+}

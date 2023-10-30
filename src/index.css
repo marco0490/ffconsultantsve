@@ -1,6 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 
+@import './css/blocks/company-plans.css';
 @import './css/blocks/footer-info.css';
 @import './css/blocks/testimonials.css';
 
