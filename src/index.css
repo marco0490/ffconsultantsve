@@ -12,6 +12,7 @@
 @import './css/utilities/flow.css';
 @import './css/utilities/icon.css';
 @import './css/utilities/region.css';
+@import './css/utilities/stack.css';
 @import './css/utilities/wrapper.css';
 
 @import 'tailwindcss/utilities';
