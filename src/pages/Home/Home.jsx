@@ -20,4 +20,4 @@ function Home() {
   )
 }
 
-export default AccionAgente
+export default Home 
