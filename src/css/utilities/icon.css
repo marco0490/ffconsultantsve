@@ -1,0 +1,17 @@
+.icon {
+  height: 0.75em;
+  height: 1cap;
+  width: 0.75em;
+  width: 1cap;
+}
+
+.with-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.with-icon .icon {
+  /* ↓ Use the logical margin property
+  and a --space variable with a fallback */
+  margin-inline-end: var(--space, 0.5em);
+}
