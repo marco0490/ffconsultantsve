@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Helmet } from 'react-helmet'
 
 function Legal() {
   useEffect(() => {
@@ -6,8 +7,16 @@ function Legal() {
   }, [])
   return (
     <div className=" md:m-auto mb-5 mx-5 md:mt-[5rem] max-w-[800px] pt-7 lg:mt-[6rem] space-y-2">
+      <Helmet>
+        <title>Aviso Legal</title>
+        <meta name="title" content="Aviso Legal" />
+        <meta
+          name="description"
+          content="Información sobre todas las leyes que respectan a FFC."
+        />
+      </Helmet>
       <h1 className="my-5 text-center text-3xl font-bold">
-        Términos y condiciones
+        Aviso Legal
       </h1>
 
       <p>

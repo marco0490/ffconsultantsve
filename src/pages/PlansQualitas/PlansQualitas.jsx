@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Switch } from '@headlessui/react'
 import { BsCheckLg } from 'react-icons/bs'
 import QualitasLogo from '../../assets/images/QualitasLogo.svg'
+import { Helmet } from 'react-helmet'
 
 function PlansQualitas() {
   const [enabled, setEnabled] = useState(false)
@@ -12,6 +13,14 @@ function PlansQualitas() {
 
   return (
     <div className="md:my-18 flex flex-col">
+      <Helmet>
+        <title>Planes de Cobertura HCM</title>
+        <meta name="title" content="Planes de Cobertura HCM" />
+        <meta
+          name="description"
+          content="Opciones de planes con Qualitas para todo tipo de clientes. Aqui encontrarás lo que necesitas!"
+        />
+      </Helmet>
       <figure className=" h-auto mx-auto my-8 flex justify-center">
         <img
           className="object-cover  h-auto"
@@ -24,7 +33,7 @@ function PlansQualitas() {
           Coberturas APS-EMERGENCIAS-COLECTIVOS
         </p>
         <h1 className="font-bold text-4xl text-center">
-          Elije una Cobertura HCM
+          Planes de Cobertura HCM
         </h1>
         <div className="text-center flex justify-center my-5">
           <p

@@ -83,9 +83,9 @@ function ContactForm() {
   return (
     <div className="bg-white mx-auto max-w-[1900px]">
       <div className="flex justify-center">
-        <h2 className="md:text-4xl text-2xl md:py-12 py-4 font-bold text-primary max-w-[700px] text-center md:pt-28 px-4 underline underline-offset-8">
+        <h1 className="md:text-4xl text-2xl md:py-12 py-4 font-bold text-primary max-w-[700px] text-center md:pt-28 px-4 underline underline-offset-8">
           Información de contacto
-        </h2>
+        </h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:px-56 drop-shadow-2xl">
         <form className="p-6 flex flex-col justify-center" onSubmit={sendEmail}>

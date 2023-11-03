@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import People from '../../assets/images/people.png'
+import { Helmet } from 'react-helmet'
 
 function Cotizador() {
   useEffect(() => {
@@ -8,6 +9,18 @@ function Cotizador() {
   }, [])
   return (
     <>
+      <Helmet>
+        <title>¡Cotiza ahora tu póliza de Seguro de salud en línea!</title>
+        <meta
+          name="title"
+          content="¡Cotiza ahora tu póliza de Seguro de salud en línea!"
+        />
+        <meta
+          name="description"
+          content="El proceso es rápido y sencillo. Introduce tus datos para cotizar los
+          planes y productos que mejor que adapten a tus necesidades."
+        />
+      </Helmet>
       <div className="grid grid-cols-1 sm:grid-cols-2 max-w-[1900px] mx-auto">
         <div className="md:space-x-6 space-y-2 xl:ps-52 md:ps-12 text-center md:text-left px-2">
           <h2 className="md:text-4xl text-2xl py-6 font-regular max-w-[400px] xl:pt-32 font-bold text-primary md:ms-5 drop-shadow-md">
@@ -59,6 +72,53 @@ function Cotizador() {
               </label>
             </div>
             <form className="p-6 flex flex-col justify-center">
+              <div className="flex flex-col">
+                <label htmlFor="aseguradora" className="hidden">
+                  Aseguradoras
+                </label>
+                <select name="aseguradora" id="aseguradora">
+                  <option>Elige tu Aseguradora</option>
+                  <option value="seguros-mercantil">Seguros Mercantil</option>
+                  <option value="seguros-qualitas">Seguros Qualitas</option>
+                </select>
+              </div>
+              <div className="flex flex-col">
+                <label htmlFor="planes" className="hidden">
+                  Planes
+                </label>
+                <select name="planes" id="planes">
+                  <option>Elige tu Plan de seguros</option>
+                  <option value="seguros-mercantil">Seguros Mercantil</option>
+                  <option value="seguros-qualitas">Seguros Qualitas</option>
+                </select>
+              </div>
+              <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
+                <h3 className="inline pr-2">Tipo de pago: </h3>
+                <input
+                  id="pago"
+                  type="radio"
+                  name="pago"
+                  value="Mensual"
+                  className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                  aria-labelledby="pago"
+                  aria-describedby="pago"
+                />
+                <label htmlFor="pago" className="l-2 block me-2">
+                  Mensual
+                </label>
+                <input
+                  id="pago"
+                  type="radio"
+                  name="pago"
+                  value="Anual"
+                  className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                  aria-labelledby="pago"
+                  aria-describedby="pago"
+                />
+                <label htmlFor="pago" className="l-2 block ">
+                  Anual
+                </label>
+              </div>
               <div className="grid grid-cols sm:grid-cols-2 md:grid-cols-4 md:space-x-2">
                 <div className="flex flex-col col-span-2">
                   <label htmlFor="name" className="hidden">
@@ -128,7 +188,7 @@ function Cotizador() {
               </div>
 
               <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
-                <h3 className="inline pr-2">Conyuge</h3>
+                <h3 className="inline pr-2">Conyuge: </h3>
                 <input
                   id="conyuge"
                   type="radio"
@@ -210,7 +270,7 @@ function Cotizador() {
                 />
               </div>
               <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
-                <h3 className="inline pr-2">Beneficiario</h3>
+                <h3 className="inline pr-2">Beneficiario: </h3>
                 <input
                   id="beneficiario"
                   type="radio"
@@ -250,7 +310,7 @@ function Cotizador() {
                 </div>
               </div>
               <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
-                <h3 className="inline pr-2">Beneficiario</h3>
+                <h3 className="inline pr-2">Beneficiario: </h3>
                 <input
                   id="beneficiario2"
                   type="radio"

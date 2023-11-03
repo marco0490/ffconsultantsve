@@ -18,6 +18,8 @@ import Agent from './pages/Agent/Agent'
 import Legal from './pages/Legal/Legal'
 import PlansQualitas from './pages/PlansQualitas/PlansQualitas'
 import Complete from './pages/Complete/Complete'
+import Privacy from './pages/Privacy/Privacy'
+import Cookies from './pages/Cookies/Cookies'
 
 function App() {
   const router = createBrowserRouter(
@@ -32,7 +34,9 @@ function App() {
         <Route path="/planes-mercantil" element={<PlansMercantil />} />
         {/* <Route path="/planes-qualitas" element={<PlansQualitas />} /> */}
         <Route path="/legal" element={<Legal />} />
-        {/* <Route path="/servicios" element={<Services />} /> */}
+        <Route path="/privacidad" element={<Privacy />} />
+        <Route path="/cookies" element={<Cookies />} />
+        <Route path="/servicios" element={<Services />} />
         <Route path="/nosotros" element={<We />} />
       </Route>,
     ),

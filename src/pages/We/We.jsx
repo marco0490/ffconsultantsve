@@ -3,6 +3,7 @@ import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import Family from '../../assets/images/family.png'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 function We() {
   useEffect(() => {
@@ -10,6 +11,16 @@ function We() {
   }, [])
   return (
     <div className="md:mt-12 mx-2 text-center">
+      <Helmet>
+        <title>Quiénes somos?</title>
+        <meta name="title" content="Quiénes somos?" />
+        <meta
+          name="description"
+          content="Somos una agencia con más de 40 años en el sector, que brinda
+          asesoría y soluciones digitales para el manejo de pólizas de seguros
+          de salud."
+        />
+      </Helmet>
       <figure className="flex justify-center mx-4">
         <img
           src={Family}
@@ -63,39 +74,21 @@ function We() {
         <div className="bg-primary w-full h-48 md:h-[450px] -top-44 md:top-[-250px] z-[-1] relative"></div>
       </div>
 
-        <p className="text-primary text-2xl md:text-7xl font-bold flex justify-center -mt-24">
-          Preguntas frecuentes
-        </p>
-        <p className="max-w-[1100px] text-center mx-auto text-base md:text-4xl mt-8 font-semibold py-5">
-          Si tienes alguna duda, chequea nuestras preguntas frecuentes aquí.
-        </p>
+      <p className="text-primary text-2xl md:text-7xl font-bold flex justify-center -mt-24">
+        Preguntas frecuentes
+      </p>
+      <p className="max-w-[1100px] text-center mx-auto text-base md:text-4xl mt-8 font-semibold py-5">
+        Si tienes alguna duda, chequea nuestras preguntas frecuentes aquí.
+      </p>
 
       <div className="w-full flex mx-auto">
-        <div className="py-2 mx-auto max-w-7xl">
-          <Disclosure as="div" className="mt-6">
-            {({ open }) => (
-              <>
-                <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
-                  <span>1. What services does TanahAir Offer?</span>
-                  <ChevronUpIcon
-                    className={`${
-                      open ? 'rotate-180 transform' : ''
-                    } h-7 w-7 text-black`}
-                  />
-                </Disclosure.Button>
-                <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Respuesta 1
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
+        <div className="py-2 mx-auto max-w-3xl">
           <Disclosure as="div" className="mt-6">
             {({ open }) => (
               <>
                 <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
                   <span>
-                    2. Why should i choose a Design studio like TanahAir over
-                    full-service agency?
+                    1. Que tipos de planes existen en el universo del seguro?
                   </span>
                   <ChevronUpIcon
                     className={`${
@@ -104,7 +97,12 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Respuesta 2
+                  Respuesta: Existen un sin fin de productos de salud pero hay
+                  que estar claro que entre esos productos existe multiples
+                  diferencias. Como productos de solo emergencia, que solo van
+                  diridos atender reclamos del tipo emergencias y no solo eso si
+                  no que los contratos pueden estar atados a patologías
+                  especificas.
                 </Disclosure.Panel>
               </>
             )}
@@ -113,10 +111,7 @@ function We() {
             {({ open }) => (
               <>
                 <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
-                  <span>
-                    3. How does TanahAir create website content without knowing
-                    our Business plan?
-                  </span>
+                  <span>2. Red de clinicas de las companias?</span>
                   <ChevronUpIcon
                     className={`${
                       open ? 'rotate-180 transform' : ''
@@ -124,7 +119,35 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Respuesta 3
+                  Respuesta: La mayoria de las poliza de salud son libre de
+                  atenderse donde quieras cualquier situacion de salud, pero es
+                  bueno saber que existen planes de salud muy economicos donde
+                  te puedes atender, pero solo si es atendido bajo red de
+                  instituciones que estan aparadas en el plan. Aqui es un buen
+                  ejemplo lo importante de estar informado constatenmente de los
+                  cambios que se generan en el tiempo en las redes de
+                  intituciones medicas.
+                </Disclosure.Panel>
+              </>
+            )}
+          </Disclosure>
+          <Disclosure as="div" className="mt-6">
+            {({ open }) => (
+              <>
+                <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
+                  <span>3. Quien es un intermediario del seguro?</span>
+                  <ChevronUpIcon
+                    className={`${
+                      open ? 'rotate-180 transform' : ''
+                    } h-7 w-7 text-black`}
+                  />
+                </Disclosure.Button>
+                <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
+                  Respuesta: FFC es un vivo ejemplo de lo que puede ser
+                  intermediario del seguro y su importancia ya que somos los
+                  encargado de como la palabra lo dice interactuar el la
+                  relacion de su poliza y usted atraves de la mejor experiencia
+                  que podras disfrutar en tu vida.
                 </Disclosure.Panel>
               </>
             )}
@@ -150,7 +173,10 @@ function We() {
             {({ open }) => (
               <>
                 <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
-                  <span>5.What often will results be reported?</span>
+                  <span>
+                    5. Cuanto duran los contra reeembolso de sus planes de
+                    seguros?
+                  </span>
                   <ChevronUpIcon
                     className={`${
                       open ? 'rotate-180 transform' : ''
@@ -158,7 +184,10 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-10 text-base md:text-2xl text-gray-500">
-                  Respuesta 5
+                  Respuesta: Cada compañia de seguro tienes sus politicas
+                  particulares donde establecen los periodos de rembolso pero lo
+                  que el mercado nos dice es que esta tardando un promedio de
+                  hasta casi 2 meses en reeembolsar los reclamos.
                 </Disclosure.Panel>
               </>
             )}
