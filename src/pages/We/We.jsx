@@ -51,12 +51,22 @@ function We() {
           ¿Quiénes somos?
         </h1>
         <p className="max-w-[1100px] text-center mx-auto text-lg md:text-3xl mt-2 md:mt-10 font-normal">
-          Somos una agencia con más de <b>40 años en el sector</b>, que brinda
-          asesoría y soluciones digitales para el manejo de pólizas de seguros
-          de salud a través de los mejores productos de distintas compañías del
-          país, con múltiples opciones diseñados y especializados para que se
-          adaptan a tus necesidades.
+          Future Financial Consultants (FFC) somos la primera Insuretech de
+          Venezuela, especializada en ofrecer en un ambiente 100% digital, los
+          productos y servicios desarrollados por el mercado asegurador
+          venezolano y los prestadores de servicios de atención en salud, para
+          promover el bienestar y la tranquilidad de quienes buscan productos
+          innovadores, al alcance de su mano.
         </p>
+
+        <p className="max-w-[1100px] text-center mx-auto text-lg md:text-3xl mt-2 md:mt-10 font-normal">
+          En FFC nos enfocamos en acercar a los jóvenes profesionales,
+          emprendedores o empresarios que buscan para sí, sus familiares o
+          empleados, los mejores productos para atender su salud, de forma
+          preventiva o ante emergencias, con la seguridad de contar con asesoría
+          especializada, en una plataforma totalmente digital.
+        </p>
+
         <p className="text-primary text-xl md:text-5xl font-bold flex justify-center mt-10 md:mt-12">
           Nuestro equipo 100% especializado
         </p>
@@ -88,7 +98,7 @@ function We() {
               <>
                 <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
                   <span>
-                    1. Que tipos de planes existen en el universo del seguro?
+                    1. ¿Que tipos de planes existen en el universo del seguro?
                   </span>
                   <ChevronUpIcon
                     className={`${
@@ -97,12 +107,11 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Respuesta: Existen un sin fin de productos de salud pero hay
-                  que estar claro que entre esos productos existe multiples
-                  diferencias. Como productos de solo emergencia, que solo van
-                  diridos atender reclamos del tipo emergencias y no solo eso si
-                  no que los contratos pueden estar atados a patologías
-                  especificas.
+                  Existen un sin fin de productos de salud pero hay que estar
+                  claro que entre esos productos existe multiples diferencias.
+                  Como productos de solo emergencia, que solo van diridos
+                  atender reclamos del tipo emergencias y no solo eso si no que
+                  los contratos pueden estar atados a patologías especificas.
                 </Disclosure.Panel>
               </>
             )}
@@ -111,7 +120,7 @@ function We() {
             {({ open }) => (
               <>
                 <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
-                  <span>2. Red de clinicas de las companias?</span>
+                  <span>2. ¿Red de clinicas de las compañias?</span>
                   <ChevronUpIcon
                     className={`${
                       open ? 'rotate-180 transform' : ''
@@ -119,52 +128,8 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Respuesta: La mayoria de las poliza de salud son libre de
-                  atenderse donde quieras cualquier situacion de salud, pero es
-                  bueno saber que existen planes de salud muy economicos donde
-                  te puedes atender, pero solo si es atendido bajo red de
-                  instituciones que estan aparadas en el plan. Aqui es un buen
-                  ejemplo lo importante de estar informado constatenmente de los
-                  cambios que se generan en el tiempo en las redes de
-                  intituciones medicas.
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
-          <Disclosure as="div" className="mt-6">
-            {({ open }) => (
-              <>
-                <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
-                  <span>3. Quien es un intermediario del seguro?</span>
-                  <ChevronUpIcon
-                    className={`${
-                      open ? 'rotate-180 transform' : ''
-                    } h-7 w-7 text-black`}
-                  />
-                </Disclosure.Button>
-                <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Respuesta: FFC es un vivo ejemplo de lo que puede ser
-                  intermediario del seguro y su importancia ya que somos los
-                  encargado de como la palabra lo dice interactuar el la
-                  relacion de su poliza y usted atraves de la mejor experiencia
-                  que podras disfrutar en tu vida.
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
-          <Disclosure as="div" className="mt-6">
-            {({ open }) => (
-              <>
-                <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
-                  <span>4. What will be delivered? And When?</span>
-                  <ChevronUpIcon
-                    className={`${
-                      open ? 'rotate-180 transform' : ''
-                    } h-7 w-7 text-black`}
-                  />
-                </Disclosure.Button>
-                <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Respuesta 4
+                  Mercantil y Qualitas: Si, siempre y cuando la patología lo
+                  amerite. Luego será dado de alta apenas esté estabilizado.
                 </Disclosure.Panel>
               </>
             )}
@@ -174,7 +139,54 @@ function We() {
               <>
                 <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
                   <span>
-                    5. Cuanto duran los contra reeembolso de sus planes de
+                    3. ¿Que enfermedades están cubiertas de inmediato en mi
+                    póliza de salud?
+                  </span>
+                  <ChevronUpIcon
+                    className={`${
+                      open ? 'rotate-180 transform' : ''
+                    } h-7 w-7 text-black`}
+                  />
+                </Disclosure.Button>
+                <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
+                  Mercantil y Qualitas: Accidentes y enfermedades infecto
+                  contagiosas (excepto covid) según listado en el condicionado
+                  de la póliza.
+                </Disclosure.Panel>
+              </>
+            )}
+          </Disclosure>
+          <Disclosure as="div" className="mt-6">
+            {({ open }) => (
+              <>
+                <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
+                  <span>
+                    4. ¿En la póliza de emergencias funciona cualquier clínica
+                    que sea de mi preferencia?
+                  </span>
+                  <ChevronUpIcon
+                    className={`${
+                      open ? 'rotate-180 transform' : ''
+                    } h-7 w-7 text-black`}
+                  />
+                </Disclosure.Button>
+                <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
+                  Mercantil: No, hay un sistema cerrado al que hay que ceñirse.
+                  En caso de usar una clinica fuera del sistema se reembolsará
+                  con los costos de una clínica del sistema <br />
+                  <br />
+                  Qualitas: Si, siempre y cuando sea de la red de clinicas de la
+                  red de salud de Seguros Qualitas
+                </Disclosure.Panel>
+              </>
+            )}
+          </Disclosure>
+          <Disclosure as="div" className="mt-6">
+            {({ open }) => (
+              <>
+                <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
+                  <span>
+                    5. ¿Cuanto duran los contra reeembolso de sus planes de
                     seguros?
                   </span>
                   <ChevronUpIcon
@@ -184,10 +196,10 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-10 text-base md:text-2xl text-gray-500">
-                  Respuesta: Cada compañia de seguro tienes sus politicas
-                  particulares donde establecen los periodos de rembolso pero lo
-                  que el mercado nos dice es que esta tardando un promedio de
-                  hasta casi 2 meses en reeembolsar los reclamos.
+                  Cada compañia de seguro tienes sus politicas particulares
+                  donde establecen los periodos de rembolso pero lo que el
+                  mercado nos dice es que esta tardando un promedio de hasta
+                  casi 2 meses en reeembolsar los reclamos.
                 </Disclosure.Panel>
               </>
             )}

@@ -7,6 +7,10 @@ function Cotizador() {
   useEffect(() => {
     window.scroll(0, 0)
   }, [])
+
+  const [company, setCompany] = useState('')
+
+  console.log(company)
   return (
     <>
       <Helmet>
@@ -76,7 +80,11 @@ function Cotizador() {
                 <label htmlFor="aseguradora" className="hidden">
                   Aseguradoras
                 </label>
-                <select name="aseguradora" id="aseguradora">
+                <select
+                  name="aseguradora"
+                  id="aseguradora"
+                  onChange={() => setCompany(event.target.value)}
+                >
                   <option>Elige tu Aseguradora</option>
                   <option value="seguros-mercantil">Seguros Mercantil</option>
                   <option value="seguros-qualitas">Seguros Qualitas</option>
@@ -87,9 +95,23 @@ function Cotizador() {
                   Planes
                 </label>
                 <select name="planes" id="planes">
-                  <option>Elige tu Plan de seguros</option>
-                  <option value="seguros-mercantil">Seguros Mercantil</option>
-                  <option value="seguros-qualitas">Seguros Qualitas</option>
+                  <option>Elige tu Cobertura</option>
+
+                  {company === 'seguros-mercantil' ? (
+                    <>
+                      <option value="5000-30000">5.000 - 30.000</option>
+                      <option value="50000-100000">50.000 - 100.000</option>
+                      <option value="50000-100000">200.000 - 1.000.000</option>
+                    </>
+                  ) : (
+                    <>
+                      <option value="HCM">HCM</option>
+                      <option value="APS">APS</option>
+                      <option value="EMERGERNCIA">EMERGERNCIA</option>
+                      <option value="COLECTIVOS">COLECTIVOS</option>
+                      <option value="ADMINISTRADOS">ADMINISTRADOS</option>
+                    </>
+                  )}
                 </select>
               </div>
               <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
