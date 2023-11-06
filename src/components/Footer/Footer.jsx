@@ -21,7 +21,7 @@ function Footer() {
           {contactInfo.map(({ info, icon }, i) => (
             <div
               key={i}
-              className="with-icon text-primary text-xl font-normal text-center my-4 md:my-2"
+              className="with-icon text-primary text-lg lg:text-xl font-normal text-center my-4 md:my-2"
             >
               <Icon icon={icon} className="icon w-6 h-5 inline-flex mr-1" />
               {info}
@@ -91,7 +91,7 @@ function Footer() {
           <Link to="/agentes">Agentes</Link>
         </div>
         <Menu as="div" className="relative inline-block text-left">
-          <Menu.Button className="text-primary text-xl font-normal text-center my-4 hover:text-purple">
+          <Menu.Button className="text-primary text-xl font-normal text-center lg:my-4 hover:text-purple">
             Politicas y Legal
           </Menu.Button>
 
@@ -112,7 +112,7 @@ function Footer() {
                       to="/privacidad"
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm',
+                        'block px-4 text-sm',
                       )}
                     >
                       Politicas y Privacidad
