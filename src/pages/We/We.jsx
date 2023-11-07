@@ -3,6 +3,7 @@ import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import Family from '../../assets/images/family.png'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 function We() {
   useEffect(() => {
@@ -10,6 +11,16 @@ function We() {
   }, [])
   return (
     <div className="md:mt-12 mx-2 text-center">
+      <Helmet>
+        <title>Quiénes somos?</title>
+        <meta name="title" content="Quiénes somos?" />
+        <meta
+          name="description"
+          content="Somos una agencia con más de 40 años en el sector, que brinda
+          asesoría y soluciones digitales para el manejo de pólizas de seguros
+          de salud."
+        />
+      </Helmet>
       <figure className="flex justify-center mx-4">
         <img
           src={Family}
@@ -40,12 +51,22 @@ function We() {
           ¿Quiénes somos?
         </h1>
         <p className="max-w-[1100px] text-center mx-auto text-lg md:text-3xl mt-2 md:mt-10 font-normal">
-          Somos una agencia con más de <b>40 años en el sector</b>, que brinda
-          asesoría y soluciones digitales para el manejo de pólizas de seguros
-          de salud a través de los mejores productos de distintas compañías del
-          país, con múltiples opciones diseñados y especializados para que se
-          adaptan a tus necesidades.
+          Future Financial Consultants (FFC) somos la primera Insuretech de
+          Venezuela, especializada en ofrecer en un ambiente 100% digital, los
+          productos y servicios desarrollados por el mercado asegurador
+          venezolano y los prestadores de servicios de atención en salud, para
+          promover el bienestar y la tranquilidad de quienes buscan productos
+          innovadores, al alcance de su mano.
         </p>
+
+        <p className="max-w-[1100px] text-center mx-auto text-lg md:text-3xl mt-2 md:mt-10 font-normal">
+          En FFC nos enfocamos en acercar a los jóvenes profesionales,
+          emprendedores o empresarios que buscan para sí, sus familiares o
+          empleados, los mejores productos para atender su salud, de forma
+          preventiva o ante emergencias, con la seguridad de contar con asesoría
+          especializada, en una plataforma totalmente digital.
+        </p>
+
         <p className="text-primary text-xl md:text-5xl font-bold flex justify-center mt-10 md:mt-12">
           Nuestro equipo 100% especializado
         </p>
@@ -57,26 +78,28 @@ function We() {
           title="YouTube video player"
           width="100%"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
+          allowFullScreen
           className="mx-auto mt-12 md:w-[60%] md:h-[600px] w-100"
         ></iframe>
         <div className="bg-primary w-full h-48 md:h-[450px] -top-44 md:top-[-250px] z-[-1] relative"></div>
       </div>
 
-        <p className="text-primary text-2xl md:text-7xl font-bold flex justify-center -mt-24">
-          Preguntas frecuentes
-        </p>
-        <p className="max-w-[1100px] text-center mx-auto text-base md:text-4xl mt-8 font-semibold py-5">
-          Si tienes alguna duda, chequea nuestras preguntas frecuentes aquí.
-        </p>
+      <p className="text-primary text-2xl md:text-7xl font-bold flex justify-center -mt-24">
+        Preguntas frecuentes
+      </p>
+      <p className="max-w-[1100px] text-center mx-auto text-base md:text-4xl mt-8 font-semibold py-5">
+        Si tienes alguna duda, chequea nuestras preguntas frecuentes aquí.
+      </p>
 
       <div className="w-full flex mx-auto">
-        <div className="py-2 mx-auto max-w-7xl">
+        <div className="py-2 mx-auto max-w-3xl">
           <Disclosure as="div" className="mt-6">
             {({ open }) => (
               <>
                 <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
-                  <span>1. What services does TanahAir Offer?</span>
+                  <span>
+                    1. ¿Que tipos de planes existen en el universo del seguro?
+                  </span>
                   <ChevronUpIcon
                     className={`${
                       open ? 'rotate-180 transform' : ''
@@ -84,7 +107,29 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Respuesta 1
+                  Existen un sin fin de productos de salud pero hay que estar
+                  claro que entre esos productos existe multiples diferencias.
+                  Como productos de solo emergencia, que solo van diridos
+                  atender reclamos del tipo emergencias y no solo eso si no que
+                  los contratos pueden estar atados a patologías especificas.
+                </Disclosure.Panel>
+              </>
+            )}
+          </Disclosure>
+          <Disclosure as="div" className="mt-6">
+            {({ open }) => (
+              <>
+                <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
+                  <span>2. ¿Red de clinicas de las compañias?</span>
+                  <ChevronUpIcon
+                    className={`${
+                      open ? 'rotate-180 transform' : ''
+                    } h-7 w-7 text-black`}
+                  />
+                </Disclosure.Button>
+                <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
+                  Mercantil y Qualitas: Si, siempre y cuando la patología lo
+                  amerite. Luego será dado de alta apenas esté estabilizado.
                 </Disclosure.Panel>
               </>
             )}
@@ -94,8 +139,8 @@ function We() {
               <>
                 <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
                   <span>
-                    2. Why should i choose a Design studio like TanahAir over
-                    full-service agency?
+                    3. ¿Que enfermedades están cubiertas de inmediato en mi
+                    póliza de salud?
                   </span>
                   <ChevronUpIcon
                     className={`${
@@ -104,7 +149,9 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Respuesta 2
+                  Mercantil y Qualitas: Accidentes y enfermedades infecto
+                  contagiosas (excepto covid) según listado en el condicionado
+                  de la póliza.
                 </Disclosure.Panel>
               </>
             )}
@@ -114,8 +161,8 @@ function We() {
               <>
                 <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
                   <span>
-                    3. How does TanahAir create website content without knowing
-                    our Business plan?
+                    4. ¿En la póliza de emergencias funciona cualquier clínica
+                    que sea de mi preferencia?
                   </span>
                   <ChevronUpIcon
                     className={`${
@@ -124,7 +171,12 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Respuesta 3
+                  Mercantil: No, hay un sistema cerrado al que hay que ceñirse.
+                  En caso de usar una clinica fuera del sistema se reembolsará
+                  con los costos de una clínica del sistema <br />
+                  <br />
+                  Qualitas: Si, siempre y cuando sea de la red de clinicas de la
+                  red de salud de Seguros Qualitas
                 </Disclosure.Panel>
               </>
             )}
@@ -133,24 +185,10 @@ function We() {
             {({ open }) => (
               <>
                 <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
-                  <span>4. What will be delivered? And When?</span>
-                  <ChevronUpIcon
-                    className={`${
-                      open ? 'rotate-180 transform' : ''
-                    } h-7 w-7 text-black`}
-                  />
-                </Disclosure.Button>
-                <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Respuesta 4
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
-          <Disclosure as="div" className="mt-6">
-            {({ open }) => (
-              <>
-                <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
-                  <span>5.What often will results be reported?</span>
+                  <span>
+                    5. ¿Cuanto duran los contra reeembolso de sus planes de
+                    seguros?
+                  </span>
                   <ChevronUpIcon
                     className={`${
                       open ? 'rotate-180 transform' : ''
@@ -158,7 +196,10 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-10 text-base md:text-2xl text-gray-500">
-                  Respuesta 5
+                  Cada compañia de seguro tienes sus politicas particulares
+                  donde establecen los periodos de rembolso pero lo que el
+                  mercado nos dice es que esta tardando un promedio de hasta
+                  casi 2 meses en reeembolsar los reclamos.
                 </Disclosure.Panel>
               </>
             )}
