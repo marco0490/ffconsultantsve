@@ -27,7 +27,7 @@ function PlansMercantil() {
         <div className="text-center flex justify-center my-5">
           <p
             className={`${
-              enabled ? 'text-gray-200 font-bold' : 'text-blue-600 font-bold'
+              enabled ? "text-gray-200 font-bold" : "text-blue-600 font-bold"
             } px-4 text-primary font-semibold`}
           >
             Pago Mensual
@@ -40,13 +40,13 @@ function PlansMercantil() {
             <span className="sr-only">Enable notifications</span>
             <span
               className={`${
-                enabled ? 'translate-x-6' : 'translate-x-1'
+                enabled ? "translate-x-6" : "translate-x-1"
               } inline-block h-4 w-4 transform rounded-full bg-primary transition`}
             />
           </Switch>
           <p
             className={`${
-              enabled ? 'text-blue-600 font-bold' : 'text-gray-300 font-bold'
+              enabled ? "text-blue-600 font-bold" : "text-gray-300 font-bold"
             } px-4 font-semibold`}
           >
             Pago Anual

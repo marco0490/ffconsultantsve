@@ -10,7 +10,7 @@ function Agent() {
     window.scroll(0, 0)
   }, [])
   return (
-    <div className="flex flex-col mt-40 mx-auto">
+    <div className="flex flex-col mt-30 mx-auto">
       <div className="md:flex md:max-w-[1900px] md:gap-32 md:mx-auto">
         <div className="flex flex-col w-2/3 mx-auto md:w-[514px] md:my-auto">
           <p className="text-primary font-semibold text-3xl text-start md:text-6xl">
