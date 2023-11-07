@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import People from '../../assets/images/people.png'
 import { Helmet } from 'react-helmet'
+import { Link } from 'react-router-dom'
 
 function Cotizador() {
   useEffect(() => {
@@ -10,7 +10,6 @@ function Cotizador() {
 
   const [company, setCompany] = useState('')
 
-  console.log(company)
   return (
     <>
       <Helmet>
@@ -66,7 +65,7 @@ function Cotizador() {
                 className="h-4 w-4 border-gray-300 ms-2 focus:ring-2 focus:ring-blue-300"
                 aria-labelledby="datos-personales"
                 aria-describedby="datos-personales"
-                checked
+                defaultChecked
               />
               <label
                 htmlFor="datos-personales"
@@ -394,13 +393,13 @@ function Cotizador() {
                 />
                 <label className="mx-1" htmlFor="contactFormAgree">
                   Doy mi consentimiento para el tratamiento de los datos
-                  personales que facilito. He leído y acepto la{' '}
-                  <a
-                    href="/legal"
+                  personales que facilito. He leído y acepto los{' '}
+                  <Link
+                    to="/terminos"
                     className="text-primary hover:text-purple font-semibold"
                   >
-                    Política de privacidad
-                  </a>
+                    Términos y Condiciones
+                  </Link>
                   .
                 </label>
               </div>

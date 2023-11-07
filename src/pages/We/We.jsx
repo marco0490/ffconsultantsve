@@ -78,7 +78,7 @@ function We() {
           title="YouTube video player"
           width="100%"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
+          allowFullScreen
           className="mx-auto mt-12 md:w-[60%] md:h-[600px] w-100"
         ></iframe>
         <div className="bg-primary w-full h-48 md:h-[450px] -top-44 md:top-[-250px] z-[-1] relative"></div>

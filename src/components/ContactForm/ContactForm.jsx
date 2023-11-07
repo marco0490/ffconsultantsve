@@ -11,6 +11,7 @@ import { BsTelephoneForward } from 'react-icons/bs'
 import { BiLogoFacebook } from 'react-icons/bi'
 import Swal from 'sweetalert2'
 import emailjs from 'emailjs-com'
+import { Link } from 'react-router-dom'
 
 function ContactForm() {
   const [Check, setCheck] = useState(false)
@@ -164,13 +165,13 @@ function ContactForm() {
             />
             <label className="mx-1" htmlFor="contactFormAgree">
               Doy mi consentimiento para el tratamiento de los datos personales
-              que facilito. He leído y acepto la{' '}
-              <a
-                href="/legal"
+              que facilito. He leído y acepto los{' '}
+              <Link
+                to="/terminos"
                 className="text-primary hover:text-purple font-semibold"
               >
-                Política de privacidad
-              </a>
+                Términos y Condiciones
+              </Link>
               .
             </label>
           </div>

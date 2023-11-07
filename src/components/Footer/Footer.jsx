@@ -109,13 +109,13 @@ function Footer() {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
-                      to="/privacidad"
+                      to="/terminos"
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                        'block px-4 text-sm',
+                        'block px-4 py-2 text-sm',
                       )}
                     >
-                      Politicas y Privacidad
+                      Términos y Condiciones
                     </Link>
                   )}
                 </Menu.Item>

@@ -10,15 +10,15 @@ import Home from './pages/Home/Home'
 import './App.css'
 import Contact from './pages/Contact/Contact'
 import We from './pages/We/We'
-import Blog from './pages/Blog/Blog'
+// import Blog from './pages/Blog/Blog'
 import Cotizador from './pages/Cotizador/Cotizador'
 import Services from './pages/Services/Services'
 import PlansMercantil from './pages/PlansMercantil/PlansMercantil'
 import Agent from './pages/Agent/Agent'
 import Legal from './pages/Legal/Legal'
-import PlansQualitas from './pages/PlansQualitas/PlansQualitas'
+// import PlansQualitas from './pages/PlansQualitas/PlansQualitas'
 import Complete from './pages/Complete/Complete'
-import Privacy from './pages/Privacy/Privacy'
+import Conditions from './pages/Conditions/Conditions'
 import Cookies from './pages/Cookies/Cookies'
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
         <Route path="/planes-mercantil" element={<PlansMercantil />} />
         {/* <Route path="/planes-qualitas" element={<PlansQualitas />} /> */}
         <Route path="/legal" element={<Legal />} />
-        <Route path="/privacidad" element={<Privacy />} />
+        <Route path="/terminos" element={<Conditions />} />
         <Route path="/cookies" element={<Cookies />} />
         <Route path="/servicios" element={<Services />} />
         <Route path="/nosotros" element={<We />} />
