@@ -4,13 +4,22 @@ import { HiOutlineLightBulb } from 'react-icons/hi'
 import { GiOldMicrophone } from 'react-icons/gi'
 import { BsArrowRight } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 function Agent() {
   useEffect(() => {
     window.scroll(0, 0)
   }, [])
   return (
-    <div className="flex flex-col mt-30 mx-auto">
+    <div className="flex flex-col mt-40 mx-auto">
+      <Helmet>
+        <title>Sé un Agente FFC con nosotros</title>
+        <meta name="title" content="Sé un Agente FFC con nosotros" />
+        <meta
+          name="description"
+          content="Capacítate con nuestro equipo y arma tu propia cartera de clientes."
+        />
+      </Helmet>
       <div className="md:flex md:max-w-[1900px] md:gap-32 md:mx-auto">
         <div className="flex flex-col w-2/3 mx-auto md:w-[514px] md:my-auto">
           <p className="text-primary font-semibold text-3xl text-start md:text-6xl">
@@ -27,12 +36,10 @@ function Agent() {
                 className="w-28 bg-primary text-white text-sm py-2 md:w-48 md:h-12 font-semibold"
                 type="button"
               >
-               Nosotros 
+                Nosotros
               </button>
             </Link>
-            <Link to="/blog">
-
-            </Link>
+            <Link to="/blog"></Link>
             <button
               className="w-28 border border-primary text-sm py-2 text-primary font-bold md:w-48 md:h-12"
               type="button"

@@ -35,9 +35,6 @@ function Header() {
                 <Link to="/nosotros">Nosotros</Link>
               </li>
               <li className="hover:text-primary font-bold">
-                <Link to="/blog">Blog</Link>
-              </li>
-              <li className="hover:text-primary font-bold">
                 <Link to="/contacto">Contacto</Link>
               </li>
               <div className="h-[40px] min-h-[1em] w-0.5 self-stretch bg-neutral-200 opacity-100 dark:opacity-50 hidden md:inline-block"></div>

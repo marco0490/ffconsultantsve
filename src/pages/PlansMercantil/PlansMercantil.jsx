@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Switch } from '@headlessui/react'
 import { BsCheckLg } from 'react-icons/bs'
 import MercantilLogo from '../../assets/images/MercantilLogo.svg'
+import { Helmet } from 'react-helmet'
 
 function PlansMercantil() {
   const [enabled, setEnabled] = useState(false)
@@ -12,6 +13,14 @@ function PlansMercantil() {
 
   return (
     <div className="md:my-18 flex flex-col">
+      <Helmet>
+        <title>Plan de pagos Mercantil</title>
+        <meta name="title" content="Plan de pagos Mercantil" />
+        <meta
+          name="description"
+          content="Opciones de planes con Mercantil para todo tipo de clientes. Aqui encontrarás lo que necesitas!"
+        />
+      </Helmet>
       <figure className=" h-auto mx-auto my-8 flex justify-center">
         <img
           className="object-cover  h-auto"
@@ -22,31 +31,31 @@ function PlansMercantil() {
       <div className="w-full px-4 bg-white flex flex-col">
         <p className="text-primary font-medium text-center">Planes y precios</p>
         <h1 className="font-bold text-4xl text-center">
-          Elije un plan de pagos
+          Plan de pagos Mercantil
         </h1>
         <div className="text-center flex justify-center my-5">
           <p
             className={`${
-              enabled ? "text-gray-200 font-bold" : "text-blue-600 font-bold"
-            } px-4 text-primary font-semibold`}
+              enabled ? 'text-gray-300 font-bold' : 'text-primary font-bold'
+            } px-4 font-semibold`}
           >
             Pago Mensual
           </p>
           <Switch
             checked={enabled}
             onChange={setEnabled}
-            className="relative inline-flex h-6 w-11 items-center rounded-full bg-white border-2 border-blue-600"
+            className="relative inline-flex h-6 w-11 items-center rounded-full bg-white border-2 border-primary"
           >
             <span className="sr-only">Enable notifications</span>
             <span
               className={`${
-                enabled ? "translate-x-6" : "translate-x-1"
+                enabled ? 'translate-x-5' : 'translate-x-1'
               } inline-block h-4 w-4 transform rounded-full bg-primary transition`}
             />
           </Switch>
           <p
             className={`${
-              enabled ? "text-blue-600 font-bold" : "text-gray-300 font-bold"
+              enabled ? 'text-primary font-bold' : 'text-gray-300 font-bold'
             } px-4 font-semibold`}
           >
             Pago Anual
