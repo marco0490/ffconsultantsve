@@ -23,10 +23,7 @@ function Conditions() {
       <p>
         Los presentes Términos y Condiciones contienen los acuerdos y
         condiciones de uso que regulan el la utilización de la pagina web{' '}
-        <Link
-          to="/"
-          className="text-primary hover:text-purple"
-        >
+        <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         y cuyo titular es{' '}
@@ -42,10 +39,7 @@ function Conditions() {
       <p>
         Lea atentamente el presente documento antes de acceder y utilizar la
         pagina web{' '}
-        <Link
-          to="/"
-          className="text-primary hover:text-purple"
-        >
+        <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         . Al acceder y utilizarla, usted expresa su reconocimiento y aceptación
@@ -76,10 +70,7 @@ function Conditions() {
         contraseña, el Usuario será responsable de hacer un uso diligente de
         dicha contraseña. El Usuario se compromete a hacer un uso adecuado de
         los contenidos y servicios ofrecidos en la página web{' '}
-        <Link
-          to="/"
-          className="text-primary hover:text-purple"
-        >
+        <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         , obligándose a no utilizarlas para (incluyendo pero sin limitarse a (i)
@@ -91,10 +82,7 @@ function Conditions() {
         racista, xenófobo, pornográfico-ilegal, de apología del terrorismo o
         atentatorio contra los derechos humanos; (iv) provocar daños en los
         sistemas físicos y lógicos de{' '}
-        <Link
-          to="/"
-          className="text-primary hover:text-purple"
-        >
+        <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         , de sus proveedores o de terceras personas, (v) introducir o difundir
@@ -106,42 +94,48 @@ function Conditions() {
         En particular, el Usuario tendrá las siguientes obligaciones:
       </p>
 
-      <p><span className='font-bold'>a.</span> No ingresar a la página web códigos maliciosos de ningún tipo.</p>
-
       <p>
-        <span className='font-bold'>b.</span> No utilizar la página web para actos ilícitos, engañosos,
-        malintencionados, fraudulentos, de lavado de activos o discriminatorios.
+        <span className="font-bold">a.</span> No ingresar a la página web
+        códigos maliciosos de ningún tipo.
       </p>
 
       <p>
-        <span className='font-bold'>c.</span> No realizar ninguna acción que pudiera inhabilitar, sobrecargar o
-        afectar al funcionamiento correcto de la página web o a su aspecto.
+        <span className="font-bold">b.</span> No utilizar la página web para
+        actos ilícitos, engañosos, malintencionados, fraudulentos, de lavado de
+        activos o discriminatorios.
       </p>
 
       <p>
-        <span className='font-bold'>d.</span> No proporcionar datos falsos. El Usuario entiende, y al acceder a la
-        pagina, autoriza a FFC a entregar la información personal suministradas
-        a las empresas de seguros cuyo servicios se esten cotizando o
-        contratando, y la misma servirá de base para la eventual contratación de
-        las pólizas o contrato de medicina prepagada. En caso de dudas, acerca
-        de la información que le es requerida, podrá contactar a nuestro
-        Corredor de Seguros Autorizado, mediante los distintos canales de
-        soporte al usuario (Como por ejemplo, whatsapp business/ correo
-        electrónico / o cualquier otro software de comunicación digital que esté
-        disponible/ contacto directo vía telefónica).
+        <span className="font-bold">c.</span> No realizar ninguna acción que
+        pudiera inhabilitar, sobrecargar o afectar al funcionamiento correcto de
+        la página web o a su aspecto.
       </p>
 
       <p>
-        <span className='font-bold'>e.</span> No publicar contenido, ni realizar ninguna acción en la página web,
-        que infrinja o vulnere los derechos de terceros o que vulnere cualquier
-        normativa legal de algún modo.
+        <span className="font-bold">d.</span> No proporcionar datos falsos. El
+        Usuario entiende, y al acceder a la pagina, autoriza a FFC a entregar la
+        información personal suministradas a las empresas de seguros cuyo
+        servicios se esten cotizando o contratando, y la misma servirá de base
+        para la eventual contratación de las pólizas o contrato de medicina
+        prepagada. En caso de dudas, acerca de la información que le es
+        requerida, podrá contactar a nuestro Corredor de Seguros Autorizado,
+        mediante los distintos canales de soporte al usuario (Como por ejemplo,
+        whatsapp business/ correo electrónico / o cualquier otro software de
+        comunicación digital que esté disponible/ contacto directo vía
+        telefónica).
       </p>
 
       <p>
-        <span className='font-bold'>f.</span> No utilizar las marcas, signos distintivos, nombres comerciales,
-        derechos de autor, o cualquier otro derecho de propiedad intelectual o
-        industrial, copyrigth Ó y demás derechos reservados Ò, salvo previo
-        consentimiento por escrito de FFC.
+        <span className="font-bold">e.</span> No publicar contenido, ni realizar
+        ninguna acción en la página web, que infrinja o vulnere los derechos de
+        terceros o que vulnere cualquier normativa legal de algún modo.
+      </p>
+
+      <p>
+        <span className="font-bold">f.</span> No utilizar las marcas, signos
+        distintivos, nombres comerciales, derechos de autor, o cualquier otro
+        derecho de propiedad intelectual o industrial, copyrigth Ó y demás
+        derechos reservados Ò, salvo previo consentimiento por escrito de FFC.
       </p>
 
       <h2 className="font-bold text-xl">
@@ -154,10 +148,7 @@ function Conditions() {
         prepagada autorizadas y emitidas por empresas de Seguro Venezolanas, así
         como planes de atención en salud, en un ambiente 100% digital; pero
         podrá establecerse en el futuro un cobro por suscripción a la página web{' '}
-        <Link
-          to="/"
-          className="text-primary hover:text-purple"
-        >
+        <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         , la cual será oportunamente informada de forma transparente a los
@@ -187,10 +178,7 @@ function Conditions() {
         Para la creación de la cuenta, el usuario deberá suministrar algunos
         datos, los cuales serán almacenados a través de la página web de nuestra
         propiedad{' '}
-        <Link
-          to="/"
-          className="text-primary hover:text-purple"
-        >
+        <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         .
@@ -275,10 +263,7 @@ function Conditions() {
       <p>
         Los datos personales se recopilan mediante un formulario a través de la
         página web de FFC{' '}
-        <Link
-          to="/"
-          className="text-primary hover:text-purple"
-        >
+        <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         . No se recopilará ningún dato hasta que no se acepte expresamente la
@@ -343,10 +328,7 @@ function Conditions() {
       <p>
         <span className="font-bold">ii.</span>
         Con fines publicitarios y de marketing;{' '}
-        <Link
-          to="/"
-          className="text-primary hover:text-purple"
-        >
+        <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         podrá enviarle una actualización del presupuesto obtenido en función de
@@ -460,10 +442,7 @@ function Conditions() {
       <p>
         Para contribuir al logro de ese objetivo, una vez haya accesado a la
         pagina{' '}
-        <Link
-          to="/"
-          className="text-primary hover:text-purple"
-        >
+        <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         el Usuario podrá:
@@ -565,20 +544,17 @@ function Conditions() {
         ponemos a disposición del Usuario, de la ocurrencia de algún evento o la
         necesidad de una orden de servicio para los planes de salud, se activará
         y dará inicio a la atención del mismo pudiendo hacer seguimiento y
-        acompañamiento digital en cada paso.{' '}
-        <mark>
-          Solo a manera de ejemplo, podrá avisar vía Whatsapp Business, que le
-          ha ocurrido un evento amparado por Los Productos, o que requiere de
-          una consulta médica de su plan de salud, en caso del Producto de
-          atención en salud contratado; y FFC además de informar a su
-          requerimiento, a la empresa respectiva; estará atenta a la emisión de
-          la clave u orden de servicio; así como a la confirmación del usuario
-          de que que está siendo atendido, y si existiera algún inconveniente o
-          falta de información en este proceso; FFC podrá intervenir, para
-          facilitar la información a cualquiera de las partes, para que el
-          servicio sea prestado oportuna y efectivamante; todo, gestionado
-          digitalmente.
-        </mark>
+        acompañamiento digital en cada paso. Solo a manera de ejemplo, podrá
+        avisar vía Whatsapp Business, que le ha ocurrido un evento amparado por
+        Los Productos, o que requiere de una consulta médica de su plan de
+        salud, en caso del Producto de atención en salud contratado; y FFC
+        además de informar a su requerimiento, a la empresa respectiva; estará
+        atenta a la emisión de la clave u orden de servicio; así como a la
+        confirmación del usuario de que que está siendo atendido, y si existiera
+        algún inconveniente o falta de información en este proceso; FFC podrá
+        intervenir, para facilitar la información a cualquiera de las partes,
+        para que el servicio sea prestado oportuna y efectivamante; todo,
+        gestionado digitalmente.
       </p>
 
       <p>
@@ -601,10 +577,7 @@ function Conditions() {
 
       <p>
         En Future{' '}
-        <Link
-          to="/"
-          className="text-primary hover:text-purple"
-        >
+        <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         nos tomamos muy en serio la seguridad de la información, utilizando
@@ -631,16 +604,13 @@ function Conditions() {
 
       <p>
         Esta web{' '}
-        <Link
-          to="/"
-          className="text-primary hover:text-purple"
-        >
+        <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         , es una marca comercial perteneciente a Future Financial Consultants
-        CA, (Ver Aviso Legal – Términos y Condiciones),{' '}
-        <mark>dados bajo licencia al Corredor de Seguros y Analista de
-        Riesgo <strong>Oliver Sierra Tua</strong></mark>, debidamente registrado ante la
+        CA, (Ver Aviso Legal – Términos y Condiciones), dados bajo licencia al
+        Corredor de Seguros y Analista de Riesgo{' '}
+        <strong>Oliver Sierra Tua</strong>, debidamente registrado ante la
         Superintendencia de la Actividad Aseguradora, bajo el código CS-No 4171.
       </p>
 
@@ -685,10 +655,7 @@ function Conditions() {
         para encontrar Los Productos que mejor se ajusten a sus necesidades,
         haremos uso de la dirección de correo electrónico que nos suministra al
         registrarse en la página web{' '}
-        <Link
-          to="/"
-          className="text-primary hover:text-purple"
-        >
+        <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         . Su dirección de e-mail e información de contacto, serán utilizadas
@@ -699,22 +666,17 @@ function Conditions() {
       </p>
 
       <p>
-        <mark>
-          También disponemos de acuerdos con los proveedores, intermediarios y
-          representantes, cuyas páginas visitamos utilizando nuestra tecnología,
-          para prevenir el envío de comunicaciones por e-mail fuera de estos
-          términos.
-        </mark>
+        También disponemos de acuerdos con los proveedores, intermediarios y
+        representantes, cuyas páginas visitamos utilizando nuestra tecnología,
+        para prevenir el envío de comunicaciones por e-mail fuera de estos
+        términos.
       </p>
 
       <p>
         Con el objeto de evitar e-mails innecesarios o intrusivos, por favor
         comuníquenos si tiene algún problema con el envío de este tipo de
         correos a{' '}
-        <Link
-          to="/"
-          className="text-primary hover:text-purple"
-        >
+        <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         .
@@ -725,10 +687,7 @@ function Conditions() {
       <p>
         Todos los logos, lemas, marcas comerciales y nombres de dominio de la
         presente página web:{' '}
-        <Link
-          to="/"
-          className="text-primary hover:text-purple"
-        >
+        <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         , son de propiedad intelectual o industrial de FFC, que ejerce tales
@@ -764,10 +723,7 @@ function Conditions() {
         c. La tecnología y procesos utilizados o descritos en este sitio web
         pueden estar sujetos a otros derechos de propiedad intelectual
         reservados por{' '}
-        <Link
-          to="/"
-          className="text-primary hover:text-purple"
-        >
+        <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         (Licencias y otras formas legales de uso de derechos reservados).
@@ -811,10 +767,7 @@ function Conditions() {
 
       <p>
         Para más información sobre la página web podrá acceder a{' '}
-        <Link
-          to="/"
-          className="text-primary hover:text-purple"
-        >
+        <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
       </p>
