@@ -60,7 +60,13 @@ function ContactForm() {
   }
 
   const showAlert = () => {
-    if (Check) {
+    if (
+      Check &&
+      Name !== '' &&
+      Email !== '' &&
+      Phone !== '' &&
+      Message !== ''
+    ) {
       Swal.fire({
         title: 'Confirmado',
         text: 'Hemos recibido tu mensaje, revisaremos la información y estaremos en contacto pronto.',
