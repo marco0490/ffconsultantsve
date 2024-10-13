@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import People from '../../assets/images/people.png'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import emailjs from 'emailjs-com'
 
 function Cotizador() {
   useEffect(() => {
@@ -9,6 +11,55 @@ function Cotizador() {
   }, [])
 
   const [company, setCompany] = useState('')
+  const [check, setCheck] = useState(false)
+
+  const handleReset = () => {
+    setCompany('')
+  }
+
+  function sendEmail(e) {
+    e.preventDefault()
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAIL_SERVICE,
+        import.meta.env.VITE_EMAIL_TEMPLATE2,
+        e.target,
+        import.meta.env.VITE_EMAIL_USER,
+      )
+      .then(
+        (result) => {
+          throw result.text
+        },
+        (error) => {
+          throw error.text
+        },
+      )
+    e.target.reset()
+    handleReset()
+  }
+
+  const showAlert = () => {
+    if (check) {
+      Swal.fire({
+        title: 'Confirmado',
+        text: 'Hemos recibido tu mensaje, revisaremos la información y estaremos en contacto pronto.',
+        icon: 'success',
+        button: 'OK',
+        timer: '3000',
+        timerProgressBar: 'true',
+      })
+    } else {
+      Swal.fire({
+        title: 'Espera',
+        text: 'Tienes que terminar de rellenar la información.',
+        icon: 'info',
+        button: 'OK',
+        timer: '3000',
+        timerProgressBar: 'true',
+      })
+    }
+  }
 
   return (
     <>
@@ -74,7 +125,10 @@ function Cotizador() {
                 Datos Personales
               </label>
             </div>
-            <form className="p-6 flex flex-col justify-center">
+            <form
+              className="p-6 flex flex-col justify-center"
+              onSubmit={sendEmail}
+            >
               <div className="flex flex-col">
                 <label htmlFor="aseguradora" className="hidden">
                   Aseguradoras
@@ -84,25 +138,30 @@ function Cotizador() {
                   id="aseguradora"
                   onChange={() => setCompany(event.target.value)}
                 >
-                  <option>Elige tu Aseguradora</option>
+                  <option value="" disabled selected>
+                    Elige tu Aseguradora
+                  </option>
                   <option value="seguros-mercantil">Seguros Mercantil</option>
                   <option value="seguros-qualitas">Seguros Qualitas</option>
+                  <option value="seguros-caracas">Seguros Caracas</option>
                 </select>
               </div>
               <div className="flex flex-col">
-                <label htmlFor="planes" className="hidden">
-                  Planes
+                <label htmlFor="cobertura" className="hidden">
+                  Cobertura
                 </label>
-                <select name="planes" id="planes">
-                  <option>Elige tu Cobertura</option>
+                <select name="cobertura" id="cobertura">
+                  <option value="" disabled selected>
+                    Elige tu Cobertura
+                  </option>
 
                   {company === 'seguros-mercantil' ? (
                     <>
-                      <option value="5000-30000">5.000 - 30.000</option>
+                      <option value="5000-30000">30.000</option>
                       <option value="50000-100000">50.000 - 100.000</option>
                       <option value="50000-100000">200.000 - 1.000.000</option>
                     </>
-                  ) : (
+                  ) : company === 'seguros-qualitas' ? (
                     <>
                       <option value="HCM">HCM</option>
                       <option value="APS">APS</option>
@@ -110,31 +169,43 @@ function Cotizador() {
                       <option value="COLECTIVOS">COLECTIVOS</option>
                       <option value="ADMINISTRADOS">ADMINISTRADOS</option>
                     </>
+                  ) : (
+                    <>
+                      <option value="20.000">20.000</option>
+                      <option value="50.000">50.000</option>
+                      <option value="100.000">100.000</option>
+                      <option value="200.000">200.000</option>
+                      <option value="500.000">500.000</option>
+                      <option value="1.000.000">1.000.000</option>
+                    </>
                   )}
                 </select>
               </div>
               <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
                 <h3 className="inline pr-2">Tipo de pago: </h3>
                 <input
-                  id="pago"
+                  id="pago-mensual"
                   type="radio"
                   name="pago"
-                  value="Mensual"
+                  value="Cuotas"
                   className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
                   aria-labelledby="pago"
                   aria-describedby="pago"
+                  required
                 />
                 <label htmlFor="pago" className="l-2 block me-2">
-                  Mensual
+                  Cuotas
                 </label>
                 <input
-                  id="pago"
+                  id="pago-anual"
                   type="radio"
                   name="pago"
                   value="Anual"
                   className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
                   aria-labelledby="pago"
                   aria-describedby="pago"
+                  defaultChecked
+                  required
                 />
                 <label htmlFor="pago" className="l-2 block ">
                   Anual
@@ -159,7 +230,7 @@ function Cotizador() {
                     Edad
                   </label>
                   <input
-                    type="number"
+                    type="date"
                     name="age"
                     id="age"
                     placeholder="Edad"
@@ -171,14 +242,13 @@ function Cotizador() {
                   <label htmlFor="gender" className="hidden">
                     Sexo
                   </label>
-                  <input
-                    type="text"
-                    name="gender"
-                    id="gender"
-                    placeholder="Sexo"
-                    autoComplete="off"
-                    required
-                  />
+                  <select name="gender" id="gender" required>
+                    <option value="" disabled selected>
+                      Sexo
+                    </option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                  </select>
                 </div>
               </div>
               <div className="flex flex-col mt-2">
@@ -211,27 +281,30 @@ function Cotizador() {
               <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
                 <h3 className="inline pr-2">Conyuge: </h3>
                 <input
-                  id="conyuge"
+                  id="conyuge-si"
                   type="radio"
                   name="conyuge"
                   value="Si"
                   className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
                   aria-labelledby="conyuge"
                   aria-describedby="conyuge"
+                  required
                 />
-                <label htmlFor="conyuge" className="l-2 block me-2">
+                <label htmlFor="conyuge-si" className="l-2 block me-2">
                   Si
                 </label>
                 <input
-                  id="conyuge"
+                  id="conyuge-no"
                   type="radio"
                   name="conyuge"
                   value="No"
                   className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
                   aria-labelledby="conyuge"
                   aria-describedby="conyuge"
+                  defaultChecked
+                  required
                 />
-                <label htmlFor="conyuge" className="l-2 block ">
+                <label htmlFor="conyuge-no" className="l-2 block">
                   No
                 </label>
               </div>
@@ -246,7 +319,6 @@ function Cotizador() {
                     id="name2"
                     placeholder="Nombre"
                     autoComplete="off"
-                    required
                   />
                 </div>
 
@@ -255,26 +327,24 @@ function Cotizador() {
                     Edad
                   </label>
                   <input
-                    type="number"
+                    type="date"
                     name="age2"
                     id="age2"
                     placeholder="Edad"
                     autoComplete="off"
-                    required
                   />
                 </div>
                 <div className="flex flex-col">
                   <label htmlFor="gender2" className="hidden">
                     Sexo
                   </label>
-                  <input
-                    type="text"
-                    name="gender2"
-                    id="gender2"
-                    placeholder="Sexo"
-                    autoComplete="off"
-                    required
-                  />
+                  <select name="gender2" id="gender2">
+                    <option value="" disabled selected>
+                      Sexo
+                    </option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                  </select>
                 </div>
               </div>
               <div className="flex flex-col mt-2">
@@ -287,59 +357,65 @@ function Cotizador() {
                   id="email2"
                   placeholder="Correo electrónico"
                   autoComplete="off"
-                  required
                 />
               </div>
               <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
-                <h3 className="inline pr-2">Beneficiario: </h3>
+                <h3 className="inline pr-2">
+                  Beneficiario / Fecha de nacimiento:{' '}
+                </h3>
                 <input
-                  id="beneficiario"
+                  id="beneficiario-si"
                   type="radio"
                   name="beneficiario"
                   value="Si"
                   className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
                   aria-labelledby="beneficiario"
                   aria-describedby="beneficiario"
+                  required
                 />
                 <label htmlFor="beneficiario" className="l-2 block me-2">
                   Si
                 </label>
                 <input
-                  id="beneficiario"
+                  id="beneficiario-no"
                   type="radio"
                   name="beneficiario"
                   value="No"
                   className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
                   aria-labelledby="beneficiario"
                   aria-describedby="beneficiario"
+                  defaultChecked
+                  required
                 />
-                <label htmlFor="conyuge" className="l-2 block ">
+                <label htmlFor="beneficiario" className="l-2 block ">
                   No
                 </label>
-                <div className="flex flex-col ms-2 w-[20%]">
-                  <label htmlFor="age" className="hidden">
+                <div className="flex flex-col ms-2 w-[23%]">
+                  <label htmlFor="age3" className="hidden">
                     Edad
                   </label>
                   <input
-                    type="number"
-                    name="age"
-                    id="age"
+                    type="date"
+                    name="age3"
+                    id="age3"
                     placeholder="Edad"
                     autoComplete="off"
-                    required
                   />
                 </div>
               </div>
               <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
-                <h3 className="inline pr-2">Beneficiario: </h3>
+                <h3 className="inline pr-2">
+                  Beneficiario / Fecha de nacimiento:{' '}
+                </h3>
                 <input
-                  id="beneficiario2"
+                  id="beneficiario2-si"
                   type="radio"
                   name="beneficiario2"
                   value="Si"
                   className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
                   aria-labelledby="beneficiario2"
                   aria-describedby="beneficiario2"
+                  required
                 />
                 <label htmlFor="beneficiario2" className="l-2 block me-2">
                   Si
@@ -352,21 +428,22 @@ function Cotizador() {
                   className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
                   aria-labelledby="beneficiario2-no"
                   aria-describedby="beneficiario2-no"
+                  defaultChecked
+                  required
                 />
                 <label htmlFor="beneficiario2-no" className="l-2 block ">
                   No
                 </label>
-                <div className="flex flex-col ms-2 w-[20%]">
-                  <label htmlFor="age" className="hidden">
+                <div className="flex flex-col ms-2 w-[23%]">
+                  <label htmlFor="age4" className="hidden">
                     Edad
                   </label>
                   <input
-                    type="number"
-                    name="age"
-                    id="age"
+                    type="date"
+                    name="age4"
+                    id="age4"
                     placeholder="Edad"
                     autoComplete="off"
-                    required
                   />
                 </div>
               </div>
@@ -378,9 +455,8 @@ function Cotizador() {
                   type="text"
                   name="comment"
                   id="comment"
-                  placeholder="Comentario"
+                  placeholder="Comentario - De haber mas beneficiarios, indique nombre y fecha de nacimiento de cada uno aquí."
                   autoComplete="off"
-                  required
                 />
               </div>
               <div className="flex mt-2">
@@ -390,6 +466,7 @@ function Cotizador() {
                   className="text-md indeterminate:bg-gray-300 mx-1 my-2 font-medium default:ring-2 checked:bg-primary inline-block"
                   id="contactFormAgree"
                   required
+                  onChange={() => setCheck(!check)}
                 />
                 <label className="mx-1" htmlFor="contactFormAgree">
                   Doy mi consentimiento para el tratamiento de los datos
@@ -407,6 +484,7 @@ function Cotizador() {
               <button
                 type="submit"
                 className=" bg-primary hover:bg-blue-dark text-white font-bold py-3 px-6  mt-3 hover:bg-purple transition ease-in-out duration-300"
+                onClick={showAlert}
               >
                 Enviar
               </button>
