@@ -23,7 +23,7 @@ function Cotizador() {
     emailjs
       .sendForm(
         import.meta.env.VITE_EMAIL_SERVICE,
-        import.meta.env.VITE_EMAIL_TEMPLATE2,
+        import.meta.env.VITE_EMAIL_COTIZADOR,
         e.target,
         import.meta.env.VITE_EMAIL_USER,
       )
