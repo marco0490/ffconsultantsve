@@ -134,13 +134,14 @@ function ContactForm() {
               Número de teléfono
             </label>
             <input
-              type="number"
+              type="tel"
               name="tel"
               id="tel"
               value={Phone}
               onChange={(event) => setPhone(event.target.value)}
               placeholder="Número de teléfono"
               autoComplete="off"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
               required
             />
           </div>
