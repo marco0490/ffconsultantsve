@@ -144,6 +144,7 @@ function Cotizador() {
                   <option value="seguros-mercantil">Seguros Mercantil</option>
                   <option value="seguros-qualitas">Seguros Qualitas</option>
                   <option value="seguros-caracas">Seguros Caracas</option>
+                  <option value="seguros-hispana">Seguros Hispana</option>
                 </select>
               </div>
               <div className="flex flex-col">
