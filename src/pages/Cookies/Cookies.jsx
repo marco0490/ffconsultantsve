@@ -13,7 +13,7 @@ function Cookies() {
         <meta name="description" content="Información de nuestras cookies." />
       </Helmet>
       <h1 className="my-5 text-center text-3xl font-bold">
-        Politica de Cookies
+      Política de Cookies
       </h1>
       <p>
         En{' '}
@@ -30,8 +30,8 @@ function Cookies() {
         datos y para seguir su navegación dentro de la web. Nosotros usamos
         cookies para ayudarlo a navegar en nuestra web, facilitar el seguimiento
         del servicio con el asegurador, empresa de medicina prepagada o
-        prestador de servicios de atención en salud, y mejorar su seguridad, y
-        mejorar la experiencia del usuario, para mostrarle información acorde a
+        prestador de servicios de atención en salud, y mejorar la seguridad y
+        la experiencia del usuario, para mostrarle información acorde a
         sus necesidades, preferencias y elecciones. Si no desea tener una de
         nuestras cookies en su ordenador, por favor asegúrese de que su buscador
         está configurado para bloquearlas. No se recogerá ningún dato de
