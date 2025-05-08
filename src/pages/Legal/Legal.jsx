@@ -21,10 +21,10 @@ function Legal() {
         <a href="https://www.futurefinancialconsultantsve.com/" className='text-primary hover:text-purple'>
           www.futurefinancialconsultantsve.com
         </a>{' '}
-        es FUTURE FINANCIAL CONSULTANTS C.A. inscrita en el Registro Mercantil
+        es FUTURE FINANCIAL CONSULTANTS, C.A. inscrita en el Registro Mercantil
         Primero del Distrito Capital en el año 1997 (expediente 491019),
         domiciliada en Caracas, Venezuela, con sede en la Torre Coinasa, piso 3,
-        oficina 34-A, Urb. La Castellana, Municipio Chacao; en lo adelante
+        oficina Nº 34-A, Urb. La Castellana, Municipio Chacao; en lo adelante
         tambien referida como “FFC”.
       </p>
       <p>
@@ -32,7 +32,7 @@ function Legal() {
         <a href="https://www.futurefinancialconsultantsve.com/" className='text-primary hover:text-purple'>
           www.futurefinancialconsultantsve.com
         </a>
-        , corresponden bajo uso de licencia a Oliver Antonio Sierra Tua, titular
+        , corresponden bajo uso de licencia a Oliver Antonio Sierra Túa, titular
         de la Cédula de Identidad Nº V-9.617.552, Corredor de Seguros
         debidamente autorizado bajo el Nº 4.171 por la Superintendencia de la
         Actividad Aseguradora, en lo adelante SUDEASEG, para actuar como tal, en
@@ -54,10 +54,10 @@ function Legal() {
         En la República Bolivariana de Venezuela los planes y pólizas de salud
         de FFC intermediados por el Corredor de Seguros Autorizado a través de
         la presente página web, están suscritos y amparados por MERCANTIL
-        SEGUROS C.A. (RIF J-000901805), empresa de seguros inscrita y autorizada
+        SEGUROS, C.A. (R.I.F. J-000901805), empresa de seguros inscrita y autorizada
         en la Superintendencia de la Actividad Aseguradora, SUDEASEG, bajo el Nº
         74, conforme a la Ley de la Actividad Aseguradora de 15 de marzo de 2016
-        publicada en la Gaceta Oficial Nº6.220; y QUALITAS SEGUROS, C.A. (RIF
+        publicada en la Gaceta Oficial Nº6.220; y QUALITAS SEGUROS, C.A. (R.I.F.
         J-30668450-6), inscrita ante SUDEASEG con el Nº 118 Providencia
         Administrativa N° 585 del 18 de abril de 2000, publicada en la Gaceta
         Oficial de la República Bolivariana de Venezuela N° 5.464 Extraordinaria
@@ -78,10 +78,10 @@ function Legal() {
         </a>
         , han sido autorizadas por la SUDEASEG, a FFC, bajo el código TVP-
         _________; a Seguros Mercantil, C.A. bajo el código TVP-2022-0063 y a
-        Qualitas Seguros C.A., bajo el código TVP-2023-0048.
+        Qualitas Seguros, C.A., bajo el código TVP-2023-0048.
       </p>
       Así mismo, el Corredor de Seguros Autorizado en el marco del acuerdo de
-      intermediación que mantiene bajo ¨Código Activo” con las referidas
+      intermediación que mantiene bajo "Código Activo” con las referidas
       empresas, se encuentra autorizado para utilizar tal publicidad en los
       mismos términos y condiciones en que SUDEASEG les aprobó la misma, y que
       continuamente éstas empresas, informan al Corredor de Seguros Autorizado
