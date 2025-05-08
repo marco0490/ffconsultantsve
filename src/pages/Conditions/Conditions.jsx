@@ -22,13 +22,13 @@ function Conditions() {
 
       <p>
         Los presentes Términos y Condiciones contienen los acuerdos y
-        condiciones de uso que regulan el la utilización de la pagina web{' '}
+        condiciones de uso que regulan el la utilización de la página web{' '}
         <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         y cuyo titular es{' '}
         <span className="font-bold">
-          FUTURE FINANCIAL CONSULTANTS C.A. (referida también como FFC),
+          FUTURE FINANCIAL CONSULTANTS, C.A. (referida también como FFC),
         </span>{' '}
         inscrita en el Registro Mercantil Primero del Distrito Capital en el año
         1997, domiciliada en Caracas - Venezuela (Expediente 491019). En
@@ -38,7 +38,7 @@ function Conditions() {
 
       <p>
         Lea atentamente el presente documento antes de acceder y utilizar la
-        pagina web{' '}
+        página web{' '}
         <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
