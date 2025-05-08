@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Switch } from '@headlessui/react'
 import { BsCheckLg } from 'react-icons/bs'
-import QualitasLogo from '../../assets/images/QualitasLogo.svg'
+import QualitasLogo from '../../assets/images/QualitasLogo.PNG'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 

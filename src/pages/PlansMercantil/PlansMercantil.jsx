@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Switch } from '@headlessui/react'
 import { BsCheckLg } from 'react-icons/bs'
-import MercantilLogo from '../../assets/images/MercantilLogo.svg'
+import MercantilLogo from '../../assets/images/MercantilLogo.PNG'
 import { Helmet } from 'react-helmet'
 
 function PlansMercantil() {
