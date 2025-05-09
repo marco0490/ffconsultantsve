@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import MercantilLogo from '../../assets/images/MercantilLogo.PNG'
-import QualitasLogo from '../../assets/images/QualitasLogo.PNG'
+import MercantilLogo from '../../assets/images/MercantilLogo.svg'
+import QualitasLogo from '../../assets/images/QualitasLogo.svg'
 import { BiRightArrowAlt } from 'react-icons/bi'
 
 function CompaniesPlan() {
