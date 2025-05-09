@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { GrClose } from 'react-icons/gr'
-import Logo from '../../assets/Logo.PNG'
+import Logo from '../../assets/logo.png'
 import SecondHeader from '../SecondHeader/SecondHeader'
 
 function Header() {
