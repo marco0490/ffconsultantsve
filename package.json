@@ -1,4 +1,21 @@
 {
+  "name": "ffconsultantsve",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint --fix . --ext .js,.jsx",
+    "preview": "vite preview",
+    "prepare": "husky install"
+  },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@headlessui/react": "1.7.17",
@@ -15,7 +32,7 @@
   "devDependencies": {
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
-    "@vitejs/plugin-react": "4.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "10.4.15",
     "eslint": "8.45.0",
     "eslint-plugin-react": "7.32.2",
@@ -26,7 +43,7 @@
     "postcss": "8.4.31",
     "prettier": "3.0.3",
     "tailwindcss": "^3.3.3",
-    "vite": "^4.5.9"
+    "vite": "^6.3.5"
   },
   "husky": {
     "hooks": {
@@ -41,17 +58,5 @@
     "*.{ts,js}": [
       "tslint --fix"
     ]
-  },
-  "name": "ffconsultantsve",
-  "private": true,
-  "scripts": {
-    "build": "vite build",
-    "dev": "vite",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint --fix . --ext .js,.jsx",
-    "prepare": "husky install",
-    "preview": "vite preview"
-  },
-  "type": "module",
-  "version": "1.0.0"
+  }
 }

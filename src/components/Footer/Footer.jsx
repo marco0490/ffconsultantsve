@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import Logo from '../../assets/Logo.svg'
+import Logo from '../../assets/images/logo.png'
 import { Link } from 'react-router-dom'
 import { Menu, Transition } from '@headlessui/react'
 import Icon from '../Icon/Icon'
