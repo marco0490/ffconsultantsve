@@ -13,20 +13,20 @@ function PlansQualitas() {
   }, [])
 
   return (
-    <div className="md:my-18 flex flex-col">
+    <div id="Qualitas" className="md:my-18 flex flex-col">
       <Helmet>
         <title>Planes de Cobertura HCM</title>
         <meta name="title" content="Planes de Cobertura HCM" />
         <meta
           name="description"
-          content="Opciones de planes con Qualitas para todo tipo de clientes. Aqui encontrarás lo que necesitas!"
+          content="Opciones de planes con Qualitas para todo tipo de clientes. Aquí encontrarás lo que necesitas!"
         />
       </Helmet>
-      <figure className=" h-auto mx-auto my-8 flex justify-center">
+      <figure className="h-auto mx-auto my-8 flex justify-center">
         <img
-          className="object-cover  h-auto"
-          src={QualitasLogo}
-          alt="Qualitas_logo"
+          className="h-24 object-contain"
+          src="https://www.seguros-qualitas.com/wp-content/uploads/2020/06/Logo-Qualitas_slogan-01.png"
+          alt="Qualitas"
         />
       </figure>
       <div className="w-full px-4 bg-white flex flex-col">
@@ -76,7 +76,7 @@ function PlansQualitas() {
               Cobertura HCM
             </h2>
             <div className="text-center font-semibold mt-4 border-t-2 border-gray-200"></div>
-            <Link to='/cotizador'>
+            <Link to='/cotizador?aseguradora=seguros-qualitas'>
               <button className="text-black w-[200px] border-solid border-2 border-[#efefef] font-bold my-10 mx-auto py-3 bg-white hover:bg-primary hover:text-white">
                 Cotiza este Plan
               </button>
@@ -94,7 +94,7 @@ function PlansQualitas() {
               Cobertura HCM
             </h2>
             <div className="text-center font-semibold mt-4 border-t-2 border-gray-200"></div>
-            <Link to='/cotizador'>
+            <Link to='/cotizador?aseguradora=seguros-qualitas'>
               <button className="text-white w-[200px] border-solid border-2 border-primary bg-primary font-bold my-6 mx-auto py-3 hover:bg-white hover:text-primary">
                 Cotiza este Plan
               </button>
