@@ -13,8 +13,8 @@ function Footer() {
     <div className="flex flex-col items-center bg-white text-primary p-4 max-w-[1100px] mx-auto">
       <div className="w-full h-0.5 bg-primary my-4" />
       <div className="md:grid md:grid-cols-2 lg:grid-cols-3">
-        <div className="w-64 h-32 flex md:mt-6 md:col-start-1 mx-auto">
-          <img className="w-full h-full" src={Logo} alt="Logo" />
+        <div className="w-40 h-40 flex md:mt-6 md:col-start-1 mx-auto">
+          <img className="w-full h-full object-contain" src={Logo} alt="Logo" />
         </div>
 
         <div className="flex flex-col col-start-3">
@@ -57,19 +57,6 @@ function Footer() {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
-                      to="/planes-mercantil"
-                      className={classNames(
-                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm',
-                      )}
-                    >
-                      Mercantil
-                    </Link>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <Link
                       to="/planes-qualitas"
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
@@ -77,6 +64,19 @@ function Footer() {
                       )}
                     >
                       Qualitas
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      to="/planes-mercantil"
+                      className={classNames(
+                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                        'block px-4 py-2 text-sm',
+                      )}
+                    >
+                      Seguros Mercantil
                     </Link>
                   )}
                 </Menu.Item>
@@ -151,10 +151,13 @@ function Footer() {
         </Menu>
       </div>
       <div className="opacity-50 text-primary text-sm text-center my-4 font-normal max-w-[400px] lg:max-w-[700px]">
-        Publicidad aprobada por SUADEASEG a Oliver Sierra CS-4171 & FFC bajo el
-        codigo TVP XXXX-XXX Publicidad aprobada por la SUDEASEG bajo el código
-        TVP-2022-0063-TVP-2023-0048. Copyright © 2023 • Future Financial
-        Consultants C.A.
+        © 2025 • Future Financial Consultants, C.A. — RIF J-30492843-2
+Registrada ante SUDEASEG como INSURTECH • Código INSURT-0004
+ — Plataforma tecnológica del sector asegurador
+Caracas, Venezuela 
+Future Financial Consultants, C.A. no es una empresa de seguros y no asume riesgos propios. Cumple con la obligacion de póliza de responsabilidad civil vigente según normativa SUDEASEG.
+
+
       </div>
     </div>
   )
