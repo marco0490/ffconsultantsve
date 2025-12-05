@@ -12,9 +12,14 @@ const contactInfo = [
     icon: 'FiMapPin',
   },
   {
-    info: '+58 212-2675132 / 412-9713806',
+    info: '+58 212-2675132 / 2654829',
     icon: 'BsTelephoneForward',
   },
+  {
+    info:'+58 412-9713806',
+    icon: 'MdOutlineSos',
+  },
+
 ]
 
 export {
