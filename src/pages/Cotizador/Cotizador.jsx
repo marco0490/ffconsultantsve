@@ -1,17 +1,28 @@
 import { useEffect, useState } from 'react'
 import People from '../../assets/images/people.png'
 import { Helmet } from 'react-helmet'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import emailjs from 'emailjs-com'
 
 function Cotizador() {
+  const [searchParams] = useSearchParams();
+  
   useEffect(() => {
-    window.scroll(0, 0)
-  }, [])
+    window.scroll(0, 0);
+    // Obtener el parámetro de la aseguradora de la URL
+    const aseguradora = searchParams.get('aseguradora');
+    if (aseguradora) {
+      setCompany(aseguradora);
+    }
+  }, [searchParams])
 
   const [company, setCompany] = useState('')
   const [check, setCheck] = useState(false)
+
+  const days = Array.from({ length: 31 }, (_, i) => i + 1)
+  const currentYear = new Date().getFullYear()
+  const years = Array.from({ length: 101 }, (_, i) => currentYear - i)
 
   const handleReset = () => {
     setCompany('')
@@ -136,12 +147,12 @@ function Cotizador() {
                 <select
                   name="aseguradora"
                   id="aseguradora"
-                  onChange={() => setCompany(event.target.value)}
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
                 >
-                  <option value="" disabled selected>
+                  <option value="" disabled>
                     Elige tu Aseguradora
                   </option>
-                  <option value="seguros-mercantil">Seguros Mercantil</option>
                   <option value="seguros-qualitas">Seguros Qualitas</option>
                   <option value="seguros-caracas">Seguros Caracas</option>
                   <option value="seguros-hispana">Seguros Hispana</option>
@@ -227,17 +238,63 @@ function Cotizador() {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <label htmlFor="age" className="hidden">
-                    Edad
+                  <label className="hidden" htmlFor="titular_dia">
+                    Fecha de nacimiento
                   </label>
-                  <input
-                    type="date"
-                    name="age"
-                    id="age"
-                    placeholder="Edad"
-                    autoComplete="off"
-                    required
-                  />
+                  <div className="flex space-x-2">
+                    <select
+                      name="titular_dia"
+                      id="titular_dia"
+                      className="flex flex-col col-span-2"
+                      required
+                    >
+                      <option value="" disabled selected>
+                        Día
+                      </option>
+                      {days.map((d) => (
+                        <option key={d} value={d}>
+                          {d}
+                        </option>
+                      ))}
+                    </select>
+                    <select
+                      name="titular_mes"
+                      id="titular_mes"
+                      className="flex flex-col col-span-2"
+                      required
+                    >
+                      <option value="" disabled selected>
+                        Mes
+                      </option>
+                      <option value="enero">Enero</option>
+                      <option value="febrero">Febrero</option>
+                      <option value="marzo">Marzo</option>
+                      <option value="abril">Abril</option>
+                      <option value="mayo">Mayo</option>
+                      <option value="junio">Junio</option>
+                      <option value="julio">Julio</option>
+                      <option value="agosto">Agosto</option>
+                      <option value="septiembre">Septiembre</option>
+                      <option value="octubre">Octubre</option>
+                      <option value="noviembre">Noviembre</option>
+                      <option value="diciembre">Diciembre</option>
+                    </select>
+                    <select
+                      name="titular_anio"
+                      id="titular_anio"
+                      className="flex flex-col col-span-2"
+                      required
+                    >
+                      <option value="" disabled selected>
+                        Año
+                      </option>
+                      {years.map((y) => (
+                        <option key={y} value={y}>
+                          {y}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
                 <div className="flex flex-col">
                   <label htmlFor="gender" className="hidden">
@@ -324,16 +381,60 @@ function Cotizador() {
                 </div>
 
                 <div className="flex flex-col">
-                  <label htmlFor="age2" className="hidden">
-                    Edad
+                  <label className="hidden" htmlFor="conyuge_dia">
+                    Fecha de nacimiento
                   </label>
-                  <input
-                    type="date"
-                    name="age2"
-                    id="age2"
-                    placeholder="Edad"
-                    autoComplete="off"
-                  />
+                  <div className="flex space-x-2">
+                    <select
+                      name="conyuge_dia"
+                      id="conyuge_dia"
+                      className="flex flex-col col-span-2"
+                    >
+                      <option value="" disabled selected>
+                        Día
+                      </option>
+                      {days.map((d) => (
+                        <option key={d} value={d}>
+                          {d}
+                        </option>
+                      ))}
+                    </select>
+                    <select
+                      name="conyuge_mes"
+                      id="conyuge_mes"
+                      className="flex flex-col col-span-2"
+                    >
+                      <option value="" disabled selected>
+                        Mes
+                      </option>
+                      <option value="enero">Enero</option>
+                      <option value="febrero">Febrero</option>
+                      <option value="marzo">Marzo</option>
+                      <option value="abril">Abril</option>
+                      <option value="mayo">Mayo</option>
+                      <option value="junio">Junio</option>
+                      <option value="julio">Julio</option>
+                      <option value="agosto">Agosto</option>
+                      <option value="septiembre">Septiembre</option>
+                      <option value="octubre">Octubre</option>
+                      <option value="noviembre">Noviembre</option>
+                      <option value="diciembre">Diciembre</option>
+                    </select>
+                    <select
+                      name="conyuge_anio"
+                      id="conyuge_anio"
+                      className="flex flex-col col-span-2"
+                    >
+                      <option value="" disabled selected>
+                        Año
+                      </option>
+                      {years.map((y) => (
+                        <option key={y} value={y}>
+                          {y}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
                 <div className="flex flex-col">
                   <label htmlFor="gender2" className="hidden">
@@ -391,17 +492,49 @@ function Cotizador() {
                 <label htmlFor="beneficiario" className="l-2 block ">
                   No
                 </label>
-                <div className="flex flex-col ms-2 w-[23%]">
-                  <label htmlFor="age3" className="hidden">
-                    Edad
+                <div className="flex flex-col ms-2 w-full">
+                  <label className="text-sm font-medium text-gray-700 mb-1">
+                    Fecha de nacimiento beneficiario 1
                   </label>
-                  <input
-                    type="date"
-                    name="age3"
-                    id="age3"
-                    placeholder="Edad"
-                    autoComplete="off"
-                  />
+                  <div className="flex space-x-2">
+                    <select name="beneficiario1_dia" className="w-full">
+                      <option value="" disabled selected>
+                        Día
+                      </option>
+                      {days.map((d) => (
+                        <option key={d} value={d}>
+                          {d}
+                        </option>
+                      ))}
+                    </select>
+                    <select name="beneficiario1_mes" className="w-full">
+                      <option value="" disabled selected>
+                        Mes
+                      </option>
+                      <option value="enero">Enero</option>
+                      <option value="febrero">Febrero</option>
+                      <option value="marzo">Marzo</option>
+                      <option value="abril">Abril</option>
+                      <option value="mayo">Mayo</option>
+                      <option value="junio">Junio</option>
+                      <option value="julio">Julio</option>
+                      <option value="agosto">Agosto</option>
+                      <option value="septiembre">Septiembre</option>
+                      <option value="octubre">Octubre</option>
+                      <option value="noviembre">Noviembre</option>
+                      <option value="diciembre">Diciembre</option>
+                    </select>
+                    <select name="beneficiario1_anio" className="w-full">
+                      <option value="" disabled selected>
+                        Año
+                      </option>
+                      {years.map((y) => (
+                        <option key={y} value={y}>
+                          {y}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
               <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
@@ -435,17 +568,49 @@ function Cotizador() {
                 <label htmlFor="beneficiario2-no" className="l-2 block ">
                   No
                 </label>
-                <div className="flex flex-col ms-2 w-[23%]">
-                  <label htmlFor="age4" className="hidden">
-                    Edad
+                <div className="flex flex-col ms-2 w-full">
+                  <label className="text-sm font-medium text-gray-700 mb-1">
+                    Fecha de nacimiento beneficiario 2
                   </label>
-                  <input
-                    type="date"
-                    name="age4"
-                    id="age4"
-                    placeholder="Edad"
-                    autoComplete="off"
-                  />
+                  <div className="flex space-x-2">
+                    <select name="beneficiario2_dia" className="w-full">
+                      <option value="" disabled selected>
+                        Día
+                      </option>
+                      {days.map((d) => (
+                        <option key={d} value={d}>
+                          {d}
+                        </option>
+                      ))}
+                    </select>
+                    <select name="beneficiario2_mes" className="w-full">
+                      <option value="" disabled selected>
+                        Mes
+                      </option>
+                      <option value="enero">Enero</option>
+                      <option value="febrero">Febrero</option>
+                      <option value="marzo">Marzo</option>
+                      <option value="abril">Abril</option>
+                      <option value="mayo">Mayo</option>
+                      <option value="junio">Junio</option>
+                      <option value="julio">Julio</option>
+                      <option value="agosto">Agosto</option>
+                      <option value="septiembre">Septiembre</option>
+                      <option value="octubre">Octubre</option>
+                      <option value="noviembre">Noviembre</option>
+                      <option value="diciembre">Diciembre</option>
+                    </select>
+                    <select name="beneficiario2_anio" className="w-full">
+                      <option value="" disabled selected>
+                        Año
+                      </option>
+                      {years.map((y) => (
+                        <option key={y} value={y}>
+                          {y}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
               <div className="flex flex-col mt-2">
