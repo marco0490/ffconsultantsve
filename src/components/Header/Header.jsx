@@ -20,7 +20,9 @@ function Header() {
       <header className="bg-white">
         <nav className="flex justify-between items-center w-[92%] mx-auto max-w-[1700px] mb-10">
           <div>
-            <img className="w-56" src={Logo} alt="logo" />
+            <Link to="/">
+              <img className="w-56 cursor-pointer" src={Logo} alt="logo" />
+            </Link>
           </div>
           <div
             className={`md:static absolute bg-white md:w-auto md:min-h-fit min-h-[50vh] left-0 w-full z-10 flex items-center px-5 
