@@ -17,6 +17,7 @@ import PlansMercantil from './pages/PlansMercantil/PlansMercantil'
 import Agent from './pages/Agent/Agent'
 import Legal from './pages/Legal/Legal'
 import PlansQualitas from './pages/PlansQualitas/PlansQualitas'
+import PlansPiramide from './pages/PlansPiramide/PlansPiramide'
 import Complete from './pages/Complete/Complete'
 import Conditions from './pages/Conditions/Conditions'
 import Cookies from './pages/Cookies/Cookies'
@@ -33,6 +34,7 @@ function App() {
         <Route path="/cotizador" element={<Cotizador />} />
         <Route path="/planes-mercantil" element={<PlansMercantil />} />
         <Route path="/planes-qualitas" element={<PlansQualitas />} />
+        <Route path="/planes-piramide" element={<PlansPiramide />} />
         <Route path="/legal" element={<Legal />} />
         <Route path="/terminos" element={<Conditions />} />
         <Route path="/cookies" element={<Cookies />} />
