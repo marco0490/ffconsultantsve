@@ -70,13 +70,26 @@ function Footer() {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
+                      to="/planes-piramide"
+                      className={classNames(
+                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                        'block px-4 py-2 text-sm',
+                      )}
+                    >
+                      Piramide
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
                       to="/planes-mercantil"
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                         'block px-4 py-2 text-sm',
                       )}
                     >
-                      Seguros Mercantil
+                      Mercantil
                     </Link>
                   )}
                 </Menu.Item>
