@@ -169,6 +169,7 @@ function Cotizador() {
                   <option value="seguros-hispana">Seguros Hispana</option>
                   */}
                   <option value="seguros-piramide">Seguros Piramide</option>
+                  <option value="seguros-oceanica">Seguros Oceanica</option>
                 </select>
               </div>
               <div className="flex flex-col">
@@ -204,6 +205,16 @@ function Cotizador() {
                       <option value="rcv-basica-taxi">RCV Internacional (Colombia-Venezuela)</option>
                       <option value="rcv-exceso-5000-grua">RCV Exceso $5.000 + Grúa</option>
                     </>
+                  ) : company === 'seguros-oceanica' && product === 'auto' ? (
+                    <>
+                      <option value="cobertura-amplia">Cobertura Amplia</option>
+                      <option value="perdida-total">Pérdida Total</option>
+                      <option value="rcv-basica">RCV Básica</option>
+                      <option value="rcv-exceso-5000">RCV Exceso US$ 5000</option>
+                      <option value="rcv-exceso-5000-grua">RCV Exceso US$ 5.000 + Grúa</option>
+                      <option value="rcv-basica-taxi">RCV Básica (TAXI)</option>
+                      <option value="rcv-exceso-5000-taxi">RCV Exceso US$ 5.000 (TAXI)</option>
+                    </>
                   ) : company === 'seguros-piramide' && product === 'personas' ? (
                     <>
                       <option value="hcm-50k">HCM S.A. US$ 50.000</option>
@@ -213,6 +224,18 @@ function Cotizador() {
                       <option value="emergencias-medicas">Emergencias Médicas</option>
                       <option value="servicios-funerarios">Servicios Funerarios</option>
                       <option value="vida">Vida</option>
+                      <option value="pago-unico-cancer">Pago Único por Cáncer</option>
+                      <option value="viajes">Viajes</option>
+                    </>
+                  ) : company === 'seguros-oceanica' && product === 'personas' ? (
+                    <>
+                      <option value="hcm-50k">HCM S.A. US$ 50.000</option>
+                      <option value="hcm-100k">HCM S.A. US$ 100.000</option>
+                      <option value="hcm-200k">HCM S.A. US$ 200.000</option>
+                      <option value="emergencias-medicas">Emergencias Médicas</option>
+                      <option value="vida">Vida</option>
+                      <option value="servicios-funerarios">Servicios Funerarios</option>
+                      <option value="deportes-extremos">Deportes Extremos</option>
                       <option value="pago-unico-cancer">Pago Único por Cáncer</option>
                       <option value="viajes">Viajes</option>
                     </>
@@ -226,6 +249,16 @@ function Cotizador() {
                       <option value="productiva-a-250k">Pirámide Productiva Grupo A - US$ 250.000,00</option>
                       <option value="productiva-a-300k">Pirámide Productiva Grupo A - US$ 300.000,00</option>
                       <option value="hogar-20k">Pirámide Hogar US$ 20.000,00</option>
+                    </>
+                  ) : company === 'seguros-oceanica' && product === 'patrimoniales' ? (
+                    <>
+                      <option value="hogar-20k">Oceánica Hogar US$ 20.000,00</option>
+                      <option value="hogar-60k">Oceánica Hogar US$ 60.000,00</option>
+                      <option value="hogar-100k">Oceánica Hogar US$ 100.000,00</option>
+                      <option value="hogar-150k">Oceánica Hogar US$ 150.000,00</option>
+                      <option value="hogar-200k">Oceánica Hogar US$ 200.000,00</option>
+                      <option value="hogar-250k">Oceánica Hogar US$ 250.000,00</option>
+                      <option value="hogar-300k">Oceánica Hogar US$ 300.000,00</option>
                     </>
                   ) : (
                     <>
