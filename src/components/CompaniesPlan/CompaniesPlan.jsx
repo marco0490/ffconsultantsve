@@ -5,20 +5,24 @@ function CompaniesPlan() {
 
   const handleLogoClick = (company) => {
     // Navegar a la sección correspondiente según la compañía
-    switch(company) {
+    switch (company) {
       case 'qualitas':
         // Navegar a la ruta de planes-qualitas
-        navigate('/planes-qualitas');
-        break;
+        navigate('/planes-qualitas')
+        break
       case 'piramide':
         // Navegar a la ruta de planes-piramide
-        navigate('/planes-piramide');
-        break;
+        navigate('/planes-piramide')
+        break
+      case 'oceanica':
+        // Navegar a la ruta de planes-oceanica
+        navigate('/planes-oceanica')
+        break
       // Agregar más casos para otras compañías cuando sea necesario
       default:
-        break;
+        break
     }
-  };
+  }
 
   return (
     <div className="carousel-container">
@@ -59,6 +63,18 @@ function CompaniesPlan() {
             <img
               src="https://segurospiramide.com/static/logo-piramides-d07524ef35db8b8403dff1b54884e9aa.svg"
               alt="Piramide Seguros"
+              className="hover:opacity-80 transition-opacity"
+            />
+          </button>
+        </div>
+        <div className="carousel-item">
+          <button 
+            onClick={() => handleLogoClick('oceanica')}
+            className="focus:outline-none"
+          >
+            <img
+              src="https://oceanicadeseguros.com/static/oceanica_original-1035af5b673858a792c437cf229007bd.png"
+              alt="Oceanica Seguros"
               className="hover:opacity-80 transition-opacity"
             />
           </button>
@@ -128,6 +144,18 @@ function CompaniesPlan() {
             <img
               src="https://segurospiramide.com/static/logo-piramides-d07524ef35db8b8403dff1b54884e9aa.svg"
               alt="Piramide Seguros"
+              className="hover:opacity-80 transition-opacity"
+            />
+          </button>
+        </div>
+        <div className="carousel-item">
+          <button 
+            onClick={() => handleLogoClick('oceanica')}
+            className="focus:outline-none"
+          >
+            <img
+              src="https://oceanicadeseguros.com/static/oceanica_original-1035af5b673858a792c437cf229007bd.png"
+              alt="Oceanica Seguros"
               className="hover:opacity-80 transition-opacity"
             />
           </button>
