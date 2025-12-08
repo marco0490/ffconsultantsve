@@ -54,6 +54,7 @@ function Footer() {
           >
             <Menu.Items className="absolute right-15 -top-24 z-10 mt-2 w-38 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
               <div className="py-1">
+                {/*
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -67,6 +68,7 @@ function Footer() {
                     </Link>
                   )}
                 </Menu.Item>
+                */}
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -80,6 +82,7 @@ function Footer() {
                     </Link>
                   )}
                 </Menu.Item>
+                {/*
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -93,6 +96,7 @@ function Footer() {
                     </Link>
                   )}
                 </Menu.Item>
+                */}
               </div>
             </Menu.Items>
           </Transition>

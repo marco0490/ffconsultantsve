@@ -24,6 +24,7 @@ function CompaniesPlan() {
     <div className="carousel-container">
       <div className="carousel-track">
         {/* PRIMERA VUELTA */}
+        {/*
         <div className="carousel-item">
           <button 
             onClick={() => handleLogoClick('caracas')}
@@ -48,6 +49,7 @@ function CompaniesPlan() {
             />
           </button>
         </div>
+        */}
 
         <div className="carousel-item">
           <button 
@@ -62,6 +64,7 @@ function CompaniesPlan() {
           </button>
         </div>
 
+        {/*
         <div className="carousel-item">
           <button 
             onClick={() => handleLogoClick('hispana')}
@@ -74,8 +77,10 @@ function CompaniesPlan() {
             />
           </button>
         </div>
+        */}
 
         {/* SEGUNDA VUELTA (para efecto infinito) */}
+        {/*
         <div className="carousel-item">
           <button 
             onClick={() => handleLogoClick('caracas')}
@@ -113,6 +118,8 @@ function CompaniesPlan() {
             />
           </button>
         </div>
+        */}
+
         <div className="carousel-item">
           <button 
             onClick={() => handleLogoClick('piramide')}

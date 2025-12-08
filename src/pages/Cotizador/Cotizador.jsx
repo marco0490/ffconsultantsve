@@ -163,9 +163,11 @@ function Cotizador() {
                   <option value="" disabled>
                     Elige tu Aseguradora
                   </option>
+                  {/*
                   <option value="seguros-qualitas">Seguros Qualitas</option>
                   <option value="seguros-caracas">Seguros Caracas</option>
                   <option value="seguros-hispana">Seguros Hispana</option>
+                  */}
                   <option value="seguros-piramide">Seguros Piramide</option>
                 </select>
               </div>
