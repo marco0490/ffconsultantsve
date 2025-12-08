@@ -34,7 +34,7 @@ function PlansPiramide() {
           Consulta una Cobertura
         </h1>
         <p className="text-primary font-bold text-center text-xl mt-2">
-          HCM - APS - EMERGERNCIA-COLECTIVOS-ADMINISTRADOS
+          
         </p>
         <div className="text-center justify-center my-5 hidden">
           <p
@@ -67,16 +67,16 @@ function PlansPiramide() {
         <div className="min-w-[280px] mx-auto grid md:grid-cols-3 gap-8 md:mt-12 md:mb-6">
           <div className="w-full shadow-xl border border-gray-200 flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300">
             <h2 className="text-lg text-primary font-light text-center py-1">
-              Desde/
+              Desde/Prima Anual
             </h2>
             <p className="text-center text-4xl font-bold">
-              ${enabled ? '490.00' : '5.000'}
+              ${enabled ? '490.00' : '37.00'}
             </p>
             <h2 className="text-center text-primary font-semibold">
-              Cobertura HCM
+              Automóvil
             </h2>
             <div className="text-center font-semibold mt-4 border-t-2 border-gray-200"></div>
-            <Link to='/cotizador?aseguradora=seguros-piramide'>
+            <Link to='/cotizador?aseguradora=seguros-piramide&producto=auto'>
               <button className="text-black w-[200px] border-solid border-2 border-[#efefef] font-bold my-10 mx-auto py-3 bg-white hover:bg-primary hover:text-white">
                 Cotiza este Plan
               </button>
@@ -85,16 +85,16 @@ function PlansPiramide() {
 
           <div className="w-full shadow-xl border border-gray-200 flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300">
             <h2 className="text-lg text-primary font-light text-center py-1 mt-8">
-              Desde/
+              Desde/Suma Asegurada
             </h2>
             <p className="text-center text-4xl font-bold">
               ${enabled ? '490.00' : '50.000'}
             </p>
             <h2 className="text-center text-primary font-semibold">
-              Cobertura HCM
+              Personas
             </h2>
             <div className="text-center font-semibold mt-4 border-t-2 border-gray-200"></div>
-            <Link to='/cotizador?aseguradora=seguros-qualitas'>
+            <Link to='/cotizador?aseguradora=seguros-piramide&producto=personas'>
               <button className="text-white w-[200px] border-solid border-2 border-primary bg-primary font-bold my-6 mx-auto py-3 hover:bg-white hover:text-primary">
                 Cotiza este Plan
               </button>
@@ -103,16 +103,16 @@ function PlansPiramide() {
 
           <div className="w-full shadow-xl border border-gray-200 flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300">
             <h2 className="text-lg text-primary font-light text-center py-1">
-              Desde/
+              Desde/ Suma Asegurada
             </h2>
             <p className="text-center text-4xl font-bold">
-              ${enabled ? '660.00' : '250.000'}
+              ${enabled ? '660.00' : '20.000'}
             </p>
             <h2 className="text-center text-primary font-semibold">
-              Cobertura HCM
+              Patrimoniales
             </h2>
             <div className="text-center font-semibold mt-4 border-t-2 border-gray-200"></div>
-            <Link to="/cotizador">
+            <Link to='/cotizador?aseguradora=seguros-piramide&producto=patrimoniales'>
               <button className="text-black w-[200px] border-solid border-2 border-[#efefef] font-bold my-10 mx-auto py-3 bg-white hover:bg-primary hover:text-white">
                 Cotiza este Plan
               </button>
@@ -121,35 +121,34 @@ function PlansPiramide() {
         </div>
         <div className="md:m-auto pb-12 max-w-[800px]">
           <p>
-            <strong>Los planes de pólizas de salud de Seguros Qualitas,</strong>{' '}
-            han sido diseñadas para indemnizar los posibles gastos de
-            hospitalización, cirugía y maternidad del asegurado y los
-            beneficiarios incluidos, otorgando las siguientes coberturas:
+            <strong>Pirámide Seguros es una compañía de seguros venezolana,</strong>{' '}
+            con una trayectoria de 48 años. Desde sus inicios su norte ha sido claro: velar por el bienestar de sus asegurados.
+Ofreciendo una amplia gama de productos y servicios dentro de los ramos de:
           </p>
           <div className="my-4 md:leading-[0rem]">
             <BsCheckLg
               className="text-center text-[#36cd77] relative top-6 md:top-2 -left-3"
               size={18}
             />
-            <p className="mx-3">Maternidad.</p>
+            <p className="mx-3">Personas.</p>
             <BsCheckLg
               className="text-center text-[#36cd77] relative top-6 md:top-2 -left-3"
               size={18}
             />
-            <p className="mx-3">Gastos por fallecimiento.</p>
+            <p className="mx-3">Automovil.</p>
             <BsCheckLg
               className="text-center text-[#36cd77] relative top-6 md:top-2 -left-3"
               size={18}
             />
             <p className="mx-3">
-              Muerte accidental e invalidez total y permanente.
+              Patrimoniales.
             </p>
             <BsCheckLg
               className="text-center text-[#36cd77] relative top-6 md:top-2 -left-3"
               size={18}
             />
             <p className="mx-3">
-              Cobertura para enfermedades criticas fuera del país.
+              Fianzas.
             </p>
           </div>
         </div>
