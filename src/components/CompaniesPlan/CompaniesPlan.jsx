@@ -10,6 +10,10 @@ function CompaniesPlan() {
         // Navegar a la ruta de planes-qualitas
         navigate('/planes-qualitas');
         break;
+      case 'piramide':
+        // Navegar a la ruta de planes-piramide
+        navigate('/planes-piramide');
+        break;
       // Agregar más casos para otras compañías cuando sea necesario
       default:
         break;
@@ -40,6 +44,19 @@ function CompaniesPlan() {
             <img
               src="https://www.seguros-qualitas.com/wp-content/uploads/2020/06/Logo-Qualitas_slogan-01.png"
               alt="Qualitas"
+              className="hover:opacity-80 transition-opacity"
+            />
+          </button>
+        </div>
+
+        <div className="carousel-item">
+          <button 
+            onClick={() => handleLogoClick('piramide')}
+            className="focus:outline-none"
+          >
+            <img
+              src="https://segurospiramide.com/static/logo-piramides-d07524ef35db8b8403dff1b54884e9aa.svg"
+              alt="Piramide Seguros"
               className="hover:opacity-80 transition-opacity"
             />
           </button>
@@ -92,6 +109,18 @@ function CompaniesPlan() {
             <img
               src="https://www.seguros-qualitas.com/wp-content/uploads/2020/06/Logo-Qualitas_slogan-01.png"
               alt="Qualitas"
+              className="hover:opacity-80 transition-opacity"
+            />
+          </button>
+        </div>
+        <div className="carousel-item">
+          <button 
+            onClick={() => handleLogoClick('piramide')}
+            className="focus:outline-none"
+          >
+            <img
+              src="https://segurospiramide.com/static/logo-piramides-d07524ef35db8b8403dff1b54884e9aa.svg"
+              alt="Piramide Seguros"
               className="hover:opacity-80 transition-opacity"
             />
           </button>

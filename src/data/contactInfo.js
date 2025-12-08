@@ -4,7 +4,7 @@ const contactInfo = [
     icon: 'FaRegClock',
   },
   {
-    info: 'ffconsultants124@outlook.com',
+    info: 'ffconsultantsve@outlook.com',
     icon: 'AiOutlineMail',
   },
   {

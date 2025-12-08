@@ -106,8 +106,8 @@ function Legal() {
       <p>
         Para contactar con FFC puede hacerlo a través del correo electrónico de
         contacto:{' '}
-        <a href="mailto:ffconsultants124@outlook.com" className='text-primary hover:text-purple'>
-          ffconsultants124@outlook.com
+        <a href="mailto:ffconsultantsve@outlook.com" className='text-primary hover:text-purple'>
+          ffconsultantsve@outlook.com
         </a>{' '}
         o a través de{' '}
         <a href="mailto:oliversierrat@gmail.com" className='text-primary hover:text-purple'>oliversierrat@gmail.com</a>.

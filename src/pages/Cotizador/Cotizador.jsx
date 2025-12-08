@@ -8,16 +8,24 @@ import emailjs from 'emailjs-com'
 function Cotizador() {
   const [searchParams] = useSearchParams();
   
+  const [company, setCompany] = useState('')
+  const [product, setProduct] = useState('')
+  const [extraBeneficiaries, setExtraBeneficiaries] = useState(0)
+
   useEffect(() => {
     window.scroll(0, 0);
-    // Obtener el parámetro de la aseguradora de la URL
+    // Obtener parámetros de la URL
     const aseguradora = searchParams.get('aseguradora');
+    const producto = searchParams.get('producto');
     if (aseguradora) {
       setCompany(aseguradora);
     }
+    if (producto) {
+      setProduct(producto);
+    } else {
+      setProduct('');
+    }
   }, [searchParams])
-
-  const [company, setCompany] = useState('')
   const [check, setCheck] = useState(false)
 
   const days = Array.from({ length: 31 }, (_, i) => i + 1)
@@ -26,6 +34,8 @@ function Cotizador() {
 
   const handleReset = () => {
     setCompany('')
+    setProduct('')
+    setExtraBeneficiaries(0)
   }
 
   function sendEmail(e) {
@@ -156,6 +166,7 @@ function Cotizador() {
                   <option value="seguros-qualitas">Seguros Qualitas</option>
                   <option value="seguros-caracas">Seguros Caracas</option>
                   <option value="seguros-hispana">Seguros Hispana</option>
+                  <option value="seguros-piramide">Seguros Piramide</option>
                 </select>
               </div>
               <div className="flex flex-col">
@@ -180,6 +191,39 @@ function Cotizador() {
                       <option value="EMERGERNCIA">EMERGERNCIA</option>
                       <option value="COLECTIVOS">COLECTIVOS</option>
                       <option value="ADMINISTRADOS">ADMINISTRADOS</option>
+                    </>
+                  ) : company === 'seguros-piramide' && product === 'auto' ? (
+                    <>
+                      <option value="cobertura-amplia">Cobertura Amplia</option>
+                      <option value="perdida-total">Pérdida Total</option>
+                      <option value="rcv-basica-placa-nacional">RCV Básica Placa Nacional</option>
+                      <option value="rcv-basica-placa-extranjera">RCV Básica Placa Extranjera</option>
+                      <option value="rcv-basica-taxi">RCV Básica Taxi</option>
+                      <option value="rcv-basica-taxi">RCV Internacional (Colombia-Venezuela)</option>
+                      <option value="rcv-exceso-5000-grua">RCV Exceso $5.000 + Grúa</option>
+                    </>
+                  ) : company === 'seguros-piramide' && product === 'personas' ? (
+                    <>
+                      <option value="hcm-50k">HCM S.A. US$ 50.000</option>
+                      <option value="hcm-75k">HCM S.A. US$ 75.000</option>
+                      <option value="hcm-200k">HCM S.A. US$ 200.000</option>
+                      <option value="accidentes-personales">Accidentes Personales</option>
+                      <option value="emergencias-medicas">Emergencias Médicas</option>
+                      <option value="servicios-funerarios">Servicios Funerarios</option>
+                      <option value="vida">Vida</option>
+                      <option value="pago-unico-cancer">Pago Único por Cáncer</option>
+                      <option value="viajes">Viajes</option>
+                    </>
+                  ) : company === 'seguros-piramide' && product === 'patrimoniales' ? (
+                    <>
+                      <option value="productiva-a-20k">Pirámide Productiva Grupo A - US$ 20.000,00</option>
+                      <option value="productiva-a-60k">Pirámide Productiva Grupo A - US$ 60.000,00</option>
+                      <option value="productiva-a-100k">Pirámide Productiva Grupo A - US$ 100.000,00</option>
+                      <option value="productiva-a-150k">Pirámide Productiva Grupo A - US$ 150.000,00</option>
+                      <option value="productiva-a-200k">Pirámide Productiva Grupo A - US$ 200.000,00</option>
+                      <option value="productiva-a-250k">Pirámide Productiva Grupo A - US$ 250.000,00</option>
+                      <option value="productiva-a-300k">Pirámide Productiva Grupo A - US$ 300.000,00</option>
+                      <option value="hogar-20k">Pirámide Hogar US$ 20.000,00</option>
                     </>
                   ) : (
                     <>
@@ -245,11 +289,11 @@ function Cotizador() {
                     <select
                       name="titular_dia"
                       id="titular_dia"
-                      className="flex flex-col col-span-2"
+                      className="flex flex-col col-span-2 text-[14px]"
                       required
                     >
                       <option value="" disabled selected>
-                        Día
+                        D
                       </option>
                       {days.map((d) => (
                         <option key={d} value={d}>
@@ -260,11 +304,11 @@ function Cotizador() {
                     <select
                       name="titular_mes"
                       id="titular_mes"
-                      className="flex flex-col col-span-2"
+                      className="flex flex-col col-span-2 text-[14px]"
                       required
                     >
                       <option value="" disabled selected>
-                        Mes
+                        M
                       </option>
                       <option value="enero">Enero</option>
                       <option value="febrero">Febrero</option>
@@ -282,11 +326,11 @@ function Cotizador() {
                     <select
                       name="titular_anio"
                       id="titular_anio"
-                      className="flex flex-col col-span-2"
+                      className="flex flex-col col-span-2 text-[14px]"
                       required
                     >
                       <option value="" disabled selected>
-                        Año
+                        A
                       </option>
                       {years.map((y) => (
                         <option key={y} value={y}>
@@ -388,10 +432,10 @@ function Cotizador() {
                     <select
                       name="conyuge_dia"
                       id="conyuge_dia"
-                      className="flex flex-col col-span-2"
+                      className="flex flex-col col-span-2 text-[14px]"
                     >
                       <option value="" disabled selected>
-                        Día
+                        D
                       </option>
                       {days.map((d) => (
                         <option key={d} value={d}>
@@ -402,10 +446,10 @@ function Cotizador() {
                     <select
                       name="conyuge_mes"
                       id="conyuge_mes"
-                      className="flex flex-col col-span-2"
+                      className="flex flex-col col-span-2 text-[14px]"
                     >
                       <option value="" disabled selected>
-                        Mes
+                        M
                       </option>
                       <option value="enero">Enero</option>
                       <option value="febrero">Febrero</option>
@@ -423,10 +467,10 @@ function Cotizador() {
                     <select
                       name="conyuge_anio"
                       id="conyuge_anio"
-                      className="flex flex-col col-span-2"
+                      className="flex flex-col col-span-2 text-[14px]"
                     >
                       <option value="" disabled selected>
-                        Año
+                        A
                       </option>
                       {years.map((y) => (
                         <option key={y} value={y}>
@@ -613,6 +657,175 @@ function Cotizador() {
                   </div>
                 </div>
               </div>
+              {extraBeneficiaries >= 1 && (
+                <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
+                  <h3 className="inline pr-2">
+                    Beneficiario / Fecha de nacimiento:{' '}
+                  </h3>
+                  <input
+                    id="beneficiario3-si"
+                    type="radio"
+                    name="beneficiario3"
+                    value="Si"
+                    className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                    aria-labelledby="beneficiario3"
+                    aria-describedby="beneficiario3"
+                  />
+                  <label htmlFor="beneficiario3" className="l-2 block me-2">
+                    Si
+                  </label>
+                  <input
+                    id="beneficiario3-no"
+                    type="radio"
+                    name="beneficiario3"
+                    value="No"
+                    className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                    aria-labelledby="beneficiario3-no"
+                    aria-describedby="beneficiario3-no"
+                    defaultChecked
+                  />
+                  <label htmlFor="beneficiario3-no" className="l-2 block ">
+                    No
+                  </label>
+                  <div className="flex flex-col ms-2 w-full">
+                    <label className="text-sm font-medium text-gray-700 mb-1">
+                      Fecha de nacimiento beneficiario 3
+                    </label>
+                    <div className="flex space-x-2">
+                      <select name="beneficiario3_dia" className="w-full">
+                        <option value="" disabled selected>
+                          Día
+                        </option>
+                        {days.map((d) => (
+                          <option key={d} value={d}>
+                            {d}
+                          </option>
+                        ))}
+                      </select>
+                      <select name="beneficiario3_mes" className="w-full">
+                        <option value="" disabled selected>
+                          Mes
+                        </option>
+                        <option value="enero">Enero</option>
+                        <option value="febrero">Febrero</option>
+                        <option value="marzo">Marzo</option>
+                        <option value="abril">Abril</option>
+                        <option value="mayo">Mayo</option>
+                        <option value="junio">Junio</option>
+                        <option value="julio">Julio</option>
+                        <option value="agosto">Agosto</option>
+                        <option value="septiembre">Septiembre</option>
+                        <option value="octubre">Octubre</option>
+                        <option value="noviembre">Noviembre</option>
+                        <option value="diciembre">Diciembre</option>
+                      </select>
+                      <select name="beneficiario3_anio" className="w-full">
+                        <option value="" disabled selected>
+                          Año
+                        </option>
+                        {years.map((y) => (
+                          <option key={y} value={y}>
+                            {y}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {extraBeneficiaries >= 2 && (
+                <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
+                  <h3 className="inline pr-2">
+                    Beneficiario / Fecha de nacimiento:{' '}
+                  </h3>
+                  <input
+                    id="beneficiario4-si"
+                    type="radio"
+                    name="beneficiario4"
+                    value="Si"
+                    className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                    aria-labelledby="beneficiario4"
+                    aria-describedby="beneficiario4"
+                  />
+                  <label htmlFor="beneficiario4" className="l-2 block me-2">
+                    Si
+                  </label>
+                  <input
+                    id="beneficiario4-no"
+                    type="radio"
+                    name="beneficiario4"
+                    value="No"
+                    className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                    aria-labelledby="beneficiario4-no"
+                    aria-describedby="beneficiario4-no"
+                    defaultChecked
+                  />
+                  <label htmlFor="beneficiario4-no" className="l-2 block ">
+                    No
+                  </label>
+                  <div className="flex flex-col ms-2 w-full">
+                    <label className="text-sm font-medium text-gray-700 mb-1">
+                      Fecha de nacimiento beneficiario 4
+                    </label>
+                    <div className="flex space-x-2">
+                      <select name="beneficiario4_dia" className="w-full">
+                        <option value="" disabled selected>
+                          Día
+                        </option>
+                        {days.map((d) => (
+                          <option key={d} value={d}>
+                            {d}
+                          </option>
+                        ))}
+                      </select>
+                      <select name="beneficiario4_mes" className="w-full">
+                        <option value="" disabled selected>
+                          Mes
+                        </option>
+                        <option value="enero">Enero</option>
+                        <option value="febrero">Febrero</option>
+                        <option value="marzo">Marzo</option>
+                        <option value="abril">Abril</option>
+                        <option value="mayo">Mayo</option>
+                        <option value="junio">Junio</option>
+                        <option value="julio">Julio</option>
+                        <option value="agosto">Agosto</option>
+                        <option value="septiembre">Septiembre</option>
+                        <option value="octubre">Octubre</option>
+                        <option value="noviembre">Noviembre</option>
+                        <option value="diciembre">Diciembre</option>
+                      </select>
+                      <select name="beneficiario4_anio" className="w-full">
+                        <option value="" disabled selected>
+                          Año
+                        </option>
+                        {years.map((y) => (
+                          <option key={y} value={y}>
+                            {y}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {extraBeneficiaries < 2 && (
+                <div className="flex justify-start mt-2">
+                  <button
+                    type="button"
+                    className="flex items-center text-primary font-semibold text-sm hover:text-blue-700"
+                    onClick={() =>
+                      setExtraBeneficiaries((prev) => (prev < 2 ? prev + 1 : prev))
+                    }
+                  >
+                    <span className="mr-1 text-lg font-bold">+</span>
+                    Agregar Nuevo Beneficiario
+                  </button>
+                </div>
+              )}
+
               <div className="flex flex-col mt-2">
                 <label htmlFor="comment" className="hidden">
                   Consulta
