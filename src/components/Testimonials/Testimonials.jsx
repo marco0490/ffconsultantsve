@@ -27,7 +27,7 @@ function Testimonials() {
             />
             <div className="ms-2">
               <p className="text-primary font-bold">Rebeca Barroeta</p>
-              <p className="font-semibold">Cliente Mercantil</p>
+              <p className="font-semibold">Cliente Piramide</p>
             </div>
           </div>
         </div>
@@ -73,7 +73,7 @@ function Testimonials() {
             />
             <div className="ms-2">
               <p className="text-primary font-bold">Carlos Colmenares</p>
-              <p className="font-semibold">Cliente Qualitas</p>
+              <p className="font-semibold">Cliente Oceanica</p>
             </div>
           </div>
         </div>
