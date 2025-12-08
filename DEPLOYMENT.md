@@ -169,7 +169,7 @@ npm run format
 ## 📞 Soporte
 
 **Contacto del Proyecto:**
-- Email: ffconsultants124@outlook.com
+- Email: ffconsultantsve@outlook.com
 - Teléfono: +58 212-2675132 / 412-9713806
 - Ubicación: Caracas, Venezuela
 

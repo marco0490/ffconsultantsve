@@ -201,10 +201,10 @@ function ContactForm() {
           <div className="flex">
             <AiOutlineMail className="text-2xl relative top-1 pr-2" />
             <a
-              href="mailto:ffconsultants124@outlook.com?subject=Consulta enviada desde WEB"
+              href="mailto:ffconsultantsve@outlook.com?subject=Consulta enviada desde WEB"
               className="text-lg hover:text-purple"
             >
-              ffconsultants124@outlook.com
+              ffconsultantsve@outlook.com
             </a>
           </div>
 

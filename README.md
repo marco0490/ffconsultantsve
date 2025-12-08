@@ -406,7 +406,7 @@ git push
 ### 🏢 **Información de la Empresa**
 
 - **Nombre**: Future Financial Consultants Venezuela
-- **Email**: ffconsultants124@outlook.com
+- **Email**: ffconsultantsve@outlook.com
 - **Teléfonos**: +58 212-2675132 / 412-9713806
 - **Dirección**: Av. San Felipe, Centro Coinasa, Caracas, Venezuela
 - **Horarios**: Lun-Vie: 8:00 am - 5:00 pm
@@ -424,7 +424,7 @@ git push
 1. **Describir** el problema detalladamente
 2. **Incluir** capturas de pantalla si es posible
 3. **Mencionar** qué navegador y dispositivo usas
-4. **Enviar** a: ffconsultants124@outlook.com
+4. **Enviar** a: ffconsultantsve@outlook.com
 
 #### 🔧 **Para Cambios en el Sistema:**
 1. **Especificar** qué quieres cambiar
