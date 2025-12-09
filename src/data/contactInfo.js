@@ -12,7 +12,7 @@ const contactInfo = [
     icon: 'FiMapPin',
   },
   {
-    info: '+58 212-2675132 / 2654829',
+    info: '+58 212-2675132 / 2654829 / 2672486',
     icon: 'BsTelephoneForward',
   },
   {

@@ -210,7 +210,7 @@ function ContactForm() {
 
           <div className="flex">
             <BsTelephoneForward className="text-2xl relative top-1 pr-2" />
-            <p className="text-lg">+58 212-2675132 / 412-9713806 </p>
+            <p className="text-lg">+58 212-2675132 / 412-9713806 / 267-24-86 </p>
           </div>
 
           <div className="flex">
