@@ -220,7 +220,6 @@ function AutoFields({ company, product, days, years }) {
           <option value="" disabled selected>
             Tipo de transmisión
           </option>
-          <option value="manual">Manual</option>
           <option value="automatica">Automática</option>
           <option value="sincronica">Sincrónica</option>
           <option value="otra">Otra</option>
