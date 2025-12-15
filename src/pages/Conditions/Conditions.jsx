@@ -22,7 +22,7 @@ function Conditions() {
 
       <p>
         Los presentes Términos y Condiciones contienen los acuerdos y
-        condiciones de uso que regulan el la utilización de la página web{' '}
+        condiciones de uso que regulan la utilización de la página web{' '}
         <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
@@ -31,7 +31,7 @@ function Conditions() {
           FUTURE FINANCIAL CONSULTANTS, C.A. (referida también como FFC),
         </span>{' '}
         inscrita en el Registro Mercantil Primero del Distrito Capital en el año
-        1997, domiciliada en Caracas - Venezuela (Expediente 491019). En
+        1997, domiciliada en Caracas, Venezuela (Expediente 491019). En
         adelante, cualquier referencia en la página web señalada a Términos y
         Condiciones, se refiere al contenido del presente documento.
       </p>
@@ -56,7 +56,7 @@ function Conditions() {
         para la Salud. Igualmente, ofrece la posibilidad de contratarlos y
         gestionar el cumplimiento de las obligaciones de las partes durante la
         vida de los contratos, de forma 100% digital (página web, WhatsApp
-        Business y otros) de forma confiable y segura; con la asesoría e
+        Business y otros), de forma confiable y segura; con la asesoría e
         intermediación del departamento dirigido por nuestro Corredor de Seguros
         Oliver Sierra Nº 4171 (Corredor de Seguros Autorizado), según
         autorización emanada de la SUDEASEG.
@@ -73,9 +73,9 @@ function Conditions() {
         <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
-        , obligándose a no utilizarlas para (incluyendo pero sin limitarse a (i)
+        , obligándose a no utilizarlas para, incluyendo pero sin limitarse a: (i)
         participar en actividades ilegales o contrarias a la buena fe y al orden
-        público; (ii) utilizar la plataforma digital o los servivios ofrecidos
+        público; (ii) utilizar la plataforma digital o los servicios ofrecidos
         por FFC, para realizar actividades tipificadas como legitimación de
         capitales o lavado de activos conforme a la legislación venezolana o
         internacional; (iii) difundir contenidos o propaganda de carácter
@@ -113,9 +113,9 @@ function Conditions() {
 
       <p>
         <span className="font-bold">d.</span> No proporcionar datos falsos. El
-        Usuario entiende, y al acceder a la pagina, autoriza a FFC a entregar la
-        información personal suministradas a las empresas de seguros cuyo
-        servicios se esten cotizando o contratando, y la misma servirá de base
+        Usuario entiende y, al acceder a la página, autoriza a FFC a entregar la
+        información personal suministrada a las empresas de seguros cuyos
+        servicios se estén cotizando o contratando, y la misma servirá de base
         para la eventual contratación de las pólizas o contrato de medicina
         prepagada. En caso de dudas, acerca de la información que le es
         requerida, podrá contactar a nuestro Corredor de Seguros Autorizado,
@@ -145,7 +145,7 @@ function Conditions() {
       <p>
         Nuestro servicio es totalmente gratuito en esta primera fase (V-1.0) y
         está orientado a la intermediación de pólizas de seguro y medicina
-        prepagada autorizadas y emitidas por empresas de Seguro Venezolanas, así
+        prepagada autorizadas y emitidas por empresas de seguros venezolanas, así
         como planes de atención en salud, en un ambiente 100% digital; pero
         podrá establecerse en el futuro un cobro por suscripción a la página web{' '}
         <Link to="/" className="text-primary hover:text-purple">
@@ -271,8 +271,8 @@ function Conditions() {
       </p>
 
       <p>
-        Los datos se almacenan en Bases de datos SQL bajo sistema de servidores
-        en US bajo la licencia de Microsoft service en la nube (cloud services).{' '}
+        Los datos se almacenan en bases de datos SQL bajo sistema de servidores
+        en EE. UU., bajo la licencia de Microsoft service en la nube (cloud services).{' '}
       </p>
 
       <p className="font-bold">c. ¿Por qué FFC almacena información?</p>
@@ -297,8 +297,8 @@ function Conditions() {
       <p>
         FFC almacena información durante la vigencia del registro activo en los
         servicios web de FFC, o de la vigencia de la contratación de Los
-        Productos, en concordancia con los periodos establecidos en la normativa
-        vigente, para datos de salud.
+        Productos, en concordancia con los períodos establecidos en la normativa
+        vigente para datos de salud.
       </p>
 
       <p className="font-bold">e. ¿Cómo protege su Información Personal FFC?</p>
@@ -321,13 +321,12 @@ function Conditions() {
       <p>
         <span className="font-bold">i.</span> Para poder proveer nuestros
         productos y servicios contratados con nuestras entidades asociadas
-        (empresas de seguro, reaseguros, medicina prepagada o prestadores de
+        (empresas de seguros, reaseguros, medicina prepagada o prestadores de
         servicios de atención en salud);
       </p>
 
       <p>
-        <span className="font-bold">ii.</span>
-         Con fines publicitarios y de marketing;{' '}
+        <span className="font-bold">ii.</span> Con fines publicitarios y de marketing;{' '}
         <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
@@ -405,10 +404,10 @@ function Conditions() {
         servicios de los definidos en este documento, el Usuario deberá enviar
         una solicitud acompañada de un documento de identidad a{' '}
         <a
-          href="mailto:ffconsultantsve124@outlook.com"
+          href="mailto:ffconsultantsve@outlook.com"
           className="text-primary hover:text-purple"
         >
-          ffconsultantsve124@outlook.com
+          ffconsultantsve@outlook.com
         </a>{' '}
         o solución digital que se ponga a su disposición en la página, con este
         fin. Quedan a salvo las previsiones legales en cuanto al cambio de
@@ -421,7 +420,7 @@ function Conditions() {
       </h2>
 
       <p>
-        Los servicios de FFC han sido diseñados pensando en la necesidad del 
+        Los servicios de FFC han sido diseñados pensando en la necesidad del
         público en general, así como en personas
         jurídicas -principalmente pequeñas y medianas empresas- domiciliadas en
         Venezuela; que buscan la mejor opción de pólizas de seguro, medicina
@@ -703,11 +702,11 @@ function Conditions() {
         consentimiento previo.
       </p>
 
-      <h2 className="font-bold text-xl">9. Copy-rigth©</h2>
+      <h2 className="font-bold text-xl">9. Copy-right©</h2>
 
       <p>
         El copyright del material contenido en esta web pertenece a Future
-        Financial Consultants C.A.; cualquier individuo actuando como persona
+        Financial Consultants, C.A.; cualquier individuo actuando como persona
         privada puede imprimir una copia de cualquier parte de este material
         para su propio uso personal, sujeto a las siguientes condiciones:
       </p>
@@ -726,7 +725,7 @@ function Conditions() {
         <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
-         (Licencias y otras formas legales de uso de derechos reservados).
+        (Licencias y otras formas legales de uso de derechos reservados).
       </p>
 
       <h2 className="font-bold text-xl">
