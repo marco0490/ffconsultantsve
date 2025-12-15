@@ -29,8 +29,8 @@ function Home() {
         />
       </Helmet>
       <ActionSection />
-      <Howto />
       <CompaniesPlan />
+      <Howto />
       <Testimonials />
     </>
   )
