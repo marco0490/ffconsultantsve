@@ -22,7 +22,7 @@ function Conditions() {
 
       <p>
         Los presentes Términos y Condiciones contienen los acuerdos y
-        condiciones de uso que regulan el la utilización de la página web{' '}
+        condiciones de uso que regulan la utilización de la página web{' '}
         <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
@@ -31,7 +31,7 @@ function Conditions() {
           FUTURE FINANCIAL CONSULTANTS, C.A. (referida también como FFC),
         </span>{' '}
         inscrita en el Registro Mercantil Primero del Distrito Capital en el año
-        1997, domiciliada en Caracas - Venezuela (Expediente 491019). En
+        1997, domiciliada en Caracas, Venezuela (Expediente 491019). En
         adelante, cualquier referencia en la página web señalada a Términos y
         Condiciones, se refiere al contenido del presente documento.
       </p>
@@ -56,10 +56,7 @@ function Conditions() {
         para la Salud. Igualmente, ofrece la posibilidad de contratarlos y
         gestionar el cumplimiento de las obligaciones de las partes durante la
         vida de los contratos, de forma 100% digital (página web, WhatsApp
-        Business y otros) de forma confiable y segura; con la asesoría e
-        intermediación del departamento dirigido por nuestro Corredor de Seguros
-        Oliver Sierra Nº 4171 (Corredor de Seguros Autorizado), según
-        autorización emanada de la SUDEASEG.
+        Business y otros), de forma confiable y segura.
       </p>
 
       <h2 className="font-bold text-xl">1. Creación del Usuario</h2>
@@ -73,9 +70,9 @@ function Conditions() {
         <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
-        , obligándose a no utilizarlas para (incluyendo pero sin limitarse a (i)
+        , obligándose a no utilizarlas para, incluyendo pero sin limitarse a: (i)
         participar en actividades ilegales o contrarias a la buena fe y al orden
-        público; (ii) utilizar la plataforma digital o los servivios ofrecidos
+        público; (ii) utilizar la plataforma digital o los servicios ofrecidos
         por FFC, para realizar actividades tipificadas como legitimación de
         capitales o lavado de activos conforme a la legislación venezolana o
         internacional; (iii) difundir contenidos o propaganda de carácter
@@ -113,12 +110,12 @@ function Conditions() {
 
       <p>
         <span className="font-bold">d.</span> No proporcionar datos falsos. El
-        Usuario entiende, y al acceder a la pagina, autoriza a FFC a entregar la
-        información personal suministradas a las empresas de seguros cuyo
-        servicios se esten cotizando o contratando, y la misma servirá de base
-        para la eventual contratación de las pólizas o contrato de medicina
-        prepagada. En caso de dudas, acerca de la información que le es
-        requerida, podrá contactar a nuestro Corredor de Seguros Autorizado,
+        Usuario entiende y, al acceder a la página, autoriza a FFC a entregar la
+        información personal suministrada a las empresas de seguros cuyos
+        servicios se estén cotizando o contratando, y la misma servirá de base
+        para la eventual contratación de las pólizas. 
+        En caso de dudas, acerca de la información que le es
+        requerida, podrá contactar a nuestro personal,
         mediante los distintos canales de soporte al usuario (Como por ejemplo,
         WhatsApp Business, correo electrónico, o cualquier otro software de
         comunicación digital que esté disponible, contacto directo vía
@@ -144,9 +141,8 @@ function Conditions() {
 
       <p>
         Nuestro servicio es totalmente gratuito en esta primera fase (V-1.0) y
-        está orientado a la intermediación de pólizas de seguro y medicina
-        prepagada autorizadas y emitidas por empresas de Seguro Venezolanas, así
-        como planes de atención en salud, en un ambiente 100% digital; pero
+        está orientado a la intermediación de pólizas de seguro, autorizadas y emitidas por empresas de seguros venezolanas
+        , en un ambiente 100% digital; pero
         podrá establecerse en el futuro un cobro por suscripción a la página web{' '}
         <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
@@ -200,8 +196,7 @@ function Conditions() {
         el Formulario de Información Personal, y si los datos no son suyos o el
         titular no conoce o aprueba el contenido de esta página, no somos
         responsables de las condiciones y términos del contrato de seguro que
-        suscriba con el asegurador o plan de atención en salud que  contrate con
-        el prestador de servicios de salud, o cualquier Producto de los
+        suscriba con el asegurador cualquier Producto de los
         ofrecidos en la pagina web; ni de problemas o quejas que puedan surgir
         en su relación con el mismo. Las páginas web con las que puede conectar
         desde la nuestra, son propiedad y están gestionadas por entidades ajenas
@@ -225,15 +220,13 @@ function Conditions() {
       <p>
         FFC recopila la información suministrada por el Usuario al momento de
         crear una cuenta en la página web o App-móvil, que es necesaria para
-        obtener el registro, tales como: nombre, apellido, fecha de nacimiento y
+        obtener el registro, tales como: nombre, apellido, fecha de nacimiento, C.I. y
         dirección de correo electrónico.
       </p>
 
       <p>
-        En caso de cotización o contratación de los productos de seguros de
-        salud, medicina prepagada o planes de servicios ofrecidos por
-        prestadores de servicio de atención en salud (en adelante Los
-        Productos); FFC recopila información de datos personales sensibles tales
+        En caso de cotización o contratación de los productos de seguros ofrecidos por
+        las Aseguradoras; FFC recopila información de datos personales sensibles tales
         como datos de salud e identificación de las personas físicas. Los datos
         sensibles serán utilizados con el objeto de la elegibilidad e
         identificación de la persona en cuestión para la contratación de Los
@@ -271,8 +264,8 @@ function Conditions() {
       </p>
 
       <p>
-        Los datos se almacenan en Bases de datos SQL bajo sistema de servidores
-        en US bajo la licencia de Microsoft service en la nube (cloud services).{' '}
+        Los datos se almacenan en bases de datos SQL bajo sistema de servidores
+        en EE.UU., bajo la licencia de Microsoft service en la nube (cloud services).{' '}
       </p>
 
       <p className="font-bold">c. ¿Por qué FFC almacena información?</p>
@@ -284,8 +277,7 @@ function Conditions() {
 
       <p>
         En el caso de datos de salud, se almacenan por motivos de elegibilidad
-        de Los Productos, y que las empresas de seguros, reaseguros, medicina
-        prepagada o prestadores de servicios de atención en salud, puedan
+        de Los Productos, y que las empresas de seguros, puedan
         autorizar dicha contratación. Es importante revisar y validar la
         veracidad de la información suministrada en estos formularios, pues la
         misma constituye la base de contratación de Los Productos, teniendo
@@ -297,8 +289,8 @@ function Conditions() {
       <p>
         FFC almacena información durante la vigencia del registro activo en los
         servicios web de FFC, o de la vigencia de la contratación de Los
-        Productos, en concordancia con los periodos establecidos en la normativa
-        vigente, para datos de salud.
+        Productos, en concordancia con los períodos establecidos en la normativa
+        vigente para datos de salud.
       </p>
 
       <p className="font-bold">e. ¿Cómo protege su Información Personal FFC?</p>
@@ -321,13 +313,11 @@ function Conditions() {
       <p>
         <span className="font-bold">i.</span> Para poder proveer nuestros
         productos y servicios contratados con nuestras entidades asociadas
-        (empresas de seguro, reaseguros, medicina prepagada o prestadores de
-        servicios de atención en salud);
+        (empresas de seguros);
       </p>
 
       <p>
-        <span className="font-bold">ii.</span>
-         Con fines publicitarios y de marketing;{' '}
+        <span className="font-bold">ii.</span> Con fines publicitarios y de marketing;{' '}
         <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
@@ -405,10 +395,10 @@ function Conditions() {
         servicios de los definidos en este documento, el Usuario deberá enviar
         una solicitud acompañada de un documento de identidad a{' '}
         <a
-          href="mailto:ffconsultantsve124@outlook.com"
+          href="mailto:ffconsultantsve@outlook.com"
           className="text-primary hover:text-purple"
         >
-          ffconsultantsve124@outlook.com
+          ffconsultantsve@outlook.com
         </a>{' '}
         o solución digital que se ponga a su disposición en la página, con este
         fin. Quedan a salvo las previsiones legales en cuanto al cambio de
@@ -421,19 +411,17 @@ function Conditions() {
       </h2>
 
       <p>
-        Los servicios de FFC han sido diseñados pensando en la necesidad del 
+        Los servicios de FFC han sido diseñados pensando en la necesidad del
         público en general, así como en personas
         jurídicas -principalmente pequeñas y medianas empresas- domiciliadas en
-        Venezuela; que buscan la mejor opción de pólizas de seguro, medicina
-        prepagada o servicios de asistencia en salud ofrecidos por prestadores
-        de servicios; para sí mismos, sus familiares o sus empleados; donde las
+        Venezuela; que buscan la mejor opción de pólizas de seguro, ofrecidos por
+         las Aseguradoras; para sí mismos, sus familiares o sus empleados; donde las
         plataformas digitales tienen la potencialidad de ofrecer información
         segura y confiable, así como transacciones de contratación y pago, sobre
-        los nuevos productos diseñados por las empresas de seguros, medicina
-        prepagada, o prestadores de servicios de salud primaria o de emergencia,
+        los nuevos productos diseñados por las empresas de seguros,
         para este segmento generacional, haciendo cada vez más accesibles los
         mismos, lo que implica, la posibilidad de ampliar las coberturas de
-        seguros y prestación de servicios de salud en la población venezolana, a
+        seguros en la población venezolana, a
         más bajo costo, con transacciones 100% digitales, que hacen más
         eficiente el proceso y más accesibles estos servicios fundamentales para
         los Usuarios.
@@ -451,8 +439,7 @@ function Conditions() {
       <p>
         <span className="font-bold">a.</span> Consultar sobre productos y
         servicios disponibles en materia de salud en el mercado venezolano,
-        ofrecidos por empresas de seguros, reaseguros, medicina prepagada o
-        directamante por prestadores de servicios de salud, legalmente
+        ofrecidos por empresas de seguros, legalmente
         autorizados para actuar como tales en Venezuela.
       </p>
 
@@ -469,7 +456,7 @@ function Conditions() {
 
       <p>
         En caso de dudas, acerca de la información que le es requerida, podrá
-        contactar a nuestro Corredor de Seguros Autorizado, mediante los
+        contactar a nuestro personal, mediante los
         distintos canales de soporte al usuario que ponemos a su disposición
         (Como por ejemplo, WhatsApp Business, correo electrónico, o cualquier
         otro software de comunicación digital que esté disponible en el futuro, o
@@ -480,7 +467,7 @@ function Conditions() {
         <span className="font-bold">c.</span> Contratar los servicios o pólizas
         de su preferencia, en un ambiente 100% digital, de conformidad con la
         Legislación Venezolana en la materia, con la asesoría debida del
-        Corredor de Seguros Autorizado. Una vez completado el cuestionario,
+        personal. Una vez completado el cuestionario,
         revisado para evitar errores y aceptado por usted, se le presentará la
         comparativa de las cotizaciones. Igualmente recibirá un correo
         electrónico con la comparativa. Podrá hacer modificaciones en línea.
@@ -490,22 +477,20 @@ function Conditions() {
         <span className="font-bold">d.</span> Realizar pagos a través de medios
         electrónicos previstos y autorizados por el sistema bancario nacional
         (plataformas externas a nuestra página) obteniendo para ello los recibos
-        correspondientes directamente de las empresas de seguros, reaseguros,
-        medicina prepagada o servicios de atención en salud, correspondientes,
+        correspondientes directamente de las empresas de seguros correspondientes,
         de conformidad con la legislación venezolana.
       </p>
 
       <p>
         <span className="font-bold">e.</span> Intercambiar información durante
         la vida del contrato para, facilitar o canalizar el cumplimiento de las
-        obligaciones que asuma el Usuario con la empresa de seguros, reaseguros,
-        medicina prepagada o servicios de asistencia en salud; así como también,
+        obligaciones que asuma el Usuario con la empresa de seguros; así como también,
         exigir el cumplimiento de las obligaciones de la otra parte (empresas
-        aliadas). Esta información podrá ser suministrata también directamante a
+        aliadas). Esta información podrá ser suministrada también directamente a
         las empresas oferentes mediante los enlaces a sus páginas o plataformas
         digitales autorizadas a ellas y según sus términos y condiciones,
         dejando a salvo los derechos adquiridos por la intermediación del
-        Corredor de Seguros Autorizado, de ser el caso. FFC no asume ninguna
+        personal de ser el caso. FFC no asume ninguna
         responsabilidad por la información suministrada en oportunidad y
         contenido, que se realice directamente a través de las páginas de estas
         empresas, por lo que deberán leer sus propios términos y condiciones, y
@@ -522,23 +507,20 @@ function Conditions() {
         pudiera surgir para realizar la contratación efectiva del Producto que
         requiere, o la cobertura de algún evento o canalización de orden de
         servicio, según corresponda; de forma 100% digital. Siempre y cuando se
-        mantenga solvente con los prestadores de servicios de salud, o empresas
-        de seguro, reaseguro o medicina prepagada que haya elegido, tomaremos
+        mantenga solvente con los prestadores de servicios de salud, o empresa
+        de seguro que haya elegido, tomaremos
         todas las acciones razonables para estructurar los planes o programas
         derivados de Los Productos, según la disposición de los aseguradores o
         prestadores de servicios de salud, en los documentos legales
         establecidos al efecto (pólizas, condicionados generales, anexos o
-        modificaciones de contratos de seguro, reaseguro, medicina prepagada, o
-        contratos de planes de salud ofrecidos por los prestadores de servicios
-        de atención en salud autorizados) antes de la fecha de inicio de la
+        modificaciones de contratos de seguro, ofrecidos por las Aseguradoras) antes de la fecha de inicio de la
         vigencia, renovación o extensión de cobertura o plan de salud (según sea
         el caso, conforme a Los Productos escogidos) y durante la vida de los
         mismos.
       </p>
 
       <p>
-        Los usuarios podrán entonces, gestionar sus contratos de pólizas y de
-        planes de atención en salud, de forma rápida, fácil y segura, sin
+        Los usuarios podrán entonces, gestionar sus contratos de pólizas, de forma rápida, fácil y segura, sin
         papeleos ni complicaciones, a través de un ambiente 100% digital. Dando
         aviso de forma inmediata y oportuna por los canales digitales que
         ponemos a disposición del Usuario, de la ocurrencia de algún evento o la
@@ -553,7 +535,7 @@ function Conditions() {
         confirmación del usuario de que que está siendo atendido, y si existiera
         algún inconveniente o falta de información en este proceso; FFC podrá
         intervenir, para facilitar la información a cualquiera de las partes,
-        para que el servicio sea prestado oportuna y efectivamante; todo,
+        para que el servicio sea prestado oportuna y efectivamente; todo,
         gestionado digitalmente.
       </p>
 
@@ -563,8 +545,7 @@ function Conditions() {
         planes de atención en salud adquiridos; para ratificar que reflejen con
         precisión las condiciones, cláusulas, amparos y coberturas contratadas,
         límites, deducibles y demás términos y condiciones de los referidos
-        contratos. Cuando se trate de contratos de seguros, reaseguros y
-        medicina prepagada, le recomendamos hacer énfasis en las condiciones y
+        contratos. Cuando se trate de contratos de seguros, le recomendamos hacer énfasis en las condiciones y
         garantías de todas las pólizas, ya que el no cumplirlas pudiera anular
         su cobertura. Además, lea detenidamente las disposiciones referidas a
         los plazos para la notificación de siniestros y presentación de
@@ -608,14 +589,13 @@ function Conditions() {
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         , es una marca comercial perteneciente a Future Financial Consultants
-        C.A., (Ver Aviso Legal – Términos y Condiciones), dados bajo licencia al
-        Corredor de Seguros y Analista de Riesgo{' '}
-        <strong>Oliver Sierra Tua</strong>, debidamente registrado ante la
-        Superintendencia de la Actividad Aseguradora, bajo el código CS-No 4171.
+        C.A., (Ver Aviso Legal – Términos y Condiciones), 
+        inscrita en la Superintendencia de la Actividad Aseguradora con el Nro. INSURT-0004,
+        mediante oficio Nro. SAA-07-6002 de fecha 03-09-2025.
       </p>
 
       <h2 className="font-bold text-xl">
-        6. Politica de Prevención y Control de Legitimación de Capitales y
+        6. Política de Prevención y Control de Legitimación de Capitales y
         Financiamiento al Terrorismo
       </h2>
 
@@ -628,7 +608,7 @@ function Conditions() {
         se trabaja para detectar operaciones o transacciones sospechosas que no
         tengan una justificación lógica y legal, las cuales serán reportadas
         -pudiendo utilizar la información suministrada por el Usuario, conforme
-        a lo señalado en la Politica de Privacidad y Uso de Datos; siguiendo
+        a lo señalado en la Política de Privacidad y Uso de Datos; siguiendo
         para ello las normas y procedimientos online puestos a disposición por
         la Superintendencia de la Actividad Aseguradora, para Reportar
         Actividades Sospechosas del Sector Seguros. Este formulario permite
@@ -661,15 +641,7 @@ function Conditions() {
         . Su dirección de e-mail e información de contacto, serán utilizadas
         únicamente por nosotros, como viene indicado en nuestra Política de
         Privacidad y Uso de Datos Personales, y por la compañía que usted
-        seleccione para contratar su póliza, contrato de medicina prepagada o
-        plan de atención en salud.
-      </p>
-
-      <p>
-        También disponemos de acuerdos con los proveedores, intermediarios y
-        representantes, cuyas páginas visitamos utilizando nuestra tecnología,
-        para prevenir el envío de comunicaciones por e-mail fuera de estos
-        términos.
+        seleccione para contratar su póliza.
       </p>
 
       <p>
@@ -696,18 +668,16 @@ function Conditions() {
         prestamos y pertenecen por tanto a Future Financial Consultants, C.A., o
         FFC. Todos los logos, lemas, marcas comerciales y nombres de dominio y
         todos los derechos de propiedad intelectual relacionados a las entidades
-        aseguradoras, reaseguradoras, de medicina prepagada o de prestadores de
-        atención en salud, y demás sociedades cuyos sitios web contactamos para
-        prestar el servicio, pertenecen a esas sociedades y no se pueden copiar,
+        aseguradoras, pertenecen a esas sociedades y no se pueden copiar,
         reproducirse, difundirse o en cualquier forma usarse, sin su
         consentimiento previo.
       </p>
 
-      <h2 className="font-bold text-xl">9. Copy-rigth©</h2>
+      <h2 className="font-bold text-xl">9. Copy-right©</h2>
 
       <p>
         El copyright del material contenido en esta web pertenece a Future
-        Financial Consultants C.A.; cualquier individuo actuando como persona
+        Financial Consultants, C.A.; cualquier individuo actuando como persona
         privada puede imprimir una copia de cualquier parte de este material
         para su propio uso personal, sujeto a las siguientes condiciones:
       </p>
@@ -726,7 +696,7 @@ function Conditions() {
         <Link to="/" className="text-primary hover:text-purple">
           www.futurefinancialconsultantsve.com
         </Link>{' '}
-         (Licencias y otras formas legales de uso de derechos reservados).
+        (Licencias y otras formas legales de uso de derechos reservados).
       </p>
 
       <h2 className="font-bold text-xl">

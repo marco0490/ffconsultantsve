@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 import { Link, useSearchParams } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import emailjs from 'emailjs-com'
+import AutoFields from './AutoFields'
 
 function Cotizador() {
   const [searchParams] = useSearchParams();
@@ -11,6 +12,8 @@ function Cotizador() {
   const [company, setCompany] = useState('')
   const [product, setProduct] = useState('')
   const [extraBeneficiaries, setExtraBeneficiaries] = useState(0)
+  const [coverage, setCoverage] = useState('')
+  const [viajaSolo, setViajaSolo] = useState('si')
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -31,6 +34,19 @@ function Cotizador() {
   const days = Array.from({ length: 31 }, (_, i) => i + 1)
   const currentYear = new Date().getFullYear()
   const years = Array.from({ length: 101 }, (_, i) => currentYear - i)
+
+  const isAutoPiramideOceanica =
+    product === 'auto' &&
+    (company === 'seguros-piramide' || company === 'seguros-oceanica')
+
+  const isViajesPiramideOceanicaPersonas =
+    product === 'personas' &&
+    coverage === 'viajes' &&
+    (company === 'seguros-piramide' || company === 'seguros-oceanica')
+
+  const isPatrimonialesPiramideOceanica =
+    product === 'patrimoniales' &&
+    (company === 'seguros-piramide' || company === 'seguros-oceanica')
 
   const handleReset = () => {
     setCompany('')
@@ -92,8 +108,7 @@ function Cotizador() {
         />
         <meta
           name="description"
-          content="El proceso es rápido y sencillo. Introduce tus datos para cotizar los
-          planes y productos que mejor que adapten a tus necesidades."
+          content="El proceso es rápido y sencillo. Introduce tus datos para cotizar los planes y productos que mejor se adapten a tus necesidades."
         />
       </Helmet>
       <div className="grid grid-cols-1 sm:grid-cols-2 max-w-[1900px] mx-auto">
@@ -158,7 +173,10 @@ function Cotizador() {
                   name="aseguradora"
                   id="aseguradora"
                   value={company}
-                  onChange={(e) => setCompany(e.target.value)}
+                  onChange={(e) => {
+                    setCompany(e.target.value)
+                    setCoverage('')
+                  }}
                 >
                   <option value="" disabled>
                     Elige tu Aseguradora
@@ -172,12 +190,39 @@ function Cotizador() {
                   <option value="seguros-oceanica">Seguros Oceanica</option>
                 </select>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col mt-2">
+                <label htmlFor="producto" className="hidden">
+                  Qué desea asegurar
+                </label>
+                <select
+                  name="producto"
+                  id="producto"
+                  value={product}
+                  onChange={(e) => {
+                    setProduct(e.target.value)
+                    setCoverage('')
+                  }}
+                  required
+                >
+                  <option value="" disabled>
+                    Qué desea asegurar
+                  </option>
+                  <option value="auto">Automóvil</option>
+                  <option value="personas">Personas</option>
+                  <option value="patrimoniales">Patrimoniales</option>
+                </select>
+              </div>
+              <div className="flex flex-col mt-2">
                 <label htmlFor="cobertura" className="hidden">
                   Cobertura
                 </label>
-                <select name="cobertura" id="cobertura">
-                  <option value="" disabled selected>
+                <select
+                  name="cobertura"
+                  id="cobertura"
+                  value={coverage}
+                  onChange={(e) => setCoverage(e.target.value)}
+                >
+                  <option value="" disabled>
                     Elige tu Cobertura
                   </option>
 
@@ -202,7 +247,7 @@ function Cotizador() {
                       <option value="rcv-basica-placa-nacional">RCV Básica Placa Nacional</option>
                       <option value="rcv-basica-placa-extranjera">RCV Básica Placa Extranjera</option>
                       <option value="rcv-basica-taxi">RCV Básica Taxi</option>
-                      <option value="rcv-basica-taxi">RCV Internacional (Colombia-Venezuela)</option>
+                      <option value="rcv-internacional-colombia-venezuela">RCV Internacional (Colombia-Venezuela)</option>
                       <option value="rcv-exceso-5000-grua">RCV Exceso $5.000 + Grúa</option>
                     </>
                   ) : company === 'seguros-oceanica' && product === 'auto' ? (
@@ -260,18 +305,173 @@ function Cotizador() {
                       <option value="hogar-250k">Oceánica Hogar US$ 250.000,00</option>
                       <option value="hogar-300k">Oceánica Hogar US$ 300.000,00</option>
                     </>
-                  ) : (
-                    <>
-                      <option value="20.000">20.000</option>
-                      <option value="50.000">50.000</option>
-                      <option value="100.000">100.000</option>
-                      <option value="200.000">200.000</option>
-                      <option value="500.000">500.000</option>
-                      <option value="1.000.000">1.000.000</option>
-                    </>
-                  )}
+                  ) : null}
                 </select>
               </div>
+              {company === 'seguros-piramide' &&
+                product === 'personas' &&
+                coverage === 'accidentes-personales' && (
+                  <div className="flex flex-col mt-2">
+                    <label htmlFor="profesion" className="hidden">
+                      Profesión y/u Ocupación
+                    </label>
+                    <input
+                      type="text"
+                      name="profesion"
+                      id="profesion"
+                      placeholder="Profesión y/u Ocupación"
+                      autoComplete="off"
+                      required
+                    />
+                  </div>
+                )}
+              {isViajesPiramideOceanicaPersonas && (
+                <>
+                  <div className="flex flex-col mt-2">
+                    <label htmlFor="pais_origen" className="hidden">
+                      País de origen
+                    </label>
+                    <input
+                      type="text"
+                      name="pais_origen"
+                      id="pais_origen"
+                      placeholder="País de origen"
+                      autoComplete="off"
+                      required
+                    />
+                  </div>
+                  <div className="flex flex-col mt-2">
+                    <label htmlFor="pais_destino" className="hidden">
+                      País destino
+                    </label>
+                    <input
+                      type="text"
+                      name="pais_destino"
+                      id="pais_destino"
+                      placeholder="País destino"
+                      autoComplete="off"
+                      required
+                    />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:space-x-2 mt-2">
+                    <div className="flex flex-col">
+                      <label className="text-sm font-medium text-gray-700 mb-1">
+                        Fecha de salida
+                      </label>
+                      <div className="flex space-x-2">
+                        <select name="fecha_salida_dia" className="w-full" required>
+                          <option value="" disabled selected>
+                            Día
+                          </option>
+                          {days.map((d) => (
+                            <option key={d} value={d}>
+                              {d}
+                            </option>
+                          ))}
+                        </select>
+                        <select name="fecha_salida_mes" className="w-full" required>
+                          <option value="" disabled selected>
+                            Mes
+                          </option>
+                          <option value="enero">Enero</option>
+                          <option value="febrero">Febrero</option>
+                          <option value="marzo">Marzo</option>
+                          <option value="abril">Abril</option>
+                          <option value="mayo">Mayo</option>
+                          <option value="junio">Junio</option>
+                          <option value="julio">Julio</option>
+                          <option value="agosto">Agosto</option>
+                          <option value="septiembre">Septiembre</option>
+                          <option value="octubre">Octubre</option>
+                          <option value="noviembre">Noviembre</option>
+                          <option value="diciembre">Diciembre</option>
+                        </select>
+                        <select name="fecha_salida_anio" className="w-full" required>
+                          <option value="" disabled selected>
+                            Año
+                          </option>
+                          {years.map((y) => (
+                            <option key={y} value={y}>
+                              {y}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                    <div className="flex flex-col mt-2 sm:mt-0">
+                      <label className="text-sm font-medium text-gray-700 mb-1">
+                        Fecha de llegada
+                      </label>
+                      <div className="flex space-x-2">
+                        <select name="fecha_llegada_dia" className="w-full" required>
+                          <option value="" disabled selected>
+                            Día
+                          </option>
+                          {days.map((d) => (
+                            <option key={d} value={d}>
+                              {d}
+                            </option>
+                          ))}
+                        </select>
+                        <select name="fecha_llegada_mes" className="w-full" required>
+                          <option value="" disabled selected>
+                            Mes
+                          </option>
+                          <option value="enero">Enero</option>
+                          <option value="febrero">Febrero</option>
+                          <option value="marzo">Marzo</option>
+                          <option value="abril">Abril</option>
+                          <option value="mayo">Mayo</option>
+                          <option value="junio">Junio</option>
+                          <option value="julio">Julio</option>
+                          <option value="agosto">Agosto</option>
+                          <option value="septiembre">Septiembre</option>
+                          <option value="octubre">Octubre</option>
+                          <option value="noviembre">Noviembre</option>
+                          <option value="diciembre">Diciembre</option>
+                        </select>
+                        <select name="fecha_llegada_anio" className="w-full" required>
+                          <option value="" disabled selected>
+                            Año
+                          </option>
+                          {years.map((y) => (
+                            <option key={y} value={y}>
+                              {y}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
+                    <h3 className="inline pr-2">Viaja solo: </h3>
+                    <input
+                      id="viaja-solo-si"
+                      type="radio"
+                      name="viaja_solo"
+                      value="si"
+                      className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                      checked={viajaSolo === 'si'}
+                      onChange={() => setViajaSolo('si')}
+                    />
+                    <label htmlFor="viaja-solo-si" className="l-2 block me-2">
+                      Si
+                    </label>
+                    <input
+                      id="viaja-solo-no"
+                      type="radio"
+                      name="viaja_solo"
+                      value="no"
+                      className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                      checked={viajaSolo === 'no'}
+                      onChange={() => setViajaSolo('no')}
+                    />
+                    <label htmlFor="viaja-solo-no" className="l-2 block ">
+                      No
+                    </label>
+                  </div>
+                </>
+              )}
               <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
                 <h3 className="inline pr-2">Tipo de pago: </h3>
                 <input
@@ -311,7 +511,7 @@ function Cotizador() {
                     type="text"
                     name="name"
                     id="name"
-                    placeholder="Nombre"
+                    placeholder="Nombres/Apellidos"
                     autoComplete="off"
                     required
                   />
@@ -414,465 +614,536 @@ function Cotizador() {
                   required
                 />
               </div>
-
-              <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
-                <h3 className="inline pr-2">Conyuge: </h3>
-                <input
-                  id="conyuge-si"
-                  type="radio"
-                  name="conyuge"
-                  value="Si"
-                  className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
-                  aria-labelledby="conyuge"
-                  aria-describedby="conyuge"
-                  required
-                />
-                <label htmlFor="conyuge-si" className="l-2 block me-2">
-                  Si
-                </label>
-                <input
-                  id="conyuge-no"
-                  type="radio"
-                  name="conyuge"
-                  value="No"
-                  className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
-                  aria-labelledby="conyuge"
-                  aria-describedby="conyuge"
-                  defaultChecked
-                  required
-                />
-                <label htmlFor="conyuge-no" className="l-2 block">
-                  No
-                </label>
-              </div>
-              <div className="grid grid-cols sm:grid-cols-2 md:grid-cols-4 md:space-x-2">
-                <div className="flex flex-col col-span-2">
-                  <label htmlFor="name2" className="hidden">
-                    Nombre
-                  </label>
-                  <input
-                    type="text"
-                    name="name2"
-                    id="name2"
-                    placeholder="Nombre"
-                    autoComplete="off"
-                  />
-                </div>
-
-                <div className="flex flex-col">
-                  <label className="hidden" htmlFor="conyuge_dia">
-                    Fecha de nacimiento
-                  </label>
-                  <div className="flex space-x-2">
-                    <select
-                      name="conyuge_dia"
-                      id="conyuge_dia"
-                      className="flex flex-col col-span-2 text-[14px]"
-                    >
-                      <option value="" disabled selected>
-                        D
-                      </option>
-                      {days.map((d) => (
-                        <option key={d} value={d}>
-                          {d}
-                        </option>
-                      ))}
-                    </select>
-                    <select
-                      name="conyuge_mes"
-                      id="conyuge_mes"
-                      className="flex flex-col col-span-2 text-[14px]"
-                    >
-                      <option value="" disabled selected>
-                        M
-                      </option>
-                      <option value="enero">Enero</option>
-                      <option value="febrero">Febrero</option>
-                      <option value="marzo">Marzo</option>
-                      <option value="abril">Abril</option>
-                      <option value="mayo">Mayo</option>
-                      <option value="junio">Junio</option>
-                      <option value="julio">Julio</option>
-                      <option value="agosto">Agosto</option>
-                      <option value="septiembre">Septiembre</option>
-                      <option value="octubre">Octubre</option>
-                      <option value="noviembre">Noviembre</option>
-                      <option value="diciembre">Diciembre</option>
-                    </select>
-                    <select
-                      name="conyuge_anio"
-                      id="conyuge_anio"
-                      className="flex flex-col col-span-2 text-[14px]"
-                    >
-                      <option value="" disabled selected>
-                        A
-                      </option>
-                      {years.map((y) => (
-                        <option key={y} value={y}>
-                          {y}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-                <div className="flex flex-col">
-                  <label htmlFor="gender2" className="hidden">
-                    Sexo
-                  </label>
-                  <select name="gender2" id="gender2">
-                    <option value="" disabled selected>
-                      Sexo
-                    </option>
-                    <option value="masculino">Masculino</option>
-                    <option value="femenino">Femenino</option>
-                  </select>
-                </div>
-              </div>
               <div className="flex flex-col mt-2">
-                <label htmlFor="email2" className="hidden">
-                  Correo electrónico
+                <label htmlFor="cedula" className="hidden">
+                  Cédula de identidad
                 </label>
                 <input
-                  type="email"
-                  name="email2"
-                  id="email2"
-                  placeholder="Correo electrónico"
-                  autoComplete="off"
-                />
-              </div>
-              <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
-                <h3 className="inline pr-2">
-                  Beneficiario / Fecha de nacimiento:{' '}
-                </h3>
-                <input
-                  id="beneficiario-si"
-                  type="radio"
-                  name="beneficiario"
-                  value="Si"
-                  className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
-                  aria-labelledby="beneficiario"
-                  aria-describedby="beneficiario"
-                  required
-                />
-                <label htmlFor="beneficiario" className="l-2 block me-2">
-                  Si
-                </label>
-                <input
-                  id="beneficiario-no"
-                  type="radio"
-                  name="beneficiario"
-                  value="No"
-                  className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
-                  aria-labelledby="beneficiario"
-                  aria-describedby="beneficiario"
-                  defaultChecked
-                  required
-                />
-                <label htmlFor="beneficiario" className="l-2 block ">
-                  No
-                </label>
-                <div className="flex flex-col ms-2 w-full">
-                  <label className="text-sm font-medium text-gray-700 mb-1">
-                    Fecha de nacimiento beneficiario 1
-                  </label>
-                  <div className="flex space-x-2">
-                    <select name="beneficiario1_dia" className="w-full">
-                      <option value="" disabled selected>
-                        Día
-                      </option>
-                      {days.map((d) => (
-                        <option key={d} value={d}>
-                          {d}
-                        </option>
-                      ))}
-                    </select>
-                    <select name="beneficiario1_mes" className="w-full">
-                      <option value="" disabled selected>
-                        Mes
-                      </option>
-                      <option value="enero">Enero</option>
-                      <option value="febrero">Febrero</option>
-                      <option value="marzo">Marzo</option>
-                      <option value="abril">Abril</option>
-                      <option value="mayo">Mayo</option>
-                      <option value="junio">Junio</option>
-                      <option value="julio">Julio</option>
-                      <option value="agosto">Agosto</option>
-                      <option value="septiembre">Septiembre</option>
-                      <option value="octubre">Octubre</option>
-                      <option value="noviembre">Noviembre</option>
-                      <option value="diciembre">Diciembre</option>
-                    </select>
-                    <select name="beneficiario1_anio" className="w-full">
-                      <option value="" disabled selected>
-                        Año
-                      </option>
-                      {years.map((y) => (
-                        <option key={y} value={y}>
-                          {y}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
-                <h3 className="inline pr-2">
-                  Beneficiario / Fecha de nacimiento:{' '}
-                </h3>
-                <input
-                  id="beneficiario2-si"
-                  type="radio"
-                  name="beneficiario2"
-                  value="Si"
-                  className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
-                  aria-labelledby="beneficiario2"
-                  aria-describedby="beneficiario2"
-                  required
-                />
-                <label htmlFor="beneficiario2" className="l-2 block me-2">
-                  Si
-                </label>
-                <input
-                  id="beneficiario2-no"
-                  type="radio"
-                  name="beneficiario2"
-                  value="No"
-                  className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
-                  aria-labelledby="beneficiario2-no"
-                  aria-describedby="beneficiario2-no"
-                  defaultChecked
-                  required
-                />
-                <label htmlFor="beneficiario2-no" className="l-2 block ">
-                  No
-                </label>
-                <div className="flex flex-col ms-2 w-full">
-                  <label className="text-sm font-medium text-gray-700 mb-1">
-                    Fecha de nacimiento beneficiario 2
-                  </label>
-                  <div className="flex space-x-2">
-                    <select name="beneficiario2_dia" className="w-full">
-                      <option value="" disabled selected>
-                        Día
-                      </option>
-                      {days.map((d) => (
-                        <option key={d} value={d}>
-                          {d}
-                        </option>
-                      ))}
-                    </select>
-                    <select name="beneficiario2_mes" className="w-full">
-                      <option value="" disabled selected>
-                        Mes
-                      </option>
-                      <option value="enero">Enero</option>
-                      <option value="febrero">Febrero</option>
-                      <option value="marzo">Marzo</option>
-                      <option value="abril">Abril</option>
-                      <option value="mayo">Mayo</option>
-                      <option value="junio">Junio</option>
-                      <option value="julio">Julio</option>
-                      <option value="agosto">Agosto</option>
-                      <option value="septiembre">Septiembre</option>
-                      <option value="octubre">Octubre</option>
-                      <option value="noviembre">Noviembre</option>
-                      <option value="diciembre">Diciembre</option>
-                    </select>
-                    <select name="beneficiario2_anio" className="w-full">
-                      <option value="" disabled selected>
-                        Año
-                      </option>
-                      {years.map((y) => (
-                        <option key={y} value={y}>
-                          {y}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-              </div>
-              {extraBeneficiaries >= 1 && (
-                <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
-                  <h3 className="inline pr-2">
-                    Beneficiario / Fecha de nacimiento:{' '}
-                  </h3>
-                  <input
-                    id="beneficiario3-si"
-                    type="radio"
-                    name="beneficiario3"
-                    value="Si"
-                    className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
-                    aria-labelledby="beneficiario3"
-                    aria-describedby="beneficiario3"
-                  />
-                  <label htmlFor="beneficiario3" className="l-2 block me-2">
-                    Si
-                  </label>
-                  <input
-                    id="beneficiario3-no"
-                    type="radio"
-                    name="beneficiario3"
-                    value="No"
-                    className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
-                    aria-labelledby="beneficiario3-no"
-                    aria-describedby="beneficiario3-no"
-                    defaultChecked
-                  />
-                  <label htmlFor="beneficiario3-no" className="l-2 block ">
-                    No
-                  </label>
-                  <div className="flex flex-col ms-2 w-full">
-                    <label className="text-sm font-medium text-gray-700 mb-1">
-                      Fecha de nacimiento beneficiario 3
-                    </label>
-                    <div className="flex space-x-2">
-                      <select name="beneficiario3_dia" className="w-full">
-                        <option value="" disabled selected>
-                          Día
-                        </option>
-                        {days.map((d) => (
-                          <option key={d} value={d}>
-                            {d}
-                          </option>
-                        ))}
-                      </select>
-                      <select name="beneficiario3_mes" className="w-full">
-                        <option value="" disabled selected>
-                          Mes
-                        </option>
-                        <option value="enero">Enero</option>
-                        <option value="febrero">Febrero</option>
-                        <option value="marzo">Marzo</option>
-                        <option value="abril">Abril</option>
-                        <option value="mayo">Mayo</option>
-                        <option value="junio">Junio</option>
-                        <option value="julio">Julio</option>
-                        <option value="agosto">Agosto</option>
-                        <option value="septiembre">Septiembre</option>
-                        <option value="octubre">Octubre</option>
-                        <option value="noviembre">Noviembre</option>
-                        <option value="diciembre">Diciembre</option>
-                      </select>
-                      <select name="beneficiario3_anio" className="w-full">
-                        <option value="" disabled selected>
-                          Año
-                        </option>
-                        {years.map((y) => (
-                          <option key={y} value={y}>
-                            {y}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {extraBeneficiaries >= 2 && (
-                <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
-                  <h3 className="inline pr-2">
-                    Beneficiario / Fecha de nacimiento:{' '}
-                  </h3>
-                  <input
-                    id="beneficiario4-si"
-                    type="radio"
-                    name="beneficiario4"
-                    value="Si"
-                    className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
-                    aria-labelledby="beneficiario4"
-                    aria-describedby="beneficiario4"
-                  />
-                  <label htmlFor="beneficiario4" className="l-2 block me-2">
-                    Si
-                  </label>
-                  <input
-                    id="beneficiario4-no"
-                    type="radio"
-                    name="beneficiario4"
-                    value="No"
-                    className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
-                    aria-labelledby="beneficiario4-no"
-                    aria-describedby="beneficiario4-no"
-                    defaultChecked
-                  />
-                  <label htmlFor="beneficiario4-no" className="l-2 block ">
-                    No
-                  </label>
-                  <div className="flex flex-col ms-2 w-full">
-                    <label className="text-sm font-medium text-gray-700 mb-1">
-                      Fecha de nacimiento beneficiario 4
-                    </label>
-                    <div className="flex space-x-2">
-                      <select name="beneficiario4_dia" className="w-full">
-                        <option value="" disabled selected>
-                          Día
-                        </option>
-                        {days.map((d) => (
-                          <option key={d} value={d}>
-                            {d}
-                          </option>
-                        ))}
-                      </select>
-                      <select name="beneficiario4_mes" className="w-full">
-                        <option value="" disabled selected>
-                          Mes
-                        </option>
-                        <option value="enero">Enero</option>
-                        <option value="febrero">Febrero</option>
-                        <option value="marzo">Marzo</option>
-                        <option value="abril">Abril</option>
-                        <option value="mayo">Mayo</option>
-                        <option value="junio">Junio</option>
-                        <option value="julio">Julio</option>
-                        <option value="agosto">Agosto</option>
-                        <option value="septiembre">Septiembre</option>
-                        <option value="octubre">Octubre</option>
-                        <option value="noviembre">Noviembre</option>
-                        <option value="diciembre">Diciembre</option>
-                      </select>
-                      <select name="beneficiario4_anio" className="w-full">
-                        <option value="" disabled selected>
-                          Año
-                        </option>
-                        {years.map((y) => (
-                          <option key={y} value={y}>
-                            {y}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {extraBeneficiaries < 2 && (
-                <div className="flex justify-start mt-2">
-                  <button
-                    type="button"
-                    className="flex items-center text-primary font-semibold text-sm hover:text-blue-700"
-                    onClick={() =>
-                      setExtraBeneficiaries((prev) => (prev < 2 ? prev + 1 : prev))
-                    }
-                  >
-                    <span className="mr-1 text-lg font-bold">+</span>
-                    Agregar Nuevo Beneficiario
-                  </button>
-                </div>
-              )}
-
-              <div className="flex flex-col mt-2">
-                <label htmlFor="comment" className="hidden">
-                  Consulta
-                </label>
-                <textarea
                   type="text"
-                  name="comment"
-                  id="comment"
-                  placeholder="Comentario - De haber mas beneficiarios, indique nombre y fecha de nacimiento de cada uno aquí."
+                  name="cedula"
+                  id="cedula"
+                  placeholder="Cédula de identidad"
                   autoComplete="off"
+                  required
                 />
               </div>
+              {product === 'personas' &&
+                (coverage === 'hcm-50k' ||
+                  coverage === 'hcm-75k' ||
+                  coverage === 'hcm-100k' ||
+                  coverage === 'hcm-200k') && (
+                  <div className="flex mt-2">
+                    <input
+                      type="checkbox"
+                      value="1"
+                      className="text-md indeterminate:bg-gray-300 mx-1 my-2 font-medium default:ring-2 checked:bg-primary inline-block"
+                      id="maternidadComplicaciones"
+                      name="maternidad_complicaciones"
+                    />
+                    <label className="mx-1" htmlFor="maternidadComplicaciones">
+                      Maternidad y sus complicaciones
+                    </label>
+                  </div>
+                )}
+              {company === 'seguros-oceanica' &&
+                product === 'personas' &&
+                coverage === 'viajes' && (
+                  <div className="flex mt-2">
+                    <input
+                      type="checkbox"
+                      value="1"
+                      className="text-md indeterminate:bg-gray-300 mx-1 my-2 font-medium default:ring-2 checked:bg-primary inline-block"
+                      id="asistenciaViajesOceanica"
+                      name="asistencia_viajes_oceanica"
+                    />
+                    <label className="mx-1" htmlFor="asistenciaViajesOceanica">
+                      Servicio de Asistencia en Viajes Internacionales, máx 30 días de viaje
+                    </label>
+                  </div>
+                )}
+              {isAutoPiramideOceanica && (
+                <AutoFields
+                  company={company}
+                  product={product}
+                  days={days}
+                  years={years}
+                />
+              )}
+
+              {!isAutoPiramideOceanica && !isPatrimonialesPiramideOceanica && (
+                <>
+                  <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
+                    <h3 className="inline pr-2">Conyuge: </h3>
+                    <input
+                      id="conyuge-si"
+                      type="radio"
+                      name="conyuge"
+                      value="Si"
+                      className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                      aria-labelledby="conyuge"
+                      aria-describedby="conyuge"
+                      required
+                    />
+                    <label htmlFor="conyuge-si" className="l-2 block me-2">
+                      Si
+                    </label>
+                    <input
+                      id="conyuge-no"
+                      type="radio"
+                      name="conyuge"
+                      value="No"
+                      className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                      aria-labelledby="conyuge"
+                      aria-describedby="conyuge"
+                      defaultChecked
+                      required
+                    />
+                    <label htmlFor="conyuge-no" className="l-2 block">
+                      No
+                    </label>
+                  </div>
+                  <div className="grid grid-cols sm:grid-cols-2 md:grid-cols-4 md:space-x-2">
+                    <div className="flex flex-col col-span-2">
+                      <label htmlFor="name2" className="hidden">
+                        Nombre
+                      </label>
+                      <input
+                        type="text"
+                        name="name2"
+                        id="name2"
+                        placeholder="Nombre"
+                        autoComplete="off"
+                      />
+                    </div>
+
+                    <div className="flex flex-col">
+                      <label className="hidden" htmlFor="conyuge_dia">
+                        Fecha de nacimiento
+                      </label>
+                      <div className="flex space-x-2">
+                        <select
+                          name="conyuge_dia"
+                          id="conyuge_dia"
+                          className="flex flex-col col-span-2 text-[14px]"
+                        >
+                          <option value="" disabled selected>
+                            D
+                          </option>
+                          {days.map((d) => (
+                            <option key={d} value={d}>
+                              {d}
+                            </option>
+                          ))}
+                        </select>
+                        <select
+                          name="conyuge_mes"
+                          id="conyuge_mes"
+                          className="flex flex-col col-span-2 text-[14px]"
+                        >
+                          <option value="" disabled selected>
+                            M
+                          </option>
+                          <option value="enero">Enero</option>
+                          <option value="febrero">Febrero</option>
+                          <option value="marzo">Marzo</option>
+                          <option value="abril">Abril</option>
+                          <option value="mayo">Mayo</option>
+                          <option value="junio">Junio</option>
+                          <option value="julio">Julio</option>
+                          <option value="agosto">Agosto</option>
+                          <option value="septiembre">Septiembre</option>
+                          <option value="octubre">Octubre</option>
+                          <option value="noviembre">Noviembre</option>
+                          <option value="diciembre">Diciembre</option>
+                        </select>
+                        <select
+                          name="conyuge_anio"
+                          id="conyuge_anio"
+                          className="flex flex-col col-span-2 text-[14px]"
+                        >
+                          <option value="" disabled selected>
+                            A
+                          </option>
+                          {years.map((y) => (
+                            <option key={y} value={y}>
+                              {y}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                    <div className="flex flex-col">
+                      <label htmlFor="gender2" className="hidden">
+                        Sexo
+                      </label>
+                      <select name="gender2" id="gender2">
+                        <option value="" disabled selected>
+                          Sexo
+                        </option>
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="flex flex-col mt-2">
+                    <label htmlFor="email2" className="hidden">
+                      Correo electrónico
+                    </label>
+                    <input
+                      type="email"
+                      name="email2"
+                      id="email2"
+                      placeholder="Correo electrónico"
+                      autoComplete="off"
+                    />
+                  </div>
+                  {(!isViajesPiramideOceanicaPersonas || viajaSolo === 'no') && (
+                    <>
+                      <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
+                        <h3 className="inline pr-2">Fecha de nacimiento:</h3>
+                        <input
+                          id="beneficiario-si"
+                          type="radio"
+                          name="beneficiario"
+                          value="Si"
+                          className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                          aria-labelledby="beneficiario"
+                          aria-describedby="beneficiario"
+                          required
+                        />
+                        <label htmlFor="beneficiario" className="l-2 block me-2">
+                          Si
+                        </label>
+                        <input
+                          id="beneficiario-no"
+                          type="radio"
+                          name="beneficiario"
+                          value="No"
+                          className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                          aria-labelledby="beneficiario"
+                          aria-describedby="beneficiario"
+                          defaultChecked
+                          required
+                        />
+                        <label htmlFor="beneficiario" className="l-2 block ">
+                          No
+                        </label>
+                        <div className="flex flex-col ms-2 w-full">
+                          <label className="text-sm font-medium text-gray-700 mb-1">
+                            {isViajesPiramideOceanicaPersonas && viajaSolo === 'no'
+                              ? 'Acompañante 1'
+                              : 'Beneficiario 1'}
+                          </label>
+                          <div className="flex space-x-2">
+                            <select name="beneficiario1_dia" className="w-full">
+                              <option value="" disabled selected>
+                                Día
+                              </option>
+                              {days.map((d) => (
+                                <option key={d} value={d}>
+                                  {d}
+                                </option>
+                              ))}
+                            </select>
+                            <select name="beneficiario1_mes" className="w-full">
+                              <option value="" disabled selected>
+                                Mes
+                              </option>
+                              <option value="enero">Enero</option>
+                              <option value="febrero">Febrero</option>
+                              <option value="marzo">Marzo</option>
+                              <option value="abril">Abril</option>
+                              <option value="mayo">Mayo</option>
+                              <option value="junio">Junio</option>
+                              <option value="julio">Julio</option>
+                              <option value="agosto">Agosto</option>
+                              <option value="septiembre">Septiembre</option>
+                              <option value="octubre">Octubre</option>
+                              <option value="noviembre">Noviembre</option>
+                              <option value="diciembre">Diciembre</option>
+                            </select>
+                            <select name="beneficiario1_anio" className="w-full">
+                              <option value="" disabled selected>
+                                Año
+                              </option>
+                              {years.map((y) => (
+                                <option key={y} value={y}>
+                                  {y}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
+                        <h3 className="inline pr-2">Fecha de nacimiento:</h3>
+                        <input
+                          id="beneficiario2-si"
+                          type="radio"
+                          name="beneficiario2"
+                          value="Si"
+                          className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                          aria-labelledby="beneficiario2"
+                          aria-describedby="beneficiario2"
+                          required
+                        />
+                        <label htmlFor="beneficiario2" className="l-2 block me-2">
+                          Si
+                        </label>
+                        <input
+                          id="beneficiario2-no"
+                          type="radio"
+                          name="beneficiario2"
+                          value="No"
+                          className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                          aria-labelledby="beneficiario2-no"
+                          aria-describedby="beneficiario2-no"
+                          defaultChecked
+                          required
+                        />
+                        <label htmlFor="beneficiario2-no" className="l-2 block ">
+                          No
+                        </label>
+                        <div className="flex flex-col ms-2 w-full">
+                          <label className="text-sm font-medium text-gray-700 mb-1">
+                            {isViajesPiramideOceanicaPersonas && viajaSolo === 'no'
+                              ? 'Acompañantes 2'
+                              : 'Beneficiarios 2'}
+                          </label>
+                          <div className="flex space-x-2">
+                            <select name="beneficiario2_dia" className="w-full">
+                              <option value="" disabled selected>
+                                Día
+                              </option>
+                              {days.map((d) => (
+                                <option key={d} value={d}>
+                                  {d}
+                                </option>
+                              ))}
+                            </select>
+                            <select name="beneficiario2_mes" className="w-full">
+                              <option value="" disabled selected>
+                                Mes
+                              </option>
+                              <option value="enero">Enero</option>
+                              <option value="febrero">Febrero</option>
+                              <option value="marzo">Marzo</option>
+                              <option value="abril">Abril</option>
+                              <option value="mayo">Mayo</option>
+                              <option value="junio">Junio</option>
+                              <option value="julio">Julio</option>
+                              <option value="agosto">Agosto</option>
+                              <option value="septiembre">Septiembre</option>
+                              <option value="octubre">Octubre</option>
+                              <option value="noviembre">Noviembre</option>
+                              <option value="diciembre">Diciembre</option>
+                            </select>
+                            <select name="beneficiario2_anio" className="w-full">
+                              <option value="" disabled selected>
+                                Año
+                              </option>
+                              {years.map((y) => (
+                                <option key={y} value={y}>
+                                  {y}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      {extraBeneficiaries >= 1 && (
+                        <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
+                          <h3 className="inline pr-2">
+                            Fecha de nacimiento:
+                          </h3>
+                          <input
+                            id="beneficiario3-si"
+                            type="radio"
+                            name="beneficiario3"
+                            value="Si"
+                            className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                            aria-labelledby="beneficiario3"
+                            aria-describedby="beneficiario3"
+                          />
+                          <label htmlFor="beneficiario3" className="l-2 block me-2">
+                            Si
+                          </label>
+                          <input
+                            id="beneficiario3-no"
+                            type="radio"
+                            name="beneficiario3"
+                            value="No"
+                            className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                            aria-labelledby="beneficiario3-no"
+                            aria-describedby="beneficiario3-no"
+                            defaultChecked
+                          />
+                          <label htmlFor="beneficiario3-no" className="l-2 block ">
+                            No
+                          </label>
+                          <div className="flex flex-col ms-2 w-full">
+                            <label className="text-sm font-medium text-gray-700 mb-1">
+                              {isViajesPiramideOceanicaPersonas && viajaSolo === 'no'
+                                ? 'Acompañante 3'
+                                : 'Beneficiario 3'}
+                            </label>
+                            <div className="flex space-x-2">
+                              <select name="beneficiario3_dia" className="w-full">
+                                <option value="" disabled selected>
+                                  Día
+                                </option>
+                                {days.map((d) => (
+                                  <option key={d} value={d}>
+                                    {d}
+                                  </option>
+                                ))}
+                              </select>
+                              <select name="beneficiario3_mes" className="w-full">
+                                <option value="" disabled selected>
+                                  Mes
+                                </option>
+                                <option value="enero">Enero</option>
+                                <option value="febrero">Febrero</option>
+                                <option value="marzo">Marzo</option>
+                                <option value="abril">Abril</option>
+                                <option value="mayo">Mayo</option>
+                                <option value="junio">Junio</option>
+                                <option value="julio">Julio</option>
+                                <option value="agosto">Agosto</option>
+                                <option value="septiembre">Septiembre</option>
+                                <option value="octubre">Octubre</option>
+                                <option value="noviembre">Noviembre</option>
+                                <option value="diciembre">Diciembre</option>
+                              </select>
+                              <select name="beneficiario3_anio" className="w-full">
+                                <option value="" disabled selected>
+                                  Año
+                                </option>
+                                {years.map((y) => (
+                                  <option key={y} value={y}>
+                                    {y}
+                                  </option>
+                                ))}
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {extraBeneficiaries >= 2 && (
+                        <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
+                          <h3 className="inline pr-2">
+                            Fecha de nacimiento:
+                          </h3>
+                          <input
+                            id="beneficiario4-si"
+                            type="radio"
+                            name="beneficiario4"
+                            value="Si"
+                            className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                            aria-labelledby="beneficiario4"
+                            aria-describedby="beneficiario4"
+                          />
+                          <label htmlFor="beneficiario4" className="l-2 block me-2">
+                            Si
+                          </label>
+                          <input
+                            id="beneficiario4-no"
+                            type="radio"
+                            name="beneficiario4"
+                            value="No"
+                            className="h-4 w-4 border-gray-300 mt-1 mx-1 focus:ring-2 focus:ring-blue-300"
+                            aria-labelledby="beneficiario4-no"
+                            aria-describedby="beneficiario4-no"
+                            defaultChecked
+                          />
+                          <label htmlFor="beneficiario4-no" className="l-2 block ">
+                            No
+                          </label>
+                          <div className="flex flex-col ms-2 w-full">
+                            <label className="text-sm font-medium text-gray-700 mb-1">
+                              {isViajesPiramideOceanicaPersonas && viajaSolo === 'no'
+                                ? 'Acompañante 4'
+                                : 'Beneficiario 4'}
+                            </label>
+                            <div className="flex space-x-2">
+                              <select name="beneficiario4_dia" className="w-full">
+                                <option value="" disabled selected>
+                                  Día
+                                </option>
+                                {days.map((d) => (
+                                  <option key={d} value={d}>
+                                    {d}
+                                  </option>
+                                ))}
+                              </select>
+                              <select name="beneficiario4_mes" className="w-full">
+                                <option value="" disabled selected>
+                                  Mes
+                                </option>
+                                <option value="enero">Enero</option>
+                                <option value="febrero">Febrero</option>
+                                <option value="marzo">Marzo</option>
+                                <option value="abril">Abril</option>
+                                <option value="mayo">Mayo</option>
+                                <option value="junio">Junio</option>
+                                <option value="julio">Julio</option>
+                                <option value="agosto">Agosto</option>
+                                <option value="septiembre">Septiembre</option>
+                                <option value="octubre">Octubre</option>
+                                <option value="noviembre">Noviembre</option>
+                                <option value="diciembre">Diciembre</option>
+                              </select>
+                              <select name="beneficiario4_anio" className="w-full">
+                                <option value="" disabled selected>
+                                  Año
+                                </option>
+                                {years.map((y) => (
+                                  <option key={y} value={y}>
+                                    {y}
+                                  </option>
+                                ))}
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {extraBeneficiaries < 2 && (
+                        <div className="flex justify-start mt-2">
+                          <button
+                            type="button"
+                            className="flex items-center text-primary font-semibold text-sm hover:text-blue-700"
+                            onClick={() =>
+                              setExtraBeneficiaries((prev) =>
+                                prev < 2 ? prev + 1 : prev,
+                              )
+                            }
+                          >
+                            <span className="mr-1 text-lg font-bold">+</span>
+                            {isViajesPiramideOceanicaPersonas
+                              ? 'Agregar Nuevo Acompañante'
+                              : 'Agregar Nuevo Beneficiario'}
+                          </button>
+                        </div>
+                      )}
+
+                      <div className="flex flex-col mt-2">
+                        <label htmlFor="comment" className="hidden">
+                          Consulta
+                        </label>
+                        <textarea
+                          type="text"
+                          name="comment"
+                          id="comment"
+                          placeholder="Comentario - De haber mas beneficiarios, indique nombre y fecha de nacimiento de cada uno aquí."
+                          autoComplete="off"
+                        />
+                      </div>
+                    </> 
+                  )}
+                </> 
+              )} 
               <div className="flex mt-2">
                 <input
                   type="checkbox"

@@ -29,8 +29,7 @@ function Cookies() {
         identificador que puede usarse para recuperar sus datos en las bases de
         datos y para seguir su navegación dentro de la web. Nosotros usamos
         cookies para ayudarlo a navegar en nuestra web, facilitar el seguimiento
-        del servicio con el asegurador, empresa de medicina prepagada o
-        prestador de servicios de atención en salud, y mejorar la seguridad y
+        del servicio con el asegurador, y mejorar la seguridad y
         la experiencia del usuario, para mostrarle información acorde a
         sus necesidades, preferencias y elecciones. Si no desea tener una de
         nuestras cookies en su ordenador, por favor asegúrese de que su buscador

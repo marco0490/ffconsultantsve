@@ -122,7 +122,7 @@ function Footer() {
         </div>
         <Menu as="div" className="relative inline-block text-left">
           <Menu.Button className="text-primary text-xl font-normal text-center lg:my-4 hover:text-purple">
-            Politicas y Legal
+            Políticas y Legal
           </Menu.Button>
 
           <Transition
@@ -171,7 +171,7 @@ function Footer() {
                         'block px-4 py-2 text-sm',
                       )}
                     >
-                      Politicas de Cookies
+                      Políticas de Cookies
                     </Link>
                   )}
                 </Menu.Item>
