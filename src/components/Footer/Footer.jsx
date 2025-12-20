@@ -14,7 +14,7 @@ function Footer() {
       <div className="w-full h-0.5 bg-primary my-4" />
       <div className="md:grid md:grid-cols-2 lg:grid-cols-3">
         <div className="w-40 h-40 flex md:mt-6 md:col-start-1 mx-auto">
-          <img className="w-full h-full object-contain" src={Logo} alt="Logo" />
+          <img className="w-full h-full object-contain transform scale-125 md:scale-150" src={Logo} alt="Logo" />
         </div>
 
         <div className="flex flex-col col-start-3">
