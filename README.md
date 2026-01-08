@@ -29,19 +29,22 @@
 
 FFConsultantsVE es una **aplicación web moderna** que permite a los clientes:
 
-- ✅ **Cotizar seguros de salud** de 4 aseguradoras venezolanas
-- ✅ **Comparar precios y coberturas** en tiempo real
-- ✅ **Enviar solicitudes** directamente por email
+- ✅ **Cotizar seguros** para diferentes líneas de negocio:
+  - Automóvil
+  - Personas (salud, viajes, vida, accidentes, etc.)
+  - Patrimoniales (hogar, comercios, etc.)
+- ✅ **Comparar precios y coberturas** según la compañía y el producto
+- ✅ **Enviar solicitudes** que llegan tanto por **email** como a **Dynamics 365 Sales** mediante Power Automate
 - ✅ **Acceder desde cualquier dispositivo** (móvil, tablet, computadora)
 
-### 🏢 Aseguradoras Integradas
+### 🏢 Aseguradoras Integradas (actuales en el cotizador)
 
-| Aseguradora | Coberturas Disponibles | Especialidad |
-|-------------|------------------------|--------------|
-| **Seguros Mercantil** | 30.000, 50.000-100.000, 200.000-1.000.000 | Planes corporativos y familiares |
-| **Seguros Qualitas** | HCM, APS, Emergencia, Colectivos, Administrados | Seguros especializados |
-| **Seguros Caracas** | 20.000 - 1.000.000 | Amplia gama de coberturas |
-| **Seguros Hispana** | 20.000 - 1.000.000 | Seguros tradicionales |
+| Aseguradora | Líneas | Ejemplos de productos |
+|-------------|--------|------------------------|
+| **Seguros Pirámide** | Auto, Personas, Patrimoniales | HCM, Vida, Viajes, Productiva, Hogar |
+| **Seguros Oceánica** | Auto, Personas, Patrimoniales | HCM, Vida, Viajes, Hogar |
+
+En la página principal se muestra un **carrusel animado y scrolleable** con los logos de las compañías, que permite acceder rápidamente a los planes disponibles.
 
 ---
 
@@ -54,16 +57,22 @@ FFConsultantsVE es una **aplicación web moderna** que permite a los clientes:
 - **Carga rápida** optimizada para Venezuela
 
 ### 📋 **Sistema de Cotización**
-- **Formulario inteligente** que cambia según la aseguradora
-- **Validación automática** de datos
-- **Cálculo dinámico** de coberturas
-- **Envío por email** automático con toda la información
+- **Formularios inteligentes** que cambian según la aseguradora y el producto seleccionado (Auto / Personas / Patrimoniales)
+- **Validación automática** de datos obligatorios en el navegador
+- **Selección guiada** de coberturas según compañía y ramo
+- **Envío automático** de la información tanto por **email** como hacia **Power Automate**
 
-### 📧 **Gestión de Comunicaciones**
-- **EmailJS integrado** para envío automático
-- **Formulario de contacto** completo
-- **Información de contacto** actualizada
-- **Mapa interactivo** de ubicación
+### 📧 **Gestión de Comunicaciones e Integraciones**
+- **EmailJS integrado** como canal de respaldo para notificaciones por correo
+- **Integración con Power Automate** mediante endpoints HTTP dedicados por producto:
+  - `Auto` → Flow de creación en tabla AutoWeb / LeadWeb
+  - `Personas` → Flow de creación en tabla PersonasWeb / LeadWeb
+  - `Patrimoniales` → Flow de creación en tabla PatrimonialesWeb / LeadWeb
+- **Datos alineados con los esquemas de Dataverse**:
+  - Fechas enviadas en **formato ISO 8601** (ejemplo: `2025-01-31T00:00:00.000Z`)
+  - Beneficiarios y acompañantes representados por **fechas de nacimiento** en lugar de flags booleanos
+  - Campos específicos como `QueDeseaAsegurar` y `ServicioAsistenciaViajes30Dias` incluidos cuando aplica
+- **Página de prueba técnica** (`/dynamics-365-sales`) para validar rápidamente la conexión con los Flows sin pasar por todo el cotizador.
 
 ### 🔒 **Seguridad y Calidad**
 - **Validación de datos** en tiempo real
@@ -212,8 +221,9 @@ npm run preview
 
 1. **Crear cuenta** en https://vercel.com/
 2. **Conectar repositorio** de GitHub
-3. **Configurar variables de entorno** en Vercel Dashboard
-4. **Desplegar automáticamente** con cada cambio
+3. **Configurar variables de entorno** en Vercel Dashboard (las mismas del `.env` local para EmailJS)
+4. **Configurar las URLs de Power Automate** directamente en el código si es necesario rotarlas (archivo `src/pages/Cotizador/Cotizador.jsx`, función `sendEmail`)
+5. **Desplegar automáticamente** con cada cambio a la rama principal
 
 ---
 
@@ -222,25 +232,34 @@ npm run preview
 ### 👥 **Para Clientes (Usuarios Finales)**
 
 1. **Acceder** a https://ffconsultantsve.vercel.app
-2. **Hacer clic** en "Cotizar póliza"
-3. **Seleccionar** aseguradora deseada
-4. **Elegir** cobertura según necesidades
-5. **Completar** datos personales
-6. **Agregar** información de cónyuge/beneficiarios (opcional)
+2. **Hacer clic** en "Cotizar póliza" o en algún plan de compañía
+3. **Seleccionar**:
+   - Compañía aseguradora (ej. Pirámide u Oceánica)
+   - Qué desea asegurar (Auto / Personas / Patrimoniales)
+   - Cobertura disponible según esa combinación
+4. **Completar** datos personales mínimos (nombre, cédula, teléfono, email, fecha de nacimiento y sexo)
+5. **Agregar**, cuando aplique:
+   - Datos de cónyuge
+   - Fechas de nacimiento de beneficiarios o acompañantes (viajes)
+   - Información adicional de viaje (país origen/destino, fechas de salida y llegada)
+6. **Elegir** tipo de pago (Cuotas / Anual)
 7. **Aceptar** términos y condiciones
 8. **Enviar** solicitud
 
-### 👨‍💼 **Para Administradores**
+### 👨‍💼 **Para Administradores / Equipo Comercial**
 
 #### 📊 **Revisar Cotizaciones**
-- Las cotizaciones llegan al email configurado en EmailJS
-- Cada email contiene toda la información del cliente
-- Responder directamente al cliente desde el email
+- Las cotizaciones llegan:
+  - Al **email** configurado en EmailJS (como respaldo)
+  - A **Dynamics 365 Sales**, a través de tres Flows de Power Automate (Auto, Personas, Patrimoniales)
+- En Dynamics, los datos se guardan en tablas dedicadas (AutoWeb, PersonasWeb, PatrimonialesWeb) y/o relacionados con LeadWeb, según la lógica del Flow.
 
 #### 📝 **Actualizar Información**
-- **Precios**: Editar archivo `src/pages/Cotizador/Cotizador.jsx`
-- **Contacto**: Editar archivo `src/data/contactInfo.js`
-- **Contenido**: Editar archivos en `src/pages/`
+- **Coberturas y combinaciones compañía/producto**: editar la sección de selects en `src/pages/Cotizador/Cotizador.jsx` (aseguradora, producto, cobertura).
+- **Campos enviados a Dynamics 365 Sales**: revisar y ajustar la función `sendEmail` en `src/pages/Cotizador/Cotizador.jsx`.
+- **Página de pruebas técnicas de integración**: `src/pages/Dynamics365Sales/Dynamics365Sales.jsx`.
+- **Contacto**: Editar archivo `src/data/contactInfo.js`.
+- **Contenido general del sitio**: Editar archivos en `src/pages/`.
 
 #### 🎨 **Cambiar Diseño**
 - **Colores**: Editar archivo `tailwind.config.js`
