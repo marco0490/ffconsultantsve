@@ -44,16 +44,20 @@ function Dynamics365Sales() {
     }
 
     const data = {
+      CompaniaAseguradora: formData.get('aseguradora'),
+      QueDeseaAsegurar: formData.get('producto'),
+      Cobertura: formData.get('cobertura'),
+      TipoPago: formData.get('pago'),
       NombreCompleto: formData.get('name'),
-      Telefono: formData.get('mobile'),
-      CorreoElectronico: formData.get('email'),
       FechaNacimiento: fechaNacimientoIso,
       Sexo: formData.get('gender'),
-      CompaniaAseguradora: formData.get('aseguradora'),
+      CorreoElectronico: formData.get('email'),
+      Telefono: formData.get('mobile'),
+      Cedula: formData.get('cedula'),
     }
 
     fetch(
-      'https://70819f504490ecc695be32d38329fd.e1.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/d726397078a24769abbdb929d4e75263/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=jQdHR1WDCrkvkkq-MfOKoiQ2aKfOaWKXfPjP0ydRCEc',
+      'https://51376b01b175ec77b282d377ebf363.ee.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/2d369862ee8445e78e7c53e8710cc335/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=UwsI27wlI_kyGBUP4ZiV8MvyiMwHQ6IZUItHpCo6PVw',
       {
         method: 'POST',
         headers: {
@@ -87,10 +91,36 @@ function Dynamics365Sales() {
         <input
           type="text"
           name="aseguradora"
-          placeholder="Compañía aseguradora"
+          placeholder="Compañía aseguradora (ej: Seguros Pirámide)"
           required
           className="border p-2"
         />
+        <input
+          type="text"
+          name="producto"
+          placeholder="Qué desea asegurar (ej: patrimoniales)"
+          required
+          className="border p-2"
+        />
+        <input
+          type="text"
+          name="cobertura"
+          placeholder="Cobertura (texto libre de prueba)"
+          required
+          className="border p-2"
+        />
+        <select
+          name="pago"
+          className="border p-2"
+          required
+          defaultValue=""
+        >
+          <option value="" disabled>
+            Tipo de pago
+          </option>
+          <option value="Cuotas">Cuotas</option>
+          <option value="Anual">Anual</option>
+        </select>
         <input
           type="text"
           name="name"
@@ -99,8 +129,13 @@ function Dynamics365Sales() {
           className="border p-2"
         />
         <div className="flex space-x-2">
-          <select name="titular_dia" className="border p-2 w-1/3" required>
-            <option value="" disabled selected>
+          <select
+            name="titular_dia"
+            className="border p-2 w-1/3"
+            required
+            defaultValue=""
+          >
+            <option value="" disabled>
               D
             </option>
             {Array.from({ length: 31 }, (_, i) => i + 1).map((d) => (
@@ -109,8 +144,13 @@ function Dynamics365Sales() {
               </option>
             ))}
           </select>
-          <select name="titular_mes" className="border p-2 w-1/3" required>
-            <option value="" disabled selected>
+          <select
+            name="titular_mes"
+            className="border p-2 w-1/3"
+            required
+            defaultValue=""
+          >
+            <option value="" disabled>
               M
             </option>
             <option value="enero">Enero</option>
@@ -126,8 +166,13 @@ function Dynamics365Sales() {
             <option value="noviembre">Noviembre</option>
             <option value="diciembre">Diciembre</option>
           </select>
-          <select name="titular_anio" className="border p-2 w-1/3" required>
-            <option value="" disabled selected>
+          <select
+            name="titular_anio"
+            className="border p-2 w-1/3"
+            required
+            defaultValue=""
+          >
+            <option value="" disabled>
               A
             </option>
             {Array.from({ length: 101 }, (_, i) => new Date().getFullYear() - i).map(
@@ -139,8 +184,13 @@ function Dynamics365Sales() {
             )}
           </select>
         </div>
-        <select name="gender" className="border p-2" required>
-          <option value="" disabled selected>
+        <select
+          name="gender"
+          className="border p-2"
+          required
+          defaultValue=""
+        >
+          <option value="" disabled>
             Sexo
           </option>
           <option value="masculino">Masculino</option>
@@ -157,6 +207,13 @@ function Dynamics365Sales() {
           type="tel"
           name="mobile"
           placeholder="Teléfono"
+          required
+          className="border p-2"
+        />
+        <input
+          type="text"
+          name="cedula"
+          placeholder="Cédula de identidad"
           required
           className="border p-2"
         />
