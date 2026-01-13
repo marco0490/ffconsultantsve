@@ -97,9 +97,7 @@ function We() {
             {({ open }) => (
               <>
                 <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
-                  <span>
-                    1. ¿Que tipos de planes existen en el universo del seguro?
-                  </span>
+                  <span>1. ¿Qué tipos de planes existen?</span>
                   <ChevronUpIcon
                     className={`${
                       open ? 'rotate-180 transform' : ''
@@ -107,11 +105,9 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Existen un sin fin de productos de salud pero hay que estar
-                  claro que entre esos productos existe multiples diferencias.
-                  Como productos de solo emergencia, que solo van diridos
-                  atender reclamos del tipo emergencias y no solo eso si no que
-                  los contratos pueden estar atados a patologías especificas.
+                  Desde coberturas solo para emergencias con patologías limitadas
+                  hasta planes integrales, cada uno con alcances, exclusiones y
+                  beneficios distintos.
                 </Disclosure.Panel>
               </>
             )}
@@ -120,7 +116,7 @@ function We() {
             {({ open }) => (
               <>
                 <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
-                  <span>2. ¿Red de clinicas de las compañias?</span>
+                  <span>2. ¿Tienen red de clínicas cerrada?</span>
                   <ChevronUpIcon
                     className={`${
                       open ? 'rotate-180 transform' : ''
@@ -128,55 +124,11 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Mercantil y Qualitas: Si, siempre y cuando la patología lo
-                  amerite. Luego será dado de alta apenas esté estabilizado.
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
-          <Disclosure as="div" className="mt-6">
-            {({ open }) => (
-              <>
-                <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
-                  <span>
-                    3. ¿Que enfermedades están cubiertas de inmediato en mi
-                    póliza de salud?
-                  </span>
-                  <ChevronUpIcon
-                    className={`${
-                      open ? 'rotate-180 transform' : ''
-                    } h-7 w-7 text-black`}
-                  />
-                </Disclosure.Button>
-                <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Mercantil y Qualitas: Accidentes y enfermedades infecto
-                  contagiosas (excepto covid) según listado en el condicionado
-                  de la póliza.
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
-          <Disclosure as="div" className="mt-6">
-            {({ open }) => (
-              <>
-                <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
-                  <span>
-                    4. ¿En la póliza de emergencias funciona cualquier clínica
-                    que sea de mi preferencia?
-                  </span>
-                  <ChevronUpIcon
-                    className={`${
-                      open ? 'rotate-180 transform' : ''
-                    } h-7 w-7 text-black`}
-                  />
-                </Disclosure.Button>
-                <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Mercantil: No, hay un sistema cerrado al que hay que ceñirse.
-                  En caso de usar una clinica fuera del sistema se reembolsará
-                  con los costos de una clínica del sistema <br />
+                  Pirámide: sí, acceso solo en su red, fuera de ella aplica
+                  reembolso interno.
                   <br />
-                  Qualitas: Si, siempre y cuando sea de la red de clinicas de la
-                  red de salud de Seguros Qualitas
+                  <br />
+                  Oceánica: clínica dentro de red tras autorización previa.
                 </Disclosure.Panel>
               </>
             )}
@@ -186,8 +138,50 @@ function We() {
               <>
                 <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
                   <span>
-                    5. ¿Cuanto duran los contra reeembolso de sus planes de
-                    seguros?
+                    3. ¿Qué enfermedades cubren de inmediato?
+                  </span>
+                  <ChevronUpIcon
+                    className={`${
+                      open ? 'rotate-180 transform' : ''
+                    } h-7 w-7 text-black`}
+                  />
+                </Disclosure.Button>
+                <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
+                  Ambas cubren 9 patologías específicas (cardio, renales,
+                  traumas, quemaduras, infecciosas…), según listado condicionado
+                  de cada póliza.
+                </Disclosure.Panel>
+              </>
+            )}
+          </Disclosure>
+          <Disclosure as="div" className="mt-6">
+            {({ open }) => (
+              <>
+                <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
+                  <span>
+                    4. ¿Funciona cualquier clínica fuera de la red?
+                  </span>
+                  <ChevronUpIcon
+                    className={`${
+                      open ? 'rotate-180 transform' : ''
+                    } h-7 w-7 text-black`}
+                  />
+                </Disclosure.Button>
+                <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
+                  Pirámide: solo reembolso según tarifa.
+                  <br />
+                  <br />
+                  Oceánica: no aceptado fuera de red, debe haber autorización.
+                </Disclosure.Panel>
+              </>
+            )}
+          </Disclosure>
+          <Disclosure as="div" className="mt-6">
+            {({ open }) => (
+              <>
+                <Disclosure.Button className="flex w-full h-[80px] shadow-xl justify-between items-center border-2 bg-white px-5 md:px-12 py-2 text-left text-base md:text-2xl font-medium text-black focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75">
+                  <span>
+                    5. ¿Cuánto tardan los reembolsos?
                   </span>
                   <ChevronUpIcon
                     className={`${
@@ -196,10 +190,12 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-10 text-base md:text-2xl text-gray-500">
-                  Cada compañia de seguro tienes sus politicas particulares
-                  donde establecen los periodos de rembolso pero lo que el
-                  mercado nos dice es que esta tardando un promedio de hasta
-                  casi 2 meses en reeembolsar los reclamos.
+                  Pirámide: presentación de documentos en 30 días, luego
+                  proceso de pago.
+                  <br />
+                  <br />
+                  Oceánica: sin plazo oficial, usualmente puede tardar hasta 60
+                  días, dependiendo del caso.
                 </Disclosure.Panel>
               </>
             )}
