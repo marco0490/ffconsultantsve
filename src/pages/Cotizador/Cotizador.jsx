@@ -116,7 +116,7 @@ function Cotizador() {
       }
 
       fetch(
-        'https://70819f504490ecc695be32d38329fd.e1.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/d726397078a24769abbdb929d4e75263/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=jQdHR1WDCrkvkkq-MfOKoiQ2aKfOaWKXfPjP0ydRCEc',
+        'https://51376b01b175ec77b282d377ebf363.ee.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/5a2583ffa26a4a75b61e7844a13db9ae/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=SP7FqaCWgkWnFrTuT8aHJoTdHNDltZaFmlgq5VmOaq4',
         {
           method: 'POST',
           headers: {
@@ -252,7 +252,7 @@ function Cotizador() {
       }
 
       fetch(
-        'https://70819f504490ecc695be32d38329fd.e1.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/68b90ffbd8864ce5832965b58f9aa545/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=6FQUtJ1UyVDd4yeg9JCr3yo7Id5ApZGN9XX8peDtUFE',
+        'https://51376b01b175ec77b282d377ebf363.ee.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/26b7dda126f045aa8139436c1624a254/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=qfrzjZAmrRYTZeIkMV6u9tH-xqQWEfTBTTOn2_goK7Q',
         {
           method: 'POST',
           headers: {
@@ -286,7 +286,7 @@ function Cotizador() {
       }
 
       fetch(
-        'https://70819f504490ecc695be32d38329fd.e1.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/8eebb1a298d742dfa1a17844016e66a2/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=BVTA61wp98XEV7-hy_ZNP2FP-gNZDWtuePzRfv8vHuc',
+        'https://51376b01b175ec77b282d377ebf363.ee.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/2d369862ee8445e78e7c53e8710cc335/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=UwsI27wlI_kyGBUP4ZiV8MvyiMwHQ6IZUItHpCo6PVw',
         {
           method: 'POST',
           headers: {
@@ -335,18 +335,18 @@ function Cotizador() {
         title: 'Confirmado',
         text: 'Hemos recibido tu mensaje, revisaremos la información y estaremos en contacto pronto.',
         icon: 'success',
-        button: 'OK',
-        timer: '3000',
-        timerProgressBar: 'true',
+        confirmButtonText: 'OK',
+        timer: 8000,
+        timerProgressBar: true,
       })
     } else {
       Swal.fire({
         title: 'Espera',
         text: 'Tienes que terminar de rellenar la información.',
         icon: 'info',
-        button: 'OK',
-        timer: '3000',
-        timerProgressBar: 'true',
+        confirmButtonText: 'OK',
+        timer: 8000,
+        timerProgressBar: true,
       })
     }
   }
@@ -419,8 +419,11 @@ function Cotizador() {
               onSubmit={sendEmail}
             >
               <div className="flex flex-col">
-                <label htmlFor="aseguradora" className="hidden">
-                  Aseguradoras
+                <label
+                  htmlFor="aseguradora"
+                  className="text-sm font-medium text-gray-700 mb-1"
+                >
+                  Aseguradora <span className="text-red-600">*</span>
                 </label>
                 <select
                   name="aseguradora"
@@ -430,6 +433,7 @@ function Cotizador() {
                     setCompany(e.target.value)
                     setCoverage('')
                   }}
+                  required
                 >
                   <option value="" disabled>
                     Elige tu Aseguradora
@@ -444,8 +448,11 @@ function Cotizador() {
                 </select>
               </div>
               <div className="flex flex-col mt-2">
-                <label htmlFor="producto" className="hidden">
-                  Qué desea asegurar
+                <label
+                  htmlFor="producto"
+                  className="text-sm font-medium text-gray-700 mb-1"
+                >
+                  Qué desea asegurar <span className="text-red-600">*</span>
                 </label>
                 <select
                   name="producto"
@@ -466,14 +473,18 @@ function Cotizador() {
                 </select>
               </div>
               <div className="flex flex-col mt-2">
-                <label htmlFor="cobertura" className="hidden">
-                  Cobertura
+                <label
+                  htmlFor="cobertura"
+                  className="text-sm font-medium text-gray-700 mb-1"
+                >
+                  Cobertura <span className="text-red-600">*</span>
                 </label>
                 <select
                   name="cobertura"
                   id="cobertura"
                   value={coverage}
                   onChange={(e) => setCoverage(e.target.value)}
+                  required
                 >
                   <option value="" disabled>
                     Elige tu Cobertura
