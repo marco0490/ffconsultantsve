@@ -57,6 +57,259 @@ function Cotizador() {
   function sendEmail(e) {
     e.preventDefault()
 
+    console.log('>>> Enviando a Power Automate + EmailJS desde Cotizador')
+
+    const formData = new FormData(e.target)
+
+    const day = formData.get('titular_dia')
+    const monthName = formData.get('titular_mes')
+    const year = formData.get('titular_anio')
+
+    const monthMap = {
+      enero: 0,
+      febrero: 1,
+      marzo: 2,
+      abril: 3,
+      mayo: 4,
+      junio: 5,
+      julio: 6,
+      agosto: 7,
+      septiembre: 8,
+      octubre: 9,
+      noviembre: 10,
+      diciembre: 11,
+    }
+
+    let fechaNacimientoIso = null
+
+    if (day && monthName && year && monthMap[monthName] !== undefined) {
+      const dateObj = new Date(
+        Number(year),
+        monthMap[monthName],
+        Number(day),
+        0,
+        0,
+        0,
+      )
+      fechaNacimientoIso = dateObj.toISOString()
+    }
+
+    if (product === 'auto') {
+      const dataAuto = {
+        NombreCompleto: formData.get('name'),
+        Cedula: formData.get('cedula'),
+        Telefono: formData.get('mobile'),
+        CorreoElectronico: formData.get('email'),
+        FechaNacimiento: fechaNacimientoIso,
+        Sexo: formData.get('gender'),
+        Ano: Number(formData.get('vehiculo_ano')),
+        Marca: formData.get('vehiculo_marca'),
+        Modelo: formData.get('vehiculo_modelo'),
+        Version: formData.get('vehiculo_version'),
+        Transmision: formData.get('vehiculo_transmision'),
+        Blindaje: formData.get('blindaje') ? 'Si' : 'No',
+        Cobertura: formData.get('cobertura'),
+        CeroKM: !!formData.get('cero_km'),
+        CompaniaAseguradora: formData.get('aseguradora'),
+        QueDeseaAsegurar: formData.get('producto'),
+        TipoPago: formData.get('pago'),
+      }
+
+      fetch(
+        'https://51376b01b175ec77b282d377ebf363.ee.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/5a2583ffa26a4a75b61e7844a13db9ae/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=SP7FqaCWgkWnFrTuT8aHJoTdHNDltZaFmlgq5VmOaq4',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(dataAuto),
+        },
+      )
+        .then((response) => {
+          if (!response.ok) {
+            console.error('Error al enviar datos a Power Automate (Auto)')
+          }
+        })
+        .catch((error) => {
+          console.error('Error de conexión con Power Automate (Auto):', error)
+        })
+    }
+
+    if (product === 'personas') {
+      const toIsoDate = (d, m, y) => {
+        if (!d || !m || !y || monthMap[m] === undefined) return null
+        const dateObj = new Date(Number(y), monthMap[m], Number(d), 0, 0, 0)
+        return dateObj.toISOString()
+      }
+
+      const fechaNacimientoConyugeIso = toIsoDate(
+        formData.get('conyuge_dia'),
+        formData.get('conyuge_mes'),
+        formData.get('conyuge_anio'),
+      )
+
+      const fechaNacBenef1Iso = toIsoDate(
+        formData.get('beneficiario1_dia'),
+        formData.get('beneficiario1_mes'),
+        formData.get('beneficiario1_anio'),
+      )
+
+      const fechaNacBenef2Iso = toIsoDate(
+        formData.get('beneficiario2_dia'),
+        formData.get('beneficiario2_mes'),
+        formData.get('beneficiario2_anio'),
+      )
+
+      const fechaNacBenef3Iso = toIsoDate(
+        formData.get('beneficiario3_dia'),
+        formData.get('beneficiario3_mes'),
+        formData.get('beneficiario3_anio'),
+      )
+
+      const fechaNacBenef4Iso = toIsoDate(
+        formData.get('beneficiario4_dia'),
+        formData.get('beneficiario4_mes'),
+        formData.get('beneficiario4_anio'),
+      )
+
+      const fechaSalidaIso = toIsoDate(
+        formData.get('fecha_salida_dia'),
+        formData.get('fecha_salida_mes'),
+        formData.get('fecha_salida_anio'),
+      )
+
+      const fechaLlegadaIso = toIsoDate(
+        formData.get('fecha_llegada_dia'),
+        formData.get('fecha_llegada_mes'),
+        formData.get('fecha_llegada_anio'),
+      )
+
+      const dataPersonas = {
+        QueDeseaAsegurar: formData.get('producto'),
+        CompaniaAseguradora: formData.get('aseguradora'),
+        Cobertura: formData.get('cobertura'),
+        TipoPago: formData.get('pago'),
+        ServicioAsistenciaViajes30Dias: !!formData.get('asistencia_viajes_oceanica'),
+        NombreCompleto: formData.get('name'),
+        FechaNacimiento: fechaNacimientoIso,
+        Sexo: formData.get('gender'),
+        CorreoElectronico: formData.get('email'),
+        Telefono: formData.get('mobile'),
+        Cedula: formData.get('cedula'),
+        MaternidadComplicaciones: !!formData.get('maternidad_complicaciones'),
+        TieneConyuge: formData.get('conyuge') === 'Si',
+        ViajaSolo: formData.get('viaja_solo') === 'si',
+      }
+
+      const nombreConyuge = formData.get('name2')
+      if (nombreConyuge) {
+        dataPersonas.NombreConyuge = nombreConyuge
+      }
+      if (fechaNacimientoConyugeIso) {
+        dataPersonas.FechaNacimientoConyuge = fechaNacimientoConyugeIso
+      }
+      const sexoConyuge = formData.get('gender2')
+      if (sexoConyuge) {
+        dataPersonas.SexoConyuge = sexoConyuge
+      }
+      const correoConyuge = formData.get('email2')
+      if (correoConyuge) {
+        dataPersonas.CorreoConyuge = correoConyuge
+      }
+
+      if (fechaNacBenef1Iso) {
+        dataPersonas.FechaNacimientoBeneficiario1 = fechaNacBenef1Iso
+      }
+      if (fechaNacBenef2Iso) {
+        dataPersonas.FechaNacimientoBeneficiario2 = fechaNacBenef2Iso
+      }
+      if (fechaNacBenef3Iso) {
+        dataPersonas.FechaNacimientoBeneficiario3 = fechaNacBenef3Iso
+      }
+      if (fechaNacBenef4Iso) {
+        dataPersonas.FechaNacimientoBeneficiario4 = fechaNacBenef4Iso
+      }
+
+      const profesion = formData.get('profesion')
+      if (profesion) {
+        dataPersonas.ProfesionOcupacion = profesion
+      }
+
+      const paisOrigen = formData.get('pais_origen')
+      if (paisOrigen) {
+        dataPersonas.PaisOrigen = paisOrigen
+      }
+      const paisDestino = formData.get('pais_destino')
+      if (paisDestino) {
+        dataPersonas.PaisDestino = paisDestino
+      }
+
+      if (fechaSalidaIso) {
+        dataPersonas.FechaSalida = fechaSalidaIso
+      }
+      if (fechaLlegadaIso) {
+        dataPersonas.FechaLlegada = fechaLlegadaIso
+      }
+
+      fetch(
+        'https://51376b01b175ec77b282d377ebf363.ee.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/26b7dda126f045aa8139436c1624a254/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=qfrzjZAmrRYTZeIkMV6u9tH-xqQWEfTBTTOn2_goK7Q',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(dataPersonas),
+        },
+      )
+        .then((response) => {
+          if (!response.ok) {
+            console.error('Error al enviar datos a Power Automate (Personas)')
+          }
+        })
+        .catch((error) => {
+          console.error('Error de conexión con Power Automate (Personas):', error)
+        })
+    }
+
+    if (product === 'patrimoniales') {
+      const dataPatrimoniales = {
+        CompaniaAseguradora: formData.get('aseguradora'),
+        QueDeseaAsegurar: formData.get('producto'),
+        Cobertura: formData.get('cobertura'),
+        TipoPago: formData.get('pago'),
+        NombreCompleto: formData.get('name'),
+        FechaNacimiento: fechaNacimientoIso,
+        Sexo: formData.get('gender'),
+        CorreoElectronico: formData.get('email'),
+        Telefono: formData.get('mobile'),
+        Cedula: formData.get('cedula'),
+      }
+
+      fetch(
+        'https://51376b01b175ec77b282d377ebf363.ee.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/2d369862ee8445e78e7c53e8710cc335/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=UwsI27wlI_kyGBUP4ZiV8MvyiMwHQ6IZUItHpCo6PVw',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(dataPatrimoniales),
+        },
+      )
+        .then((response) => {
+          if (!response.ok) {
+            console.error(
+              'Error al enviar datos a Power Automate (Patrimoniales)',
+            )
+          }
+        })
+        .catch((error) => {
+          console.error(
+            'Error de conexión con Power Automate (Patrimoniales):',
+            error,
+          )
+        })
+    }
+
     emailjs
       .sendForm(
         import.meta.env.VITE_EMAIL_SERVICE,
@@ -82,18 +335,18 @@ function Cotizador() {
         title: 'Confirmado',
         text: 'Hemos recibido tu mensaje, revisaremos la información y estaremos en contacto pronto.',
         icon: 'success',
-        button: 'OK',
-        timer: '3000',
-        timerProgressBar: 'true',
+        confirmButtonText: 'OK',
+        timer: 8000,
+        timerProgressBar: true,
       })
     } else {
       Swal.fire({
         title: 'Espera',
         text: 'Tienes que terminar de rellenar la información.',
         icon: 'info',
-        button: 'OK',
-        timer: '3000',
-        timerProgressBar: 'true',
+        confirmButtonText: 'OK',
+        timer: 8000,
+        timerProgressBar: true,
       })
     }
   }
@@ -166,8 +419,11 @@ function Cotizador() {
               onSubmit={sendEmail}
             >
               <div className="flex flex-col">
-                <label htmlFor="aseguradora" className="hidden">
-                  Aseguradoras
+                <label
+                  htmlFor="aseguradora"
+                  className="text-sm font-medium text-gray-700 mb-1"
+                >
+                  Aseguradora <span className="text-red-600">*</span>
                 </label>
                 <select
                   name="aseguradora"
@@ -177,6 +433,7 @@ function Cotizador() {
                     setCompany(e.target.value)
                     setCoverage('')
                   }}
+                  required
                 >
                   <option value="" disabled>
                     Elige tu Aseguradora
@@ -191,8 +448,11 @@ function Cotizador() {
                 </select>
               </div>
               <div className="flex flex-col mt-2">
-                <label htmlFor="producto" className="hidden">
-                  Qué desea asegurar
+                <label
+                  htmlFor="producto"
+                  className="text-sm font-medium text-gray-700 mb-1"
+                >
+                  Qué desea asegurar <span className="text-red-600">*</span>
                 </label>
                 <select
                   name="producto"
@@ -213,14 +473,18 @@ function Cotizador() {
                 </select>
               </div>
               <div className="flex flex-col mt-2">
-                <label htmlFor="cobertura" className="hidden">
-                  Cobertura
+                <label
+                  htmlFor="cobertura"
+                  className="text-sm font-medium text-gray-700 mb-1"
+                >
+                  Cobertura <span className="text-red-600">*</span>
                 </label>
                 <select
                   name="cobertura"
                   id="cobertura"
                   value={coverage}
                   onChange={(e) => setCoverage(e.target.value)}
+                  required
                 >
                   <option value="" disabled>
                     Elige tu Cobertura
@@ -359,8 +623,13 @@ function Cotizador() {
                         Fecha de salida
                       </label>
                       <div className="flex space-x-2">
-                        <select name="fecha_salida_dia" className="w-full" required>
-                          <option value="" disabled selected>
+                        <select
+                          name="fecha_salida_dia"
+                          className="w-full"
+                          required
+                          defaultValue=""
+                        >
+                          <option value="" disabled>
                             Día
                           </option>
                           {days.map((d) => (
@@ -369,8 +638,13 @@ function Cotizador() {
                             </option>
                           ))}
                         </select>
-                        <select name="fecha_salida_mes" className="w-full" required>
-                          <option value="" disabled selected>
+                        <select
+                          name="fecha_salida_mes"
+                          className="w-full"
+                          required
+                          defaultValue=""
+                        >
+                          <option value="" disabled>
                             Mes
                           </option>
                           <option value="enero">Enero</option>
@@ -386,8 +660,13 @@ function Cotizador() {
                           <option value="noviembre">Noviembre</option>
                           <option value="diciembre">Diciembre</option>
                         </select>
-                        <select name="fecha_salida_anio" className="w-full" required>
-                          <option value="" disabled selected>
+                        <select
+                          name="fecha_salida_anio"
+                          className="w-full"
+                          required
+                          defaultValue=""
+                        >
+                          <option value="" disabled>
                             Año
                           </option>
                           {years.map((y) => (
@@ -403,8 +682,13 @@ function Cotizador() {
                         Fecha de llegada
                       </label>
                       <div className="flex space-x-2">
-                        <select name="fecha_llegada_dia" className="w-full" required>
-                          <option value="" disabled selected>
+                        <select
+                          name="fecha_llegada_dia"
+                          className="w-full"
+                          required
+                          defaultValue=""
+                        >
+                          <option value="" disabled>
                             Día
                           </option>
                           {days.map((d) => (
@@ -413,8 +697,13 @@ function Cotizador() {
                             </option>
                           ))}
                         </select>
-                        <select name="fecha_llegada_mes" className="w-full" required>
-                          <option value="" disabled selected>
+                        <select
+                          name="fecha_llegada_mes"
+                          className="w-full"
+                          required
+                          defaultValue=""
+                        >
+                          <option value="" disabled>
                             Mes
                           </option>
                           <option value="enero">Enero</option>
@@ -430,8 +719,13 @@ function Cotizador() {
                           <option value="noviembre">Noviembre</option>
                           <option value="diciembre">Diciembre</option>
                         </select>
-                        <select name="fecha_llegada_anio" className="w-full" required>
-                          <option value="" disabled selected>
+                        <select
+                          name="fecha_llegada_anio"
+                          className="w-full"
+                          required
+                          defaultValue=""
+                        >
+                          <option value="" disabled>
                             Año
                           </option>
                           {years.map((y) => (
@@ -526,8 +820,9 @@ function Cotizador() {
                       id="titular_dia"
                       className="flex flex-col col-span-2 text-[14px]"
                       required
+                      defaultValue=""
                     >
-                      <option value="" disabled selected>
+                      <option value="" disabled>
                         D
                       </option>
                       {days.map((d) => (
@@ -541,8 +836,9 @@ function Cotizador() {
                       id="titular_mes"
                       className="flex flex-col col-span-2 text-[14px]"
                       required
+                      defaultValue=""
                     >
-                      <option value="" disabled selected>
+                      <option value="" disabled>
                         M
                       </option>
                       <option value="enero">Enero</option>
@@ -563,8 +859,9 @@ function Cotizador() {
                       id="titular_anio"
                       className="flex flex-col col-span-2 text-[14px]"
                       required
+                      defaultValue=""
                     >
-                      <option value="" disabled selected>
+                      <option value="" disabled>
                         A
                       </option>
                       {years.map((y) => (
@@ -579,8 +876,8 @@ function Cotizador() {
                   <label htmlFor="gender" className="hidden">
                     Sexo
                   </label>
-                  <select name="gender" id="gender" required>
-                    <option value="" disabled selected>
+                  <select name="gender" id="gender" required defaultValue="">
+                    <option value="" disabled>
                       Sexo
                     </option>
                     <option value="masculino">Masculino</option>
@@ -725,8 +1022,9 @@ function Cotizador() {
                           name="conyuge_dia"
                           id="conyuge_dia"
                           className="flex flex-col col-span-2 text-[14px]"
+                          defaultValue=""
                         >
-                          <option value="" disabled selected>
+                          <option value="" disabled>
                             D
                           </option>
                           {days.map((d) => (
@@ -739,8 +1037,9 @@ function Cotizador() {
                           name="conyuge_mes"
                           id="conyuge_mes"
                           className="flex flex-col col-span-2 text-[14px]"
+                          defaultValue=""
                         >
-                          <option value="" disabled selected>
+                          <option value="" disabled>
                             M
                           </option>
                           <option value="enero">Enero</option>
@@ -760,8 +1059,9 @@ function Cotizador() {
                           name="conyuge_anio"
                           id="conyuge_anio"
                           className="flex flex-col col-span-2 text-[14px]"
+                          defaultValue=""
                         >
-                          <option value="" disabled selected>
+                          <option value="" disabled>
                             A
                           </option>
                           {years.map((y) => (
@@ -776,8 +1076,8 @@ function Cotizador() {
                       <label htmlFor="gender2" className="hidden">
                         Sexo
                       </label>
-                      <select name="gender2" id="gender2">
-                        <option value="" disabled selected>
+                      <select name="gender2" id="gender2" defaultValue="">
+                        <option value="" disabled>
                           Sexo
                         </option>
                         <option value="masculino">Masculino</option>
@@ -835,8 +1135,12 @@ function Cotizador() {
                               : 'Beneficiario 1'}
                           </label>
                           <div className="flex space-x-2">
-                            <select name="beneficiario1_dia" className="w-full">
-                              <option value="" disabled selected>
+                            <select
+                              name="beneficiario1_dia"
+                              className="w-full"
+                              defaultValue=""
+                            >
+                              <option value="" disabled>
                                 Día
                               </option>
                               {days.map((d) => (
@@ -845,8 +1149,12 @@ function Cotizador() {
                                 </option>
                               ))}
                             </select>
-                            <select name="beneficiario1_mes" className="w-full">
-                              <option value="" disabled selected>
+                            <select
+                              name="beneficiario1_mes"
+                              className="w-full"
+                              defaultValue=""
+                            >
+                              <option value="" disabled>
                                 Mes
                               </option>
                               <option value="enero">Enero</option>
@@ -862,8 +1170,12 @@ function Cotizador() {
                               <option value="noviembre">Noviembre</option>
                               <option value="diciembre">Diciembre</option>
                             </select>
-                            <select name="beneficiario1_anio" className="w-full">
-                              <option value="" disabled selected>
+                            <select
+                              name="beneficiario1_anio"
+                              className="w-full"
+                              defaultValue=""
+                            >
+                              <option value="" disabled>
                                 Año
                               </option>
                               {years.map((y) => (
@@ -911,8 +1223,12 @@ function Cotizador() {
                               : 'Beneficiarios 2'}
                           </label>
                           <div className="flex space-x-2">
-                            <select name="beneficiario2_dia" className="w-full">
-                              <option value="" disabled selected>
+                            <select
+                              name="beneficiario2_dia"
+                              className="w-full"
+                              defaultValue=""
+                            >
+                              <option value="" disabled>
                                 Día
                               </option>
                               {days.map((d) => (
@@ -921,8 +1237,12 @@ function Cotizador() {
                                 </option>
                               ))}
                             </select>
-                            <select name="beneficiario2_mes" className="w-full">
-                              <option value="" disabled selected>
+                            <select
+                              name="beneficiario2_mes"
+                              className="w-full"
+                              defaultValue=""
+                            >
+                              <option value="" disabled>
                                 Mes
                               </option>
                               <option value="enero">Enero</option>
@@ -938,8 +1258,12 @@ function Cotizador() {
                               <option value="noviembre">Noviembre</option>
                               <option value="diciembre">Diciembre</option>
                             </select>
-                            <select name="beneficiario2_anio" className="w-full">
-                              <option value="" disabled selected>
+                            <select
+                              name="beneficiario2_anio"
+                              className="w-full"
+                              defaultValue=""
+                            >
+                              <option value="" disabled>
                                 Año
                               </option>
                               {years.map((y) => (
@@ -988,8 +1312,12 @@ function Cotizador() {
                                 : 'Beneficiario 3'}
                             </label>
                             <div className="flex space-x-2">
-                              <select name="beneficiario3_dia" className="w-full">
-                                <option value="" disabled selected>
+                              <select
+                                name="beneficiario3_dia"
+                                className="w-full"
+                                defaultValue=""
+                              >
+                                <option value="" disabled>
                                   Día
                                 </option>
                                 {days.map((d) => (
@@ -998,8 +1326,12 @@ function Cotizador() {
                                   </option>
                                 ))}
                               </select>
-                              <select name="beneficiario3_mes" className="w-full">
-                                <option value="" disabled selected>
+                              <select
+                                name="beneficiario3_mes"
+                                className="w-full"
+                                defaultValue=""
+                              >
+                                <option value="" disabled>
                                   Mes
                                 </option>
                                 <option value="enero">Enero</option>
@@ -1015,8 +1347,12 @@ function Cotizador() {
                                 <option value="noviembre">Noviembre</option>
                                 <option value="diciembre">Diciembre</option>
                               </select>
-                              <select name="beneficiario3_anio" className="w-full">
-                                <option value="" disabled selected>
+                              <select
+                                name="beneficiario3_anio"
+                                className="w-full"
+                                defaultValue=""
+                              >
+                                <option value="" disabled>
                                   Año
                                 </option>
                                 {years.map((y) => (
@@ -1067,8 +1403,12 @@ function Cotizador() {
                                 : 'Beneficiario 4'}
                             </label>
                             <div className="flex space-x-2">
-                              <select name="beneficiario4_dia" className="w-full">
-                                <option value="" disabled selected>
+                              <select
+                                name="beneficiario4_dia"
+                                className="w-full"
+                                defaultValue=""
+                              >
+                                <option value="" disabled>
                                   Día
                                 </option>
                                 {days.map((d) => (
@@ -1077,8 +1417,12 @@ function Cotizador() {
                                   </option>
                                 ))}
                               </select>
-                              <select name="beneficiario4_mes" className="w-full">
-                                <option value="" disabled selected>
+                              <select
+                                name="beneficiario4_mes"
+                                className="w-full"
+                                defaultValue=""
+                              >
+                                <option value="" disabled>
                                   Mes
                                 </option>
                                 <option value="enero">Enero</option>
@@ -1094,8 +1438,12 @@ function Cotizador() {
                                 <option value="noviembre">Noviembre</option>
                                 <option value="diciembre">Diciembre</option>
                               </select>
-                              <select name="beneficiario4_anio" className="w-full">
-                                <option value="" disabled selected>
+                              <select
+                                name="beneficiario4_anio"
+                                className="w-full"
+                                defaultValue=""
+                              >
+                                <option value="" disabled>
                                   Año
                                 </option>
                                 {years.map((y) => (

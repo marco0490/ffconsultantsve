@@ -174,7 +174,7 @@ function AutoFields({ company, product, days, years }) {
           </label>
           <select name="vehiculo_marca" id="vehiculo_marca" required>
             {brands.map((b) => (
-              <option key={b.value || 'placeholder'} value={b.value} selected={b.value === ''}>
+              <option key={b.value || 'placeholder'} value={b.label}>
                 {b.label}
               </option>
             ))}

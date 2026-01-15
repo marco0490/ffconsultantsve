@@ -22,6 +22,7 @@ import PlansOceanica from './pages/PlansOceanica/PlansOceanica'
 import Complete from './pages/Complete/Complete'
 import Conditions from './pages/Conditions/Conditions'
 import Cookies from './pages/Cookies/Cookies'
+import Dynamics365Sales from './pages/Dynamics365Sales/Dynamics365Sales'
 
 function App() {
   const router = createBrowserRouter(
@@ -33,6 +34,7 @@ function App() {
         <Route path="/contacto" element={<Contact />} />
         <Route path="/enviado" element={<Complete />} />
         <Route path="/cotizador" element={<Cotizador />} />
+        <Route path="/dynamics-365-sales" element={<Dynamics365Sales />} />
         <Route path="/planes-mercantil" element={<PlansMercantil />} />
         <Route path="/planes-qualitas" element={<PlansQualitas />} />
         <Route path="/planes-piramide" element={<PlansPiramide />} />
