@@ -391,7 +391,7 @@ function Cotizador() {
         </h1>
         <p className="pt-12 text-center text-xl">
           El proceso es rápido y sencillo. Introduce tus datos para cotizar los
-          planes y productos que mejor que adapten a tus necesidades
+          planes y productos que mejor se adapten a tus necesidades
         </p>
         <div className="border md:px-12 md:py-5 shadow-xl my-12">
           <h2 className="font-bold text-xl m-2">Solicita tu cotización</h2>
@@ -500,7 +500,7 @@ function Cotizador() {
                     <>
                       <option value="HCM">HCM</option>
                       <option value="APS">APS</option>
-                      <option value="EMERGERNCIA">EMERGERNCIA</option>
+                      <option value="EMERGENCIA">EMERGENCIA</option>
                       <option value="COLECTIVOS">COLECTIVOS</option>
                       <option value="ADMINISTRADOS">ADMINISTRADOS</option>
                     </>
@@ -970,7 +970,7 @@ function Cotizador() {
               {!isAutoPiramideOceanica && !isPatrimonialesPiramideOceanica && (
                 <>
                   <div className="text-gray-500 font-semibold items-center my-4 ms-3 flex">
-                    <h3 className="inline pr-2">Conyuge: </h3>
+                    <h3 className="inline pr-2">Cónyuge: </h3>
                     <input
                       id="conyuge-si"
                       type="radio"
@@ -1484,7 +1484,7 @@ function Cotizador() {
                           type="text"
                           name="comment"
                           id="comment"
-                          placeholder="Comentario - De haber mas beneficiarios, indique nombre y fecha de nacimiento de cada uno aquí."
+                          placeholder="Comentario - De haber más beneficiarios, indique nombre y fecha de nacimiento de cada uno aquí."
                           autoComplete="off"
                         />
                       </div>
