@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MaxProtect - Chatbot</title>
+    <link rel="stylesheet" href="/chatbot/chatbot.css" />
+    <script src="/chatbot/chatbot.js" defer></script>
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="chat-header">
+        <h1>🛡️ MaxProtect</h1>
+        <p>Tu Agente de Seguros IA</p>
+        <div class="status-indicator">
+          <span class="status-dot"></span>
+          <span>En línea - Responde al instante</span>
+        </div>
+      </div>
+
+      <div class="chat-messages" id="chatMessages"></div>
+
+      <div class="typing-indicator" id="typingIndicator">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      </div>
+
+      <div class="chat-input-container">
+        <div class="input-wrapper">
+          <input
+            type="text"
+            class="chat-input"
+            id="userInput"
+            placeholder="Escribe tu mensaje..."
+            autocomplete="off"
+          />
+          <button class="send-btn" id="sendBtn" type="button">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
