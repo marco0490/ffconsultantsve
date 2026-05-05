@@ -76,9 +76,9 @@ function PlansOceanica() {
               Automóvil
             </h2>
             <div className="text-center font-semibold mt-4 border-t-2 border-gray-200"></div>
-            <Link to='/cotizador?aseguradora=seguros-oceanica&producto=auto'>
+            <Link to='/'>
               <button className="text-black w-[200px] border-solid border-2 border-[#efefef] font-bold my-10 mx-auto py-3 bg-white hover:bg-primary hover:text-white">
-                Cotiza este Plan
+                Ver más
               </button>
             </Link>
           </div>
@@ -94,9 +94,9 @@ function PlansOceanica() {
               Personas
             </h2>
             <div className="text-center font-semibold mt-4 border-t-2 border-gray-200"></div>
-            <Link to='/cotizador?aseguradora=seguros-oceanica&producto=personas'>
+            <Link to='/'>
               <button className="text-white w-[200px] border-solid border-2 border-primary bg-primary font-bold my-6 mx-auto py-3 hover:bg-white hover:text-primary">
-                Cotiza este Plan
+                Ver más
               </button>
             </Link>
           </div>
@@ -112,9 +112,9 @@ function PlansOceanica() {
               Patrimoniales
             </h2>
             <div className="text-center font-semibold mt-4 border-t-2 border-gray-200"></div>
-            <Link to='/cotizador?aseguradora=seguros-oceanica&producto=patrimoniales'>
+            <Link to='/'>
               <button className="text-black w-[200px] border-solid border-2 border-[#efefef] font-bold my-10 mx-auto py-3 bg-white hover:bg-primary hover:text-white">
-                Cotiza este Plan
+                Ver más
               </button>
             </Link>
           </div>
