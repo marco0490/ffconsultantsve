@@ -1,164 +1,96 @@
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { FadeUpSection, FadeUpItem } from '../FadeUp/FadeUp'
+import LogoRealSeguros from '../../assets/images/LogoRealSeguros.png'
+
+function LogoImg({ src, alt }) {
+  const [loaded, setLoaded] = useState(false)
+  return (
+    <div className="relative flex items-center justify-center" style={{ minWidth: 80, height: 70 }}>
+      {!loaded && (
+        <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
+      )}
+      <img
+        src={src}
+        alt={alt}
+        onLoad={() => setLoaded(true)}
+        className={`max-h-full max-w-[180px] object-contain transition-all duration-300 ${loaded ? '' : 'opacity-0'}`}
+      />
+    </div>
+  )
+}
+
+const logos = [
+  {
+    key: 'piramide',
+    src: 'https://segurospiramide.com/static/logo-piramides-d07524ef35db8b8403dff1b54884e9aa.svg',
+    alt: 'Piramide Seguros',
+  },
+  {
+    key: 'oceanica',
+    src: 'https://oceanicadeseguros.com/static/oceanica_original-1035af5b673858a792c437cf229007bd.png',
+    alt: 'Oceanica Seguros',
+  },
+  { key: 'real', src: LogoRealSeguros, alt: 'Real Seguros' },
+  {
+    key: 'caracas',
+    src: 'https://www.seguroscaracas.com/wp-content/uploads/2025/05/Logo-Seguros-Caracas.webp',
+    alt: 'Seguros Caracas',
+  },
+  {
+    key: 'estar',
+    src: 'https://www.estarseguros.com/wp-content/uploads/elementor/thumbs/logo-ES-1-rfkestximjkzzw4brz8rab33wv0pp4mdq1869yi42o.png',
+    alt: 'Estar Seguros',
+  },
+]
 
 function CompaniesPlan() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleLogoClick = (company) => {
-    // Navegar a la sección correspondiente según la compañía
     switch (company) {
-      case 'qualitas':
-        // Navegar a la ruta de planes-qualitas
-        navigate('/planes-qualitas')
-        break
-      case 'piramide':
-        // Navegar a la ruta de planes-piramide
-        navigate('/planes-piramide')
-        break
-      case 'oceanica':
-        // Navegar a la ruta de planes-oceanica
-        navigate('/planes-oceanica')
-        break
-      // Agregar más casos para otras compañías cuando sea necesario
-      default:
-        break
+      case 'piramide': navigate('/planes-piramide'); break
+      case 'oceanica': navigate('/planes-oceanica'); break
+      case 'real': navigate('/planes-real'); break
+      case 'caracas': navigate('/planes-caracas'); break
+      case 'estar': navigate('/planes-estar'); break
+      default: break
     }
   }
 
   return (
-    <div className="carousel-container">
-      <div className="carousel-track">
-        {/* PRIMERA VUELTA */}
-        {/*
-        <div className="carousel-item">
-          <button 
-            onClick={() => handleLogoClick('caracas')}
-            className="focus:outline-none"
-          >
-            <img
-              src="https://www.seguroscaracas.com/wp-content/uploads/2025/05/Logo-Seguros-Caracas.webp"
-              alt="Seguros Caracas"
-              className="hover:opacity-80 transition-opacity"
-            />
-          </button>
-        </div>
-        <div className="carousel-item">
-          <button 
-            onClick={() => handleLogoClick('qualitas')}
-            className="focus:outline-none"
-          >
-            <img
-              src="https://www.seguros-qualitas.com/wp-content/uploads/2020/06/Logo-Qualitas_slogan-01.png"
-              alt="Qualitas"
-              className="hover:opacity-80 transition-opacity"
-            />
-          </button>
-        </div>
-        */}
+    <div className="py-8">
+      <FadeUpSection className="text-center mb-8">
+        <FadeUpItem>
+          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2">
+            Respaldados por las Mejores Aseguradoras
+          </h2>
+        </FadeUpItem>
+        <FadeUpItem>
+          <p className="text-gray-500 text-sm md:text-base">
+            Trabajamos con empresas líderes del mercado para ofrecerte la mejor protección
+          </p>
+        </FadeUpItem>
+      </FadeUpSection>
 
-        <div className="carousel-item">
-          <button 
-            onClick={() => handleLogoClick('piramide')}
-            className="focus:outline-none"
-          >
-            <img
-              src="https://segurospiramide.com/static/logo-piramides-d07524ef35db8b8403dff1b54884e9aa.svg"
-              alt="Piramide Seguros"
-              className="hover:opacity-80 transition-opacity"
-            />
-          </button>
-        </div>
-        <div className="carousel-item">
-          <button 
-            onClick={() => handleLogoClick('oceanica')}
-            className="focus:outline-none"
-          >
-            <img
-              src="https://oceanicadeseguros.com/static/oceanica_original-1035af5b673858a792c437cf229007bd.png"
-              alt="Oceanica Seguros"
-              className="hover:opacity-80 transition-opacity"
-            />
-          </button>
-        </div>
-
-        {/*
-        <div className="carousel-item">
-          <button 
-            onClick={() => handleLogoClick('hispana')}
-            className="focus:outline-none"
-          >
-            <img
-              src="https://hispana.com.ve/wp-content/uploads/2022/08/cropped-hispana-logo.png"
-              alt="Seguros Hispana"
-              className="hover:opacity-80 transition-opacity"
-            />
-          </button>
-        </div>
-        */}
-
-        {/* SEGUNDA VUELTA (para efecto infinito) */}
-        {/*
-        <div className="carousel-item">
-          <button 
-            onClick={() => handleLogoClick('caracas')}
-            className="focus:outline-none"
-          >
-            <img
-              src="https://www.seguroscaracas.com/wp-content/uploads/2025/05/Logo-Seguros-Caracas.webp"
-              alt="Seguros Caracas"
-              className="hover:opacity-80 transition-opacity"
-            />
-          </button>
-        </div>
-
-        <div className="carousel-item">
-          <button 
-            onClick={() => handleLogoClick('hispana')}
-            className="focus:outline-none"
-          >
-            <img
-              src="https://hispana.com.ve/wp-content/uploads/2022/08/cropped-hispana-logo.png"
-              alt="Seguros Hispana"
-              className="hover:opacity-80 transition-opacity"
-            />
-          </button>
-        </div>
-        <div className="carousel-item">
-          <button 
-            onClick={() => handleLogoClick('qualitas')}
-            className="focus:outline-none"
-          >
-            <img
-              src="https://www.seguros-qualitas.com/wp-content/uploads/2020/06/Logo-Qualitas_slogan-01.png"
-              alt="Qualitas"
-              className="hover:opacity-80 transition-opacity"
-            />
-          </button>
-        </div>
-        */}
-
-        <div className="carousel-item">
-          <button 
-            onClick={() => handleLogoClick('piramide')}
-            className="focus:outline-none"
-          >
-            <img
-              src="https://segurospiramide.com/static/logo-piramides-d07524ef35db8b8403dff1b54884e9aa.svg"
-              alt="Piramide Seguros"
-              className="hover:opacity-80 transition-opacity"
-            />
-          </button>
-        </div>
-        <div className="carousel-item">
-          <button 
-            onClick={() => handleLogoClick('oceanica')}
-            className="focus:outline-none"
-          >
-            <img
-              src="https://oceanicadeseguros.com/static/oceanica_original-1035af5b673858a792c437cf229007bd.png"
-              alt="Oceanica Seguros"
-              className="hover:opacity-80 transition-opacity"
-            />
-          </button>
+      <div className="carousel-container">
+        <div className="carousel-track">
+          {/* Primera vuelta */}
+          {logos.map(({ key, src, alt }) => (
+            <div key={`a-${key}`} className="carousel-item">
+              <button onClick={() => handleLogoClick(key)} className="focus:outline-none">
+                <LogoImg src={src} alt={alt} />
+              </button>
+            </div>
+          ))}
+          {/* Segunda vuelta para efecto infinito */}
+          {logos.map(({ key, src, alt }) => (
+            <div key={`b-${key}`} className="carousel-item">
+              <button onClick={() => handleLogoClick(key)} className="focus:outline-none">
+                <LogoImg src={src} alt={alt} />
+              </button>
+            </div>
+          ))}
         </div>
       </div>
     </div>
