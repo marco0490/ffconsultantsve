@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="50" viewBox="0 0 180 50" fill="none">
+  <rect x="0" y="10" width="8" height="30" rx="2" fill="#00A89D"/>
+  <rect x="12" y="5" width="8" height="40" rx="2" fill="#00A89D"/>
+  <rect x="24" y="15" width="8" height="25" rx="2" fill="#00A89D"/>
+  <text x="40" y="32" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#00A89D">Real</text>
+  <text x="88" y="32" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="normal" fill="#666666">Seguros</text>
+</svg>
