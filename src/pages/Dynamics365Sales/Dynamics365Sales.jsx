@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 function Dynamics365Sales() {
   const [status, setStatus] = useState(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -56,6 +57,8 @@ function Dynamics365Sales() {
       Cedula: formData.get('cedula'),
     }
 
+    setIsSubmitting(true)
+
     fetch(
       'https://51376b01b175ec77b282d377ebf363.ee.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/2d369862ee8445e78e7c53e8710cc335/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=UwsI27wlI_kyGBUP4ZiV8MvyiMwHQ6IZUItHpCo6PVw',
       {
@@ -78,6 +81,9 @@ function Dynamics365Sales() {
         console.error('Error de conexión con Power Automate:', error)
         setStatus('error')
       })
+      .finally(() => {
+        setIsSubmitting(false)
+      })
   }
 
   return (
@@ -87,7 +93,19 @@ function Dynamics365Sales() {
         Esta página es solo para pruebas directas de la integración con Dynamics 365
         Sales a través de Power Automate.
       </p>
-      <form className="flex flex-col space-y-3" onSubmit={handleSubmit}>
+
+      {isSubmitting && (
+        <div className="mb-4 space-y-3">
+          <div className="h-10 bg-gray-200 rounded animate-pulse" />
+          <div className="h-10 bg-gray-200 rounded animate-pulse" />
+          <div className="h-10 bg-gray-200 rounded animate-pulse w-3/4" />
+        </div>
+      )}
+
+      <form
+        className={`flex flex-col space-y-3 transition-opacity duration-200 ${isSubmitting ? 'opacity-40 pointer-events-none' : ''}`}
+        onSubmit={handleSubmit}
+      >
         <input
           type="text"
           name="aseguradora"
@@ -219,9 +237,17 @@ function Dynamics365Sales() {
         />
         <button
           type="submit"
-          className="bg-primary text-white font-bold py-2 px-4 mt-2"
+          disabled={isSubmitting}
+          className="bg-primary text-white font-bold py-2 px-4 mt-2 disabled:opacity-60 flex items-center justify-center gap-2"
         >
-          Enviar a Dynamics 365
+          {isSubmitting ? (
+            <>
+              <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              Enviando...
+            </>
+          ) : (
+            'Enviar a Dynamics 365'
+          )}
         </button>
       </form>
       {status === 'ok' && (
