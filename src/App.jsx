@@ -3,6 +3,7 @@ import {
   createRoutesFromElements,
   Route,
   RouterProvider,
+  Navigate,
 } from 'react-router-dom'
 import Root from './components/Root/Root'
 import NotFound from './pages/NotFound/NotFound'
@@ -11,14 +12,15 @@ import './App.css'
 import Contact from './pages/Contact/Contact'
 import We from './pages/We/We'
 // import Blog from './pages/Blog/Blog'
-import Cotizador from './pages/Cotizador/Cotizador'
+// import Cotizador from './pages/Cotizador/Cotizador'
 // import Services from './pages/Services/Services'
-import PlansMercantil from './pages/PlansMercantil/PlansMercantil'
 import Agent from './pages/Agent/Agent'
 import Legal from './pages/Legal/Legal'
-import PlansQualitas from './pages/PlansQualitas/PlansQualitas'
 import PlansPiramide from './pages/PlansPiramide/PlansPiramide'
 import PlansOceanica from './pages/PlansOceanica/PlansOceanica'
+import PlansReal from './pages/PlansReal/PlansReal'
+import PlansCaracas from './pages/PlansCaracas/PlansCaracas'
+import PlansEstar from './pages/PlansEstar/PlansEstar'
 import Complete from './pages/Complete/Complete'
 import Conditions from './pages/Conditions/Conditions'
 import Cookies from './pages/Cookies/Cookies'
@@ -33,12 +35,13 @@ function App() {
         {/* <Route path="/blog" element={<Blog />} /> */}
         <Route path="/contacto" element={<Contact />} />
         <Route path="/enviado" element={<Complete />} />
-        <Route path="/cotizador" element={<Cotizador />} />
+        <Route path="/cotizador" element={<Navigate to="/" replace />} />
         <Route path="/dynamics-365-sales" element={<Dynamics365Sales />} />
-        <Route path="/planes-mercantil" element={<PlansMercantil />} />
-        <Route path="/planes-qualitas" element={<PlansQualitas />} />
         <Route path="/planes-piramide" element={<PlansPiramide />} />
         <Route path="/planes-oceanica" element={<PlansOceanica />} />
+        <Route path="/planes-real" element={<PlansReal />} />
+        <Route path="/planes-caracas" element={<PlansCaracas />} />
+        <Route path="/planes-estar" element={<PlansEstar />} />
         <Route path="/legal" element={<Legal />} />
         <Route path="/terminos" element={<Conditions />} />
         <Route path="/cookies" element={<Cookies />} />
