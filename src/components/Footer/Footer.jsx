@@ -52,23 +52,8 @@ function Footer() {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute right-15 -top-24 z-10 mt-2 w-38 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <Menu.Items className="absolute right-15 -top-44 z-10 mt-2 w-38 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
               <div className="py-1">
-                {/*
-                <Menu.Item>
-                  {({ active }) => (
-                    <Link
-                      to="/planes-qualitas"
-                      className={classNames(
-                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm',
-                      )}
-                    >
-                      Qualitas
-                    </Link>
-                  )}
-                </Menu.Item>
-                */}
                 <Menu.Item>
                   {({ active }) => (
                     <Link
@@ -78,11 +63,11 @@ function Footer() {
                         'block px-4 py-2 text-sm',
                       )}
                     >
-                      Piramide
+                      Pirámide
                     </Link>
                   )}
                 </Menu.Item>
-                 <Menu.Item>
+                <Menu.Item>
                   {({ active }) => (
                     <Link
                       to="/planes-oceanica"
@@ -91,25 +76,49 @@ function Footer() {
                         'block px-4 py-2 text-sm',
                       )}
                     >
-                      Oceanica
+                      Oceánica
                     </Link>
                   )}
                 </Menu.Item>
-                {/*
                 <Menu.Item>
                   {({ active }) => (
                     <Link
-                      to="/planes-mercantil"
+                      to="/planes-real"
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                         'block px-4 py-2 text-sm',
                       )}
                     >
-                      Mercantil
+                      Real Seguros
                     </Link>
                   )}
                 </Menu.Item>
-                */}
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      to="/planes-caracas"
+                      className={classNames(
+                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                        'block px-4 py-2 text-sm',
+                      )}
+                    >
+                      Seguros Caracas
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      to="/planes-estar"
+                      className={classNames(
+                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                        'block px-4 py-2 text-sm',
+                      )}
+                    >
+                      Estar Seguros
+                    </Link>
+                  )}
+                </Menu.Item>
               </div>
             </Menu.Items>
           </Transition>
