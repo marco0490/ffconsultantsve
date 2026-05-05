@@ -17,15 +17,15 @@ function Stepper() {
               1
             </span>
             <span data-te-stepper-head-text-ref className="font-medium text-xl">
-              Ingresa al Cotizador
+              Habla con MaxProtect
             </span>
           </div>
           <div
             data-te-stepper-content-ref
             className="left-0 overflow-hidden pb-6 pl-[3.75rem] text-gray-500 text-left max-w-[400px] pr-6"
           >
-            Haz Click en Cotizar póliza para cargar el formulario con la
-            información necesaria para calcular tu póliza personalizada.
+            Inicia una conversación con nuestro asistente virtual MaxProtect
+            en la página principal para cotizar tu póliza personalizada.
           </div>
         </li>
 
@@ -44,16 +44,15 @@ function Stepper() {
               2
             </span>
             <span data-te-stepper-head-text-ref className="font-medium text-xl">
-              Completa el formulario
+              Responde las preguntas
             </span>
           </div>
           <div
             data-te-stepper-content-ref
             className=" left-0 overflow-hidden pb-6 pl-[3.75rem] text-gray-500 text-left max-w-[400px] pr-6"
           >
-            Ingresa todos los datos del formulario solicitados, incluyendo
-            beneficiarios si es tu caso y acepta los términos y condiciones
-            expuestos.
+            MaxProtect te guiará con preguntas sencillas para recopilar
+            la información necesaria según el tipo de seguro que necesitas.
           </div>
         </li>
 
@@ -76,9 +75,8 @@ function Stepper() {
             data-te-stepper-content-ref
             className="left-0 overflow-hidden pb-6 pl-[3.75rem] text-gray-500 text-left max-w-[400px] pr-6"
           >
-            Una vez enviado el formulario, nuestro equipo te enviará todas las
-            propuestas a la dirección de Email que hayas ingresado en el
-            formulario.
+            Una vez completada la conversación, nuestro equipo te contactará
+            con las mejores opciones de pólizas adaptadas a tus necesidades.
           </div>
         </li>
       </ul>
