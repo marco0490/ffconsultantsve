@@ -30,22 +30,14 @@ function Header() {
             `}
           >
             <ul className="flex md:flex-row flex-col items-center md:gap-[3vw] gap-6 mx-auto">
-              <li className="hover:text-primary font-bold underline-offset-4 underline">
+              <li className={`hover:text-primary font-bold ${pathname === '/' ? 'underline underline-offset-4' : ''}`}>
                 <Link to="/">Inicio</Link>
               </li>
-              <li className="hover:text-primary font-bold">
+              <li className={`hover:text-primary font-bold ${pathname === '/nosotros' ? 'underline underline-offset-4' : ''}`}>
                 <Link to="/nosotros">Nosotros</Link>
               </li>
-              <li className="hover:text-primary font-bold">
+              <li className={`hover:text-primary font-bold ${pathname === '/contacto' ? 'underline underline-offset-4' : ''}`}>
                 <Link to="/contacto">Contacto</Link>
-              </li>
-              <div className="h-[40px] min-h-[1em] w-0.5 self-stretch bg-neutral-200 opacity-100 dark:opacity-50 hidden md:inline-block"></div>
-              <li className="hover:text-primary font-bold">
-                <Link to="/cotizador">
-                  <button className="bg-primary hover:bg-purple text-white font-bold py-2 px-4 rounded-none">
-                    Cotizar póliza
-                  </button>
-                </Link>
               </li>
             </ul>
           </div>
