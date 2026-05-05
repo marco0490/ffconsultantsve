@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import ActionSection from '../../components/ActionSection/ActionSection'
 import CompaniesPlan from '../../components/CompaniesPlan/CompaniesPlan'
+import PromoSection from '../../components/PromoSection/PromoSection'
+import FamilySection from '../../components/FamilySection/FamilySection'
 import Howto from '../../components/Howto/Howto'
 import Testimonials from '../../components/Testimonials/Testimonials'
 import { Helmet } from 'react-helmet'
@@ -30,7 +32,9 @@ function Home() {
       </Helmet>
       <ActionSection />
       <CompaniesPlan />
-      <Howto />
+      <PromoSection />
+      <FamilySection />
+      {/* <Howto /> */}
       <Testimonials />
     </>
   )
