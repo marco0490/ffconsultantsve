@@ -1,31 +1,65 @@
-import { Link } from 'react-router-dom'
-import Pareja from '../../assets/images/image1-home.png'
-import { BiRightArrowAlt } from 'react-icons/bi'
+import { motion } from 'framer-motion'
+import ChatbotEmbedded from '../Chatbot/ChatbotEmbedded'
+import InsuranceBg from '../../assets/images/insurance-bg-illustration.svg'
 
 function ActionSection() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-center mx-auto max-w-[1900px]">
-      <div className="md:text-left md:ps-44 md:pt-16">
-        <h1 className="text-blue text-2xl md:text-5xl font-bold md:drop-shadow-xl max-2">
-          Protege a tu familia con las mejores soluciones digitales en pólizas
-          de seguros de salud.
-        </h1>
-        <p className="py-8 max-w-[400px]">
-          Con Future Financial Consultants, puedes cotizar una póliza de salud
-          en línea, comparar diferentes opciones y elegir la que mejor se adapte
-          a tus necesidades y presupuesto.
-        </p>
-        <Link to="/cotizador">
-          <button className="bg-primary hover:bg-purple text-white font-bold py-3 px-5 rounded-none">
-            <span>Cotizar póliza</span>
-            <span className="inline-block ps-3 text-xl relative top-1">
-              <BiRightArrowAlt />
+    <div
+      id="chatbot"
+      className="w-full py-8 md:py-12 relative"
+      style={{
+        backgroundImage: `url(${InsuranceBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundColor: '#fafbfc',
+      }}
+    >
+      <div className="max-w-[900px] mx-auto px-4">
+        <div className="text-center mb-6 md:mb-8">
+          <motion.h1
+            className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-primary mb-3"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
+            Tu Asesor de Seguros con IA
+          </motion.h1>
+          <motion.p
+            className="text-lg md:text-xl text-gray-600 max-w-[600px] mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
+          >
+            Pregunta lo que quieras sobre seguros.{' '}
+            <span className="font-semibold text-primary">MaxProtect</span> te ayuda a
+            cotizar y encontrar la póliza perfecta en segundos.
+          </motion.p>
+          <motion.div
+            className="flex items-center justify-center gap-2 mt-3 text-sm text-gray-500"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <span className="flex items-center gap-1">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              En línea 24/7
             </span>
-          </button>
-        </Link>
-      </div>
-      <div className="w-full md:relative left-44">
-        <img src={Pareja} alt="Foto de pareja" />
+            <span className="mx-2">•</span>
+            <span>100% Gratis</span>
+            <span className="mx-2">•</span>
+            <span>Sin compromiso</span>
+          </motion.div>
+        </div>
+
+        <motion.div
+          className="w-full max-w-[700px] mx-auto"
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: 'easeOut', delay: 0.4 }}
+        >
+          <ChatbotEmbedded />
+        </motion.div>
       </div>
     </div>
   )
