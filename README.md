@@ -39,10 +39,13 @@ FFConsultantsVE es una **aplicación web moderna** que permite a los clientes:
 
 ### 🏢 Aseguradoras Integradas (actuales en el cotizador)
 
-| Aseguradora | Líneas | Ejemplos de productos |
-|-------------|--------|------------------------|
-| **Seguros Pirámide** | Auto, Personas, Patrimoniales | HCM, Vida, Viajes, Productiva, Hogar |
-| **Seguros Oceánica** | Auto, Personas, Patrimoniales | HCM, Vida, Viajes, Hogar |
+| Aseguradora | Emoji | Líneas | Ejemplos de productos |
+|-------------|-------|--------|------------------------|
+| **Seguros Pirámide** | 🔺 | Auto, Personas, Patrimoniales | HCM, Vida, Viajes, Productiva, Hogar |
+| **Seguros Oceánica** | 🌊 | Auto, Personas, Patrimoniales | HCM, Vida, Viajes, Hogar |
+| **Seguros Caracas** | 🦁 | Auto, Personas, Patrimoniales | HCM hasta $1M USD, Asistencia en Viaje |
+| **Real Seguros** | ✅ | Auto, Personas | Planes personalizados, tecnología moderna |
+| **Estar Seguros** | 🛡️ | Auto, Personas | +75 años en el mercado, HCM |
 
 En la página principal se muestra un **carrusel animado y scrolleable** con los logos de las compañías, que permite acceder rápidamente a los planes disponibles.
 
@@ -74,9 +77,18 @@ En la página principal se muestra un **carrusel animado y scrolleable** con los
   - Campos específicos como `QueDeseaAsegurar` y `ServicioAsistenciaViajes30Dias` incluidos cuando aplica
 - **Página de prueba técnica** (`/dynamics-365-sales`) para validar rápidamente la conexión con los Flows sin pasar por todo el cotizador.
 
+### 🤖 **Chatbot Inteligente (MaxProtect)**
+- **Asistente virtual con IA** powered by OpenAI GPT-4
+- **Recolección guiada de datos** para cotizaciones
+- **Envío automático a Dynamics 365** vía Power Automate
+- **Backup por EmailJS** para redundancia
+- **Encuesta de satisfacción** post-cotización (3 preguntas)
+- **Demo animado** en la página principal
+
 ### 🔒 **Seguridad y Calidad**
 - **Validación de datos** en tiempo real
 - **Protección de información** personal
+- **API Keys protegidas** en variables de entorno
 - **Código limpio** y bien documentado
 - **Actualizaciones automáticas** de seguridad
 
@@ -150,17 +162,51 @@ touch .env
 2. **Abrir `.env`** con un editor de texto y agregar:
 
 ```env
-# Configuración de EmailJS (OBLIGATORIO para envío de emails)
+# ==================================================
+# CONFIGURACIÓN DE EMAILJS (OBLIGATORIO)
+# ==================================================
+# Obtener credenciales en: https://www.emailjs.com/
 VITE_EMAIL_SERVICE=tu_service_id_aqui
 VITE_EMAIL_COTIZADOR=tu_template_id_aqui
-VITE_EMAIL_USER=tu_user_id_aqui
+VITE_EMAIL_USER=tu_public_key_aqui
+VITE_EMAIL_PRIVATE_KEY=tu_private_key_aqui
 
-# Configuración de desarrollo (OPCIONAL)
+# ==================================================
+# CONFIGURACIÓN DE OPENAI (OBLIGATORIO PARA CHATBOT)
+# ==================================================
+# Obtener API Key en: https://platform.openai.com/api-keys
+# IMPORTANTE: Esta key es SECRETA, nunca compartir ni subir a Git
+OPENAI_API_KEY=sk-proj-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# ==================================================
+# POWER AUTOMATE - DYNAMICS 365 (OBLIGATORIO)
+# ==================================================
+# URLs de los Flows HTTP Trigger para cada producto
+POWER_AUTOMATE_AUTO=https://prod-xx.westus.logic.azure.com/workflows/...
+POWER_AUTOMATE_PERSONAS=https://prod-xx.westus.logic.azure.com/workflows/...
+POWER_AUTOMATE_PATRIMONIALES=https://prod-xx.westus.logic.azure.com/workflows/...
+
+# ==================================================
+# CONFIGURACIÓN DE DESARROLLO (OPCIONAL)
+# ==================================================
 NODE_ENV=development
 PORT=3000
 ```
 
-### 📧 **Paso 5: Configurar EmailJS (Importante)**
+> ⚠️ **IMPORTANTE**: El archivo `.env` contiene credenciales sensibles. NUNCA debe subirse a Git. Está incluido en `.gitignore` por defecto.
+
+### � **Cómo obtener la API Key de OpenAI**
+
+1. **Crear cuenta** en https://platform.openai.com/
+2. **Ir a** API Keys: https://platform.openai.com/api-keys
+3. **Click en** "Create new secret key"
+4. **Nombrar la key** (ej: "FFC-Chatbot-Production")
+5. **Copiar la key** inmediatamente (solo se muestra una vez)
+6. **Pegar en** el archivo `.env` como valor de `OPENAI_API_KEY`
+
+> 💡 **Tip**: OpenAI cobra por uso. Configurar límites de gasto en https://platform.openai.com/account/limits
+
+### �📧 **Paso 5: Configurar EmailJS (Importante)**
 
 1. **Crear cuenta** en https://www.emailjs.com/
 2. **Crear un servicio** (Gmail, Outlook, etc.)
@@ -200,12 +246,32 @@ Sistema FFConsultantsVE
 ### 🏃‍♂️ **Ejecutar en Modo Desarrollo**
 
 ```bash
-# Iniciar servidor de desarrollo
+# Opción 1: Solo frontend (sin chatbot)
 npm run dev
+
+# Opción 2: Frontend + API del chatbot (RECOMENDADO)
+npm run dev:api
 
 # El sistema estará disponible en:
 # http://localhost:3000
 ```
+
+### 🤖 **Servidor de Desarrollo con Chatbot**
+
+El comando `npm run dev:api` inicia un servidor Express que incluye:
+- Frontend con Vite (hot reload)
+- API `/api/chat` - Chatbot con OpenAI
+- API `/api/cotizacion` - Envío a Power Automate
+- API `/api/lead` - Captura de leads
+
+**Flujo del Chatbot:**
+1. Usuario interactúa con MaxProtect
+2. GPT-4 recolecta datos de cotización
+3. Al completar, genera JSON interno `LEAD_DATA`
+4. Backend envía a Power Automate → Dynamics 365
+5. Backend envía a EmailJS (backup)
+6. Chatbot inicia encuesta de satisfacción (3 preguntas)
+7. Encuesta se captura como `SURVEY_DATA`
 
 ### 🏗️ **Construir para Producción**
 
@@ -473,6 +539,93 @@ git push
 
 ---
 
+## 🤖 Arquitectura del Chatbot (MaxProtect)
+
+### 📁 **Archivos Principales**
+
+| Archivo | Descripción |
+|---------|-------------|
+| `src/components/Chatbot/Chatbot.jsx` | Componente UI del chatbot |
+| `src/components/ChatbotDemo/ChatbotDemo.jsx` | Demo animado para la home |
+| `src/data/chatbot-knowledge.js` | Base de conocimiento editable |
+| `server.dev.js` | Servidor local de desarrollo |
+| `api/chat.js` | API de producción (Vercel) |
+
+### 📝 **Base de Conocimiento**
+
+Edita `src/data/chatbot-knowledge.js` para actualizar:
+- Información de la empresa
+- Aseguradoras y productos
+- Requisitos de emisión
+- Preguntas frecuentes
+- Flujo de conversación
+
+### 🔄 **Campos Enviados a Dynamics 365**
+
+Para cotización de **Auto**, el chatbot recolecta:
+
+| Campo | Tipo | Ejemplo |
+|-------|------|---------|
+| NombreCompleto | String | "Juan Pérez" |
+| Cedula | String | "V-12345678" |
+| Telefono | String | "+58 412-1234567" |
+| CorreoElectronico | String | "juan@email.com" |
+| FechaNacimiento | ISO Date | "2000-01-15T00:00:00.000Z" |
+| Sexo | String | "M" o "F" |
+| Marca | String | "Toyota" |
+| Modelo | String | "Corolla" |
+| Ano | Number | 2022 |
+| Version | String | "Limited" |
+| Transmision | String | "Automatica" o "Sincronica" |
+| CeroKM | Boolean | true o false |
+| Placa | String | "ABC123" |
+| CompaniaAseguradora | String | "Pirámide" |
+| Cobertura | String | "RCV Amplia" |
+| TipoPago | String | "Contado" o "Financiado" |
+| Canal | String | "Web-Chatbot" (automático) |
+| FechaRegistro | ISO Date | (automático) |
+
+---
+
+## ⚙️ Configuración de Dynamics 365
+
+### 🏷️ **Crear Campo "Canal" para Leads**
+
+1. Ir a **Power Apps** → make.powerapps.com
+2. Seleccionar tu **entorno** de Dynamics
+3. Ir a **Tablas** → **Lead** (Cliente potencial)
+4. Click en **+ Nueva columna**
+5. Configurar:
+   - **Nombre**: Canal
+   - **Tipo**: Opción
+   - **Opciones**:
+     - Web-Chatbot
+     - Web-Formulario
+     - WhatsApp
+     - Instagram
+     - Teléfono
+     - Referido
+6. **Guardar**
+
+### 📊 **Crear Vistas Filtradas por Canal**
+
+1. En la tabla **Lead**, ir a **Vistas**
+2. Click en **+ Nueva vista**
+3. Configurar:
+   - **Nombre**: "Leads de Chatbot"
+   - **Filtro**: Canal = Web-Chatbot
+4. Repetir para cada canal (WhatsApp, Instagram, etc.)
+
+### 🔗 **Configurar Power Automate**
+
+1. Ir a **Power Automate** → make.powerautomate.com
+2. Editar tu Flow de creación de leads
+3. En el paso **Crear registro** (Dynamics 365):
+   - Mapear el campo `Canal` del JSON al campo en Dynamics
+4. **Guardar** y **Probar**
+
+---
+
 ## 🎉 ¡Felicidades!
 
 Si has llegado hasta aquí, ya tienes todo lo necesario para usar y mantener el sistema FFConsultantsVE. 
@@ -487,5 +640,20 @@ Si has llegado hasta aquí, ya tienes todo lo necesario para usar y mantener el 
 
 ---
 
-*Última actualización: Enero 2025 - Versión 1.0.0*
-*Desarrollado con ❤️ para facilitar el acceso a seguros de salud en Venezuela*
+---
+
+## 📅 Historial de Versiones
+
+| Versión | Fecha | Cambios principales |
+|---------|-------|---------------------|
+| **2.1.0** | Mayo 2026 | +3 aseguradoras (Caracas, Real, Estar), PromoSection, FamilySection rediseñado, FAQs actualizadas |
+| **2.0.0** | Abril 2026 | Chatbot MaxProtect con IA, integración Dynamics 365, encuestas |
+| **1.0.0** | 2025 | Versión inicial con cotizador y EmailJS |
+
+---
+
+*Última actualización: **Mayo 2026** - Versión 2.1.0*
+
+*Incluye: 5 aseguradoras, Chatbot MaxProtect con IA (OpenAI GPT-4), integración Dynamics 365, encuestas de satisfacción*
+
+*Desarrollado con ❤️ para facilitar el acceso a seguros en Venezuela*
