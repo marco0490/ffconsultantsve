@@ -38,7 +38,7 @@ function We() {
             para el futuro
           </p>
           <div className="flex justify-center pt-6 md:pt-12">
-            <Link to="/cotizador">
+            <Link to="/agentes">
               <button className="bg-primary text-white text-center text-xs w-36 md:text-lg md:w-48 md:py-4 py-2 font-semibold border border-white">
                 Únete a nosotros
               </button>
@@ -51,7 +51,7 @@ function We() {
           ¿Quiénes somos?
         </h1>
         <p className="max-w-[1100px] text-center mx-auto text-lg md:text-3xl mt-2 md:mt-10 font-normal">
-          Future Financial Consultants (FFC) somos la primera Insuretech de
+          Future Financial Consultants (FFC) somos la primera Insurtech de
           Venezuela, especializada en ofrecer en un ambiente 100% digital, los
           productos y servicios desarrollados por el mercado asegurador
           venezolano y los prestadores de servicios de atención en salud, para
@@ -108,6 +108,15 @@ function We() {
                   Desde coberturas solo para emergencias con patologías limitadas
                   hasta planes integrales, cada uno con alcances, exclusiones y
                   beneficios distintos.
+                  <br />
+                  <br />
+                  <strong>Seguros Caracas:</strong> planes desde cobertura básica hasta $1 millón USD, con opciones de maternidad, asistencia en viaje y cobertura Covid-19.
+                  <br />
+                  <br />
+                  <strong>Real Seguros:</strong> planes personalizados con tecnología moderna, enfocados en accesibilidad y protección integral.
+                  <br />
+                  <br />
+                  <strong>Estar Seguros:</strong> más de 75 años en el mercado, ofrece planes HCM con diferentes sumas aseguradas y coberturas adicionales.
                 </Disclosure.Panel>
               </>
             )}
@@ -124,11 +133,20 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Pirámide: sí, acceso solo en su red, fuera de ella aplica
+                  <strong>Pirámide:</strong> sí, acceso solo en su red, fuera de ella aplica
                   reembolso interno.
                   <br />
                   <br />
-                  Oceánica: clínica dentro de red tras autorización previa.
+                  <strong>Oceánica:</strong> clínica dentro de red tras autorización previa.
+                  <br />
+                  <br />
+                  <strong>Seguros Caracas:</strong> amplia red de clínicas afiliadas a nivel nacional, consultable desde su app móvil.
+                  <br />
+                  <br />
+                  <strong>Real Seguros:</strong> red de clínicas afiliadas con cobertura en principales ciudades del país.
+                  <br />
+                  <br />
+                  <strong>Estar Seguros:</strong> red de clínicas y proveedores de salud a nivel nacional con app para consultas.
                 </Disclosure.Panel>
               </>
             )}
@@ -147,9 +165,18 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Ambas cubren 9 patologías específicas (cardio, renales,
+                  <strong>Pirámide y Oceánica:</strong> cubren 9 patologías específicas (cardio, renales,
                   traumas, quemaduras, infecciosas…), según listado condicionado
                   de cada póliza.
+                  <br />
+                  <br />
+                  <strong>Seguros Caracas:</strong> cobertura inmediata para emergencias y accidentes, con periodo de espera para enfermedades según condicionado.
+                  <br />
+                  <br />
+                  <strong>Real Seguros:</strong> emergencias cubiertas de inmediato, enfermedades con periodo de espera según plan.
+                  <br />
+                  <br />
+                  <strong>Estar Seguros:</strong> cobertura de emergencias desde el día 1, patologías específicas según condiciones de la póliza.
                 </Disclosure.Panel>
               </>
             )}
@@ -168,10 +195,19 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  Pirámide: solo reembolso según tarifa.
+                  <strong>Pirámide:</strong> solo reembolso según tarifa.
                   <br />
                   <br />
-                  Oceánica: no aceptado fuera de red, debe haber autorización.
+                  <strong>Oceánica:</strong> no aceptado fuera de red, debe haber autorización.
+                  <br />
+                  <br />
+                  <strong>Seguros Caracas:</strong> fuera de red aplica reembolso, carta aval requerida para clínicas afiliadas.
+                  <br />
+                  <br />
+                  <strong>Real Seguros:</strong> reembolso disponible para atención fuera de red según condiciones del plan.
+                  <br />
+                  <br />
+                  <strong>Estar Seguros:</strong> opción de reembolso para clínicas no afiliadas, previa autorización.
                 </Disclosure.Panel>
               </>
             )}
@@ -190,12 +226,21 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-10 text-base md:text-2xl text-gray-500">
-                  Pirámide: presentación de documentos en 30 días, luego
+                  <strong>Pirámide:</strong> presentación de documentos en 30 días, luego
                   proceso de pago.
                   <br />
                   <br />
-                  Oceánica: sin plazo oficial, usualmente puede tardar hasta 60
+                  <strong>Oceánica:</strong> sin plazo oficial, usualmente puede tardar hasta 60
                   días, dependiendo del caso.
+                  <br />
+                  <br />
+                  <strong>Seguros Caracas:</strong> gestión de reembolsos vía app, tiempo estimado 30-45 días hábiles.
+                  <br />
+                  <br />
+                  <strong>Real Seguros:</strong> proceso de reembolso entre 30-45 días tras presentar documentación completa.
+                  <br />
+                  <br />
+                  <strong>Estar Seguros:</strong> reembolsos procesados en aproximadamente 30-60 días según complejidad del caso.
                 </Disclosure.Panel>
               </>
             )}
