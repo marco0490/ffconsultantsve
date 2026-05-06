@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
-import ChatbotEmbedded from '../Chatbot/ChatbotEmbedded'
+import InsuranceBanners from '../InsuranceBanners/InsuranceBanners'
 import InsuranceBg from '../../assets/images/insurance-bg-illustration.svg'
 
 function ActionSection() {
   return (
     <div
-      id="chatbot"
-      className="w-full py-8 md:py-12 relative"
+      id="promociones"
+      className="w-full py-12 md:py-16 relative"
       style={{
         backgroundImage: `url(${InsuranceBg})`,
         backgroundSize: 'cover',
@@ -15,50 +15,62 @@ function ActionSection() {
         backgroundColor: '#fafbfc',
       }}
     >
-      <div className="max-w-[900px] mx-auto px-4">
-        <div className="text-center mb-6 md:mb-8">
+      <div className="max-w-[1100px] mx-auto px-4">
+        <div className="text-center mb-8 md:mb-10">
+          <motion.p
+            className="text-lg md:text-xl text-gray-500 mb-2 font-medium"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+          >
+            ¿Listo para vivir la experiencia? ✨
+          </motion.p>
           <motion.h1
             className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-primary mb-3"
             initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
           >
-            Tu Asesor de Seguros con IA
+            Nuestros Seguros Destacados
           </motion.h1>
           <motion.p
             className="text-lg md:text-xl text-gray-600 max-w-[600px] mx-auto"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
           >
-            Pregunta lo que quieras sobre seguros.{' '}
-            <span className="font-semibold text-primary">MaxProtect</span> te ayuda a
-            cotizar y encontrar la póliza perfecta en segundos.
+            Descubre las mejores ofertas de nuestras aseguradoras aliadas.{' '}
+            <span className="font-semibold text-primary">¡Cotiza en segundos!</span>
           </motion.p>
           <motion.div
             className="flex items-center justify-center gap-2 mt-3 text-sm text-gray-500"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <span className="flex items-center gap-1">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-              En línea 24/7
+              5 Aseguradoras
             </span>
             <span className="mx-2">•</span>
-            <span>100% Gratis</span>
+            <span>Precios competitivos</span>
             <span className="mx-2">•</span>
-            <span>Sin compromiso</span>
+            <span>Cotización instantánea</span>
           </motion.div>
         </div>
 
         <motion.div
-          className="w-full max-w-[700px] mx-auto"
+          className="w-full"
           initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.4 }}
         >
-          <ChatbotEmbedded />
+          <InsuranceBanners />
         </motion.div>
       </div>
     </div>
