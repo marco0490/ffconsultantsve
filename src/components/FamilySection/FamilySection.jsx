@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { FadeUpSection, FadeUpItem } from '../FadeUp/FadeUp'
 
 const bubbles = [
@@ -66,12 +67,12 @@ function FamilySection() {
                         <div className="bg-gray-100 h-8 rounded-lg"></div>
                         <div className="bg-gray-100 h-8 rounded-lg w-3/4"></div>
                       </div>
-                      <button
-                        onClick={() => document.getElementById('chatbot')?.scrollIntoView({ behavior: 'smooth' })}
+                      <Link
+                        to="/cotizar"
                         className="bg-primary text-white text-xs py-2 px-6 rounded-full font-semibold hover:bg-primary/90 transition-colors cursor-pointer"
                       >
                         Cotizar ✓
-                      </button>
+                      </Link>
                     </div>
                   </div>
                   <p className="text-center mt-3 md:hidden">
@@ -158,15 +159,16 @@ function FamilySection() {
 
           <FadeUpSection>
             <FadeUpItem>
-              <motion.button
-                onClick={() => document.getElementById('chatbot')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3 rounded-full shadow-lg"
-                whileHover={{ scale: 1.05, boxShadow: '0 8px 24px rgba(49,70,180,0.3)' }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ duration: 0.2 }}
-              >
-                COTIZA Y COMPARA AHORA
-              </motion.button>
+              <Link to="/cotizar">
+                <motion.span
+                  className="inline-block bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3 rounded-full shadow-lg"
+                  whileHover={{ scale: 1.05, boxShadow: '0 8px 24px rgba(49,70,180,0.3)' }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  COTIZA Y COMPARA AHORA
+                </motion.span>
+              </Link>
             </FadeUpItem>
           </FadeUpSection>
         </div>
