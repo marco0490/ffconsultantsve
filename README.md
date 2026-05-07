@@ -147,6 +147,17 @@ npm install
 npm install --force
 ```
 
+### 🗺️ **Paso 3.1: Instalar Dependencias del Mapa Interactivo**
+
+El chatbot incluye un mapa interactivo para seleccionar direcciones. Instala las dependencias de Leaflet:
+
+```bash
+npm install leaflet --legacy-peer-deps
+npm install react-leaflet --legacy-peer-deps
+```
+
+> ⚠️ **IMPORTANTE**: Si no instalas estas dependencias, el proyecto no compilará correctamente.
+
 ### ⚙️ **Paso 4: Configurar Variables de Entorno**
 
 1. **Crear archivo `.env`** en la raíz del proyecto:
@@ -646,14 +657,15 @@ Si has llegado hasta aquí, ya tienes todo lo necesario para usar y mantener el 
 
 | Versión | Fecha | Cambios principales |
 |---------|-------|---------------------|
+| **2.2.0** | Mayo 2026 | Mapa interactivo para direcciones (Leaflet), flujo Cotización → Precio → Emisión, advertencia de tiempo en emisión |
 | **2.1.0** | Mayo 2026 | +3 aseguradoras (Caracas, Real, Estar), PromoSection, FamilySection rediseñado, FAQs actualizadas |
 | **2.0.0** | Abril 2026 | Chatbot MaxProtect con IA, integración Dynamics 365, encuestas |
 | **1.0.0** | 2025 | Versión inicial con cotizador y EmailJS |
 
 ---
 
-*Última actualización: **Mayo 2026** - Versión 2.1.0*
+*Última actualización: **Mayo 2026** - Versión 2.2.0*
 
-*Incluye: 5 aseguradoras, Chatbot MaxProtect con IA (OpenAI GPT-4), integración Dynamics 365, encuestas de satisfacción*
+*Incluye: 5 aseguradoras, Chatbot MaxProtect con IA (OpenAI GPT-4), mapa interactivo de direcciones, integración Dynamics 365, encuestas de satisfacción*
 
 *Desarrollado con ❤️ para facilitar el acceso a seguros en Venezuela*
