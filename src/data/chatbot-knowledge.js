@@ -293,28 +293,178 @@ export const FAQS = [
 
 // ==========================================
 // PROCESO DE COTIZACIÓN - DATOS A RECOLECTAR
+// Basado en planillas oficiales de Seguros Caracas
 // ==========================================
 
 export const FLUJO_COTIZACION = {
+  // ==========================================
+  // SEGURO DE AUTO - SEGUROS CARACAS
+  // ==========================================
   auto: {
-    pasos: [
-      { campo: 'tipoSeguro', pregunta: '¿Qué tipo de cobertura te interesa?', opciones: ['Cobertura Amplia', 'Pérdida Total', 'RCV'] },
-      { campo: 'aseguradora', pregunta: '¿Tienes preferencia por alguna aseguradora?', opciones: ['Pirámide', 'Oceánica', 'La más económica'] },
-      { campo: 'marca', pregunta: '¿Cuál es la marca de tu vehículo?' },
-      { campo: 'modelo', pregunta: '¿Cuál es el modelo?' },
-      { campo: 'ano', pregunta: '¿De qué año es?' },
-      { campo: 'version', pregunta: '¿Cuál es la versión? (ej: LX, EX, Limited)' },
-      { campo: 'transmision', pregunta: '¿Es automático o sincrónico?' },
-      { campo: 'placa', pregunta: '¿Cuál es la placa?' },
-      { campo: 'uso', pregunta: '¿El vehículo es de uso particular o comercial?' },
-      { campo: 'nombreCompleto', pregunta: '¿Cuál es tu nombre completo?' },
-      { campo: 'cedula', pregunta: '¿Cuál es tu número de cédula?' },
-      { campo: 'fechaNacimiento', pregunta: '¿Cuál es tu fecha de nacimiento?' },
-      { campo: 'telefono', pregunta: '¿A qué número de teléfono te podemos contactar?' },
-      { campo: 'email', pregunta: '¿Cuál es tu correo electrónico?' },
-    ],
+    advertenciaInicial: '⏱️ Este proceso tomará aproximadamente **10 minutos**. Necesitaré algunos datos para generar tu cotización. ¿Estás listo para comenzar?',
+    
+    condicionesEspeciales: {
+      autoUsado: '🔍 **Importante:** Como tu vehículo es usado, será necesario programar una **inspección física** del auto antes de emitir la póliza. Un inspector verificará el estado del vehículo. ¡No te preocupes, es un proceso rápido!',
+      auto0km: '✨ **¡Excelente!** Al ser un vehículo 0km, no necesitas inspección previa. El proceso de emisión será más rápido.',
+    },
+
+    seccion1_tipoCobertura: {
+      titulo: 'Tipo de Cobertura',
+      campos: [
+        { campo: 'tipoPlan', pregunta: '¿Qué tipo de cobertura te interesa?', tipo: 'opciones', opciones: ['Casco (Todo Riesgo)', 'RCV + Asistencia Vial'] },
+      ]
+    },
+
+    seccion2_datosPersonales: {
+      titulo: 'Datos del Tomador',
+      campos: [
+        { campo: 'nombreCompleto', pregunta: '¿Cuál es tu nombre completo?', tipo: 'texto' },
+        { campo: 'tipoCedula', pregunta: '¿Tu cédula es venezolana o extranjera?', tipo: 'opciones', opciones: ['Venezolana (V)', 'Extranjera (E)'] },
+        { campo: 'numeroCedula', pregunta: '¿Cuál es el número de tu cédula?', tipo: 'texto' },
+        { campo: 'fechaNacimiento', pregunta: '¿Cuál es tu fecha de nacimiento? (DD/MM/AAAA)', tipo: 'fecha' },
+        { campo: 'sexo', pregunta: '¿Cuál es tu sexo?', tipo: 'opciones', opciones: ['Masculino', 'Femenino'] },
+        { campo: 'estadoCivil', pregunta: '¿Cuál es tu estado civil?', tipo: 'opciones', opciones: ['Soltero/a', 'Casado/a', 'Viudo/a', 'Divorciado/a'] },
+        { campo: 'profesion', pregunta: '¿Cuál es tu profesión u ocupación?', tipo: 'texto' },
+        { campo: 'telefono', pregunta: '¿A qué número de teléfono te podemos contactar?', tipo: 'telefono' },
+        { campo: 'email', pregunta: '¿Cuál es tu correo electrónico?', tipo: 'email' },
+      ]
+    },
+
+    seccion3_direccion: {
+      titulo: 'Dirección de Habitación',
+      campos: [
+        { campo: 'estado', pregunta: '¿En qué estado de Venezuela vives?', tipo: 'texto' },
+        { campo: 'ciudad', pregunta: '¿En qué ciudad?', tipo: 'texto' },
+        { campo: 'municipio', pregunta: '¿Cuál es tu municipio?', tipo: 'texto' },
+        { campo: 'direccionCompleta', pregunta: 'Dame tu dirección completa (urbanización, calle, edificio/casa, piso, etc.)', tipo: 'texto' },
+      ]
+    },
+
+    seccion4_vehiculo: {
+      titulo: 'Datos del Vehículo',
+      campos: [
+        { campo: 'marca', pregunta: '¿Cuál es la marca de tu vehículo?', tipo: 'texto' },
+        { campo: 'modelo', pregunta: '¿Cuál es el modelo?', tipo: 'texto' },
+        { campo: 'ano', pregunta: '¿De qué año es?', tipo: 'numero' },
+        { campo: 'color', pregunta: '¿De qué color es?', tipo: 'texto' },
+        { campo: 'es0km', pregunta: '¿Tu vehículo es 0 kilómetros (nuevo)?', tipo: 'binario', opciones: ['Sí, es 0km', 'No, es usado'] },
+        { campo: 'placa', pregunta: '¿Cuál es la placa del vehículo?', tipo: 'texto', condicion: 'si no es 0km' },
+        { campo: 'serialMotor', pregunta: '¿Cuál es el serial del motor?', tipo: 'texto' },
+        { campo: 'serialCarroceria', pregunta: '¿Cuál es el serial de carrocería?', tipo: 'texto' },
+        { campo: 'transmision', pregunta: '¿Qué tipo de transmisión tiene?', tipo: 'opciones', opciones: ['Automática', 'Sincrónica'] },
+        { campo: 'usoVehiculo', pregunta: '¿Cuál es el uso principal del vehículo?', tipo: 'opciones', opciones: ['Particular', 'Comercial', 'Taxi'] },
+        { campo: 'usoHabitual', pregunta: '¿El uso habitual es urbano o extraurbano?', tipo: 'opciones', opciones: ['Urbano', 'Extraurbano', 'Ambos'] },
+      ]
+    },
+
+    seccion5_coberturas: {
+      titulo: 'Coberturas Solicitadas',
+      campos: [
+        { campo: 'coberturaCasco', pregunta: '¿Deseas cobertura de Casco (Todo Riesgo)?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'coberturaRCV', pregunta: '¿Deseas RCV Básica?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'asistenciaVial', pregunta: '¿Deseas incluir Asistencia Vial?', tipo: 'binario', opciones: ['Sí', 'No'] },
+      ]
+    },
   },
 
+  // ==========================================
+  // SEGURO DE SALUD/ACCIDENTES - SEGUROS CARACAS  
+  // ==========================================
+  salud: {
+    advertenciaInicial: '⏱️ Este proceso tomará aproximadamente **10 minutos**. Vamos a recopilar la información necesaria para tu cotización de forma conversacional. ¿Comenzamos?',
+    
+    condicionesEspeciales: {
+      buenaSalud: '✨ **¡Excelente noticia!** Al gozar de buena salud, tu proceso de emisión será más ágil y directo.',
+      conEnfermedad: '📋 **Importante:** Como indicaste alguna condición de salud, será necesario que asistas a una **evaluación médica** con un médico de la aseguradora o uno de tu preferencia. Esto es un requisito estándar para determinar las coberturas. ¡No te preocupes, te guiaremos en el proceso!',
+      conAccidente: '📋 **Nota:** Los accidentes previos serán evaluados por la aseguradora. Puede que algunas condiciones tengan cobertura limitada inicialmente.',
+    },
+
+    seccion1_datosPersonales: {
+      titulo: 'Datos del Solicitante',
+      campos: [
+        { campo: 'nombreCompleto', pregunta: '¿Cuál es tu nombre completo?', tipo: 'texto' },
+        { campo: 'tipoCedula', pregunta: '¿Tu documento es cédula venezolana, extranjera o RIF?', tipo: 'opciones', opciones: ['Venezolana (V)', 'Extranjera (E)', 'RIF (J)'] },
+        { campo: 'numeroCedula', pregunta: '¿Cuál es el número?', tipo: 'texto' },
+        { campo: 'fechaNacimiento', pregunta: '¿Cuál es tu fecha de nacimiento? (DD/MM/AAAA)', tipo: 'fecha' },
+        { campo: 'sexo', pregunta: '¿Cuál es tu sexo?', tipo: 'opciones', opciones: ['Masculino', 'Femenino'] },
+        { campo: 'estadoCivil', pregunta: '¿Cuál es tu estado civil?', tipo: 'opciones', opciones: ['Soltero/a', 'Casado/a', 'Viudo/a', 'Divorciado/a'] },
+        { campo: 'ocupacion', pregunta: '¿Cuál es tu ocupación?', tipo: 'opciones', opciones: ['Socio/Empresario', 'Empleado', 'Profesional Independiente', 'Otro'] },
+        { campo: 'telefono', pregunta: '¿A qué número de teléfono te podemos contactar?', tipo: 'telefono' },
+        { campo: 'email', pregunta: '¿Cuál es tu correo electrónico?', tipo: 'email' },
+      ]
+    },
+
+    seccion2_direccion: {
+      titulo: 'Dirección de Habitación',
+      campos: [
+        { campo: 'estado', pregunta: '¿En qué estado de Venezuela vives?', tipo: 'texto' },
+        { campo: 'ciudad', pregunta: '¿En qué ciudad?', tipo: 'texto' },
+        { campo: 'direccionCompleta', pregunta: 'Dame tu dirección completa', tipo: 'texto' },
+      ]
+    },
+
+    seccion3_vigencia: {
+      titulo: 'Vigencia y Pago',
+      campos: [
+        { campo: 'frecuenciaPago', pregunta: '¿Cómo prefieres pagar la prima?', tipo: 'opciones', opciones: ['Anual', 'Semestral', 'Trimestral'] },
+      ]
+    },
+
+    seccion4_inscritos: {
+      titulo: 'Personas a Asegurar',
+      campos: [
+        { campo: 'cantidadInscritos', pregunta: '¿Cuántas personas deseas asegurar (incluyéndote)?', tipo: 'numero' },
+        { campo: 'datosInscritos', pregunta: 'Por cada persona, necesitaré: nombre, fecha de nacimiento, cédula, peso, estatura, sexo y parentesco contigo.', tipo: 'multiple' },
+      ]
+    },
+
+    seccion5_coberturas: {
+      titulo: 'Coberturas Solicitadas',
+      campos: [
+        { campo: 'muerteAccidental', pregunta: '¿Deseas cobertura por Muerte Accidental?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'invalidezPermanente', pregunta: '¿Deseas cobertura por Invalidez Permanente?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'gastosMedicos', pregunta: '¿Deseas cobertura de Gastos Médicos?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'gastosEntierro', pregunta: '¿Deseas cobertura de Gastos de Entierro?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'incapacidadTemporal', pregunta: '¿Deseas cobertura por Incapacidad Temporal?', tipo: 'binario', opciones: ['Sí', 'No'] },
+      ]
+    },
+
+    seccion6_beneficiarios: {
+      titulo: 'Beneficiarios',
+      campos: [
+        { campo: 'tieneBeneficiarios', pregunta: '¿Deseas agregar beneficiarios en caso de fallecimiento?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'datosBeneficiarios', pregunta: 'Por cada beneficiario, necesitaré: nombre, cédula, parentesco y porcentaje de participación.', tipo: 'multiple', condicion: 'si tiene beneficiarios' },
+      ]
+    },
+
+    seccion7_cuestionarioSalud: {
+      titulo: 'Cuestionario de Salud (Muy Importante)',
+      campos: [
+        { campo: 'trabajaPorCuenta', pregunta: '¿Trabajas por tu cuenta propia?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'paraQuienTrabaja', pregunta: '¿Para quién trabajas?', tipo: 'texto', condicion: 'si no trabaja por cuenta propia' },
+        { campo: 'usaMaquinarias', pregunta: '¿En tu trabajo utilizas maquinarias pesadas?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'usaAltoVoltaje', pregunta: '¿Trabajas con alto voltaje?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'manipulaQuimicos', pregunta: '¿Manipulas explosivos o preparados químicos?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'manejaVehiculos', pregunta: '¿Manejas vehículos como parte de tu trabajo?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'usaEmbarcaciones', pregunta: '¿Utilizas embarcaciones?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'tripulaAeronaves', pregunta: '¿Tripulas aeronaves?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'gozaBuenaSalud', pregunta: '⚕️ **Pregunta importante:** ¿Tú y los inscritos gozan de buena salud y NO padecen ninguna enfermedad?', tipo: 'binario', opciones: ['Sí, todos gozamos de buena salud', 'No, alguien tiene alguna condición'] },
+        { campo: 'detalleEnfermedad', pregunta: 'Por favor, detalla qué condición de salud tienen:', tipo: 'texto', condicion: 'si no gozan de buena salud' },
+        { campo: 'haSufridoAccidente', pregunta: '¿Tú o algún inscrito ha sufrido algún accidente anteriormente?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'detalleAccidente', pregunta: 'Cuéntame: ¿Quién, cuándo y qué consecuencias tuvo?', tipo: 'texto', condicion: 'si ha sufrido accidente' },
+        { campo: 'tieneDefectoFisico', pregunta: '¿Alguno tiene algún defecto físico?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'practicaDeportes', pregunta: '¿Qué deportes practican los inscritos?', tipo: 'texto' },
+        { campo: 'deporteProfesional', pregunta: '¿Alguno practica deportes de forma profesional?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'tieneOtraPoliza', pregunta: '¿Tienes o estás contratando otra póliza de vida, accidentes u hospitalización?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'leHanRechazadoPoliza', pregunta: '¿Alguna vez te han rechazado una póliza de seguros?', tipo: 'binario', opciones: ['Sí', 'No'] },
+        { campo: 'razonesRechazo', pregunta: '¿Cuáles fueron las razones del rechazo?', tipo: 'texto', condicion: 'si le han rechazado' },
+      ]
+    },
+  },
+
+  // ==========================================
+  // SEGURO DE VIDA (simplificado)
+  // ==========================================
   vida: {
     pasos: [
       { campo: 'tipoCobertura', pregunta: '¿Qué tipo de protección buscas?', opciones: ['Vida', 'Accidentes Personales', 'Servicios Funerarios'] },
@@ -328,19 +478,9 @@ export const FLUJO_COTIZACION = {
     ],
   },
 
-  salud: {
-    pasos: [
-      { campo: 'planHCM', pregunta: '¿Qué plan te interesa?', opciones: ['$50,000', '$75,000', '$100,000', '$200,000'] },
-      { campo: 'cantidadPersonas', pregunta: '¿Cuántas personas deseas asegurar?' },
-      { campo: 'edades', pregunta: '¿Cuáles son las edades de las personas a asegurar?' },
-      { campo: 'preexistencias', pregunta: '¿Alguno tiene condiciones médicas preexistentes?' },
-      { campo: 'nombreCompleto', pregunta: '¿Cuál es tu nombre completo?' },
-      { campo: 'cedula', pregunta: '¿Cuál es tu número de cédula?' },
-      { campo: 'telefono', pregunta: '¿A qué número te podemos contactar?' },
-      { campo: 'email', pregunta: '¿Cuál es tu correo electrónico?' },
-    ],
-  },
-
+  // ==========================================
+  // SEGURO DE HOGAR (simplificado)
+  // ==========================================
   hogar: {
     pasos: [
       { campo: 'tipoInmueble', pregunta: '¿Es casa o apartamento?' },
@@ -362,10 +502,12 @@ export function generateSystemPrompt() {
   return `Eres MaxProtect, el asistente virtual de ${COMPANY_INFO.nombre}, ${COMPANY_INFO.slogan}.
 
 ## TU PERSONALIDAD
-- Eres amable, profesional y empático
-- Respondes en español de Venezuela
-- Usas emojis con moderación para ser más cercano
-- Eres conciso pero completo en tus respuestas
+- Eres amable, profesional, empático y CONVERSACIONAL
+- Respondes en español de Venezuela (usa "tú", no "usted" a menos que el cliente lo prefiera)
+- Usas emojis con moderación para ser más cercano 😊
+- Eres conciso pero completo - NO abrumes con mucho texto
+- Haces UNA pregunta a la vez, nunca varias juntas
+- Celebras las respuestas positivas del cliente
 
 ## INFORMACIÓN DE LA EMPRESA
 - Nombre: ${COMPANY_INFO.nombre}
@@ -384,39 +526,137 @@ ${Object.values(PRODUCTOS).map(p => `
 ${p.descripcion}
 ${p.precioDesde ? `Precio desde: ${p.precioDesde}` : ''}`).join('\n')}
 
-## REQUISITOS PARA EMISIÓN
-${Object.values(REQUISITOS_EMISION).map(r => `
-### ${r.titulo}
-**Documentos necesarios:**
-${r.documentos.map(d => `- ${d}`).join('\n')}
-
-**Condiciones:**
-${r.condiciones.map(c => `- ${c}`).join('\n')}`).join('\n')}
-
 ## PREGUNTAS FRECUENTES
 ${FAQS.map(f => `**${f.pregunta}**\n${f.respuesta}`).join('\n\n')}
 
-## PROCESO DE COTIZACIÓN
-Cuando el cliente quiera cotizar, DEBES recolectar los siguientes datos según el tipo de seguro:
+## 🚗 FLUJO DE COTIZACIÓN - SEGURO DE AUTO
 
-### Para Seguro de Auto:
-${FLUJO_COTIZACION.auto.pasos.map(p => `- ${p.campo}: "${p.pregunta}"`).join('\n')}
+### FASE COTIZACIÓN (Rápida - sin advertencias)
+Cuando el cliente quiera cotizar AUTO, ve directo al grano:
 
-### Para Seguro de Vida:
-${FLUJO_COTIZACION.vida.pasos.map(p => `- ${p.campo}: "${p.pregunta}"`).join('\n')}
+**Datos básicos para cotizar (preguntar uno por uno):**
+1. ¿Qué tipo de cobertura te interesa? (Casco/RCV)
+2. Nombre completo
+3. Cédula
+4. Fecha de nacimiento
+5. Teléfono
+6. Email
+7. Marca del vehículo
+8. Modelo
+9. Año
+10. ¿Es 0km o usado?
 
-### Para Seguro de Salud:
-${FLUJO_COTIZACION.salud.pasos.map(p => `- ${p.campo}: "${p.pregunta}"`).join('\n')}
+**Luego MOSTRAR PRECIO y preguntar si desea continuar con emisión.**
 
-### Para Seguro de Hogar:
-${FLUJO_COTIZACION.hogar.pasos.map(p => `- ${p.campo}: "${p.pregunta}"`).join('\n')}
+---
+
+## 🏥 FLUJO DE COTIZACIÓN - SEGURO DE SALUD
+
+### FASE COTIZACIÓN (Rápida - sin advertencias)
+Cuando el cliente quiera cotizar SALUD, ve directo al grano:
+
+**Datos básicos para cotizar (preguntar uno por uno):**
+1. Nombre completo
+2. Cédula
+3. Fecha de nacimiento
+4. Teléfono
+5. Email
+6. ¿Cuántas personas deseas asegurar?
+7. Edades de las personas
+
+**Luego MOSTRAR PRECIO y preguntar si desea continuar con emisión.**
+
+---
+
+## 💰 FLUJO GENERAL: COTIZACIÓN → PRECIO → EMISIÓN
+
+### FASE 1: COTIZACIÓN (Rápida y directa)
+Solo preguntar datos básicos para calcular precio:
+- Tipo de cobertura
+- Datos personales (nombre, cédula, fecha nacimiento, teléfono, email)
+- Para AUTO: marca, modelo, año, ¿es 0km?
+- Para SALUD: cantidad de personas, edades
+
+### FASE 2: MOSTRAR PRECIO ESTIMADO
+Una vez tengas los datos básicos, muestra el precio así:
+
+"💰 **PRECIO ESTIMADO DE TU COTIZACIÓN**
+
+Basándome en los datos que me proporcionaste, tu seguro de **[Auto/Salud]** tendría un costo aproximado de:
+
+🏷️ **$XX.XX mensuales** (equivalente a $XXX.XX anuales)
+
+✅ Este precio incluye:
+- [Cobertura principal]
+- [Beneficios incluidos]
+
+⚠️ *Precio estimado. El monto final se confirma al emitir la póliza.*
+
+¿Te parece bien este precio? ¿Deseas continuar con la **emisión de tu póliza**?"
+
+### FASE 3: EMISIÓN (Solo si acepta el precio)
+⚠️ **AQUÍ VA LA ADVERTENCIA DE TIEMPO:**
+Si el cliente acepta continuar, di:
+
+"¡Excelente decisión! 🎉 
+
+⏱️ **Importante:** Para completar la emisión de tu póliza necesitaré algunos datos adicionales. Este proceso tomará aproximadamente **10 minutos**.
+
+¿Estás listo para continuar?"
+
+**Si dice SÍ, entonces preguntar los datos completos de las planillas:**
+
+**Para AUTO:**
+- Dirección completa (estado, ciudad, municipio, dirección)
+- Sexo, estado civil, profesión
+- Color del vehículo
+- Si es usado: Placa + advertencia de inspección
+- Serial del motor y carrocería
+- Transmisión, uso del vehículo
+- Tipo de pago
+
+**Para SALUD:**
+- Dirección completa
+- Cuestionario de salud completo
+- Si NO goza de buena salud: advertencia de evaluación médica
+- Beneficiarios
+- Forma de pago
+
+Luego continúa con las preguntas restantes de las planillas:
+- Dirección completa
+- Datos del vehículo (seriales, placa si es usado)
+- Cuestionario de salud (para salud)
+- Beneficiarios
+- Forma de pago
+
+### PRECIOS DE REFERENCIA (usar como estimados)
+**AUTO:**
+- RCV Básica: $35-45/mes
+- Cobertura Amplia: $80-150/mes (según valor del vehículo)
+- Pérdida Total: $50-80/mes
+
+**SALUD/ACCIDENTES:**
+- Individual: $25-50/mes
+- Familiar (2-4 personas): $60-120/mes
+
+---
 
 ## REGLAS DE COMPORTAMIENTO
-1. Si el usuario quiere cotizar, DEBES hacer las preguntas una por una para recolectar todos los datos necesarios
-2. NO saltes preguntas - cada dato es importante para la cotización
-3. Si no sabes algo específico, ofrece contactar con un asesor humano
-4. Siempre confirma los datos recolectados antes de finalizar
-5. Si preguntan por precios exactos, indica que son aproximados y que un asesor dará la cotización final
-6. Nunca inventes información que no tengas
-7. Si el usuario está frustrado, muestra empatía y ofrece ayuda adicional`
+
+1. **UNA PREGUNTA A LA VEZ** - Nunca hagas varias preguntas juntas
+2. **SÉ CONVERSACIONAL** - No suenes como un formulario. Ejemplo:
+   - ❌ "Ingrese su nombre completo"
+   - ✅ "¡Perfecto! Para comenzar, ¿cuál es tu nombre completo?"
+3. **CELEBRA LAS RESPUESTAS** - "¡Excelente!", "Perfecto", "Muy bien" antes de la siguiente pregunta
+4. **OFRECE BOTONES** para preguntas binarias (Sí/No) y opciones múltiples
+5. **APLICA LAS CONDICIONES** según las respuestas (0km vs usado, buena salud vs enfermedad)
+6. **MOSTRAR PRECIO** antes de pedir datos de emisión - pregunta si desea continuar
+7. **NO INVENTES** - Si no sabes algo, ofrece contactar con un asesor
+8. **EMPATÍA** - Si el cliente está frustrado, muestra comprensión
+
+## FORMATO DE BOTONES
+Cuando ofrezcas opciones, usa este formato para que el frontend pueda renderizar botones:
+- Para Sí/No: "¿...? [Sí] [No]"
+- Para opciones: "¿...? [Opción1] [Opción2] [Opción3]"
+- Para aceptar precio: "[Sí, continuar con emisión] [Ver otras opciones] [No por ahora]"`
 }
