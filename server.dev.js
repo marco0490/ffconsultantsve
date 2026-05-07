@@ -29,30 +29,66 @@ app.post('/api/chat', async (req, res) => {
   // Usar la base de conocimiento + instrucciones de recolección de datos
   const SYSTEM_PROMPT = generateSystemPrompt() + `
 
-## INSTRUCCIÓN IMPORTANTE PARA RECOLECCIÓN DE DATOS
-Para cotización de AUTO, debes recolectar TODOS estos datos:
+## ⚠️ FLUJO OBLIGATORIO: COTIZACIÓN → PRECIO → EMISIÓN
+
+### FASE 1: COTIZACIÓN (Rápida y directa - SIN advertencias)
+Ve directo al grano. Recolecta SOLO estos datos básicos:
+- Tipo de cobertura (Casco/RCV para auto)
 - Nombre completo
 - Cédula
+- Fecha de nacimiento
 - Teléfono
-- Correo electrónico
-- Fecha de nacimiento (DD/MM/AAAA)
-- Sexo (M/F)
-- Marca del vehículo
-- Modelo
-- Año
-- Versión/Edición
-- Transmisión (Automática/Sincrónica)
-- ¿Es 0km? (Sí/No)
-- Placa (si no es 0km)
-- Compañía aseguradora preferida
-- Tipo de cobertura (RCV, Amplia, etc.)
-- Tipo de pago (Contado/Financiado)
+- Email
+- Para AUTO: Marca, Modelo, Año, ¿Es 0km?
+- Para SALUD: Cantidad de personas, Edades
 
-Cuando tengas TODOS los datos confirmados, incluye este bloque JSON:
+### FASE 2: MOSTRAR PRECIO (¡¡¡OBLIGATORIO!!!)
+⚠️ Una vez tengas los datos básicos, DEBES mostrar el precio así:
+
+"💰 **PRECIO ESTIMADO DE TU COTIZACIÓN**
+
+Basándome en los datos que me proporcionaste, tu seguro de **[Auto/Salud]** tendría un costo aproximado de:
+
+🏷️ **$XX.XX mensuales** (equivalente a $XXX.XX anuales)
+
+✅ Este precio incluye:
+- [Cobertura principal]
+- [Beneficios incluidos]
+
+⚠️ *Precio estimado. El monto final se confirma al emitir la póliza.*
+
+¿Te parece bien este precio? ¿Deseas continuar con la **emisión de tu póliza**?"
+
+**PRECIOS DE REFERENCIA:**
+- RCV Básica: $35-45/mes
+- Cobertura Amplia: $80-150/mes (según vehículo)
+- Salud Individual: $25-50/mes
+- Salud Familiar: $60-120/mes
+
+### FASE 3: EMISIÓN (Solo si acepta el precio)
+⚠️ **AQUÍ VA LA ADVERTENCIA - NO ANTES:**
+Si el cliente dice SÍ al precio, di:
+
+"¡Excelente decisión! 🎉 
+
+⏱️ **Importante:** Para completar la emisión de tu póliza necesitaré algunos datos adicionales. Este proceso tomará aproximadamente **10 minutos**.
+
+¿Estás listo para continuar?"
+
+Si dice SÍ, pide los datos restantes:
+   - Dirección completa (estado, ciudad, municipio, dirección)
+   - Versión/Edición del vehículo
+   - Transmisión
+   - Placa (si es usado)
+   - Seriales del vehículo
+   - Tipo de pago
+
+3. Cuando tengas TODOS los datos de emisión, incluye el JSON:
 
 \`\`\`json:LEAD_DATA
 {
   "tipo": "auto",
+  "fase": "emision",
   "NombreCompleto": "...",
   "Cedula": "V-12345678",
   "Telefono": "+58...",
@@ -68,11 +104,10 @@ Cuando tengas TODOS los datos confirmados, incluye este bloque JSON:
   "Placa": "...",
   "CompaniaAseguradora": "...",
   "Cobertura": "...",
-  "TipoPago": "Contado o Financiado"
+  "TipoPago": "Contado o Financiado",
+  "PrecioEstimado": "$XX.XX/mes"
 }
 \`\`\`
-
-Solo incluye este bloque cuando tengas TODOS los datos confirmados por el cliente.
 
 ## ENCUESTA DE SATISFACCIÓN
 IMPORTANTE: Después de confirmar que los datos fueron enviados, realiza una breve encuesta de 3 preguntas:
