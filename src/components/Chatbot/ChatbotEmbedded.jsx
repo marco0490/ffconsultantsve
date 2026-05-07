@@ -1,15 +1,17 @@
 import { useState, useRef, useEffect } from 'react'
 import { FiSend, FiUser, FiCheck } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
+import AddressMapPicker from './AddressMapPicker'
 
 const API_BASE = import.meta.env.PROD ? '' : ''
 
-// Pasos del proceso de cotización estilo Lemonade
+// Pasos del proceso de cotización y emisión estilo Lemonade
 const PROGRESS_STEPS = [
   { id: 1, label: 'Tipo de Seguro', icon: '🎯' },
   { id: 2, label: 'Tus Datos', icon: '👤' },
   { id: 3, label: 'Detalles', icon: '📋' },
   { id: 4, label: 'Cotización', icon: '💰' },
+  { id: 5, label: 'Emisión', icon: '✅' },
 ]
 
 // Quick replies contextuales según la etapa
@@ -28,6 +30,15 @@ const CONTEXTUAL_REPLIES = {
     { text: '✅ Sí, es correcto', action: 'confirmar' },
     { text: '✏️ Corregir datos', action: 'corregir' },
   ],
+  aceptar_precio: [
+    { text: '✅ Sí, continuar con emisión', action: 'continuar_emision' },
+    { text: '🔄 Ver otras opciones', action: 'otras_opciones' },
+    { text: '❌ No por ahora', action: 'cancelar' },
+  ],
+  emision: [
+    { text: '✅ Confirmar emisión', action: 'confirmar_emision' },
+    { text: '📞 Hablar con asesor', action: 'asesor' },
+  ],
   genero: [
     { text: '👨 Masculino', action: 'masculino' },
     { text: '👩 Femenino', action: 'femenino' },
@@ -45,6 +56,7 @@ function ChatbotEmbedded() {
   const [currentStep, setCurrentStep] = useState(1)
   const [contextualReplies, setContextualReplies] = useState(CONTEXTUAL_REPLIES.initial)
   const [showQuickReplies, setShowQuickReplies] = useState(true)
+  const [showAddressMap, setShowAddressMap] = useState(false)
   const messagesEndRef = useRef(null)
   const messagesContainerRef = useRef(null)
   const inputRef = useRef(null)
@@ -144,6 +156,11 @@ function ChatbotEmbedded() {
       femenino: 'Femenino',
       contado: 'Prefiero pago de contado',
       financiado: 'Prefiero pago financiado',
+      continuar_emision: 'Sí, quiero continuar con la emisión de mi póliza',
+      otras_opciones: 'Me gustaría ver otras opciones de cobertura',
+      cancelar: 'No por ahora, gracias',
+      confirmar_emision: 'Confirmo que deseo emitir mi póliza',
+      asesor: 'Prefiero hablar con un asesor humano',
     }
     sendMessage(messageMap[reply.action] || reply.text)
   }
@@ -151,26 +168,61 @@ function ChatbotEmbedded() {
   // Detectar el paso actual basado en el contenido del mensaje
   const detectStep = (message) => {
     const content = message.toLowerCase()
-    if (content.includes('tipo de seguro') || content.includes('qué.*seguro') || content.includes('cotizar')) {
+    
+    // Paso 5: Emisión - cuando pide DIRECCIÓN, mostrar el mapa
+    if (content.includes('dirección completa') || content.includes('estado, ciudad') || content.includes('municipio')) {
+      setCurrentStep(5)
+      setContextualReplies([])
+      setTimeout(() => setShowAddressMap(true), 500)
+      return
+    }
+    // Paso 5: Otros datos de emisión
+    if (content.includes('datos adicionales') || content.includes('documentos adicionales') || content.includes('inspección física') || content.includes('serial') || content.includes('placa')) {
+      setCurrentStep(5)
+      setContextualReplies([])
+      return
+    }
+    // Paso 4: Cotización - SOLO cuando muestra precio con símbolo $ y pregunta si continúa
+    else if ((content.includes('$') && content.includes('mensuales')) || (content.includes('precio estimado') && content.includes('$'))) {
+      setCurrentStep(4)
+      setContextualReplies(CONTEXTUAL_REPLIES.aceptar_precio)
+    }
+    // Paso 1: Tipo de seguro - inicio
+    else if (content.includes('qué tipo de seguro') || content.includes('cuéntame') || content.includes('¿qué seguro')) {
       setCurrentStep(1)
       setContextualReplies(CONTEXTUAL_REPLIES.initial)
-    } else if (content.includes('nombre') || content.includes('cédula') || content.includes('teléfono') || content.includes('correo')) {
+    }
+    // Paso 1: Selección de cobertura (aún estamos en tipo de seguro)
+    else if (content.includes('tipo de cobertura') || content.includes('casco') || content.includes('rcv')) {
+      setCurrentStep(1)
+      setContextualReplies([])
+    }
+    // Paso 2: Datos personales
+    else if (content.includes('nombre completo') || content.includes('tu nombre')) {
+      setCurrentStep(2)
+      setContextualReplies([])
+    } else if (content.includes('cédula') || content.includes('teléfono') || content.includes('correo')) {
       setCurrentStep(2)
       setContextualReplies([])
     } else if (content.includes('sexo') || content.includes('género')) {
       setCurrentStep(2)
       setContextualReplies(CONTEXTUAL_REPLIES.genero)
-    } else if (content.includes('fecha de nacimiento') || content.includes('marca') || content.includes('modelo') || content.includes('año')) {
+    } 
+    // Paso 3: Detalles del seguro/vehículo
+    else if (content.includes('fecha de nacimiento') || content.includes('marca') || content.includes('modelo') || content.includes('año')) {
+      setCurrentStep(3)
+      setContextualReplies([])
+    } else if (content.includes('0km') || content.includes('0 kilómetros') || content.includes('usado')) {
       setCurrentStep(3)
       setContextualReplies([])
     } else if (content.includes('tipo de pago') || content.includes('contado') || content.includes('financiado')) {
       setCurrentStep(3)
       setContextualReplies(CONTEXTUAL_REPLIES.pago)
     } else if (content.includes('confirma') || content.includes('correcto') || content.includes('resumen')) {
-      setCurrentStep(4)
+      setCurrentStep(3)
       setContextualReplies(CONTEXTUAL_REPLIES.confirmacion)
-    } else if (content.includes('cotización') || content.includes('gracias') || content.includes('encuesta')) {
-      setCurrentStep(4)
+    } else if (content.includes('gracias') || content.includes('encuesta')) {
+      setCurrentStep(5)
       setContextualReplies([])
     }
     setShowQuickReplies(true)
@@ -182,7 +234,26 @@ function ChatbotEmbedded() {
       .replace(/\n/g, '<br />')
   }
 
+  // Manejar confirmación de dirección desde el mapa
+  const handleAddressConfirm = (address) => {
+    setShowAddressMap(false)
+    sendMessage(address)
+  }
+
+  // Cancelar selección de dirección
+  const handleAddressCancel = () => {
+    setShowAddressMap(false)
+  }
+
   return (
+    <>
+      {/* Modal del mapa de dirección */}
+      {showAddressMap && (
+        <AddressMapPicker 
+          onConfirm={handleAddressConfirm}
+          onCancel={handleAddressCancel}
+        />
+      )}
     <div 
       className="w-full rounded-2xl shadow-2xl overflow-hidden flex flex-col"
       style={{ 
@@ -446,6 +517,7 @@ function ChatbotEmbedded() {
         </motion.button>
       </form>
     </div>
+    </>
   )
 }
 
