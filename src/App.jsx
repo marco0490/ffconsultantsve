@@ -26,6 +26,7 @@ import Conditions from './pages/Conditions/Conditions'
 import Cookies from './pages/Cookies/Cookies'
 import Dynamics365Sales from './pages/Dynamics365Sales/Dynamics365Sales'
 import Cotizar from './pages/Cotizar/Cotizar'
+import Pagar from './pages/Pagar/Pagar'
 
 function App() {
   const router = createBrowserRouter(
@@ -49,6 +50,7 @@ function App() {
         <Route path="/cookies" element={<Cookies />} />
         {/* <Route path="/servicios" element={<Services />} /> */}
         <Route path="/nosotros" element={<We />} />
+        <Route path="/pagar" element={<Pagar />} />
       </Route>,
     ),
   )

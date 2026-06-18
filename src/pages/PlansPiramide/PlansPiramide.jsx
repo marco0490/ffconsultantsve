@@ -76,7 +76,7 @@ function PlansPiramide() {
               Automóvil
             </h2>
             <div className="text-center font-semibold mt-4 border-t-2 border-gray-200"></div>
-            <Link to='/'>
+            <Link to='/cotizar'>
               <button className="text-black w-[200px] border-solid border-2 border-[#efefef] font-bold my-10 mx-auto py-3 bg-white hover:bg-primary hover:text-white">
                 Ver más
               </button>
@@ -94,7 +94,7 @@ function PlansPiramide() {
               Personas
             </h2>
             <div className="text-center font-semibold mt-4 border-t-2 border-gray-200"></div>
-            <Link to='/'>
+            <Link to='/cotizar'>
               <button className="text-white w-[200px] border-solid border-2 border-primary bg-primary font-bold my-6 mx-auto py-3 hover:bg-white hover:text-primary">
                 Ver más
               </button>
@@ -112,7 +112,7 @@ function PlansPiramide() {
               Patrimoniales
             </h2>
             <div className="text-center font-semibold mt-4 border-t-2 border-gray-200"></div>
-            <Link to='/'>
+            <Link to='/cotizar'>
               <button className="text-black w-[200px] border-solid border-2 border-[#efefef] font-bold my-10 mx-auto py-3 bg-white hover:bg-primary hover:text-white">
                 Ver más
               </button>

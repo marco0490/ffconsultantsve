@@ -5,8 +5,9 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 })
 
-// Usar la base de conocimiento centralizada
-const SYSTEM_PROMPT = generateSystemPrompt() + `
+// Instrucciones de recolección de datos (comunes a todos los ramos)
+// Estas se concatenan al final del prompt segmentado por ramo.
+const LEAD_INSTRUCTIONS = `
 
 ## INSTRUCCIÓN IMPORTANTE PARA RECOLECCIÓN DE DATOS
 Para cotización de AUTO, debes recolectar TODOS estos datos:
@@ -53,6 +54,11 @@ Cuando tengas TODOS los datos confirmados, incluye este bloque JSON:
 
 Solo incluye este bloque cuando tengas TODOS los datos confirmados por el cliente.
 
+El campo "tipo" del JSON debe coincidir con el RAMO actual del cliente:
+- Ramo Automóvil  -> tipo: "auto"
+- Ramo Personas   -> tipo: "personas" (o más específico: "vida", "accidentes_personales", "funerario", "salud")
+- Ramo Patrimoniales -> tipo: "patrimoniales" (o "hogar")
+
 ## ENCUESTA DE SATISFACCIÓN
 IMPORTANTE: Después de confirmar que los datos fueron enviados exitosamente, realiza una breve encuesta de 3 preguntas:
 
@@ -71,11 +77,49 @@ Cuando tengas las 3 respuestas, incluye un bloque JSON así:
 }
 \`\`\``
 
+// 🔐 Lista de orígenes permitidos
+const ALLOWED_ORIGINS = [
+  'https://ffconsultantsve.com',
+  'https://www.ffconsultantsve.com',
+  'http://localhost:3000',
+  'http://localhost:5173',
+]
+
+// 🔐 Rate limiting simple en memoria (para Vercel)
+const rateLimitMap = new Map()
+const RATE_LIMIT_WINDOW = 60000 // 1 minuto
+const RATE_LIMIT_MAX = 20 // 20 requests por minuto
+
+function checkRateLimit(ip) {
+  const now = Date.now()
+  const windowStart = now - RATE_LIMIT_WINDOW
+  
+  if (!rateLimitMap.has(ip)) {
+    rateLimitMap.set(ip, [])
+  }
+  
+  const requests = rateLimitMap.get(ip).filter(time => time > windowStart)
+  requests.push(now)
+  rateLimitMap.set(ip, requests)
+  
+  return requests.length <= RATE_LIMIT_MAX
+}
+
 export default async function handler(req, res) {
-  // CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*')
+  // 🔐 SEGURIDAD: Headers de protección
+  res.setHeader('X-Content-Type-Options', 'nosniff')
+  res.setHeader('X-Frame-Options', 'DENY')
+  res.setHeader('X-XSS-Protection', '1; mode=block')
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin')
+  
+  // 🔐 SEGURIDAD: CORS restrictivo
+  const origin = req.headers.origin
+  if (ALLOWED_ORIGINS.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin)
+  }
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+  res.setHeader('Access-Control-Allow-Credentials', 'true')
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end()
@@ -85,12 +129,24 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
+  // 🔐 SEGURIDAD: Rate limiting
+  const clientIp = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown'
+  if (!checkRateLimit(clientIp)) {
+    return res.status(429).json({ error: 'Demasiadas solicitudes. Espera un momento.' })
+  }
+
   try {
-    const { messages, context } = req.body
+    const { messages, context, ramo } = req.body
 
     if (!messages || !Array.isArray(messages)) {
       return res.status(400).json({ error: 'Messages array is required' })
     }
+
+    // 🎯 SEGMENTACIÓN POR RAMO: si el frontend envía un ramo válido,
+    // se carga la base de conocimiento de ese ramo. Si no, prompt router.
+    const VALID_RAMOS = ['automovil', 'personas', 'patrimoniales']
+    const ramoActivo = VALID_RAMOS.includes(ramo) ? ramo : null
+    const SYSTEM_PROMPT = generateSystemPrompt(ramoActivo) + LEAD_INSTRUCTIONS
 
     // Construir mensajes para OpenAI
     const openaiMessages = [

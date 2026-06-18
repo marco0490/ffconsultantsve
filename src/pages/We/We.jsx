@@ -110,9 +110,6 @@ function We() {
                   beneficios distintos.
                   <br />
                   <br />
-                  <strong>Seguros Caracas:</strong> planes desde cobertura básica hasta $1 millón USD, con opciones de maternidad, asistencia en viaje y cobertura Covid-19.
-                  <br />
-                  <br />
                   <strong>Real Seguros:</strong> planes personalizados con tecnología moderna, enfocados en accesibilidad y protección integral.
                   <br />
                   <br />
@@ -140,9 +137,6 @@ function We() {
                   <strong>Oceánica:</strong> clínica dentro de red tras autorización previa.
                   <br />
                   <br />
-                  <strong>Seguros Caracas:</strong> amplia red de clínicas afiliadas a nivel nacional, consultable desde su app móvil.
-                  <br />
-                  <br />
                   <strong>Real Seguros:</strong> red de clínicas afiliadas con cobertura en principales ciudades del país.
                   <br />
                   <br />
@@ -168,9 +162,6 @@ function We() {
                   <strong>Pirámide y Oceánica:</strong> cubren 9 patologías específicas (cardio, renales,
                   traumas, quemaduras, infecciosas…), según listado condicionado
                   de cada póliza.
-                  <br />
-                  <br />
-                  <strong>Seguros Caracas:</strong> cobertura inmediata para emergencias y accidentes, con periodo de espera para enfermedades según condicionado.
                   <br />
                   <br />
                   <strong>Real Seguros:</strong> emergencias cubiertas de inmediato, enfermedades con periodo de espera según plan.
@@ -201,9 +192,6 @@ function We() {
                   <strong>Oceánica:</strong> no aceptado fuera de red, debe haber autorización.
                   <br />
                   <br />
-                  <strong>Seguros Caracas:</strong> fuera de red aplica reembolso, carta aval requerida para clínicas afiliadas.
-                  <br />
-                  <br />
                   <strong>Real Seguros:</strong> reembolso disponible para atención fuera de red según condiciones del plan.
                   <br />
                   <br />
@@ -232,9 +220,6 @@ function We() {
                   <br />
                   <strong>Oceánica:</strong> sin plazo oficial, usualmente puede tardar hasta 60
                   días, dependiendo del caso.
-                  <br />
-                  <br />
-                  <strong>Seguros Caracas:</strong> gestión de reembolsos vía app, tiempo estimado 30-45 días hábiles.
                   <br />
                   <br />
                   <strong>Real Seguros:</strong> proceso de reembolso entre 30-45 días tras presentar documentación completa.

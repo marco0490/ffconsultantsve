@@ -60,11 +60,29 @@ function validateCotizacion(data, tipo) {
   return errors
 }
 
+// 🔐 Lista de orígenes permitidos
+const ALLOWED_ORIGINS = [
+  'https://ffconsultantsve.com',
+  'https://www.ffconsultantsve.com',
+  'http://localhost:3000',
+  'http://localhost:5173',
+]
+
 export default async function handler(req, res) {
-  // CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*')
+  // 🔐 SEGURIDAD: Headers de protección
+  res.setHeader('X-Content-Type-Options', 'nosniff')
+  res.setHeader('X-Frame-Options', 'DENY')
+  res.setHeader('X-XSS-Protection', '1; mode=block')
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin')
+  
+  // 🔐 SEGURIDAD: CORS restrictivo
+  const origin = req.headers.origin
+  if (ALLOWED_ORIGINS.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin)
+  }
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+  res.setHeader('Access-Control-Allow-Credentials', 'true')
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end()

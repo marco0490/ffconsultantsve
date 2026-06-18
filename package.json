@@ -21,6 +21,7 @@
     "@emailjs/browser": "^4.4.1",
     "@headlessui/react": "1.7.17",
     "@heroicons/react": "2.0.18",
+    "@supabase/supabase-js": "^2.105.4",
     "@tailwindcss/forms": "0.5.6",
     "cors": "^2.8.6",
     "dotenv": "^16.6.1",

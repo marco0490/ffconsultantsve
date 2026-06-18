@@ -2,14 +2,24 @@ import { useEffect, useState } from 'react'
 import { Switch } from '@headlessui/react'
 import { BsCheckLg } from 'react-icons/bs'
 import { Helmet } from 'react-helmet'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function PlansCaracas() {
   const [enabled, setEnabled] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     window.scroll(0, 0)
   }, [])
+
+  const handleCotizar = (ramo) => {
+    sessionStorage.setItem('chatbot_context', JSON.stringify({
+      aseguradora: 'Seguros Caracas',
+      ramo: ramo,
+      autoOpen: true
+    }))
+    navigate('/cotizador')
+  }
 
   return (
     <div id="Caracas" className="md:my-18 flex flex-col">
@@ -64,58 +74,64 @@ function PlansCaracas() {
           </p>
         </div>
         <div className="min-w-[280px] mx-auto grid md:grid-cols-3 gap-8 md:mt-12 md:mb-6">
+          {/* AUTOMÓVIL */}
           <div className="w-full shadow-xl border border-gray-200 flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300">
             <h2 className="text-lg text-primary font-light text-center py-1">
               Desde/Prima Anual
             </h2>
             <p className="text-center text-4xl font-bold">
-              Consultar
+              <span className="text-lg align-top">$</span>40
             </p>
-            <h2 className="text-center text-primary font-semibold">
+            <h2 className="text-center text-primary font-semibold mt-2">
               Automóvil
             </h2>
             <div className="text-center font-semibold mt-4 border-t-2 border-gray-200"></div>
-            <Link to='/'>
-              <button className="text-black w-[200px] border-solid border-2 border-[#efefef] font-bold my-10 mx-auto py-3 bg-white hover:bg-primary hover:text-white">
-                Ver más
-              </button>
-            </Link>
+            <button 
+              onClick={() => handleCotizar('auto')}
+              className="text-black w-[200px] border-solid border-2 border-[#efefef] font-bold my-10 mx-auto py-3 bg-white hover:bg-primary hover:text-white"
+            >
+              Ver más
+            </button>
           </div>
 
+          {/* VIDA */}
           <div className="w-full shadow-xl border border-gray-200 flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300">
-            <h2 className="text-lg text-primary font-light text-center py-1 mt-8">
+            <h2 className="text-lg text-primary font-light text-center py-1">
               Desde/Suma Asegurada
             </h2>
             <p className="text-center text-4xl font-bold">
-              Consultar
+              <span className="text-lg align-top">$</span>10,000
             </p>
-            <h2 className="text-center text-primary font-semibold">
-              Personas
+            <h2 className="text-center text-primary font-semibold mt-2">
+              Vida
             </h2>
             <div className="text-center font-semibold mt-4 border-t-2 border-gray-200"></div>
-            <Link to='/'>
-              <button className="text-white w-[200px] border-solid border-2 border-primary bg-primary font-bold my-6 mx-auto py-3 hover:bg-white hover:text-primary">
-                Ver más
-              </button>
-            </Link>
+            <button 
+              onClick={() => handleCotizar('personas')}
+              className="text-white w-[200px] border-solid border-2 border-primary bg-primary font-bold my-6 mx-auto py-3 hover:bg-white hover:text-primary"
+            >
+              Ver más
+            </button>
           </div>
 
+          {/* PATRIMONIALES */}
           <div className="w-full shadow-xl border border-gray-200 flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300">
             <h2 className="text-lg text-primary font-light text-center py-1">
-              Desde/ Suma Asegurada
+              Desde/Suma Asegurada
             </h2>
             <p className="text-center text-4xl font-bold">
-              Consultar
+              <span className="text-lg align-top">$</span>20,000
             </p>
-            <h2 className="text-center text-primary font-semibold">
+            <h2 className="text-center text-primary font-semibold mt-2">
               Patrimoniales
             </h2>
             <div className="text-center font-semibold mt-4 border-t-2 border-gray-200"></div>
-            <Link to='/'>
-              <button className="text-black w-[200px] border-solid border-2 border-[#efefef] font-bold my-10 mx-auto py-3 bg-white hover:bg-primary hover:text-white">
-                Ver más
-              </button>
-            </Link>
+            <button 
+              onClick={() => handleCotizar('patrimoniales')}
+              className="text-black w-[200px] border-solid border-2 border-[#efefef] font-bold my-10 mx-auto py-3 bg-white hover:bg-primary hover:text-white"
+            >
+              Ver más
+            </button>
           </div>
         </div>
         <div className="md:m-auto pb-12 max-w-[800px]">

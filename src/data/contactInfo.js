@@ -12,14 +12,13 @@ const contactInfo = [
     icon: 'FiMapPin',
   },
   {
-    info: '+58 212-2675132 / 2654829 / 2672486',
+    info: '0212-7732367 (Horario de oficina)',
     icon: 'BsTelephoneForward',
   },
   {
-    info:'+58 412-9713806',
+    info: '+58 412-9713806',
     icon: 'MdOutlineSos',
   },
-
 ]
 
 export {
