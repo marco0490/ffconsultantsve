@@ -126,9 +126,11 @@ function Footer() {
         <div className="text-primary text-xl font-normal text-center my-4 hover:text-purple">
           <Link to="/nosotros">Nosotros</Link>
         </div>
+        {/* Oculto temporalmente: se reactivará en el futuro
         <div className="text-primary text-xl font-normal text-center my-4 hover:text-purple">
           <Link to="/agentes">Agentes</Link>
         </div>
+        */}
         <Menu as="div" className="relative inline-block text-left">
           <Menu.Button className="text-primary text-xl font-normal text-center lg:my-4 hover:text-purple">
             Políticas y Legal

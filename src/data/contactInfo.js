@@ -12,7 +12,7 @@ const contactInfo = [
     icon: 'FiMapPin',
   },
   {
-    info: '0212-7732367 (Horario de oficina)',
+    info: '0212 773 2367 (Horario de Oficina)',
     icon: 'BsTelephoneForward',
   },
   {

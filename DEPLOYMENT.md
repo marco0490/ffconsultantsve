@@ -170,7 +170,7 @@ npm run format
 
 **Contacto del Proyecto:**
 - Email: ffconsultantsve@outlook.com
-- SOS: +58 412-9713806
+- Teléfono: 0212 773 2367 (Horario de Oficina) / +58 412-9713806
 - Ubicación: Caracas, Venezuela
 
 ---

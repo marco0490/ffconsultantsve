@@ -14,7 +14,7 @@ import We from './pages/We/We'
 // import Blog from './pages/Blog/Blog'
 // import Cotizador from './pages/Cotizador/Cotizador'
 // import Services from './pages/Services/Services'
-import Agent from './pages/Agent/Agent'
+// import Agent from './pages/Agent/Agent' // Oculto temporalmente: se reactivará en el futuro
 import Legal from './pages/Legal/Legal'
 import PlansPiramide from './pages/PlansPiramide/PlansPiramide'
 import PlansOceanica from './pages/PlansOceanica/PlansOceanica'
@@ -33,7 +33,7 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Root />} errorElement={<NotFound />}>
         <Route index element={<Home />} />
-        <Route path="/agentes" element={<Agent />} />
+        {/* <Route path="/agentes" element={<Agent />} /> */}
         {/* <Route path="/blog" element={<Blog />} /> */}
         <Route path="/contacto" element={<Contact />} />
         <Route path="/enviado" element={<Complete />} />

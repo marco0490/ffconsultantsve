@@ -210,7 +210,7 @@ function ContactForm() {
 
           <div className="flex">
             <BsTelephoneForward className="text-2xl relative top-1 pr-2" />
-            <p className="text-lg">SOS +58 412-9713806</p>
+            <p className="text-lg">0212 773 2367 (Horario de Oficina) / SOS +58 412-9713806</p>
           </div>
 
           <div className="flex">
