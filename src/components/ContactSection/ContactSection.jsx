@@ -8,9 +8,11 @@ function ContactSection() {
         <h2 className="md:text-4xl text-2xl py-6 font-regular max-w-[650px] xl:pt-44 pt-12">
           Capacítate con nuestro equipo y aumenta tu propia cartera de clientes.
         </h2>
+        {/* Oculto temporalmente (ruta /agentes deshabilitada): se reactivará en el futuro
         <button className="bg-primary hover:bg-purple text-white font-bold py-2 px-4 rounded-none">
           <Link to="/agentes">Registrate aquí</Link>
         </button>
+        */}
         <button className="bg-transparent hover:bg-primary border border-primary hover:border-0 hover:text-white text-primary font-bold py-2 px-4 rounded-none">
           <Link to="/blog">Leer más</Link>
         </button>
