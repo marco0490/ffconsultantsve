@@ -22,6 +22,7 @@ import PlansOceanica from './pages/PlansOceanica/PlansOceanica'
 import Complete from './pages/Complete/Complete'
 import Conditions from './pages/Conditions/Conditions'
 import Cookies from './pages/Cookies/Cookies'
+import Privacy from './pages/Privacy/Privacy'
 import Dynamics365Sales from './pages/Dynamics365Sales/Dynamics365Sales'
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
         <Route path="/legal" element={<Legal />} />
         <Route path="/terminos" element={<Conditions />} />
         <Route path="/cookies" element={<Cookies />} />
+        <Route path="/privacidad" element={<Privacy />} />
         {/* <Route path="/servicios" element={<Services />} /> */}
         <Route path="/nosotros" element={<We />} />
       </Route>,
