@@ -184,25 +184,19 @@ function Privacy() {
       </p>
 
       <p>
-        <span className="font-bold">c) Proveedores tecnológicos.</span> Empresas
-        que nos prestan servicios de infraestructura, bajo obligaciones de
-        confidencialidad:
+        <span className="font-bold">
+          c) Proveedores de servicios tecnológicos.
+        </span>{' '}
+        Empresas que nos prestan servicios técnicos necesarios para operar la
+        plataforma, bajo obligaciones de confidencialidad y únicamente en la
+        medida indispensable: proveedores de infraestructura y almacenamiento en
+        la nube, servicios de envío de correos electrónicos transaccionales, y
+        proveedores de tecnología de inteligencia artificial que procesan
+        exclusivamente las consultas que usted dirige voluntariamente al
+        asistente virtual del centro de ayuda. Las conversaciones con el
+        asistente no deben usarse para enviar información médica detallada; para
+        gestiones formales utilice los módulos de la aplicación.
       </p>
-
-      <ul className="list-disc pl-6 space-y-1">
-        <li>
-          Amazon Web Services (AWS): alojamiento de servidores y almacenamiento
-          de archivos;
-        </li>
-        <li>Resend: envío de correos electrónicos transaccionales;</li>
-        <li>
-          OpenAI: procesamiento de las consultas que usted dirige
-          voluntariamente al asistente virtual del centro de ayuda. Las
-          conversaciones con el asistente no deben usarse para enviar
-          información médica detallada; para gestiones formales utilice los
-          módulos de la aplicación.
-        </li>
-      </ul>
 
       <p>
         <span className="font-bold">d) Autoridades.</span> Cuando una obligación

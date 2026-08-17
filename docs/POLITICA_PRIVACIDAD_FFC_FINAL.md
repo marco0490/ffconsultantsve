@@ -99,16 +99,16 @@ oportunamente cuando las alianzas comerciales cambien.
 emergencia y cartas avales) son gestionados con las clínicas donde usted
 recibe atención, como parte del servicio.
 
-**c) Proveedores tecnológicos.** Empresas que nos prestan servicios de
-infraestructura, bajo obligaciones de confidencialidad:
-- Amazon Web Services (AWS): alojamiento de servidores y almacenamiento
-  de archivos;
-- Resend: envío de correos electrónicos transaccionales;
-- OpenAI: procesamiento de las consultas que usted dirige
-  voluntariamente al asistente virtual del centro de ayuda. Las
-  conversaciones con el asistente no deben usarse para enviar
-  información médica detallada; para gestiones formales utilice los
-  módulos de la aplicación.
+**c) Proveedores de servicios tecnológicos.** Empresas que nos prestan
+servicios técnicos necesarios para operar la plataforma, bajo
+obligaciones de confidencialidad y únicamente en la medida
+indispensable: proveedores de infraestructura y almacenamiento en la
+nube, servicios de envío de correos electrónicos transaccionales, y
+proveedores de tecnología de inteligencia artificial que procesan
+exclusivamente las consultas que usted dirige voluntariamente al
+asistente virtual del centro de ayuda. Las conversaciones con el
+asistente no deben usarse para enviar información médica detallada;
+para gestiones formales utilice los módulos de la aplicación.
 
 **d) Autoridades.** Cuando una obligación legal o un requerimiento de
 autoridad competente así lo exija (por ejemplo, SUDEASEG).
