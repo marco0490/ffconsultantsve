@@ -87,7 +87,12 @@ function Conditions() {
         (vi) intentar acceder y, en su caso, utilizar las cuentas de otros
         usuarios y modificar o manipular sus mensajes; (vii) utilizar la
         plataforma digital de FFC a partir de la creación de usuarios falsos o
-        de cualquier otra manera; para realizar fraudes electrónicos). <br />
+        de cualquier otra manera; para realizar fraudes electrónicos). En el
+        caso de la aplicación móvil FFC App, la creación de cuentas está
+        reservada a las personas previamente incorporadas por FFC o por su
+        empleador en virtud de una póliza vigente o en trámite; la activación de
+        la cuenta se realiza mediante la verificación del documento de identidad
+        pre-registrado. <br />
         En particular, el Usuario tendrá las siguientes obligaciones:
       </p>
 
@@ -156,254 +161,15 @@ function Conditions() {
       </h2>
 
       <p>
-        En FFC respetamos los derechos de privacidad y reconocemos la
-        importancia de proteger la información personal. Para ello, queremos
-        informarle sobre nuestra{' '}
-        <span className="font-bold">
-          Política de Privacidad y de Uso de Datos Personales:
-        </span>
-      </p>
-
-      <p>
-        La Política de privacidad le proporciona información sobre la
-        recopilación y el uso de la Información Personal que nos proporciona
-        cuando navega por nuestra página Web o App-móvil.
-      </p>
-
-      <p>
-        Para la creación de la cuenta, el usuario deberá suministrar algunos
-        datos, los cuales serán almacenados a través de la página web de nuestra
-        propiedad{' '}
-        <Link to="/" className="text-primary hover:text-purple">
-          www.futurefinancialconsultantsve.com
-        </Link>{' '}
-        .
-      </p>
-
-      <p>
-        Se informa a los posibles Usuarios que este portal está diseñado y sólo
-        está permitido para el uso de aquellas personas mayores de 18 años; en
-        consecuencia, la aceptación de las presentes condiciones legales
-        implicará la declaración del Usuario de que es mayor de 18 años. En caso
-        de suscribir a algún familiar, deberán obtener el consentimiento del
-        mismo bajo su responsabilidad. Para el caso de los menores de edad, sólo
-        podrán inscribirlos las personas que tengan la patria potestad sobre
-        ellos.
-      </p>
-
-      <p>
-        Usted es responsable de la veracidad de la información suministrada en
-        el Formulario de Información Personal, y si los datos no son suyos o el
-        titular no conoce o aprueba el contenido de esta página, no somos
-        responsables de las condiciones y términos del contrato de seguro que
-        suscriba con el asegurador cualquier Producto de los
-        ofrecidos en la pagina web; ni de problemas o quejas que puedan surgir
-        en su relación con el mismo. Las páginas web con las que puede conectar
-        desde la nuestra, son propiedad y están gestionadas por entidades ajenas
-        a nosotros, por tal motivo, no somos responsables de su funcionamiento,
-        contenido, ni de productos o servicios obtenidos de ellas directamente o
-        a través de éstas.
-      </p>
-
-      <p>
-        No nos hacemos responsables de eventuales daños que sean responsabilidad
-        del cliente por manipular o usar esta página web de forma indebida.
-      </p>
-
-      <p>
-        La presente política de privacidad fue creada para ayudarle a entender
-        cómo se recopila y almacena su información.
-      </p>
-
-      <p className="font-bold ">a. ¿Qué Información Personal recopila FFC?</p>
-
-      <p>
-        FFC recopila la información suministrada por el Usuario al momento de
-        crear una cuenta en la página web o App-móvil, que es necesaria para
-        obtener el registro, tales como: nombre, apellido, fecha de nacimiento, C.I. y
-        dirección de correo electrónico.
-      </p>
-
-      <p>
-        En caso de cotización o contratación de los productos de seguros ofrecidos por
-        las Aseguradoras; FFC recopila información de datos personales sensibles tales
-        como datos de salud e identificación de las personas físicas. Los datos
-        sensibles serán utilizados con el objeto de la elegibilidad e
-        identificación de la persona en cuestión para la contratación de Los
-        Productos.
-      </p>
-
-      <p>
-        Cuando el Usuario visita nuestra página web, recopilamos información de
-        registro estándar y, a través de cookies, detalles de su comportamiento
-        en línea, siempre que nos haya dado su consentimiento, ya sea al
-        continuar navegando o al aceptar explícitamente el uso de cookies.
-        Usaremos estos datos para analizar y mejorar la experiencia de
-        navegación de los usuarios. Puede acceder a nuestra Política de Cookies,
-        más abajo. En este sentido, se recomienda revisar estos términos
-        periódicamente.
-      </p>
-
-      <p>
-        En caso de contratación de alguno de Los Productos, respecto a los
-        medios de pago, FFC no almacena datos confidenciales ya que se hace a
-        través de proveedores externos de plataformas de pagos autorizadas en
-        Venezuela (ejm., zelle, zinlii, paypal, instituciones bancarias).
-      </p>
-
-      <p className="font-bold">b. ¿Cómo recopila información FFC?</p>
-
-      <p>
-        Los datos personales se recopilan mediante un formulario a través de la
-        página web de FFC{' '}
-        <Link to="/" className="text-primary hover:text-purple">
-          www.futurefinancialconsultantsve.com
-        </Link>{' '}
-        . No se recopilará ningún dato hasta que no se acepte expresamente la
-        Política de Privacidad dando click en la casilla correspondiente.
-      </p>
-
-      <p>
-        Los datos se almacenan en bases de datos SQL bajo sistema de servidores
-        en EE.UU., bajo la licencia de Microsoft service en la nube (cloud services).{' '}
-      </p>
-
-      <p className="font-bold">c. ¿Por qué FFC almacena información?</p>
-
-      <p>
-        Almacenamos información para mejorar y optimizar nuestros procesos, con
-        el fin de prestar un mejor servicio a nuestros Usuarios.
-      </p>
-
-      <p>
-        En el caso de datos de salud, se almacenan por motivos de elegibilidad
-        de Los Productos, y que las empresas de seguros, puedan
-        autorizar dicha contratación. Es importante revisar y validar la
-        veracidad de la información suministrada en estos formularios, pues la
-        misma constituye la base de contratación de Los Productos, teniendo
-        efectos en las obligaciones de las partes.
-      </p>
-
-      <p className="font-bold">d. ¿Cuánto tiempo almacena información FFC?</p>
-
-      <p>
-        FFC almacena información durante la vigencia del registro activo en los
-        servicios web de FFC, o de la vigencia de la contratación de Los
-        Productos, en concordancia con los períodos establecidos en la normativa
-        vigente para datos de salud.
-      </p>
-
-      <p className="font-bold">e. ¿Cómo protege su Información Personal FFC?</p>
-
-      <p>
-        Estamos comprometidos a proteger su Información Personal. Contamos con
-        las medidas técnicas y organizativas adecuadas para proteger la
-        Información Personal que nos proporciona contra el uso no autorizado o
-        ilegal y contra la pérdida, daño o destrucción accidentales.
-      </p>
-
-      <p className="font-bold">
-        f. ¿Quién tiene acceso a su Información Personal?
-      </p>
-
-      <p>
-        FFC puede compartir su Información Personal en los siguientes casos:
-      </p>
-
-      <p>
-        <span className="font-bold">i.</span> Para poder proveer nuestros
-        productos y servicios contratados con nuestras entidades asociadas
-        (empresas de seguros);
-      </p>
-
-      <p>
-        <span className="font-bold">ii.</span> Con fines publicitarios y de marketing;{' '}
-        <Link to="/" className="text-primary hover:text-purple">
-          www.futurefinancialconsultantsve.com
-        </Link>{' '}
-        podrá enviarle una actualización del presupuesto obtenido en función de
-        la fecha de cotización, así como para la realización de estudios
-        estadísticos, el envío de boletines informativos generalistas, ofertas
-        y/o promociones comerciales adecuadas a su perfil particular y la
-        categoría de Los Productos que haya comparado en la página web.
-      </p>
-
-      <p>
-        <span className="font-bold">iii.</span> Con fines de cumplir con la
-        normativa de Prevención y Legitimación de Capitales, al reportar
-        actividades sospechosas.
-      </p>
-
-      <p>
-        <span className="font-bold">iv.</span> Podemos compartir su Información
-        Personal a cualquier agencia o entidad de aplicación de la ley,
-        tribunal, regulador, autoridad gubernamental u otro tercero cuando sea
-        necesario para cumplir con una obligación legal o reglamentaria, o de
-        otro modo para proteger nuestros derechos o los derechos de cualquier
-        tercero; y/o
-      </p>
-
-      <p>
-        <span className="font-bold">v.</span> Podemos compartir su información
-        con nuestras empresas relacionadas actuales o futuras, subsidiarias,
-        empresas conjuntas u otras empresas afiliadas, en cuyo caso
-        solicitaremos a las mismas que respeten la presente Política de
-        Privacidad. Si se vende nuestro negocio de conformidad con la ley,
-        podremos compartir su Información Personal con el comprador.
-      </p>
-
-      <p className="font-bold">
-        g. Derechos del Usuario respecto de su información personal:
-      </p>
-
-      <p>Para poder procesar sus datos, en todo momento, tiene derecho a:</p>
-
-      <p>
-        <span className="font-bold">i.</span> Saber si sus datos personales están
-        siendo tratados y, en su caso, acceder a ellos;
-      </p>
-
-      <p>
-        <span className="font-bold">ii.</span> Rectificar sus datos personales si
-        fueran inexactos o incompletos;
-      </p>
-
-      <p>
-        <span className="font-bold">iii.</span> Solicitar la eliminación de sus
-        datos si no son necesarios para los fines indicados;
-      </p>
-
-      <p>
-        <span className="font-bold">iv.</span> Exigir que se delimite el
-        procesamiento de sus datos personales;
-      </p>
-
-      <p>
-        <span className="font-bold">v.</span> Darse de baja del servicio y
-        transferir sus datos personales a otro proveedor de su elección
-        (portabilidad). En cualquier momento los Usuarios podrán darse de baja
-        de los servicios de la presente página web, sin cargo alguno; y
-      </p>
-
-      <p>
-        <span className="font-bold">vi.</span> Oponerse al tratamiento de sus
-        datos personales en cualquier momento.
-      </p>
-
-      <p>
-        Para darse de baja y/o transferir sus datos a otro prestador de
-        servicios de los definidos en este documento, el Usuario deberá enviar
-        una solicitud acompañada de un documento de identidad a{' '}
-        <a
-          href="mailto:ffconsultantsve@outlook.com"
-          className="text-primary hover:text-purple"
-        >
-          ffconsultantsve@outlook.com
-        </a>{' '}
-        o solución digital que se ponga a su disposición en la página, con este
-        fin. Quedan a salvo las previsiones legales en cuanto al cambio de
-        intermediario de seguros, respecto a la vigencia de los contratos y el
-        cobro de las comisiones correspondientes, cuando resultaren aplicables.
+        El tratamiento de los datos personales de los Usuarios —incluyendo su
+        recopilación, uso, protección, conservación y los derechos que le
+        asisten— se rige por nuestra{' '}
+        <Link to="/privacidad" className="text-primary hover:text-purple">
+          Política de Privacidad
+        </Link>
+        , la cual forma parte integrante de los presentes Términos y
+        Condiciones. Al aceptar estos Términos, el Usuario declara haber leído y
+        aceptado dicha Política.
       </p>
 
       <h2 className="font-bold text-xl">
@@ -562,14 +328,13 @@ function Conditions() {
           www.futurefinancialconsultantsve.com
         </Link>{' '}
         nos tomamos muy en serio la seguridad de la información, utilizando
-        todos los protocolos tipo{' '}
-        <span className="text-primary">httpS-SSL-Microsoft-VM</span> de
-        encriptación de datos, antes de ser transmitidos, para asegurar que toda
-        su información, tanto los datos personales como los datos de salud y los
-        de transacción, estén protegidos de accesos no autorizados o de un uso
-        inapropiado. Como medida adicional de seguridad, nuestra web cuenta con
-        todos los certificados de identificación digital, y otros tipo de
-        servicios más avanzados para salvaguardar su privacidad. Además, en FFC
+        cifrado de las comunicaciones mediante protocolos estándar de la
+        industria (TLS/HTTPS) en toda transmisión de datos. Además, en nuestra
+        aplicación móvil, los documentos y datos sensibles se almacenan cifrados
+        a nivel de aplicación, de forma que permanecen protegidos frente a
+        accesos no autorizados incluso en la infraestructura de almacenamiento.
+        Toda su información —datos personales, datos de salud y de transacción—
+        está protegida de accesos no autorizados o de un uso inapropiado. Además, en FFC
         seguiremos implementando nueva tecnología bajo un esquema de mejora
         contínua, para aumentar la seguridad y protección de datos, según estén
         disponibles.
