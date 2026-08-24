@@ -113,6 +113,15 @@ para gestiones formales utilice los módulos de la aplicación.
 **d) Autoridades.** Cuando una obligación legal o un requerimiento de
 autoridad competente así lo exija (por ejemplo, SUDEASEG).
 
+**e) Transferencia internacional de datos.** Nuestros proveedores de
+infraestructura tecnológica operan centros de datos ubicados fuera de
+Venezuela (principalmente en los Estados Unidos de América), por lo que
+sus datos personales pueden ser almacenados y procesados en dichas
+jurisdicciones. En todos los casos, los datos viajan y se almacenan
+cifrados conforme a la sección 5, y exigimos a nuestros proveedores
+obligaciones de confidencialidad y seguridad. Al aceptar esta política,
+usted consiente esta transferencia con las salvaguardas descritas.
+
 ## 5. Cómo protegemos sus datos
 
 - Toda la comunicación entre su dispositivo y nuestros servidores viaja
