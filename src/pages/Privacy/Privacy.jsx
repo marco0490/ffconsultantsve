@@ -204,6 +204,20 @@ function Privacy() {
         ejemplo, SUDEASEG).
       </p>
 
+      <p>
+        <span className="font-bold">
+          e) Transferencia internacional de datos.
+        </span>{' '}
+        Nuestros proveedores de infraestructura tecnológica operan centros de
+        datos ubicados fuera de Venezuela (principalmente en los Estados Unidos
+        de América), por lo que sus datos personales pueden ser almacenados y
+        procesados en dichas jurisdicciones. En todos los casos, los datos
+        viajan y se almacenan cifrados conforme a la sección 5, y exigimos a
+        nuestros proveedores obligaciones de confidencialidad y seguridad. Al
+        aceptar esta política, usted consiente esta transferencia con las
+        salvaguardas descritas.
+      </p>
+
       <h2 className="font-bold text-xl">5. Cómo protegemos sus datos</h2>
 
       <ul className="list-disc pl-6 space-y-1">
