@@ -12,9 +12,50 @@
 
 export const TARIFAS_AUTO = {
   // ═══════════════════════════════════════════════════════════════════════
-  // SEGUROS CARACAS - AUTO (DESHABILITADO TEMPORALMENTE)
+  // SEGUROS CARACAS - AUTO (DEMO)
   // ═══════════════════════════════════════════════════════════════════════
-  /* segurosCaracas: {
+  caracas: {
+    nombre: "Seguros Caracas",
+    vigente: true,
+    ultimaActualizacion: "2024-05-01",
+    coberturas: {
+      rcv: {
+        nombre: "RCV Básica",
+        precioAnual: 52, // $52/año - DEMO, base de la escala re-anclada (Caracas = 1.00)
+        incluyeAsistenciaVial: true,
+      },
+      cobertura_amplia: {
+        nombre: "Cobertura Amplia",
+        tasaAnual: 0.045,
+        tasaMinima: 600,
+        tasaMaxima: 3000,
+      },
+      perdida_total: {
+        nombre: "Pérdida Total",
+        tasaAnual: 0.025,
+        tasaMinima: 350,
+        tasaMaxima: 1500,
+      }
+    },
+    factoresEdad: {
+      "18-25": 1.35,
+      "26-35": 1.00,
+      "36-50": 0.95,
+      "51-65": 1.00,
+      "66+": 1.15,
+    },
+    factoresAntiguedad: {
+      "0km": 1.00,
+      "1-3": 1.00,
+      "4-6": 1.05,
+      "7-10": 1.15,
+      "11-15": 1.25,
+      "16+": 1.40,
+    },
+  },
+
+  /* Estructura original de Seguros Caracas archivada como referencia (no usar):
+  segurosCaracas: {
     nombre: "Seguros Caracas",
     vigente: true,
     ultimaActualizacion: "2024-05-01",
@@ -314,9 +355,7 @@ export function calcularCotizacionAuto({
 // FUNCIÓN: Comparar cotizaciones entre aseguradoras
 // ═══════════════════════════════════════════════════════════════════════════
 export function compararCotizaciones(datosVehiculo) {
-  // Seguros Caracas permanece deshabilitado en auto (bloque comentado arriba),
-  // por eso el comparador solo itera las aseguradoras vigentes en este ramo.
-  const aseguradoras = ['real', 'estar']
+  const aseguradoras = ['real', 'estar', 'caracas']
   const resultados = []
 
   for (const aseg of aseguradoras) {
