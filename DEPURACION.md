@@ -29,8 +29,6 @@
 | `insurance-bg-illustration.svg` | ActionSection.jsx |
 | `NotFoundSVG.svg` | NotFound.jsx |
 | `check.svg` | Varios |
-| `OceanicaLogo.png` | PlansOceanica |
-| `PiramideLogo.svg` | PlansPiramide |
 | `logo-real-seguros.svg` | PlansReal |
 
 ---
@@ -42,8 +40,7 @@ Las siguientes carpetas de páginas de planes existen pero deben verificarse:
 - `src/pages/PlansReal/` - ✅ Nueva aseguradora
 - `src/pages/PlansCaracas/` - ✅ Nueva aseguradora
 - `src/pages/PlansEstar/` - ✅ Nueva aseguradora
-- `src/pages/PlansOceanica/` - ✅ En uso
-- `src/pages/PlansPiramide/` - ✅ En uso
+- `src/pages/PlansReal/` - ✅ Nueva aseguradora
 
 ---
 

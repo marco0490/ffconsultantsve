@@ -78,7 +78,7 @@ ffconsultantsve/
 │   │   └── supabase.js       ← ★ CAPA DE ACCESO A SUPABASE (guardar/leer leads)
 │   ├── pages/                ← PÁGINAS de la web (una carpeta por ruta)
 │   │   ├── Home/ Contact/ Cotizar/ Agent/ We/ NotFound/ ...
-│   │   ├── Plans{Caracas,Estar,Oceanica,Piramide,Real}/  (catálogos por aseguradora)
+│   │   ├── Plans{Caracas,Estar,Real}/  (catálogos por aseguradora)
 │   │   └── Pagar/            ← Página de pago (datos bancarios / transferencia)
 │   ├── assets/ css/          ← Imágenes y estilos
 │   └── (main.jsx)

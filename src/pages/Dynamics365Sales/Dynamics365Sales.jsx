@@ -109,7 +109,7 @@ function Dynamics365Sales() {
         <input
           type="text"
           name="aseguradora"
-          placeholder="Compañía aseguradora (ej: Seguros Pirámide)"
+          placeholder="Compañía aseguradora (ej: Real Seguros)"
           required
           className="border p-2"
         />

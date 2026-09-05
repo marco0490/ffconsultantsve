@@ -41,8 +41,6 @@ FFConsultantsVE es una **aplicación web moderna** que permite a los clientes:
 
 | Aseguradora | Emoji | Líneas | Ejemplos de productos |
 |-------------|-------|--------|------------------------|
-| **Seguros Pirámide** | 🔺 | Auto, Personas, Patrimoniales | HCM, Vida, Viajes, Productiva, Hogar |
-| **Seguros Oceánica** | 🌊 | Auto, Personas, Patrimoniales | HCM, Vida, Viajes, Hogar |
 | **Seguros Caracas** | 🦁 | Auto, Personas, Patrimoniales | HCM hasta $1M USD, Asistencia en Viaje |
 | **Real Seguros** | ✅ | Auto, Personas | Planes personalizados, tecnología moderna |
 | **Estar Seguros** | 🛡️ | Auto, Personas | +75 años en el mercado, HCM |
@@ -311,7 +309,7 @@ npm run preview
 1. **Acceder** a https://ffconsultantsve.vercel.app
 2. **Hacer clic** en "Cotizar póliza" o en algún plan de compañía
 3. **Seleccionar**:
-   - Compañía aseguradora (ej. Pirámide u Oceánica)
+   - Compañía aseguradora (ej. Real Seguros, Estar Seguros o Seguros Caracas)
    - Qué desea asegurar (Auto / Personas / Patrimoniales)
    - Cobertura disponible según esa combinación
 4. **Completar** datos personales mínimos (nombre, cédula, teléfono, email, fecha de nacimiento y sexo)
@@ -590,7 +588,7 @@ Para cotización de **Auto**, el chatbot recolecta:
 | Transmision | String | "Automatica" o "Sincronica" |
 | CeroKM | Boolean | true o false |
 | Placa | String | "ABC123" |
-| CompaniaAseguradora | String | "Pirámide" |
+| CompaniaAseguradora | String | "Real Seguros" |
 | Cobertura | String | "RCV Amplia" |
 | TipoPago | String | "Contado" o "Financiado" |
 | Canal | String | "Web-Chatbot" (automático) |

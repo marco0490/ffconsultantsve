@@ -130,13 +130,6 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  <strong>Pirámide:</strong> sí, acceso solo en su red, fuera de ella aplica
-                  reembolso interno.
-                  <br />
-                  <br />
-                  <strong>Oceánica:</strong> clínica dentro de red tras autorización previa.
-                  <br />
-                  <br />
                   <strong>Real Seguros:</strong> red de clínicas afiliadas con cobertura en principales ciudades del país.
                   <br />
                   <br />
@@ -159,11 +152,6 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  <strong>Pirámide y Oceánica:</strong> cubren 9 patologías específicas (cardio, renales,
-                  traumas, quemaduras, infecciosas…), según listado condicionado
-                  de cada póliza.
-                  <br />
-                  <br />
                   <strong>Real Seguros:</strong> emergencias cubiertas de inmediato, enfermedades con periodo de espera según plan.
                   <br />
                   <br />
@@ -186,12 +174,6 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-base md:text-2xl text-gray-500">
-                  <strong>Pirámide:</strong> solo reembolso según tarifa.
-                  <br />
-                  <br />
-                  <strong>Oceánica:</strong> no aceptado fuera de red, debe haber autorización.
-                  <br />
-                  <br />
                   <strong>Real Seguros:</strong> reembolso disponible para atención fuera de red según condiciones del plan.
                   <br />
                   <br />
@@ -214,14 +196,6 @@ function We() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-10 text-base md:text-2xl text-gray-500">
-                  <strong>Pirámide:</strong> presentación de documentos en 30 días, luego
-                  proceso de pago.
-                  <br />
-                  <br />
-                  <strong>Oceánica:</strong> sin plazo oficial, usualmente puede tardar hasta 60
-                  días, dependiendo del caso.
-                  <br />
-                  <br />
                   <strong>Real Seguros:</strong> proceso de reembolso entre 30-45 días tras presentar documentación completa.
                   <br />
                   <br />

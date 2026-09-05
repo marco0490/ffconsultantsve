@@ -94,8 +94,9 @@ function Cotizador() {
             <div className="mt-8 p-6 rounded-xl bg-gray-50 border">
               <h3 className="font-bold text-gray-800 mb-4">Aseguradoras Aliadas</h3>
               <div className="flex flex-wrap gap-3">
-                <span className="px-3 py-1 bg-white rounded-full text-sm border">Pirámide</span>
-                <span className="px-3 py-1 bg-white rounded-full text-sm border">Oceánica</span>
+                <span className="px-3 py-1 bg-white rounded-full text-sm border">Real Seguros</span>
+                <span className="px-3 py-1 bg-white rounded-full text-sm border">Estar Seguros</span>
+                <span className="px-3 py-1 bg-white rounded-full text-sm border">Seguros Caracas</span>
               </div>
               <p className="text-xs text-gray-500 mt-4">
                 +1,000 clientes satisfechos en Venezuela

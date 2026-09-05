@@ -22,7 +22,7 @@ const polizasEjemplo = {
     cedula: 'V-18736393',
     poliza: 'AP-2024-005678',
     producto: 'Accidentes Personales',
-    aseguradora: 'Seguros Pirámide',
+    aseguradora: 'Estar Seguros',
     deuda: 48.00,
     vencimiento: '20/05/2026',
   },

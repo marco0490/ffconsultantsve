@@ -46,10 +46,10 @@ function Legal() {
       </p>
       <p>
         En la República Bolivariana de Venezuela, las pólizas y planes
-        ofrecidas por FFC a través de la presente página web, están suscritos y amparados por SEGUROS PIRAMIDE, C.A. (R.I.F. J-00106474-5), empresa de seguros inscrita y autorizada
-        en la Superintendencia de la Actividad Aseguradora, SUDEASEG, bajo el Nº
-        ES-80 y OCEANICA DE SEGUROS, C.A. (R.I.F.
-        J-30620632-9), inscrita ante SUDEASEG con el Nº ES-117.
+        ofrecidos por FFC a través de la presente página web, están suscritos y
+        amparados por empresas de seguros debidamente inscritas y autorizadas en
+        la Superintendencia de la Actividad Aseguradora (SUDEASEG).
+        {/* PENDIENTE: agregar razón social y RIF de Real Seguros, Estar Seguros y Seguros Caracas */}
       </p>
       <p>
       </p>

@@ -1,38 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { FiChevronLeft, FiChevronRight, FiShield, FiHeart, FiHome, FiTruck, FiUsers } from 'react-icons/fi'
+import { FiChevronLeft, FiChevronRight, FiHome, FiTruck, FiUsers } from 'react-icons/fi'
 
 // 🎯 4 MICROSEGUROS - Precios reales desde las tarifas base
 const banners = [
   {
     id: 1,
-    company: 'Seguros Pirámide',
-    product: '🛡️ Accidentes Personales',
-    title: '¡Protección ante imprevistos!',
-    description: 'Cobertura por muerte accidental, invalidez y gastos médicos. Ideal para ti y tu familia.',
-    price: '4',
-    period: 'desde/mes',
-    icon: FiShield,
-    bgColor: '#ef4444',
-    accent: '#eab308',
-    features: ['Muerte accidental', 'Invalidez permanente', 'Gastos médicos'],
-  },
-  {
-    id: 2,
-    company: 'Oceánica de Seguros',
-    product: '⚱️ Servicio Funerario',
-    title: '¡Tranquilidad para tu familia!',
-    description: 'Cobertura de gastos funerarios para que tu familia no tenga preocupaciones adicionales.',
-    price: '2',
-    period: 'desde/mes',
-    icon: FiHeart,
-    bgColor: '#14b8a6',
-    accent: '#0d9488',
-    features: ['Gastos funerarios', 'Traslado nacional', 'Trámites legales'],
-  },
-  {
-    id: 3,
     company: 'Estar Seguros',
     product: '💚 Póliza de Vida',
     title: '¡Asegura el futuro de los tuyos!',
@@ -45,7 +19,7 @@ const banners = [
     features: ['Suma asegurada flexible', 'Beneficiarios protegidos', 'Cobertura mundial'],
   },
   {
-    id: 4,
+    id: 2,
     company: 'Real Seguros',
     product: '🚗 RCV Vehículos',
     title: '¡Tu vehículo siempre protegido!',
@@ -58,7 +32,7 @@ const banners = [
     features: ['Daños a terceros', 'Asistencia vial 24/7', 'Defensa legal'],
   },
   {
-    id: 5,
+    id: 3,
     company: 'Seguros Caracas',
     product: '🏠 Hogar Protegido',
     title: '¡Tu hogar siempre seguro!',

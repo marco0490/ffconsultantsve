@@ -21,16 +21,6 @@ function LogoImg({ src, alt }) {
 }
 
 const logos = [
-  {
-    key: 'piramide',
-    src: 'https://segurospiramide.com/static/logo-piramides-d07524ef35db8b8403dff1b54884e9aa.svg',
-    alt: 'Piramide Seguros',
-  },
-  {
-    key: 'oceanica',
-    src: 'https://oceanicadeseguros.com/static/oceanica_original-1035af5b673858a792c437cf229007bd.png',
-    alt: 'Oceanica Seguros',
-  },
   { key: 'real', src: LogoRealSeguros, alt: 'Real Seguros' },
   {
     key: 'caracas',
@@ -49,8 +39,6 @@ function CompaniesPlan() {
 
   const handleLogoClick = (company) => {
     switch (company) {
-      case 'piramide': navigate('/planes-piramide'); break
-      case 'oceanica': navigate('/planes-oceanica'); break
       case 'real': navigate('/planes-real'); break
       case 'caracas': navigate('/planes-caracas'); break
       case 'estar': navigate('/planes-estar'); break

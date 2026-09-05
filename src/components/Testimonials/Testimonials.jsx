@@ -26,7 +26,7 @@ const testimonials = [
     stars: [FaStar, FaStar, FaStar, FaStar, FaStarHalfAlt],
     text: '"Excelente plataforma de servicios, nunca había sido tal fácil asegurar tu salud"',
     name: 'Rebeca Barroeta',
-    role: 'Cliente Piramide',
+    role: 'Cliente Real Seguros',
     avatar:
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
@@ -42,7 +42,7 @@ const testimonials = [
     stars: [FaStar, FaStar, FaStar, FaStar, FaStar],
     text: '"Responsables y atentos a todos mis requerimientos a cualquier hora del día, muy confiables"',
     name: 'Carlos Colmenares',
-    role: 'Cliente Oceanica',
+    role: 'Cliente Estar Seguros',
     avatar:
       'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
