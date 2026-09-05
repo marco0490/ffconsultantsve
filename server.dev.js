@@ -6,6 +6,14 @@ import { createServer as createViteServer } from 'vite'
 import { config } from 'dotenv'
 import { generateSystemPrompt } from './src/data/chatbot-knowledge.js'
 import { calcularCotizacionAuto, compararCotizaciones } from './src/data/tarifas-seguros.js'
+// Backend delgado de la Parte 2 (emisión/pago) — se montan las mismas
+// funciones que en Vercel para poder probarlas en local con dev:api.
+import cotizarHandler from './api/cotizar.js'
+import solicitudHandler from './api/solicitud.js'
+import pagoIniciarHandler from './api/pago-iniciar.js'
+import pagoConfirmarHandler from './api/pago-confirmar.js'
+import solicitudEstadoHandler from './api/solicitud-estado.js'
+import catalogosHandler from './api/catalogos.js'
 
 // Cargar variables de entorno (ambos archivos)
 config({ path: '.env' })
@@ -773,6 +781,16 @@ app.post('/api/lead', async (req, res) => {
     return res.status(500).json({ success: false, error: error.message })
   }
 })
+
+// ==========================================
+// API ROUTES PARTE 2 (emisión / pago) — montan las funciones de /api
+// ==========================================
+app.post('/api/cotizar', (req, res) => cotizarHandler(req, res))
+app.post('/api/solicitud', (req, res) => solicitudHandler(req, res))
+app.post('/api/pago-iniciar', (req, res) => pagoIniciarHandler(req, res))
+app.post('/api/pago-confirmar', (req, res) => pagoConfirmarHandler(req, res))
+app.get('/api/solicitud-estado', (req, res) => solicitudEstadoHandler(req, res))
+app.get('/api/catalogos', (req, res) => catalogosHandler(req, res))
 
 // ==========================================
 // SERVIDOR VITE + EXPRESS
