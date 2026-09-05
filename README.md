@@ -297,7 +297,7 @@ npm run preview
 1. **Crear cuenta** en https://vercel.com/
 2. **Conectar repositorio** de GitHub
 3. **Configurar variables de entorno** en Vercel Dashboard (las mismas del `.env` local para EmailJS)
-4. **Configurar las URLs de Power Automate** directamente en el código si es necesario rotarlas (archivo `src/pages/Cotizador/Cotizador.jsx`, función `sendEmail`)
+4. **Configurar las URLs de Power Automate** mediante variables de entorno `POWER_AUTOMATE_*` (usadas en `api/chat.js` y, en desarrollo, en `server.dev.js`)
 5. **Desplegar automáticamente** con cada cambio a la rama principal
 
 ---
@@ -330,8 +330,8 @@ npm run preview
 - En Dynamics, los datos se guardan en tablas dedicadas (AutoWeb, PersonasWeb, PatrimonialesWeb) y/o relacionados con LeadWeb, según la lógica del Flow.
 
 #### 📝 **Actualizar Información**
-- **Coberturas y combinaciones compañía/producto**: editar la sección de selects en `src/pages/Cotizador/Cotizador.jsx` (aseguradora, producto, cobertura).
-- **Campos enviados a Dynamics 365 Sales**: revisar y ajustar la función `sendEmail` en `src/pages/Cotizador/Cotizador.jsx`.
+- **Coberturas y combinaciones compañía/producto**: editar la base de conocimiento del chatbot en `src/data/chatbot/` (`shared.js` y `ramos/*.js`) y las tarifas en `src/data/tarifas-seguros.js` / `src/data/tarifas-microseguros.js`.
+- **Campos enviados a Dynamics 365 Sales**: revisar el manejo del lead (bloque `LEAD_DATA`) en `api/chat.js` (y `server.dev.js` en desarrollo).
 - **Página de pruebas técnicas de integración**: `src/pages/Dynamics365Sales/Dynamics365Sales.jsx`.
 - **Contacto**: Editar archivo `src/data/contactInfo.js`.
 - **Contenido general del sitio**: Editar archivos en `src/pages/`.

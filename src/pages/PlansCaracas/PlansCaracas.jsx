@@ -18,7 +18,7 @@ function PlansCaracas() {
       ramo: ramo,
       autoOpen: true
     }))
-    navigate('/cotizador')
+    navigate('/cotizar')
   }
 
   return (

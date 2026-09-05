@@ -1,3 +1,4 @@
+// PENDIENTE: tarifas DEMO — reemplazar por tarifas reales cuando las entreguen las aseguradoras
 // ═══════════════════════════════════════════════════════════════════════════
 // TARIFAS DE SEGUROS - BASE DE DATOS DE PRECIOS
 // Última actualización: Mayo 2024

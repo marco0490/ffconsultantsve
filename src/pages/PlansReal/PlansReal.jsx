@@ -20,7 +20,7 @@ function PlansReal() {
       ramo: ramo,
       autoOpen: true
     }))
-    navigate('/cotizador')
+    navigate('/cotizar')
   }
 
   return (
