@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FiCheck, FiChevronDown, FiEdit2, FiMail, FiMessageCircle } from 'react-icons/fi'
 import Avatar, { AVATAR_NOMBRE } from '../../../components/Cotizador/Avatar'
+import Toast from '../../../components/Cotizador/Toast'
 import { useCotizadorState } from '../../../components/Cotizador/useCotizadorState'
 
 const FRECUENCIAS = [
@@ -24,6 +25,7 @@ function Resultado() {
   const { state, update, setSeccion, next } = useCotizadorState()
   const { cotizaciones, frecuencia } = state.resultado
   const [resumenAbierto, setResumenAbierto] = useState(false)
+  const [toast, setToast] = useState('')
 
   // Sin planes (entrada directa o estado limpio): recalcular.
   useEffect(() => {
@@ -114,6 +116,12 @@ function Resultado() {
                   <span className="text-gray-400 text-sm">{freq.sufijo}</span>
                 </div>
                 <p className="text-xs text-gray-400 mt-0.5">Equivale a USD {plan.precios.anual}/año</p>
+                {/* DEMO: línea RCV como alternativa económica al casco */}
+                {plan.rcvMensual != null && (
+                  <p className="text-xs font-medium text-primary mt-1">
+                    ¿Solo lo básico? RCV desde USD {plan.rcvMensual}/mes
+                  </p>
+                )}
               </div>
 
               <ul className="mt-3 space-y-1.5 flex-1">
@@ -171,7 +179,8 @@ function Resultado() {
         <div className="mt-5 max-w-[560px] mx-auto flex flex-col sm:flex-row gap-3">
           <button
             type="button"
-            onClick={() => window.alert('El envío por correo se habilitará pronto.')}
+            /* DEMO: envío por correo simulado (sin EmailJS real) */
+            onClick={() => setToast(`Enviado a ${state.contacto.email || 'tu correo'}`)}
             className="flex-1 inline-flex items-center justify-center gap-2 h-12 rounded-2xl border-2 border-gray-200 text-gray-700 font-semibold"
           >
             <FiMail size={18} /> Enviarme por correo
@@ -190,6 +199,7 @@ function Resultado() {
           Cotización referencial sujeta a confirmación por la aseguradora.
         </p>
       </div>
+      <Toast msg={toast} onClose={() => setToast('')} />
     </div>
   )
 }

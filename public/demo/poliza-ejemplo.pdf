@@ -1,0 +1,106 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1028 >>
+stream
+BT
+60 780 Td
+14 TL
+/F2 16 Tf
+(FUTURE FINANCIAL CONSULTANTS, C.A.) Tj
+T*
+/F1 11 Tf
+(Cuadro de Poliza - DOCUMENTO DE EJEMPLO \(DEMO\)) Tj
+T*
+() Tj
+T*
+/F2 12 Tf
+(Datos de la Poliza) Tj
+T*
+/F1 11 Tf
+(Poliza No:        POL-2026-000123) Tj
+T*
+/F1 11 Tf
+(Aseguradora:      Seguros Caracas) Tj
+T*
+/F1 11 Tf
+(Ramo:             Automovil - Casco \(Cobertura Amplia\)) Tj
+T*
+/F1 11 Tf
+(Vigencia:         05/09/2026 al 05/09/2027) Tj
+T*
+() Tj
+T*
+/F2 12 Tf
+(Tomador) Tj
+T*
+/F1 11 Tf
+(Nombre:           Maria Gonzalez) Tj
+T*
+/F1 11 Tf
+(Cedula:           V-18.736.393) Tj
+T*
+() Tj
+T*
+/F2 12 Tf
+(Vehiculo) Tj
+T*
+/F1 11 Tf
+(Descripcion:      Toyota Corolla 2022) Tj
+T*
+/F1 11 Tf
+(Placa:            AB123CD) Tj
+T*
+/F1 11 Tf
+(Suma asegurada:   USD 20.000) Tj
+T*
+/F1 11 Tf
+(Deducible:        1% del valor asegurado) Tj
+T*
+() Tj
+T*
+/F2 12 Tf
+(Prima) Tj
+T*
+/F1 11 Tf
+(Prima anual:      USD 897,75) Tj
+T*
+/F1 11 Tf
+(Forma de pago:    Pago Movil \(C2P\)) Tj
+T*
+() Tj
+T*
+/F1 9 Tf
+(Documento de demostracion, sin validez legal. Datos ficticios.) Tj
+T*
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000001331 00000 n 
+0000001401 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+1476
+%%EOF

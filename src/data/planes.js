@@ -18,17 +18,22 @@ function round2(n) {
 // Devuelve la lista de planes (ordenada de menor a mayor prima) con precios
 // por frecuencia, coberturas y un badge sugerido.
 export function construirPlanes(vehiculo = {}, persona = {}) {
-  const cots = compararCotizaciones({
-    cobertura: 'cobertura_amplia',
+  const base = {
     marca: vehiculo.marca,
     modelo: vehiculo.modelo,
     año: Number(vehiculo.anio) || new Date().getFullYear(),
     ceroKm: false,
     fechaNacimiento: persona.fechaNacimiento || '1990-01-01',
     valorVehiculo: Number(vehiculo.valorUSD) || null,
-  })
+  }
 
-  return cots.map((c, i) => ({
+  // Plan principal: Casco (cobertura amplia). Además calculamos el RCV por
+  // aseguradora para mostrar la línea "RCV desde $X/mes" en cada tarjeta.
+  const casco = compararCotizaciones({ ...base, cobertura: 'cobertura_amplia' })
+  const rcv = compararCotizaciones({ ...base, cobertura: 'rcv' })
+  const rcvPorAseg = Object.fromEntries(rcv.map((c) => [c.aseguradora, round2(c.primaMensual)]))
+
+  return casco.map((c, i) => ({
     plan_id: `plan_${c.aseguradora.toLowerCase().replace(/\s+/g, '-')}`,
     aseguradora: c.aseguradora,
     cobertura: c.cobertura,
@@ -40,7 +45,8 @@ export function construirPlanes(vehiculo = {}, persona = {}) {
       trimestral: round2(c.primaAnual / 4),
       mensual: round2(c.primaMensual),
     },
+    rcvMensual: rcvPorAseg[c.aseguradora] ?? null,
     coberturas: COBERTURAS_DEMO,
-    badge: i === 0 ? 'mejor-precio' : i === cots.length - 1 ? 'mayor-cobertura' : 'recomendada',
+    badge: i === 0 ? 'mejor-precio' : i === casco.length - 1 ? 'mayor-cobertura' : 'recomendada',
   }))
 }
