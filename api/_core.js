@@ -26,7 +26,11 @@ export function applyCommon(req, res, methods) {
   res.setHeader('X-Content-Type-Options', 'nosniff')
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin')
   const origin = req.headers.origin
-  if (ALLOWED_ORIGINS.includes(origin)) res.setHeader('Access-Control-Allow-Origin', origin)
+  const esProd = process.env.NODE_ENV === 'production'
+  const esLocalhost = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin || '')
+  if (origin && (ALLOWED_ORIGINS.includes(origin) || (!esProd && esLocalhost))) {
+    res.setHeader('Access-Control-Allow-Origin', origin)
+  }
   res.setHeader('Access-Control-Allow-Methods', `${methods.join(', ')}, OPTIONS`)
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Idempotency-Key')
 
