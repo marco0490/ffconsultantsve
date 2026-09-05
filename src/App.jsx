@@ -21,30 +21,58 @@ import Complete from './pages/Complete/Complete'
 import Conditions from './pages/Conditions/Conditions'
 import Cookies from './pages/Cookies/Cookies'
 import Dynamics365Sales from './pages/Dynamics365Sales/Dynamics365Sales'
-import Cotizar from './pages/Cotizar/Cotizar'
 import Pagar from './pages/Pagar/Pagar'
+// Cotizador conversacional (wizard) — rutas anidadas bajo /cotizar
+import CotizadorLayout from './pages/Cotizar/CotizadorLayout'
+import Paso0Bienvenida from './pages/Cotizar/steps/Paso0Bienvenida'
+import PasoMarca from './pages/Cotizar/steps/PasoMarca'
+import PasoModelo from './pages/Cotizar/steps/PasoModelo'
+import PasoAnio from './pages/Cotizar/steps/PasoAnio'
+import PasoTipo from './pages/Cotizar/steps/PasoTipo'
+import PasoValor from './pages/Cotizar/steps/PasoValor'
+import PasoUso from './pages/Cotizar/steps/PasoUso'
+import PasoDatos from './pages/Cotizar/steps/PasoDatos'
+import PasoContacto from './pages/Cotizar/steps/PasoContacto'
+import PasoEnConstruccion from './pages/Cotizar/steps/PasoEnConstruccion'
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Root />} errorElement={<NotFound />}>
-        <Route index element={<Home />} />
-        {/* <Route path="/agentes" element={<Agent />} /> */}
-        {/* <Route path="/blog" element={<Blog />} /> */}
-        <Route path="/contacto" element={<Contact />} />
-        <Route path="/enviado" element={<Complete />} />
-        <Route path="/cotizar" element={<Cotizar />} />
-        <Route path="/dynamics-365-sales" element={<Dynamics365Sales />} />
-        <Route path="/planes-real" element={<PlansReal />} />
-        <Route path="/planes-caracas" element={<PlansCaracas />} />
-        <Route path="/planes-estar" element={<PlansEstar />} />
-        <Route path="/legal" element={<Legal />} />
-        <Route path="/terminos" element={<Conditions />} />
-        <Route path="/cookies" element={<Cookies />} />
-        {/* <Route path="/servicios" element={<Services />} /> */}
-        <Route path="/nosotros" element={<We />} />
-        <Route path="/pagar" element={<Pagar />} />
-      </Route>,
+      <>
+        <Route path="/" element={<Root />} errorElement={<NotFound />}>
+          <Route index element={<Home />} />
+          {/* <Route path="/agentes" element={<Agent />} /> */}
+          {/* <Route path="/blog" element={<Blog />} /> */}
+          <Route path="/contacto" element={<Contact />} />
+          <Route path="/enviado" element={<Complete />} />
+          <Route path="/dynamics-365-sales" element={<Dynamics365Sales />} />
+          <Route path="/planes-real" element={<PlansReal />} />
+          <Route path="/planes-caracas" element={<PlansCaracas />} />
+          <Route path="/planes-estar" element={<PlansEstar />} />
+          <Route path="/legal" element={<Legal />} />
+          <Route path="/terminos" element={<Conditions />} />
+          <Route path="/cookies" element={<Cookies />} />
+          {/* <Route path="/servicios" element={<Services />} /> */}
+          <Route path="/nosotros" element={<We />} />
+          <Route path="/pagar" element={<Pagar />} />
+        </Route>
+
+        {/* Cotizador conversacional: funnel enfocado, fuera del chrome del sitio */}
+        <Route path="/cotizar" element={<CotizadorLayout />} errorElement={<NotFound />}>
+          <Route index element={<Paso0Bienvenida />} />
+          <Route path="marca" element={<PasoMarca />} />
+          <Route path="modelo" element={<PasoModelo />} />
+          <Route path="anio" element={<PasoAnio />} />
+          <Route path="tipo" element={<PasoTipo />} />
+          <Route path="valor" element={<PasoValor />} />
+          <Route path="uso" element={<PasoUso />} />
+          <Route path="datos" element={<PasoDatos />} />
+          <Route path="contacto" element={<PasoContacto />} />
+          <Route path="calculando" element={<PasoEnConstruccion />} />
+          <Route path="resultado" element={<PasoEnConstruccion />} />
+          <Route path="listo" element={<PasoEnConstruccion />} />
+        </Route>
+      </>,
     ),
   )
   return (
