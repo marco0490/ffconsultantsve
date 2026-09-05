@@ -1,20 +1,36 @@
 import WizardLayout from '../../../components/Cotizador/WizardLayout'
+import StepCards from '../../../components/Cotizador/StepCards'
 import { useCotizadorState } from '../../../components/Cotizador/useCotizadorState'
 import { pathSiguiente, pathAnterior } from '../../../components/Cotizador/steps.config'
 
+const TIPOS = [
+  { value: 'sedan', label: 'Sedán', emoji: '🚗' },
+  { value: 'suv', label: 'SUV / Camioneta', emoji: '🚙' },
+  { value: 'pickup', label: 'Pick-up', emoji: '🛻' },
+  { value: 'hatchback', label: 'Hatchback', emoji: '🚘' },
+  { value: 'moto', label: 'Moto', emoji: '🏍️' },
+]
+
 function PasoTipo() {
-  const { next } = useCotizadorState()
+  const { state, update, next } = useCotizadorState()
+  const tipo = state.vehiculo.tipo
+  const valido = Boolean(tipo)
+
   return (
     <WizardLayout
       paso={4}
       avatarMsg="¿Qué tipo de vehículo es?"
       label="Tipo de vehículo"
       backTo={pathAnterior(4)}
-      onNext={() => next(pathSiguiente(4))}
+      nextDisabled={!valido}
+      onNext={() => valido && next(pathSiguiente(4))}
     >
-      <div className="p-4 rounded-xl border-2 border-dashed border-gray-200 text-gray-400 text-sm">
-        (Tarjetas de tipo de vehículo — en construcción)
-      </div>
+      <StepCards
+        options={TIPOS}
+        value={tipo}
+        onChange={(v) => update('vehiculo', { tipo: v })}
+        onAutoAdvance={() => next(pathSiguiente(4))}
+      />
     </WizardLayout>
   )
 }
