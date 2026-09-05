@@ -10,7 +10,7 @@ const OPERADORAS = ['0412', '0414', '0424', '0416', '0426', '0422']
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 const selectCls =
-  'h-12 px-2 rounded-xl border-2 border-gray-200 focus:border-primary focus:ring-0 outline-none bg-white text-gray-700 font-medium shrink-0'
+  'h-12 w-[110px] px-2 rounded-xl border-2 border-gray-200 focus:border-primary focus:ring-0 outline-none bg-white text-gray-700 font-medium shrink-0'
 
 function PasoContacto() {
   const { state, update, next } = useCotizadorState()
@@ -25,7 +25,7 @@ function PasoContacto() {
   return (
     <WizardLayout
       paso={8}
-      avatarMsg="Último paso. ¿Dónde te envío la cotización? 📲"
+      avatarMsg="Último paso. ¿Dónde te envío la cotización? 📩"
       nextLabel="Ver mi cotización"
       backTo={pathAnterior(8)}
       nextDisabled={!valido}
@@ -49,7 +49,9 @@ function PasoContacto() {
           error={touched.tel && !telOk ? 'El número debe tener 7 dígitos después de la operadora' : null}
         >
           <div className="flex gap-2">
-            <span className="h-12 flex items-center px-2 text-gray-500 font-medium select-none">+58</span>
+            <span className="h-12 flex items-center px-1 text-gray-500 font-medium select-none shrink-0">
+              +58
+            </span>
             <select
               className={selectCls}
               value={operadora}
@@ -60,7 +62,7 @@ function PasoContacto() {
               ))}
             </select>
             <StepInput
-              className="flex-1"
+              className="flex-1 min-w-0"
               value={telefono}
               onChange={(v) => update('contacto', { telefono: v.replace(/\D/g, '').slice(0, 7) })}
               onBlur={() => marcar('tel')}

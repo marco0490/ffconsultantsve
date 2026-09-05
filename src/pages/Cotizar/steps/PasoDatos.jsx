@@ -89,7 +89,7 @@ function PasoDatos() {
               ))}
             </div>
             <StepInput
-              className="flex-1"
+              className="flex-1 min-w-0"
               value={cedulaNumero}
               onChange={(v) => update('persona', { cedulaNumero: v.replace(/\D/g, '').slice(0, 9) })}
               onBlur={() => marcar('cedula')}
