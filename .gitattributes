@@ -1,0 +1,13 @@
+# Evitar normalización de fin de línea en binarios (protege PDFs, imágenes, etc.)
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.mp4 binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
