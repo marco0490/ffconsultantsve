@@ -76,7 +76,7 @@ function Resultado() {
 
         {/* Selector de frecuencia */}
         <div className="flex justify-center mb-6">
-          <div className="inline-flex flex-wrap justify-center gap-1 p-1 bg-gray-100 rounded-2xl">
+          <div className="inline-flex flex-wrap justify-center gap-1 p-1 bg-gray-100 rounded-2xl max-w-full">
             {FRECUENCIAS.map((f) => (
               <button
                 key={f.key}
@@ -115,7 +115,9 @@ function Resultado() {
                   </span>
                   <span className="text-gray-400 text-sm">{freq.sufijo}</span>
                 </div>
-                <p className="text-xs text-gray-400 mt-0.5">Equivale a USD {plan.precios.anual}/año</p>
+                {frecuencia !== 'anual' && (
+                  <p className="text-xs text-gray-400 mt-0.5">Equivale a USD {plan.precios.anual}/año</p>
+                )}
                 {/* DEMO: línea RCV como alternativa económica al casco */}
                 {plan.rcvMensual != null && (
                   <p className="text-xs font-medium text-primary mt-1">

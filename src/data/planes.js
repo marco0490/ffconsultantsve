@@ -3,13 +3,31 @@
 // cotizador (cuando el backend no está disponible).
 import { compararCotizaciones } from './tarifas-seguros.js'
 
-export const COBERTURAS_DEMO = [
+// DEMO: coberturas diferenciadas por aseguradora para que los badges
+// (mejor precio / recomendada / mayor cobertura) se justifiquen a la vista.
+const COBERTURAS_BASICAS = [
   'RCV a terceros',
   'Daños propios (casco)',
   'Robo e incendio',
   'Asistencia vial 24/7',
-  'Defensa legal',
 ]
+const COBERTURAS_POR_ASEG = {
+  'Real Seguros': COBERTURAS_BASICAS, // 4 básicas
+  'Estar Seguros': [...COBERTURAS_BASICAS, 'Defensa legal'], // 5
+  'Seguros Caracas': [
+    ...COBERTURAS_BASICAS,
+    'Defensa legal',
+    'Vehículo sustituto',
+    'Accesorios y equipos',
+  ], // 7
+}
+
+// DEMO: deducibles distintos por aseguradora (sustituyen al N/A de las tarifas).
+const DEDUCIBLE_POR_ASEG = {
+  'Real Seguros': '10%',
+  'Estar Seguros': '8%',
+  'Seguros Caracas': '5%',
+}
 
 function round2(n) {
   return Math.round(Number(n) * 100) / 100
@@ -37,7 +55,7 @@ export function construirPlanes(vehiculo = {}, persona = {}) {
     plan_id: `plan_${c.aseguradora.toLowerCase().replace(/\s+/g, '-')}`,
     aseguradora: c.aseguradora,
     cobertura: c.cobertura,
-    deducible: c.deducible,
+    deducible: DEDUCIBLE_POR_ASEG[c.aseguradora] || c.deducible, // DEMO
     sumaAsegurada: c.valorVehiculo,
     precios: {
       anual: round2(c.primaAnual),
@@ -46,7 +64,7 @@ export function construirPlanes(vehiculo = {}, persona = {}) {
       mensual: round2(c.primaMensual),
     },
     rcvMensual: rcvPorAseg[c.aseguradora] ?? null,
-    coberturas: COBERTURAS_DEMO,
+    coberturas: COBERTURAS_POR_ASEG[c.aseguradora] || COBERTURAS_BASICAS, // DEMO
     badge: i === 0 ? 'mejor-precio' : i === casco.length - 1 ? 'mayor-cobertura' : 'recomendada',
   }))
 }
