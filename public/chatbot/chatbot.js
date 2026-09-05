@@ -17,16 +17,62 @@ const CONFIG = {
 
 // Base de conocimiento de seguros - FFC Consultants
 const ASEGURADORAS = {
-  piramide: {
-    id: "seguros-piramide",
-    nombre: "Seguros Pirámide",
-    icono: "🔺",
+  caracas: {
+    id: "seguros-caracas",
+    nombre: "Seguros Caracas",
+    icono: "🦁",
   },
-  oceanica: {
-    id: "seguros-oceanica",
-    nombre: "Seguros Oceánica",
-    icono: "🌊",
+  estar: {
+    id: "estar-seguros",
+    nombre: "Estar Seguros",
+    icono: "🛡️",
   },
+  real: {
+    id: "real-seguros",
+    nombre: "Real Seguros",
+    icono: "✅",
+  },
+}
+
+// Coberturas genéricas por producto (comunes a las 3 aseguradoras aliadas).
+const COBERTURAS_AUTO = [
+  { value: "cobertura-amplia", label: "Cobertura Amplia" },
+  { value: "perdida-total", label: "Pérdida Total" },
+  { value: "rcv-basica", label: "RCV Básica" },
+  { value: "rcv-basica-placa-extranjera", label: "RCV Básica Placa Extranjera" },
+  { value: "rcv-basica-taxi", label: "RCV Básica (Taxi)" },
+  { value: "rcv-internacional-colombia-venezuela", label: "RCV Internacional (Colombia-Venezuela)" },
+  { value: "rcv-exceso-5000-grua", label: "RCV Exceso US$ 5.000 + Grúa" },
+]
+
+const COBERTURAS_PERSONAS = [
+  { value: "hcm-50k", label: "HCM S.A. US$ 50.000" },
+  { value: "hcm-100k", label: "HCM S.A. US$ 100.000" },
+  { value: "hcm-200k", label: "HCM S.A. US$ 200.000" },
+  { value: "accidentes-personales", label: "Accidentes Personales" },
+  { value: "emergencias-medicas", label: "Emergencias Médicas" },
+  { value: "servicios-funerarios", label: "Servicios Funerarios" },
+  { value: "vida", label: "Vida" },
+  { value: "pago-unico-cancer", label: "Pago Único por Cáncer" },
+  { value: "viajes", label: "Viajes" },
+]
+
+const COBERTURAS_HOGAR = [
+  { value: "hogar-20k", label: "Hogar US$ 20.000" },
+  { value: "hogar-60k", label: "Hogar US$ 60.000" },
+  { value: "hogar-100k", label: "Hogar US$ 100.000" },
+  { value: "hogar-150k", label: "Hogar US$ 150.000" },
+  { value: "hogar-200k", label: "Hogar US$ 200.000" },
+  { value: "hogar-300k", label: "Hogar US$ 300.000" },
+]
+
+// Construye el bloque `aseguradoras` con la misma lista de coberturas para las 3 aliadas.
+function aseguradorasCon(coberturas, precios) {
+  return {
+    caracas: { coberturas, precioDesde: precios && precios.caracas },
+    estar: { coberturas, precioDesde: precios && precios.estar },
+    real: { coberturas, precioDesde: precios && precios.real },
+  }
 }
 
 const KNOWLEDGE_BASE = {
@@ -36,32 +82,7 @@ const KNOWLEDGE_BASE = {
       nombre: "Seguro de Automóvil",
       icono: "🚗",
       descripcion: "Protección completa para tu vehículo con cobertura nacional y asistencia 24/7",
-      aseguradoras: {
-        piramide: {
-          coberturas: [
-            { value: "cobertura-amplia", label: "Cobertura Amplia" },
-            { value: "perdida-total", label: "Pérdida Total" },
-            { value: "rcv-basica-placa-nacional", label: "RCV Básica Placa Nacional" },
-            { value: "rcv-basica-placa-extranjera", label: "RCV Básica Placa Extranjera" },
-            { value: "rcv-basica-taxi", label: "RCV Básica Taxi" },
-            { value: "rcv-internacional-colombia-venezuela", label: "RCV Internacional (Colombia-Venezuela)" },
-            { value: "rcv-exceso-5000-grua", label: "RCV Exceso $5.000 + Grúa" },
-          ],
-          precioDesde: 36,
-        },
-        oceanica: {
-          coberturas: [
-            { value: "cobertura-amplia", label: "Cobertura Amplia" },
-            { value: "perdida-total", label: "Pérdida Total" },
-            { value: "rcv-basica", label: "RCV Básica" },
-            { value: "rcv-exceso-5000", label: "RCV Exceso US$ 5.000" },
-            { value: "rcv-exceso-5000-grua", label: "RCV Exceso US$ 5.000 + Grúa" },
-            { value: "rcv-basica-taxi", label: "RCV Básica (TAXI)" },
-            { value: "rcv-exceso-5000-taxi", label: "RCV Exceso US$ 5.000 (TAXI)" },
-          ],
-          precioDesde: 37,
-        },
-      },
+      aseguradoras: aseguradorasCon(COBERTURAS_AUTO, { caracas: 38, estar: 36, real: 34 }),
     },
     vida: {
       id: "vida",
@@ -69,34 +90,7 @@ const KNOWLEDGE_BASE = {
       icono: "❤️",
       descripcion: "Seguridad financiera para tu familia - Ramo Personas",
       ramo: "personas",
-      aseguradoras: {
-        piramide: {
-          coberturas: [
-            { value: "hcm-50k", label: "HCM S.A. US$ 50.000" },
-            { value: "hcm-75k", label: "HCM S.A. US$ 75.000" },
-            { value: "hcm-200k", label: "HCM S.A. US$ 200.000" },
-            { value: "accidentes-personales", label: "Accidentes Personales" },
-            { value: "emergencias-medicas", label: "Emergencias Médicas" },
-            { value: "servicios-funerarios", label: "Servicios Funerarios" },
-            { value: "vida", label: "Vida" },
-            { value: "pago-unico-cancer", label: "Pago Único por Cáncer" },
-            { value: "viajes", label: "Viajes" },
-          ],
-        },
-        oceanica: {
-          coberturas: [
-            { value: "hcm-50k", label: "HCM S.A. US$ 50.000" },
-            { value: "hcm-100k", label: "HCM S.A. US$ 100.000" },
-            { value: "hcm-200k", label: "HCM S.A. US$ 200.000" },
-            { value: "emergencias-medicas", label: "Emergencias Médicas" },
-            { value: "vida", label: "Vida" },
-            { value: "servicios-funerarios", label: "Servicios Funerarios" },
-            { value: "deportes-extremos", label: "Deportes Extremos" },
-            { value: "pago-unico-cancer", label: "Pago Único por Cáncer" },
-            { value: "viajes", label: "Viajes" },
-          ],
-        },
-      },
+      aseguradoras: aseguradorasCon(COBERTURAS_PERSONAS),
     },
     hogar: {
       id: "hogar",
@@ -104,31 +98,7 @@ const KNOWLEDGE_BASE = {
       icono: "🏠",
       descripcion: "Protege tu patrimonio contra todo tipo de riesgos - Ramo Patrimoniales",
       ramo: "patrimoniales",
-      aseguradoras: {
-        piramide: {
-          coberturas: [
-            { value: "productiva-a-20k", label: "Pirámide Productiva Grupo A - US$ 20.000" },
-            { value: "productiva-a-60k", label: "Pirámide Productiva Grupo A - US$ 60.000" },
-            { value: "productiva-a-100k", label: "Pirámide Productiva Grupo A - US$ 100.000" },
-            { value: "productiva-a-150k", label: "Pirámide Productiva Grupo A - US$ 150.000" },
-            { value: "productiva-a-200k", label: "Pirámide Productiva Grupo A - US$ 200.000" },
-            { value: "productiva-a-250k", label: "Pirámide Productiva Grupo A - US$ 250.000" },
-            { value: "productiva-a-300k", label: "Pirámide Productiva Grupo A - US$ 300.000" },
-            { value: "hogar-20k", label: "Pirámide Hogar US$ 20.000" },
-          ],
-        },
-        oceanica: {
-          coberturas: [
-            { value: "hogar-20k", label: "Oceánica Hogar US$ 20.000" },
-            { value: "hogar-60k", label: "Oceánica Hogar US$ 60.000" },
-            { value: "hogar-100k", label: "Oceánica Hogar US$ 100.000" },
-            { value: "hogar-150k", label: "Oceánica Hogar US$ 150.000" },
-            { value: "hogar-200k", label: "Oceánica Hogar US$ 200.000" },
-            { value: "hogar-250k", label: "Oceánica Hogar US$ 250.000" },
-            { value: "hogar-300k", label: "Oceánica Hogar US$ 300.000" },
-          ],
-        },
-      },
+      aseguradoras: aseguradorasCon(COBERTURAS_HOGAR),
     },
     salud: {
       id: "salud",
@@ -136,34 +106,7 @@ const KNOWLEDGE_BASE = {
       icono: "🏥",
       descripcion: "Acceso a la mejor red médica - Ramo Personas",
       ramo: "personas",
-      aseguradoras: {
-        piramide: {
-          coberturas: [
-            { value: "hcm-50k", label: "HCM S.A. US$ 50.000" },
-            { value: "hcm-75k", label: "HCM S.A. US$ 75.000" },
-            { value: "hcm-200k", label: "HCM S.A. US$ 200.000" },
-            { value: "accidentes-personales", label: "Accidentes Personales" },
-            { value: "emergencias-medicas", label: "Emergencias Médicas" },
-            { value: "servicios-funerarios", label: "Servicios Funerarios" },
-            { value: "vida", label: "Vida" },
-            { value: "pago-unico-cancer", label: "Pago Único por Cáncer" },
-            { value: "viajes", label: "Viajes" },
-          ],
-        },
-        oceanica: {
-          coberturas: [
-            { value: "hcm-50k", label: "HCM S.A. US$ 50.000" },
-            { value: "hcm-100k", label: "HCM S.A. US$ 100.000" },
-            { value: "hcm-200k", label: "HCM S.A. US$ 200.000" },
-            { value: "emergencias-medicas", label: "Emergencias Médicas" },
-            { value: "vida", label: "Vida" },
-            { value: "servicios-funerarios", label: "Servicios Funerarios" },
-            { value: "deportes-extremos", label: "Deportes Extremos" },
-            { value: "pago-unico-cancer", label: "Pago Único por Cáncer" },
-            { value: "viajes", label: "Viajes" },
-          ],
-        },
-      },
+      aseguradoras: aseguradorasCon(COBERTURAS_PERSONAS),
     },
   },
 }
@@ -324,9 +267,10 @@ function handleQuoteConfirmFlow(message) {
   
   if (lowerMsg.includes("sí") || lowerMsg.includes("si") || lowerMsg.includes("solicitar")) {
     // Redirigir al cotizador web
-    const aseguradora = state.data.aseguradora === "piramide" ? "seguros-piramide" : "seguros-oceanica"
+    const asegSel = ASEGURADORAS[state.data.aseguradora]
+    const aseguradora = (asegSel && asegSel.id) || "real-seguros"
     const producto = productoMap[tipo] || tipo
-    const url = `/cotizador?aseguradora=${aseguradora}&producto=${producto}`
+    const url = `/cotizar?aseguradora=${aseguradora}&producto=${producto}`
     
     const html = `
       <p>✅ <strong>¡Perfecto!</strong></p>
@@ -380,7 +324,7 @@ function handleQuoteFlow(message, step) {
       const seguro = KNOWLEDGE_BASE.seguros[tipo]
       state.step = 2
       addBotMessage(`${seguro.icono} ${seguro.nombre}. ¿Con qué aseguradora te gustaría cotizar?`)
-      showQuickReplies(["🔺 Seguros Pirámide", "🌊 Seguros Oceánica"])
+      showQuickReplies(["🦁 Seguros Caracas", "🛡️ Estar Seguros", "✅ Real Seguros"])
     }
     return
   }
@@ -388,13 +332,15 @@ function handleQuoteFlow(message, step) {
   // Paso 2: Seleccionar aseguradora (para todos los tipos)
   if (step === 2) {
     const lowerMsg = message.toLowerCase()
-    if (lowerMsg.includes("pirámide") || lowerMsg.includes("piramide")) {
-      state.data.aseguradora = "piramide"
-    } else if (lowerMsg.includes("oceánica") || lowerMsg.includes("oceanica")) {
-      state.data.aseguradora = "oceanica"
+    if (lowerMsg.includes("caracas")) {
+      state.data.aseguradora = "caracas"
+    } else if (lowerMsg.includes("estar")) {
+      state.data.aseguradora = "estar"
+    } else if (lowerMsg.includes("real")) {
+      state.data.aseguradora = "real"
     } else {
       addBotMessage("Por favor selecciona una aseguradora:")
-      showQuickReplies(["🔺 Seguros Pirámide", "🌊 Seguros Oceánica"])
+      showQuickReplies(["🦁 Seguros Caracas", "🛡️ Estar Seguros", "✅ Real Seguros"])
       return
     }
     
@@ -482,9 +428,9 @@ function showInsuranceDetails(type) {
   const seguro = KNOWLEDGE_BASE.seguros[type]
   
   // Info de precios solo para auto
-  const precioInfo = type === "auto" 
-    ? `<p>🔺 Seguros Pirámide - Desde $36/mes</p><p>🌊 Seguros Oceánica - Desde $37/mes</p>`
-    : `<p>🔺 Seguros Pirámide</p><p>🌊 Seguros Oceánica</p>`
+  const precioInfo = type === "auto"
+    ? `<p>🦁 Seguros Caracas - Desde $38/mes</p><p>🛡️ Estar Seguros - Desde $36/mes</p><p>✅ Real Seguros - Desde $34/mes</p>`
+    : `<p>🦁 Seguros Caracas</p><p>🛡️ Estar Seguros</p><p>✅ Real Seguros</p>`
   
   const html = `
     <div style="text-align: center; margin-bottom: 10px;">
@@ -504,7 +450,7 @@ function showInsuranceDetails(type) {
   state.currentFlow = "quote"
   state.step = 2
   state.data = { tipo: type }
-  showQuickReplies(["� Seguros Pirámide", "🌊 Seguros Oceánica", "📞 Hablar con asesor"])
+  showQuickReplies(["🦁 Seguros Caracas", "🛡️ Estar Seguros", "✅ Real Seguros", "📞 Hablar con asesor"])
 }
 
 function showComparison() {
@@ -512,7 +458,7 @@ function showComparison() {
     <p>Nuestros ramos de seguros:</p>
     <div class="insurance-card" style="margin-bottom: 8px;">
       <h4>🚗 Automóvil</h4>
-      <p style="font-size: 0.8rem;">Pirámide y Oceánica - Desde $36/mes</p>
+      <p style="font-size: 0.8rem;">Caracas, Estar y Real - Desde $34/mes</p>
     </div>
     <div class="insurance-card" style="margin-bottom: 8px;">
       <h4>❤️ Personas</h4>
@@ -761,7 +707,7 @@ function processQuickReplyAction(option) {
     return
   }
 
-  if (lowerOption.includes("cotizar") && !lowerOption.includes("pirámide") && !lowerOption.includes("oceánica")) {
+  if (lowerOption.includes("cotizar") && !lowerOption.includes("caracas") && !lowerOption.includes("estar") && !lowerOption.includes("real")) {
     startQuoteFlow()
   } else if (lowerOption.includes("más") || lowerOption.includes("opciones")) {
     showMoreCoberturas()

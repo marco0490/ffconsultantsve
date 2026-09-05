@@ -115,92 +115,6 @@ export const TARIFAS_AUTO = {
   }, */
 
   // ═══════════════════════════════════════════════════════════════════════
-  // SEGUROS PIRÁMIDE - AUTO
-  // ═══════════════════════════════════════════════════════════════════════
-  piramide: {
-    nombre: "Seguros Pirámide",
-    vigente: true,
-    ultimaActualizacion: "2024-05-01",
-    coberturas: {
-      rcv: {
-        nombre: "RCV Básica",
-        precioAnual: 55, // $55/año - precio real mercado VE
-        incluyeAsistenciaVial: true,
-      },
-      cobertura_amplia: {
-        nombre: "Cobertura Amplia",
-        tasaAnual: 0.045,
-        tasaMinima: 600,
-        tasaMaxima: 3000,
-      },
-      perdida_total: {
-        nombre: "Pérdida Total",
-        tasaAnual: 0.025,
-        tasaMinima: 350,
-        tasaMaxima: 1500,
-      }
-    },
-    factoresEdad: {
-      "18-25": 1.35,
-      "26-35": 1.00,
-      "36-50": 0.95,
-      "51-65": 1.00,
-      "66+": 1.15,
-    },
-    factoresAntiguedad: {
-      "0km": 1.00,
-      "1-3": 1.00,
-      "4-6": 1.05,
-      "7-10": 1.15,
-      "11-15": 1.25,
-      "16+": 1.40,
-    },
-  },
-
-  // ═══════════════════════════════════════════════════════════════════════
-  // OCEÁNICA DE SEGUROS - AUTO
-  // ═══════════════════════════════════════════════════════════════════════
-  oceanica: {
-    nombre: "Oceánica de Seguros",
-    vigente: true,
-    ultimaActualizacion: "2024-05-01",
-    coberturas: {
-      rcv: {
-        nombre: "RCV Básica",
-        precioAnual: 48, // $48/año - precio real mercado VE
-        incluyeAsistenciaVial: true,
-      },
-      cobertura_amplia: {
-        nombre: "Cobertura Amplia",
-        tasaAnual: 0.042,
-        tasaMinima: 550,
-        tasaMaxima: 2800,
-      },
-      perdida_total: {
-        nombre: "Pérdida Total",
-        tasaAnual: 0.024,
-        tasaMinima: 320,
-        tasaMaxima: 1400,
-      }
-    },
-    factoresEdad: {
-      "18-25": 1.30,
-      "26-35": 1.00,
-      "36-50": 0.92,
-      "51-65": 1.00,
-      "66+": 1.10,
-    },
-    factoresAntiguedad: {
-      "0km": 0.95,
-      "1-3": 1.00,
-      "4-6": 1.05,
-      "7-10": 1.12,
-      "11-15": 1.22,
-      "16+": 1.35,
-    },
-  },
-
-  // ═══════════════════════════════════════════════════════════════════════
   // REAL SEGUROS - AUTO
   // ═══════════════════════════════════════════════════════════════════════
   real: {
@@ -291,7 +205,7 @@ export const TARIFAS_AUTO = {
 // FUNCIÓN: Calcular cotización de auto
 // ═══════════════════════════════════════════════════════════════════════════
 export function calcularCotizacionAuto({
-  aseguradora = 'piramide',
+  aseguradora = 'real',
   cobertura,           // 'rcv', 'cobertura_amplia', 'perdida_total'
   marca,
   modelo,
@@ -399,7 +313,9 @@ export function calcularCotizacionAuto({
 // FUNCIÓN: Comparar cotizaciones entre aseguradoras
 // ═══════════════════════════════════════════════════════════════════════════
 export function compararCotizaciones(datosVehiculo) {
-  const aseguradoras = ['piramide', 'oceanica', 'real', 'estar']
+  // Seguros Caracas permanece deshabilitado en auto (bloque comentado arriba),
+  // por eso el comparador solo itera las aseguradoras vigentes en este ramo.
+  const aseguradoras = ['real', 'estar']
   const resultados = []
 
   for (const aseg of aseguradoras) {

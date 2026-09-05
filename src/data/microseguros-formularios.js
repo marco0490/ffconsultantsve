@@ -4,7 +4,7 @@
 // ═══════════════════════════════════════════════════════════════════════════
 // 
 // PRODUCTOS: Accidentes Personales, Servicio Funerario, Póliza de Vida, RCV
-// ASEGURADORAS: Seguros Pirámide, Oceánica de Seguros, Real Seguros, Estar Seguros
+// ASEGURADORAS: Seguros Caracas, Estar Seguros, Real Seguros
 // 
 // ESTRUCTURA:
 // - ETAPA 1 (COTIZAR): Datos mínimos para calcular prima
@@ -412,21 +412,20 @@ export const FLUJO_BOT = {
   // Paso 2: Cotizar (campos mínimos según producto)
   paso2: 'Ejecutar flujo de cotización del producto seleccionado',
   
-  // Paso 3: Mostrar cotización comparativa (4 aseguradoras)
+  // Paso 3: Mostrar cotización comparativa (3 aseguradoras)
   paso3: {
     formato: `
 💰 **COTIZACIÓN - [PRODUCTO]**
 
 | Aseguradora | Mensual | Anual |
 |-------------|---------|-------|
-| 🔴 Seguros Pirámide | $XX | $XXX |
-| 🟢 Oceánica de Seguros | $XX | $XXX |
+| 🦁 Seguros Caracas | $XX | $XXX |
 | 🔵 Estar Seguros | $XX | $XXX |
 | 🟣 Real Seguros | $XX | $XXX |
 
 ¿Con cuál deseas continuar?
     `,
-    botones: ['Pirámide', 'Oceánica', 'Estar', 'Real'],
+    botones: ['Seguros Caracas', 'Estar', 'Real'],
   },
   
   // Paso 4: ¿Acepta cotización?

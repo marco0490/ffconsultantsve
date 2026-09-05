@@ -43,7 +43,7 @@ export const productos = {
         { nombre: 'HCM US$ 200.000', descripcion: 'Plan premium' },
         { nombre: 'Emergencias Médicas', descripcion: 'Atención de emergencias' },
         { nombre: 'Viajes', descripcion: 'Cobertura médica en viajes' },
-        { nombre: 'Deportes Extremos (Oceánica)', descripcion: 'Para practicantes de deportes de riesgo' },
+        { nombre: 'Deportes Extremos', descripcion: 'Para practicantes de deportes de riesgo' },
       ],
     },
   },
@@ -247,7 +247,7 @@ Si el cliente pregunta por seguros de auto/RCV o patrimoniales (hogar), indícal
 3. 💚 **Póliza de Vida** — Protección financiera por fallecimiento
 4. 🏥 **HCM** — Hospitalización, Cirugía y Maternidad
 
-**ASEGURADORAS:** Seguros Pirámide, Oceánica de Seguros, Real Seguros, Estar Seguros
+**ASEGURADORAS:** Seguros Caracas, Estar Seguros, Real Seguros
 
 ---
 
@@ -262,7 +262,7 @@ Si el cliente pregunta por seguros de auto/RCV o patrimoniales (hogar), indícal
 6. "¿Qué coberturas te interesan?" [Muerte accidental] [Invalidez permanente] [Gastos médicos] [Todas]
 7. "¿En qué estado resides?"
 
-**→ MOSTRAR COMPARATIVA DE PRECIOS (4 ASEGURADORAS)**
+**→ MOSTRAR COMPARATIVA DE PRECIOS (3 ASEGURADORAS)**
 
 ### ETAPA 2: EMITIR (solo si acepta)
 - Datos completos del tomador (nombre, cédula, dirección, teléfono, email)
@@ -286,7 +286,7 @@ Si el cliente pregunta por seguros de auto/RCV o patrimoniales (hogar), indícal
 5. "¿Qué tipo de cobertura prefieres?" [Básica ($2,500)] [Media ($3,000)] [Alta ($4,000)]
 6. "¿En qué estado residen?"
 
-**→ MOSTRAR COMPARATIVA DE PRECIOS (4 ASEGURADORAS)**
+**→ MOSTRAR COMPARATIVA DE PRECIOS (3 ASEGURADORAS)**
 
 ### ETAPA 2: EMITIR (solo si acepta)
 - Datos del titular (nombre, cédula, fecha nacimiento, dirección, teléfono, email)
@@ -311,7 +311,7 @@ Si el cliente pregunta por seguros de auto/RCV o patrimoniales (hogar), indícal
 6. "¿Qué monto deseas dejar protegido?" [USD 10,000] [USD 25,000] [USD 50,000] [Otro]
 7. "¿Por cuánto tiempo?" [1 año (renovable)] [Temporal 5-10 años]
 
-**→ MOSTRAR COMPARATIVA DE PRECIOS (4 ASEGURADORAS)**
+**→ MOSTRAR COMPARATIVA DE PRECIOS (3 ASEGURADORAS)**
 
 ### ETAPA 2: EMITIR (solo si acepta)
 - Datos completos del asegurado
@@ -376,7 +376,7 @@ Hay un cuestionario de salud obligatorio. Periodo de espera: 30 días (enfermeda
 
 **EJEMPLO:** Persona 35 años, oficina, $10,000, individual, paquete completo
 $8 × 1.0 × 1.0 × 1.1 × 1.30 = **$11.44/mes base**
-- Pirámide: $12.01 | Oceánica: $11.44 | Estar: $11.10 | Real: $10.64
+- Seguros Caracas: $11.44 | Estar: $11.10 | Real: $10.64
 
 ---
 

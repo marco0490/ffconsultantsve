@@ -171,8 +171,7 @@ const extraerDatosDelChat = (messages, ramoActivo = null) => {
     // Detectar aseguradora seleccionada (en cualquier mensaje del usuario)
     if (msg.role === 'user') {
       const msgLower = msg.content.toLowerCase()
-      if (msgLower.includes('pirámide') || msgLower.includes('piramide')) datos.aseguradora = 'Seguros Pirámide'
-      if (msgLower.includes('oceánica') || msgLower.includes('oceanica')) datos.aseguradora = 'Oceánica de Seguros'
+      if (msgLower.includes('caracas')) datos.aseguradora = 'Seguros Caracas'
       if (msgLower.includes('estar')) datos.aseguradora = 'Estar Seguros'
       if (msgLower.includes('real')) datos.aseguradora = 'Real Seguros'
       
@@ -582,7 +581,7 @@ function ChatbotEmbedded() {
     }
     
     // Detectar si seleccionó aseguradora (botón dinámico) - enviar email y guardar en Supabase
-    const aseguradoras = ['pirámide', 'piramide', 'oceánica', 'oceanica', 'estar', 'real']
+    const aseguradoras = ['caracas', 'estar', 'real']
     const textoBoton = reply.text?.toLowerCase() || ''
     if (aseguradoras.some(a => textoBoton.includes(a))) {
       // Extraer datos y enviar email + guardar en Supabase como COTIZACIÓN

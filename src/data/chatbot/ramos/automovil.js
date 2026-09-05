@@ -21,26 +21,15 @@ export const productos = {
     descripcion: 'Protege tu vehículo contra accidentes, robo y responsabilidad civil',
     precioDesde: '$36-37/mes aproximadamente',
 
-    coberturas: {
-      piramide: [
-        { nombre: 'Cobertura Amplia', descripcion: 'Todo riesgo - la más completa' },
-        { nombre: 'Pérdida Total', descripcion: 'Cubre robo y pérdida total del vehículo' },
-        { nombre: 'RCV Básica Placa Nacional', descripcion: 'Responsabilidad civil para vehículos con placa venezolana' },
-        { nombre: 'RCV Básica Placa Extranjera', descripcion: 'Para vehículos con placa extranjera' },
-        { nombre: 'RCV Básica Taxi', descripcion: 'Para vehículos de servicio de taxi' },
-        { nombre: 'RCV Internacional Colombia-Venezuela', descripcion: 'Cobertura para viajes entre Colombia y Venezuela' },
-        { nombre: 'RCV Exceso $5.000 + Grúa', descripcion: 'Cobertura extendida con servicio de grúa incluido' },
-      ],
-      oceanica: [
-        { nombre: 'Cobertura Amplia', descripcion: 'Todo riesgo completo' },
-        { nombre: 'Pérdida Total', descripcion: 'Robo y pérdida total' },
-        { nombre: 'RCV Básica', descripcion: 'Responsabilidad civil vehicular básica' },
-        { nombre: 'RCV Exceso US$ 5.000', descripcion: 'Cobertura extendida hasta $5.000' },
-        { nombre: 'RCV Exceso US$ 5.000 + Grúa', descripcion: 'Cobertura extendida con grúa' },
-        { nombre: 'RCV Básica (TAXI)', descripcion: 'Para taxis' },
-        { nombre: 'RCV Exceso US$ 5.000 (TAXI)', descripcion: 'Cobertura extendida para taxis' },
-      ],
-    },
+    coberturas: [
+      { nombre: 'Cobertura Amplia', descripcion: 'Todo riesgo - la más completa' },
+      { nombre: 'Pérdida Total', descripcion: 'Cubre robo y pérdida total del vehículo' },
+      { nombre: 'RCV Básica', descripcion: 'Responsabilidad civil vehicular obligatoria por ley' },
+      { nombre: 'RCV Básica Placa Extranjera', descripcion: 'Para vehículos con placa extranjera' },
+      { nombre: 'RCV Básica Taxi', descripcion: 'Para vehículos de servicio de taxi' },
+      { nombre: 'RCV Internacional Colombia-Venezuela', descripcion: 'Cobertura para viajes entre Colombia y Venezuela' },
+      { nombre: 'RCV Exceso US$ 5.000 + Grúa', descripcion: 'Cobertura extendida con servicio de grúa incluido' },
+    ],
   },
 }
 
@@ -207,7 +196,7 @@ Si el cliente pregunta por seguros de personas (vida, salud, accidentes, funerar
 7. "¿En qué estado circula principalmente?"
 8. "¿Qué plan te interesa?" [Básico] [Con exceso de límites] [Con asistencia vial]
 
-**→ MOSTRAR COMPARATIVA DE PRECIOS (4 ASEGURADORAS)**
+**→ MOSTRAR COMPARATIVA DE PRECIOS (3 ASEGURADORAS)**
 
 "💰 **COTIZACIÓN RCV - COMPARATIVA**
 
@@ -215,14 +204,13 @@ Si el cliente pregunta por seguros de personas (vida, salud, accidentes, funerar
 
 | Aseguradora | Mensual | Anual |
 |-------------|---------|-------|
-| 🔴 **Seguros Pirámide** | $4.58/mes | $55/año |
-| 🟢 **Oceánica de Seguros** | $4.00/mes | $48/año |
+| 🦁 **Seguros Caracas** | $4.33/mes | $52/año |
 | 🔵 **Estar Seguros** | $4.17/mes | $50/año |
 | 🟣 **Real Seguros** | $3.50/mes | $42/año |
 
 ✅ Todas incluyen Asistencia Vial 24/7
 
-¿Con cuál aseguradora deseas continuar?" [Pirámide] [Oceánica] [Estar] [Real]
+¿Con cuál aseguradora deseas continuar?" [Seguros Caracas] [Estar] [Real]
 
 ### ETAPA 2: EMITIR (solo si acepta)
 - "¿Eres persona natural o jurídica?" [Persona Natural] [Persona Jurídica]
@@ -277,13 +265,12 @@ Si el cliente pregunta por seguros de personas (vida, salud, accidentes, funerar
 
 **EJEMPLO:** Toyota Corolla 2020, particular, plan con asistencia
 $42 × 1.0 × 1.05 × 1.35 = $59.54/año = **$4.96/mes base**
-- Pirámide: $5.21/mes | Oceánica: $4.96/mes | Estar: $4.81/mes | Real: $4.61/mes
+- Seguros Caracas: $4.96/mes | Estar: $4.81/mes | Real: $4.61/mes
 
 ---
 
 ## 💰 PRECIOS DE REFERENCIA RCV
-- Seguros Pirámide: $4.58/mes ($55/año)
-- Oceánica de Seguros: $4.00/mes ($48/año)
+- Seguros Caracas: $4.33/mes ($52/año)
 - Estar Seguros: $4.17/mes ($50/año)
 - Real Seguros: $3.50/mes ($42/año)
 

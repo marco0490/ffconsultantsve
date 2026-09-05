@@ -19,15 +19,10 @@ export const productos = {
     nombre: 'Combinado Residencial',
     emoji: '🏠',
     descripcion: 'Protege tu casa, apartamento y bienes contra incendio, robo, daños y responsabilidad civil',
-    coberturas: {
-      piramide: [
-        { nombre: 'Pirámide Productiva Grupo A', descripcion: 'US$ 20.000 - 300.000' },
-        { nombre: 'Pirámide Hogar', descripcion: 'Cobertura residencial completa' },
-      ],
-      oceanica: [
-        { nombre: 'Oceánica Hogar', descripcion: 'US$ 20.000 - 300.000' },
-      ],
-    },
+    coberturas: [
+      { nombre: 'Combinado Residencial', descripcion: 'US$ 20.000 - 300.000' },
+      { nombre: 'Hogar Contenido', descripcion: 'Cobertura residencial completa (estructura y contenido)' },
+    ],
   },
 }
 
@@ -125,7 +120,7 @@ Si el cliente pregunta por seguros de auto/RCV o de personas (vida, salud, accid
 7. "¿Cuál es la **antigüedad** de la construcción?" [Menos de 5 años] [5-15 años] [15-30 años] [Más de 30 años]
 8. "¿Qué coberturas adicionales te interesan?" [Incendio] [Terremoto] [Robo] [Daños por agua] [RC Familiar] [Todas]
 
-**→ MOSTRAR COMPARATIVA DE PRECIOS (4 ASEGURADORAS)**
+**→ MOSTRAR COMPARATIVA DE PRECIOS (3 ASEGURADORAS)**
 
 ### ETAPA 2: EMITIR (solo si acepta)
 - Datos del **tomador**: nombre completo, cédula, teléfono, email

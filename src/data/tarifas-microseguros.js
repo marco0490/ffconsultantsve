@@ -7,24 +7,19 @@
  * 3. Póliza de Vida
  * 4. RCV (Responsabilidad Civil Vehicular)
  * 
- * Las 4 aseguradoras tienen precios ligeramente diferentes para competitividad.
+ * Las 3 aseguradoras tienen precios ligeramente diferentes para competitividad.
  */
 
 // ═══════════════════════════════════════════════════════════════
 // ASEGURADORAS Y SUS FACTORES DE PRECIO
+// La escala está anclada a Seguros Caracas (factor 1.00 = precio base).
 // ═══════════════════════════════════════════════════════════════
 export const ASEGURADORAS = {
-  piramide: {
-    nombre: 'Seguros Pirámide',
-    emoji: '🔴',
-    factor: 1.05, // 5% más caro (mejor servicio)
-    color: '#E53935'
-  },
-  oceanica: {
-    nombre: 'Oceánica de Seguros',
-    emoji: '🟢',
+  caracas: {
+    nombre: 'Seguros Caracas',
+    emoji: '🦁',
     factor: 1.00, // Precio base
-    color: '#43A047'
+    color: '#1E40AF'
   },
   estar: {
     nombre: 'Estar Seguros',
@@ -328,7 +323,7 @@ export function formatearTablaComparativa(comparativa, producto) {
   }
   
   tabla += `\n✅ Todas las opciones incluyen cobertura completa\n\n`;
-  tabla += `¿Con cuál aseguradora deseas continuar? [Pirámide] [Oceánica] [Estar] [Real]`;
+  tabla += `¿Con cuál aseguradora deseas continuar? [Seguros Caracas] [Estar] [Real]`;
   
   return tabla;
 }

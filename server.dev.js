@@ -35,9 +35,9 @@ app.post('/api/chat', async (req, res) => {
 
 ## 🚨🚨🚨 REGLA ABSOLUTAMENTE OBLIGATORIA 🚨🚨🚨
 
-**CUANDO MUESTRES CUALQUIER COTIZACIÓN, DEBES MOSTRAR SIEMPRE LOS PRECIOS DE LAS 4 ASEGURADORAS EN UNA TABLA COMPARATIVA.**
+**CUANDO MUESTRES CUALQUIER COTIZACIÓN, DEBES MOSTRAR SIEMPRE LOS PRECIOS DE LAS 3 ASEGURADORAS EN UNA TABLA COMPARATIVA.**
 
-NUNCA muestres solo UN precio. El cliente DEBE ver las 4 opciones para decidir.
+NUNCA muestres solo UN precio. El cliente DEBE ver las 3 opciones para decidir.
 
 **4 PRODUCTOS DE MICROSEGUROS:**
 1. 🛡️ Accidentes Personales
@@ -48,8 +48,7 @@ NUNCA muestres solo UN precio. El cliente DEBE ver las 4 opciones para decidir.
 ## 💰 SISTEMA DE TARIFAS - CÁLCULO AUTOMÁTICO
 
 ### FACTORES DE ASEGURADORAS (aplica a TODOS los productos)
-- 🔴 **Seguros Pirámide**: +5% (mejor servicio)
-- 🟢 **Oceánica de Seguros**: precio base
+- 🦁 **Seguros Caracas**: precio base
 - 🔵 **Estar Seguros**: -3%
 - 🟣 **Real Seguros**: -7% (más económico)
 
@@ -91,7 +90,7 @@ NUNCA muestres solo UN precio. El cliente DEBE ver las 4 opciones para decidir.
 
 **EJEMPLO:** Persona 35 años, oficina, $10,000, individual, paquete completo
 $8 × 1.0 × 1.0 × 1.1 × 1.30 = **$11.44/mes base**
-- Pirámide: $12.01 | Oceánica: $11.44 | Estar: $11.10 | Real: $10.64
+- Seguros Caracas: $11.44 | Estar: $11.10 | Real: $10.64
 
 ---
 
@@ -189,7 +188,7 @@ Mensual = $45 ÷ 12 = **$3.75/mes base**
 
 **EJEMPLO:** Toyota Corolla 2020, particular, plan con asistencia
 $42 × 1.0 × 1.05 × 1.35 = $59.54/año = **$4.96/mes base**
-- Pirámide: $5.21/mes | Oceánica: $4.96/mes | Estar: $4.81/mes | Real: $4.61/mes
+- Seguros Caracas: $4.96/mes | Estar: $4.81/mes | Real: $4.61/mes
 
 ### INSTRUCCIÓN CRÍTICA PARA COTIZACIÓN RCV
 
@@ -209,14 +208,13 @@ Cuando el usuario pida cotización de RCV, SIEMPRE muestra los precios de TODAS 
 
 | Aseguradora | Precio Mensual | Precio Anual |
 |-------------|----------------|--------------|
-| **Seguros Pirámide** | $4.58/mes | $55/año |
-| **Oceánica de Seguros** | $4.00/mes | $48/año |
+| **Seguros Caracas** | $4.33/mes | $52/año |
 | **Estar Seguros** | $4.17/mes | $50/año |
 | **Real Seguros** | $3.50/mes | $42/año |
 
 ✅ Todas incluyen Asistencia Vial 24/7
 
-¿Con cuál aseguradora deseas continuar?" [Pirámide] [Oceánica] [Estar] [Real]
+¿Con cuál aseguradora deseas continuar?" [Seguros Caracas] [Estar] [Real]
 
 ### VALORES DE REFERENCIA POR VEHÍCULO (USD)
 | Marca | Modelo | 2024 | 2023 | 2022 | 2021 | 2020 |

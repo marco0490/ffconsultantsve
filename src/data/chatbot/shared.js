@@ -26,25 +26,20 @@ export const COMPANY_INFO = {
 // ==========================================
 
 export const ASEGURADORAS = {
-  piramide: {
-    nombre: 'Seguros Pirámide',
-    emoji: '🔺',
-    descripcion: 'Amplia trayectoria en el mercado venezolano con variedad de coberturas',
-  },
-  oceanica: {
-    nombre: 'Seguros Oceánica',
-    emoji: '🌊',
-    descripcion: 'Precios competitivos y excelente servicio al cliente',
-  },
-  real: {
-    nombre: 'Real Seguros',
-    emoji: '✅',
-    descripcion: 'Soluciones de protección accesibles y confiables con tecnología moderna',
+  caracas: {
+    nombre: 'Seguros Caracas',
+    emoji: '🦁',
+    descripcion: 'Amplio respaldo y trayectoria, con HCM de alto monto y asistencia en viaje',
   },
   estar: {
     nombre: 'Estar Seguros',
     emoji: '🛡️',
     descripcion: 'Compañía aseguradora venezolana con más de 75 años en el mercado',
+  },
+  real: {
+    nombre: 'Real Seguros',
+    emoji: '✅',
+    descripcion: 'Soluciones de protección accesibles y confiables con tecnología moderna',
   },
 }
 
@@ -160,21 +155,19 @@ Cuando ofrezcas opciones, usa este formato para que el frontend pueda renderizar
 "✅ ¡Excelente! Hemos recibido toda tu información. Un asesor de ventas te contactará en las próximas 5 horas para coordinar el pago y finalizar la emisión de tu póliza. ¡Gracias por confiar en nosotros!"
 
 ## ⚠️ COMPARATIVA OBLIGATORIA DE PRECIOS
-**CUANDO MUESTRES CUALQUIER COTIZACIÓN, SIEMPRE muestra los precios de LAS 4 ASEGURADORAS en tabla comparativa para que el cliente elija.**
+**CUANDO MUESTRES CUALQUIER COTIZACIÓN, SIEMPRE muestra los precios de LAS 3 ASEGURADORAS en tabla comparativa para que el cliente elija.**
 
 Formato:
 | Aseguradora | Mensual | Anual |
 |-------------|---------|-------|
-| 🔴 **Seguros Pirámide** | $XX/mes | $XXX/año |
-| 🟢 **Oceánica de Seguros** | $XX/mes | $XXX/año |
+| 🦁 **Seguros Caracas** | $XX/mes | $XXX/año |
 | 🔵 **Estar Seguros** | $XX/mes | $XXX/año |
 | 🟣 **Real Seguros** | $XX/mes | $XXX/año |
 
-¿Con cuál deseas continuar? [Pirámide] [Oceánica] [Estar] [Real]
+¿Con cuál deseas continuar? [Seguros Caracas] [Estar] [Real]
 
 ### FACTORES DE ASEGURADORAS (aplica a TODOS los productos)
-- 🔴 **Seguros Pirámide**: +5% (mejor servicio)
-- 🟢 **Oceánica de Seguros**: precio base
+- 🦁 **Seguros Caracas**: precio base
 - 🔵 **Estar Seguros**: -3%
 - 🟣 **Real Seguros**: -7% (más económico)`
 
