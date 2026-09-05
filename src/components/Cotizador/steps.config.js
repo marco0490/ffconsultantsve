@@ -33,3 +33,36 @@ export function pathAnterior(paso) {
   // Desde el paso 0 (bienvenida) se vuelve al home.
   return anterior ? anterior.path : '/'
 }
+
+// ==========================================
+// ETAPA DE EMISIÓN (Parte 2) — 6 pasos
+// El paso se usa 0-indexed para el progreso (se muestra paso+1 de 6).
+// ==========================================
+
+export const TOTAL_EMISION = 6
+
+export const RUTA_EMISION_INICIO = '/cotizar/emision' // E0 requisitos
+
+export const EMISION = [
+  { paso: 0, key: 'vehiculo', path: '/cotizar/emision/vehiculo' },
+  { paso: 1, key: 'tomador', path: '/cotizar/emision/tomador' },
+  { paso: 2, key: 'plaft', path: '/cotizar/emision/plaft' },
+  { paso: 3, key: 'verificar', path: '/cotizar/emision/verificar' },
+  { paso: 4, key: 'pago', path: '/cotizar/emision/pago' },
+]
+
+export const RUTA_EMITIENDO = '/cotizar/emision/emitiendo'
+export const RUTA_EMISION_LISTO = '/cotizar/emision/listo'
+
+export function pathSiguienteEmision(paso) {
+  const siguiente = EMISION.find((p) => p.paso === paso + 1)
+  // Tras el último paso de captura (pago, paso 4) sigue el loader post-pago.
+  // (El paso de pago maneja su propia navegación al confirmar.)
+  return siguiente ? siguiente.path : RUTA_EMITIENDO
+}
+
+export function pathAnteriorEmision(paso) {
+  const anterior = EMISION.find((p) => p.paso === paso - 1)
+  // Desde el primer paso de emisión se vuelve a E0 (requisitos).
+  return anterior ? anterior.path : RUTA_EMISION_INICIO
+}

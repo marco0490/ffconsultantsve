@@ -35,7 +35,15 @@ import PasoDatos from './pages/Cotizar/steps/PasoDatos'
 import PasoContacto from './pages/Cotizar/steps/PasoContacto'
 import Loader from './pages/Cotizar/steps/Loader'
 import Resultado from './pages/Cotizar/steps/Resultado'
-import PasoEnConstruccion from './pages/Cotizar/steps/PasoEnConstruccion'
+// Parte 2 — emisión (E0→E6)
+import EmisionRequisitos from './pages/Cotizar/emision/EmisionRequisitos'
+import EmisionVehiculo from './pages/Cotizar/emision/EmisionVehiculo'
+import EmisionTomador from './pages/Cotizar/emision/EmisionTomador'
+import EmisionPlaft from './pages/Cotizar/emision/EmisionPlaft'
+import EmisionVerificar from './pages/Cotizar/emision/EmisionVerificar'
+import EmisionPago from './pages/Cotizar/emision/EmisionPago'
+import EmisionEmitiendo from './pages/Cotizar/emision/EmisionEmitiendo'
+import EmisionListo from './pages/Cotizar/emision/EmisionListo'
 
 function App() {
   const router = createBrowserRouter(
@@ -72,9 +80,17 @@ function App() {
           <Route path="contacto" element={<PasoContacto />} />
           <Route path="calculando" element={<Loader />} />
           <Route path="resultado" element={<Resultado />} />
-          {/* Parte 2 (emisión): placeholder temporal hasta §8.2–8.3 */}
-          <Route path="emision" element={<PasoEnConstruccion />} />
-          <Route path="listo" element={<PasoEnConstruccion />} />
+          {/* Parte 2 — emisión (E0→E6) */}
+          <Route path="emision">
+            <Route index element={<EmisionRequisitos />} />
+            <Route path="vehiculo" element={<EmisionVehiculo />} />
+            <Route path="tomador" element={<EmisionTomador />} />
+            <Route path="plaft" element={<EmisionPlaft />} />
+            <Route path="verificar" element={<EmisionVerificar />} />
+            <Route path="pago" element={<EmisionPago />} />
+            <Route path="emitiendo" element={<EmisionEmitiendo />} />
+            <Route path="listo" element={<EmisionListo />} />
+          </Route>
         </Route>
       </>,
     ),

@@ -35,9 +35,12 @@ function WizardLayout({
   hideNext = false,
   backTo,
   showProgress = true,
+  total = TOTAL_PASOS,
+  progresoPrefijo = 'Paso',
+  barClass = 'bg-primary',
 }) {
   const { back } = useCotizadorState()
-  const progresoPct = Math.round(((paso + 1) / TOTAL_PASOS) * 100)
+  const progresoPct = Math.round(((paso + 1) / total) * 100)
 
   return (
     <div className="w-full max-w-[480px] mx-auto min-h-screen flex flex-col px-5 pb-6">
@@ -59,12 +62,12 @@ function WizardLayout({
         <div className="mb-6 shrink-0">
           <div className="h-1.5 w-full bg-gray-200 rounded-full overflow-hidden">
             <div
-              className="h-full bg-primary rounded-full transition-all duration-300"
+              className={`h-full rounded-full transition-all duration-300 ${barClass}`}
               style={{ width: `${progresoPct}%` }}
             />
           </div>
           <p className="mt-2 text-xs text-gray-400 text-right">
-            Paso {paso + 1} de {TOTAL_PASOS}
+            {progresoPrefijo} {paso + 1} de {total}
           </p>
         </div>
       )}

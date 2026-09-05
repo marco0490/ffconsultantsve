@@ -38,11 +38,32 @@ export const estadoInicial = {
     cotizaciones: [],
     seleccion: null,
   },
+  // Etapa de emisión (Parte 2). emision.pago y los datos del pagador NO se
+  // persisten en sessionStorage (ver sanitizar()).
+  emision: {
+    vehiculo: { placa: '', serialCarroceria: '', puestos: '', uso: '' },
+    tomador: { esMismo: true, nombre: '', docTipo: 'V', docNumero: '', telefono: '' },
+    plaft: { aceptado: false, actividad: '', origenFondos: '', esPEP: '' },
+    terminosAceptados: false,
+    solicitudId: null,
+    montoUSD: null,
+    montoBs: null,
+    pago: { pagoId: null, estado: null, intentos: 0 },
+    poliza: { id: null, numero: null, pdfUrl: null, provisioning: null },
+  },
   meta: {
     pasoActual: 0,
     iniciadoEn: null,
     refId: null,
   },
+}
+
+// Quita del estado lo que no debe persistirse (datos volátiles del pago).
+function sanitizar(state) {
+  return {
+    ...state,
+    emision: { ...state.emision, pago: { pagoId: null, estado: null, intentos: 0 } },
+  }
 }
 
 function cargar() {
@@ -71,7 +92,7 @@ export function CotizadorProvider({ children }) {
       return
     }
     try {
-      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state))
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(sanitizar(state)))
     } catch {
       /* ignorar errores de escritura en sessionStorage */
     }
