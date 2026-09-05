@@ -79,11 +79,10 @@ npm run format
 ## 📊 Funcionalidades del Sistema
 
 ### 🏥 Cotizador de Seguros
-- **4 Compañías Integradas:**
-  - Seguros Mercantil
-  - Seguros Qualitas  
+- **3 Compañías Integradas:**
+  - Real Seguros
+  - Estar Seguros
   - Seguros Caracas
-  - Seguros Hispana
 
 - **Tipos de Cobertura:**
   - Planes individuales y familiares

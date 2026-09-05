@@ -313,7 +313,7 @@ const validateQuote = [
     body('email').isEmail().normalizeEmail(),
     body('name').trim().isLength({ min: 2, max: 100 }),
     body('phone').isMobilePhone('es-VE'),
-    body('insurance_company').isIn(['seguros-mercantil', 'seguros-qualitas', 'seguros-caracas', 'seguros-hispana']),
+    body('insurance_company').isIn(['real-seguros', 'estar-seguros', 'seguros-caracas']),
     (req, res, next) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {

@@ -41,7 +41,7 @@
 
 ## 📋 Funcionalidades Actuales Identificadas
 - ✅ Cotizador de seguros de salud
-- ✅ Integración con 4 compañías: Mercantil, Qualitas, Caracas, Hispana
+- ✅ Integración con 3 compañías: Real Seguros, Estar Seguros, Seguros Caracas
 - ✅ Formulario de contacto con EmailJS
 - ✅ Diseño responsive con Tailwind CSS
 - ✅ SEO optimizado con React Helmet

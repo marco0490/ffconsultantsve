@@ -6,14 +6,12 @@
 
 | Archivo | Tamaño | Estado |
 |---------|--------|--------|
-| `QualitasLogo.svg` | 78 KB | ❌ No usado (aseguradora eliminada) |
-| `MercantilLogo.svg` | 73 KB | ❌ No usado (aseguradora eliminada) |
 | `bombillo.svg` | 21 KB | ❌ No referenciado en código |
 | `microfono.svg` | 16 KB | ❌ No referenciado en código |
 | `huella.svg` | 51 KB | ❌ No referenciado en código |
 | `people.png` | 246 KB | ❌ No referenciado en código |
 
-**Total a liberar:** ~485 KB
+**Total a liberar:** ~334 KB
 
 ### ✅ Imágenes EN USO (No eliminar)
 
@@ -47,8 +45,6 @@ Las siguientes carpetas de páginas de planes existen pero deben verificarse:
 - `src/pages/PlansOceanica/` - ✅ En uso
 - `src/pages/PlansPiramide/` - ✅ En uso
 
-**Nota:** Las páginas de Qualitas y Mercantil ya fueron eliminadas correctamente.
-
 ---
 
 ## 🧹 Código Comentado a Revisar
@@ -63,8 +59,6 @@ Buscar y eliminar código comentado en:
 
 ### Eliminar Inmediatamente:
 ```
-src/assets/images/QualitasLogo.svg
-src/assets/images/MercantilLogo.svg
 src/assets/images/bombillo.svg
 src/assets/images/microfono.svg
 src/assets/images/huella.svg
@@ -79,8 +73,6 @@ src/assets/images/people.png
 ## Comandos para Eliminar (Windows)
 
 ```batch
-del "src\assets\images\QualitasLogo.svg"
-del "src\assets\images\MercantilLogo.svg"
 del "src\assets\images\bombillo.svg"
 del "src\assets\images\microfono.svg"
 del "src\assets\images\huella.svg"

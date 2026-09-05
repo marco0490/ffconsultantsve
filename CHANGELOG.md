@@ -94,9 +94,7 @@ Cambió de "Protege a tu familia" a dos secciones:
 
 ## 7. Rutas Eliminadas/Deprecadas
 
-Se eliminaron rutas de aseguradoras no utilizadas:
-- `/planes-qualitas` (Qualitas)
-- `/planes-mercantil` (Mercantil)
+Se eliminaron rutas de aseguradoras que ya no forman parte del catálogo.
 
 ---
 
