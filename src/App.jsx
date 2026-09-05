@@ -33,6 +33,8 @@ import PasoValor from './pages/Cotizar/steps/PasoValor'
 import PasoUso from './pages/Cotizar/steps/PasoUso'
 import PasoDatos from './pages/Cotizar/steps/PasoDatos'
 import PasoContacto from './pages/Cotizar/steps/PasoContacto'
+import Loader from './pages/Cotizar/steps/Loader'
+import Resultado from './pages/Cotizar/steps/Resultado'
 import PasoEnConstruccion from './pages/Cotizar/steps/PasoEnConstruccion'
 
 function App() {
@@ -68,8 +70,10 @@ function App() {
           <Route path="uso" element={<PasoUso />} />
           <Route path="datos" element={<PasoDatos />} />
           <Route path="contacto" element={<PasoContacto />} />
-          <Route path="calculando" element={<PasoEnConstruccion />} />
-          <Route path="resultado" element={<PasoEnConstruccion />} />
+          <Route path="calculando" element={<Loader />} />
+          <Route path="resultado" element={<Resultado />} />
+          {/* Parte 2 (emisión): placeholder temporal hasta §8.2–8.3 */}
+          <Route path="emision" element={<PasoEnConstruccion />} />
           <Route path="listo" element={<PasoEnConstruccion />} />
         </Route>
       </>,
