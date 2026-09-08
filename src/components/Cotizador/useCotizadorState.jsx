@@ -45,8 +45,20 @@ export const estadoInicial = {
   // Etapa de emisión (Parte 2). emision.pago y los datos del pagador NO se
   // persisten en sessionStorage (ver sanitizar()).
   emision: {
-    vehiculo: { placa: '', serialCarroceria: '', puestos: '', uso: '' },
+    vehiculo: { placa: '', serialCarroceria: '', color: '', serialMotor: '', puestos: '', uso: '' },
     tomador: { esMismo: true, nombre: '', docTipo: 'V', docNumero: '', telefono: '' },
+    asegurado: { sexo: '', estadoCivil: '', ocupacion: '', pep: '' },
+    direccion: {
+      estado: '',
+      ciudad: '',
+      municipio: '',
+      urbanizacion: '',
+      avenida: '',
+      calle: '',
+      casaEdificio: '',
+      piso: '',
+      apto: '',
+    },
     plaft: { aceptado: false, actividad: '', origenFondos: '', esPEP: '' },
     terminosAceptados: false,
     solicitudId: null,

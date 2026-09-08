@@ -48,7 +48,8 @@ function EmisionVehiculo() {
 
   const placaOk = PLACA_RE.test(ev.placa)
   const serialOk = SERIAL_RE.test(ev.serialCarroceria)
-  const valido = placaOk && serialOk && Boolean(ev.puestos) && Boolean(ev.uso)
+  const colorOk = ev.color.trim().length >= 3
+  const valido = placaOk && serialOk && colorOk && Boolean(ev.puestos) && Boolean(ev.uso)
 
   return (
     <WizardLayout
@@ -83,6 +84,24 @@ function EmisionVehiculo() {
             onBlur={() => marcar('serial')}
             placeholder="8AJKB3CD1N1234567"
             error={touched.serial && !serialOk}
+          />
+        </Field>
+
+        <Field label="Color" error={touched.color && !colorOk ? 'Indica el color del vehículo' : null}>
+          <StepInput
+            value={ev.color}
+            onChange={(v) => set('color', v)}
+            onBlur={() => marcar('color')}
+            placeholder="Ej: Gris plata"
+            error={touched.color && !colorOk}
+          />
+        </Field>
+
+        <Field label="Serial del motor (opcional)" help="Si lo tienes a la mano; si no, lo completamos luego.">
+          <StepInput
+            value={ev.serialMotor}
+            onChange={(v) => set('serialMotor', v.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 20))}
+            placeholder="Ej: 2AZ1234567"
           />
         </Field>
 
