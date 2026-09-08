@@ -20,6 +20,7 @@ import PlansEstar from './pages/PlansEstar/PlansEstar'
 import Complete from './pages/Complete/Complete'
 import Conditions from './pages/Conditions/Conditions'
 import Cookies from './pages/Cookies/Cookies'
+import Privacy from './pages/Privacy/Privacy'
 import Dynamics365Sales from './pages/Dynamics365Sales/Dynamics365Sales'
 import Pagar from './pages/Pagar/Pagar'
 // Cotizador conversacional (wizard) — rutas anidadas bajo /cotizar
@@ -61,6 +62,7 @@ function App() {
           <Route path="/planes-estar" element={<PlansEstar />} />
           <Route path="/legal" element={<Legal />} />
           <Route path="/terminos" element={<Conditions />} />
+          <Route path="/privacidad" element={<Privacy />} />
           <Route path="/cookies" element={<Cookies />} />
           {/* <Route path="/servicios" element={<Services />} /> */}
           <Route path="/nosotros" element={<We />} />
