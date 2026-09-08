@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { FiChevronDown, FiEdit2, FiLock } from 'react-icons/fi'
 import Avatar, { AVATAR_NOMBRE } from '../../../components/Cotizador/Avatar'
 import Toast from '../../../components/Cotizador/Toast'
+import StepInput from '../../../components/Cotizador/StepInput'
 import { useCotizadorState } from '../../../components/Cotizador/useCotizadorState'
 import { TOTAL_EMISION, pathAnteriorEmision } from '../../../components/Cotizador/steps.config'
 
@@ -76,9 +77,31 @@ function EmisionVerificar() {
   const p = state.persona
   const ev = state.emision.vehiculo
   const tom = state.emision.tomador
+  const cob = state.emision.coberturas
+  const beneficiarios = state.emision.beneficiarios
+
+  const setCob = (campo, val) => {
+    const patch = { coberturas: { ...cob, [campo]: val } }
+    // Al activar "ocupantes", asegurar al menos un beneficiario.
+    if (campo === 'ocupantes' && val && beneficiarios.length === 0) {
+      patch.beneficiarios = [{ nombre: '', cedula: '', parentesco: '', porcentaje: '' }]
+    }
+    update('emision', patch)
+  }
+  const setBenef = (i, campo, val) =>
+    update('emision', { beneficiarios: beneficiarios.map((b, idx) => (idx === i ? { ...b, [campo]: val } : b)) })
+  const addBenef = () =>
+    update('emision', { beneficiarios: [...beneficiarios, { nombre: '', cedula: '', parentesco: '', porcentaje: '' }] })
+  const removeBenef = (i) =>
+    update('emision', { beneficiarios: beneficiarios.filter((_, idx) => idx !== i) })
+
+  const benefCompleto = (b) =>
+    b.nombre.trim() && /^\d{6,9}$/.test(b.cedula) && b.parentesco.trim() && b.porcentaje
+  const benefOk = !cob.ocupantes || (beneficiarios.length > 0 && beneficiarios.every(benefCompleto))
+  const puedeContinuar = terminos && benefOk
 
   const pagar = async () => {
-    if (!terminos || enviando) return
+    if (!puedeContinuar || enviando) return
     setEnviando(true)
     update('emision', { terminosAceptados: true })
     const data = await crearSolicitud({
@@ -154,6 +177,56 @@ function EmisionVerificar() {
           </div>
         </div>
 
+        {/* Coberturas opcionales */}
+        <div className="rounded-2xl border-2 border-gray-200 p-4 space-y-3">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Coberturas opcionales</p>
+          {[
+            { key: 'exceso', label: 'Exceso de límite' },
+            { key: 'defensaPenal', label: 'Asistencia legal y defensa penal' },
+            { key: 'ocupantes', label: 'Accidentes personales para ocupantes' },
+          ].map((c) => (
+            <div key={c.key} className="flex items-center justify-between gap-3">
+              <span className="text-sm text-gray-700">{c.label}</span>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={cob[c.key]}
+                onClick={() => setCob(c.key, !cob[c.key])}
+                className={`relative w-11 h-6 rounded-full transition-colors shrink-0 ${cob[c.key] ? 'bg-primary' : 'bg-gray-300'}`}
+              >
+                <span className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white transition-transform ${cob[c.key] ? 'translate-x-5' : ''}`} />
+              </button>
+            </div>
+          ))}
+
+          {cob.ocupantes && (
+            <div className="pt-3 border-t border-gray-100 space-y-3">
+              <p className="text-xs text-gray-500">Indica al menos un beneficiario:</p>
+              {beneficiarios.map((b, i) => (
+                <div key={i} className="space-y-2 rounded-xl bg-gray-50 p-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold text-gray-500">Beneficiario {i + 1}</span>
+                    {beneficiarios.length > 1 && (
+                      <button type="button" onClick={() => removeBenef(i)} className="text-xs text-red-500 font-semibold">
+                        Quitar
+                      </button>
+                    )}
+                  </div>
+                  <StepInput value={b.nombre} onChange={(v) => setBenef(i, 'nombre', v)} placeholder="Nombre y apellido" />
+                  <div className="grid grid-cols-2 gap-2">
+                    <StepInput value={b.cedula} onChange={(v) => setBenef(i, 'cedula', v.replace(/\D/g, '').slice(0, 9))} inputMode="numeric" placeholder="Cédula" />
+                    <StepInput value={b.parentesco} onChange={(v) => setBenef(i, 'parentesco', v)} placeholder="Parentesco" />
+                  </div>
+                  <StepInput value={b.porcentaje} onChange={(v) => setBenef(i, 'porcentaje', v.replace(/\D/g, '').slice(0, 3))} inputMode="numeric" suffix="%" placeholder="Participación" />
+                </div>
+              ))}
+              <button type="button" onClick={addBenef} className="text-sm text-primary font-semibold">
+                + Agregar beneficiario
+              </button>
+            </div>
+          )}
+        </div>
+
         <label className="flex items-start gap-3 cursor-pointer pt-1">
           <input
             type="checkbox"
@@ -172,9 +245,9 @@ function EmisionVerificar() {
         <button
           type="button"
           onClick={pagar}
-          disabled={!terminos || enviando}
+          disabled={!puedeContinuar || enviando}
           className={`w-full h-14 rounded-2xl font-bold text-white text-lg transition-all inline-flex items-center justify-center gap-2 ${
-            !terminos || enviando ? 'bg-gray-300 cursor-not-allowed' : 'bg-primary hover:brightness-110 active:scale-[0.99]'
+            !puedeContinuar || enviando ? 'bg-gray-300 cursor-not-allowed' : 'bg-primary hover:brightness-110 active:scale-[0.99]'
           }`}
         >
           {enviando ? (

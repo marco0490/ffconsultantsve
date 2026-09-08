@@ -60,6 +60,8 @@ export const estadoInicial = {
       apto: '',
     },
     plaft: { aceptado: false, actividad: '', origenFondos: '', esPEP: '' },
+    coberturas: { exceso: false, defensaPenal: false, ocupantes: false },
+    beneficiarios: [], // { nombre, cedula, parentesco, porcentaje }
     terminosAceptados: false,
     solicitudId: null,
     montoUSD: null,
