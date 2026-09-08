@@ -169,7 +169,7 @@ function EmisionVerificar() {
         <div className="rounded-2xl border-2 border-primary/30 bg-primary/5 p-4">
           <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Tu plan</p>
           <p className="font-bold text-gray-800 mt-1">{plan.aseguradora} · {plan.cobertura}</p>
-          <p className="text-sm text-gray-600">Deducible: {plan.deducible} · Suma USD {plan.sumaAsegurada}</p>
+          <p className="text-sm text-gray-600">Suma asegurada: {plan.sumaAsegurada}</p>
           <div className="mt-3">
             <span className="text-xs text-gray-500 uppercase">Monto a pagar</span>
             <p className="text-3xl font-extrabold text-gray-900">USD {montoUSD}</p>

@@ -118,12 +118,6 @@ function Resultado() {
                 {frecuencia !== 'anual' && (
                   <p className="text-xs text-gray-400 mt-0.5">Equivale a USD {plan.precios.anual}/año</p>
                 )}
-                {/* DEMO: línea RCV como alternativa económica al casco */}
-                {plan.rcvMensual != null && (
-                  <p className="text-xs font-medium text-primary mt-1">
-                    ¿Solo lo básico? RCV desde USD {plan.rcvMensual}/mes
-                  </p>
-                )}
               </div>
 
               <ul className="mt-3 space-y-1.5 flex-1">
@@ -135,7 +129,7 @@ function Resultado() {
                 ))}
               </ul>
 
-              <p className="text-xs text-gray-400 mt-3">Deducible: {plan.deducible}</p>
+              <p className="text-xs text-gray-400 mt-3">Suma asegurada: {plan.sumaAsegurada}</p>
 
               <button
                 type="button"

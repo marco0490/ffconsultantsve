@@ -1,40 +1,36 @@
-// Construcción de planes por aseguradora a partir de las tarifas demo locales.
-// Compartido por api/cotizar.js (modo mock) y por el fallback del loader del
-// cotizador (cuando el backend no está disponible).
+// Construcción de planes RCV por aseguradora a partir de las tarifas demo.
+// Compartido por api/cotizar.js (modo mock) y por el fallback del loader.
+//
+// El producto de la web es RCV: el precio principal de cada tarjeta es el RCV,
+// tarifado por CLASE DE USO + GRUPO DE PESO (esquema de la Providencia, §10).
+// Las tarifas de Casco (cobertura_amplia) y el valorUSD siguen en el código
+// (tarifas-seguros.js / estado) por si más adelante se vende Casco.
 import { compararCotizaciones } from './tarifas-seguros.js'
 
-// DEMO: coberturas diferenciadas por aseguradora para que los badges
-// (mejor precio / recomendada / mayor cobertura) se justifiquen a la vista.
-const COBERTURAS_BASICAS = [
-  'RCV a terceros',
-  'Daños propios (casco)',
-  'Robo e incendio',
-  'Asistencia vial 24/7',
-]
-const COBERTURAS_POR_ASEG = {
-  'Real Seguros': COBERTURAS_BASICAS, // 4 básicas
-  'Estar Seguros': [...COBERTURAS_BASICAS, 'Defensa legal'], // 5
+// DEMO: coberturas reales de RCV diferenciadas por aseguradora para que los
+// badges (mejor precio / recomendada / mayor cobertura) se justifiquen.
+// Base RCV: daños a cosas y a personas. Las opcionales que el cliente active
+// (exceso, defensa penal, ocupantes) se agregan en la emisión (E4).
+const COBERTURAS_RCV = {
+  'Real Seguros': ['RCV — Daños a cosas', 'RCV — Daños a personas', 'Asistencia vial 24/7'],
+  'Estar Seguros': [
+    'RCV — Daños a cosas',
+    'RCV — Daños a personas',
+    'Asistencia vial 24/7',
+    'Asistencia legal y defensa penal',
+  ],
   'Seguros Caracas': [
-    ...COBERTURAS_BASICAS,
-    'Defensa legal',
-    'Vehículo sustituto',
-    'Accesorios y equipos',
-  ], // 7
+    'RCV — Daños a cosas',
+    'RCV — Daños a personas',
+    'Asistencia vial 24/7',
+    'Asistencia legal y defensa penal',
+    'Exceso de límite',
+    'Asistencia en viaje',
+  ],
 }
+const COBERTURAS_RCV_BASE = ['RCV — Daños a cosas', 'RCV — Daños a personas']
 
-// DEMO: deducibles distintos por aseguradora (sustituyen al N/A de las tarifas).
-const DEDUCIBLE_POR_ASEG = {
-  'Real Seguros': '10%',
-  'Estar Seguros': '8%',
-  'Seguros Caracas': '5%',
-}
-
-function round2(n) {
-  return Math.round(Number(n) * 100) / 100
-}
-
-// DEMO: factores de tarifa RCV por clase de uso y por grupo de peso
-// (esquema clase + grupo de la Providencia, §10) en lugar de por valor.
+// DEMO: factores de tarifa RCV por clase de uso y por grupo de peso.
 const CLASE_FACTOR = { particular: 1.0, carga: 1.45, moto: 0.7, transporte: 1.6 }
 const GRUPO_FACTOR = {
   'Hasta 800 kg': 0.9,
@@ -42,57 +38,44 @@ const GRUPO_FACTOR = {
   '1501-2500 kg': 1.2,
   'Más de 2500 kg': 1.5,
 }
-// DEMO: valor estimado del vehículo por grupo de peso (para el precio de Casco,
-// ya que en el flujo RCV no se pregunta el valor).
-const VALOR_ESTIMADO = {
-  'Hasta 800 kg': 8000,
-  '801-1500 kg': 15000,
-  '1501-2500 kg': 28000,
-  'Más de 2500 kg': 45000,
+
+function round2(n) {
+  return Math.round(Number(n) * 100) / 100
 }
 
-// Devuelve la lista de planes (ordenada de menor a mayor prima) con precios
-// por frecuencia, coberturas y un badge sugerido.
+// Devuelve la lista de planes RCV (ordenada de menor a mayor prima) con precios
+// por frecuencia, coberturas reales y un badge sugerido.
 export function construirPlanes(vehiculo = {}, persona = {}) {
-  const grupoPeso = vehiculo.grupoPeso
   const base = {
     marca: vehiculo.marca,
     modelo: vehiculo.modelo,
     año: Number(vehiculo.anio) || new Date().getFullYear(),
     ceroKm: false,
     fechaNacimiento: persona.fechaNacimiento || '1990-01-01',
-    // El Casco necesita un valor; en RCV no se pregunta, así que se estima
-    // desde el grupo de peso.
-    valorVehiculo: Number(vehiculo.valorUSD) || VALOR_ESTIMADO[grupoPeso] || 15000,
+    valorVehiculo: null, // RCV no depende del valor
   }
 
-  // Plan principal: Casco (cobertura amplia).
-  const casco = compararCotizaciones({ ...base, cobertura: 'cobertura_amplia' })
-
-  // RCV tarifado por clase de uso + grupo de peso (factores demo), tomando
-  // como base el RCV por aseguradora de las tarifas. La línea "RCV desde…"
-  // de las tarjetas sale de aquí.
-  const rcvBase = compararCotizaciones({ ...base, cobertura: 'rcv' })
   const claseF = CLASE_FACTOR[vehiculo.claseUso] ?? 1
-  const grupoF = GRUPO_FACTOR[grupoPeso] ?? 1
-  const rcvPorAseg = Object.fromEntries(
-    rcvBase.map((c) => [c.aseguradora, round2(c.primaMensual * claseF * grupoF)]),
-  )
+  const grupoF = GRUPO_FACTOR[vehiculo.grupoPeso] ?? 1
 
-  return casco.map((c, i) => ({
+  // RCV por aseguradora, ajustado por clase de uso + grupo de peso.
+  const planes = compararCotizaciones({ ...base, cobertura: 'rcv' })
+    .map((c) => ({ aseguradora: c.aseguradora, anual: round2(c.primaAnual * claseF * grupoF) }))
+    .sort((a, b) => a.anual - b.anual)
+
+  return planes.map((c, i) => ({
     plan_id: `plan_${c.aseguradora.toLowerCase().replace(/\s+/g, '-')}`,
     aseguradora: c.aseguradora,
-    cobertura: c.cobertura,
-    deducible: DEDUCIBLE_POR_ASEG[c.aseguradora] || c.deducible, // DEMO
-    sumaAsegurada: c.valorVehiculo,
+    cobertura: 'RCV Básica',
+    // El RCV no tiene deducible; la suma es la regulada.
+    sumaAsegurada: 'según regulación vigente',
     precios: {
-      anual: round2(c.primaAnual),
-      semestral: round2(c.primaAnual / 2),
-      trimestral: round2(c.primaAnual / 4),
-      mensual: round2(c.primaMensual),
+      anual: c.anual,
+      semestral: round2(c.anual / 2),
+      trimestral: round2(c.anual / 4),
+      mensual: round2(c.anual / 12),
     },
-    rcvMensual: rcvPorAseg[c.aseguradora] ?? null,
-    coberturas: COBERTURAS_POR_ASEG[c.aseguradora] || COBERTURAS_BASICAS, // DEMO
-    badge: i === 0 ? 'mejor-precio' : i === casco.length - 1 ? 'mayor-cobertura' : 'recomendada',
+    coberturas: COBERTURAS_RCV[c.aseguradora] || COBERTURAS_RCV_BASE,
+    badge: i === 0 ? 'mejor-precio' : i === planes.length - 1 ? 'mayor-cobertura' : 'recomendada',
   }))
 }
