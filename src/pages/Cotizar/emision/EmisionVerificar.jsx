@@ -163,7 +163,7 @@ function EmisionVerificar() {
           />
           <span className="text-sm text-gray-600">
             Acepto los términos y condiciones y las condiciones generales de la póliza (
-            <Link to="/legal" className="text-primary underline">Políticas y Legal</Link>).
+            <Link to="/terminos" className="text-primary underline">Términos y Condiciones</Link>).
           </span>
         </label>
       </div>

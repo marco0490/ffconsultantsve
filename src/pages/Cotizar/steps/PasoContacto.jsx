@@ -82,7 +82,7 @@ function PasoContacto() {
           />
           <span className="text-sm text-gray-600">
             Acepto que Future Financial me contacte y las{' '}
-            <Link to="/legal" className="text-primary underline">políticas de privacidad</Link>.
+            <Link to="/terminos" className="text-primary underline">políticas de privacidad</Link>.
           </span>
         </label>
       </StepForm>
