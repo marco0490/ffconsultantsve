@@ -10,8 +10,8 @@ function PasoMarca() {
   const valido = Boolean(marca)
 
   const seleccionar = (val) => {
-    // Al cambiar de marca, limpiar el modelo previo.
-    update('vehiculo', { marca: val, modelo: '', modeloOtro: '' })
+    // Al cambiar de marca, limpiar el modelo y la versión previos.
+    update('vehiculo', { marca: val, modelo: '', modeloOtro: '', version: '' })
   }
 
   return (

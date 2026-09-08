@@ -32,11 +32,11 @@ function PasoUso() {
 
   return (
     <WizardLayout
-      paso={6}
+      paso={8}
       avatarMsg="Dos preguntas rápidas más sobre el auto"
-      backTo={pathAnterior(6)}
+      backTo={pathAnterior(8)}
       nextDisabled={!valido}
-      onNext={() => valido && next(pathSiguiente(6))}
+      onNext={() => valido && next(pathSiguiente(8))}
     >
       <StepForm>
         <Field label="Uso del vehículo">

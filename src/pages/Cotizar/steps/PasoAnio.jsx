@@ -14,12 +14,12 @@ function PasoAnio() {
 
   return (
     <WizardLayout
-      paso={3}
+      paso={5}
       avatarMsg={`¿De qué año es tu ${nombreAuto}?`}
       label="Selecciona el año"
-      backTo={pathAnterior(3)}
+      backTo={pathAnterior(5)}
       nextDisabled={!valido}
-      onNext={() => valido && next(pathSiguiente(3))}
+      onNext={() => valido && next(pathSiguiente(5))}
     >
       <div className="grid grid-cols-4 gap-2 max-h-80 overflow-y-auto pr-1">
         {ANIOS.map((y) => {

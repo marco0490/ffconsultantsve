@@ -24,12 +24,12 @@ function PasoContacto() {
 
   return (
     <WizardLayout
-      paso={8}
+      paso={10}
       avatarMsg="Último paso. ¿Dónde te envío la cotización? 📩"
       nextLabel="Ver mi cotización"
-      backTo={pathAnterior(8)}
+      backTo={pathAnterior(10)}
       nextDisabled={!valido}
-      onNext={() => valido && next(pathSiguiente(8))}
+      onNext={() => valido && next(pathSiguiente(10))}
     >
       <StepForm>
         <Field label="Correo electrónico" error={touched.email && !emailOk ? 'El formato del correo no es válido' : null}>

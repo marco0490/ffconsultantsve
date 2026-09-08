@@ -1,20 +1,23 @@
 // Configuración del orden de pasos del cotizador conversacional (ramo auto).
 // El "paso" numérico se usa para la barra de progreso ("Paso X de 9").
 
-export const TOTAL_PASOS = 9
+export const TOTAL_PASOS = 11
 
-// Pasos con barra de progreso (0..8). El loader, resultado y confirmación
-// NO forman parte del conteo de progreso.
+// Pasos con barra de progreso (0..10). El loader, resultado y confirmación
+// NO forman parte del conteo de progreso. El paso de "grupo de peso" es un
+// fallback condicional (ver PasoPeso) y NO se cuenta aquí.
 export const PASOS = [
   { paso: 0, key: 'bienvenida', path: '/cotizar' },
   { paso: 1, key: 'marca', path: '/cotizar/marca' },
   { paso: 2, key: 'modelo', path: '/cotizar/modelo' },
-  { paso: 3, key: 'anio', path: '/cotizar/anio' },
-  { paso: 4, key: 'tipo', path: '/cotizar/tipo' },
-  { paso: 5, key: 'valor', path: '/cotizar/valor' },
-  { paso: 6, key: 'uso', path: '/cotizar/uso' },
-  { paso: 7, key: 'datos', path: '/cotizar/datos' },
-  { paso: 8, key: 'contacto', path: '/cotizar/contacto' },
+  { paso: 3, key: 'version', path: '/cotizar/version' },
+  { paso: 4, key: 'transmision', path: '/cotizar/transmision' },
+  { paso: 5, key: 'anio', path: '/cotizar/anio' },
+  { paso: 6, key: 'tipo', path: '/cotizar/tipo' },
+  { paso: 7, key: 'valor', path: '/cotizar/valor' },
+  { paso: 8, key: 'uso', path: '/cotizar/uso' },
+  { paso: 9, key: 'datos', path: '/cotizar/datos' },
+  { paso: 10, key: 'contacto', path: '/cotizar/contacto' },
 ]
 
 // Rutas posteriores al flujo de captura (fuera del conteo de progreso).

@@ -45,11 +45,11 @@ function PasoDatos() {
 
   return (
     <WizardLayout
-      paso={7}
+      paso={9}
       avatarMsg="¡Gracias! Ahora cuéntame un poco de ti 🙏"
-      backTo={pathAnterior(7)}
+      backTo={pathAnterior(9)}
       nextDisabled={!valido}
-      onNext={() => valido && next(pathSiguiente(7))}
+      onNext={() => valido && next(pathSiguiente(9))}
     >
       <StepForm>
         <Field label="Nombre" error={touched.nombre && !nombreOk ? 'Escribe tu nombre completo' : null}>

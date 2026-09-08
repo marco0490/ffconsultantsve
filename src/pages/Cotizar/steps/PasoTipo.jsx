@@ -18,18 +18,18 @@ function PasoTipo() {
 
   return (
     <WizardLayout
-      paso={4}
+      paso={6}
       avatarMsg="¿Qué tipo de vehículo es?"
       label="Tipo de vehículo"
-      backTo={pathAnterior(4)}
+      backTo={pathAnterior(6)}
       nextDisabled={!valido}
-      onNext={() => valido && next(pathSiguiente(4))}
+      onNext={() => valido && next(pathSiguiente(6))}
     >
       <StepCards
         options={TIPOS}
         value={tipo}
         onChange={(v) => update('vehiculo', { tipo: v })}
-        onAutoAdvance={() => next(pathSiguiente(4))}
+        onAutoAdvance={() => next(pathSiguiente(6))}
       />
     </WizardLayout>
   )

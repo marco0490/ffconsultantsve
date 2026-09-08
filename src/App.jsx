@@ -28,6 +28,8 @@ import CotizadorLayout from './pages/Cotizar/CotizadorLayout'
 import Paso0Bienvenida from './pages/Cotizar/steps/Paso0Bienvenida'
 import PasoMarca from './pages/Cotizar/steps/PasoMarca'
 import PasoModelo from './pages/Cotizar/steps/PasoModelo'
+import PasoVersion from './pages/Cotizar/steps/PasoVersion'
+import PasoTransmision from './pages/Cotizar/steps/PasoTransmision'
 import PasoAnio from './pages/Cotizar/steps/PasoAnio'
 import PasoTipo from './pages/Cotizar/steps/PasoTipo'
 import PasoValor from './pages/Cotizar/steps/PasoValor'
@@ -74,6 +76,8 @@ function App() {
           <Route index element={<Paso0Bienvenida />} />
           <Route path="marca" element={<PasoMarca />} />
           <Route path="modelo" element={<PasoModelo />} />
+          <Route path="version" element={<PasoVersion />} />
+          <Route path="transmision" element={<PasoTransmision />} />
           <Route path="anio" element={<PasoAnio />} />
           <Route path="tipo" element={<PasoTipo />} />
           <Route path="valor" element={<PasoValor />} />

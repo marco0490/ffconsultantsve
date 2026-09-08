@@ -29,14 +29,14 @@ function PasoValor() {
 
   return (
     <WizardLayout
-      paso={5}
+      paso={7}
       avatarMsg="¿Cuál es el valor aproximado de tu auto? Esto define la suma asegurada 💵"
       label="Valor del vehículo (USD)"
       help={!error ? 'Si no estás seguro, indica un valor aproximado. Un asesor lo confirmará contigo.' : null}
       error={error}
-      backTo={pathAnterior(5)}
+      backTo={pathAnterior(7)}
       nextDisabled={!valido}
-      onNext={() => valido && next(pathSiguiente(5))}
+      onNext={() => valido && next(pathSiguiente(7))}
     >
       <StepInput
         value={display}

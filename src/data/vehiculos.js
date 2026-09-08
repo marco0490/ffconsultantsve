@@ -1,40 +1,171 @@
-// Marcas y modelos comunes en el mercado venezolano (para el cotizador de auto).
-// Lista mínima para la demo; ampliar según necesidad.
-// Orden alfabético por marca, con "Otra marca" siempre al final.
+// Marcas, modelos y versiones comunes del mercado venezolano (cotizador de auto).
+// Lista mínima DEMO; ampliar según necesidad. Orden alfabético por marca,
+// con "Otra marca" al final. Los modelos pueden ser un string (sin versiones)
+// o un objeto { nombre, versiones: [...] }.
 
 export const MARCAS = [
   { marca: 'BYD', modelos: [] },
   { marca: 'Changan', modelos: [] },
-  { marca: 'Chery', modelos: ['Arauca', 'Orinoco', 'Tiggo', 'QQ'] },
-  { marca: 'Chevrolet', modelos: ['Aveo', 'Spark', 'Cruze', 'Optra', 'Captiva', 'Silverado', 'Tahoe'] },
-  { marca: 'Dodge', modelos: ['Ram', 'Journey', 'Durango'] },
-  { marca: 'Fiat', modelos: ['Palio', 'Siena', 'Uno'] },
-  { marca: 'Ford', modelos: ['Fiesta', 'Focus', 'Explorer', 'EcoSport', 'F-150', 'Escape'] },
+  {
+    marca: 'Chery',
+    modelos: ['Arauca', 'Orinoco', { nombre: 'Tiggo', versiones: ['Comfort', 'Luxury'] }, { nombre: 'QQ', versiones: ['Confort'] }],
+  },
+  {
+    marca: 'Chevrolet',
+    modelos: [
+      { nombre: 'Aveo', versiones: ['LS', 'LT', 'Family'] },
+      { nombre: 'Spark', versiones: ['LS', 'LT', 'GT'] },
+      { nombre: 'Cruze', versiones: ['LS', 'LT', 'LTZ'] },
+      { nombre: 'Optra', versiones: ['Limited', 'Advance', 'Design'] },
+      'Captiva',
+      'Silverado',
+      'Tahoe',
+    ],
+  },
+  {
+    marca: 'Dodge',
+    modelos: [{ nombre: 'Ram', versiones: ['1500', '2500'] }, { nombre: 'Journey', versiones: ['SE', 'SXT'] }, 'Durango'],
+  },
+  {
+    marca: 'Fiat',
+    modelos: [{ nombre: 'Palio', versiones: ['EL', 'Fire'] }, { nombre: 'Siena', versiones: ['EL', 'Fire'] }, { nombre: 'Uno', versiones: ['Fire', 'Way'] }],
+  },
+  {
+    marca: 'Ford',
+    modelos: [
+      { nombre: 'Fiesta', versiones: ['SE', 'Titanium', 'Power'] },
+      { nombre: 'Focus', versiones: ['SE', 'Titanium'] },
+      { nombre: 'Explorer', versiones: ['XLT', 'Limited'] },
+      { nombre: 'EcoSport', versiones: ['SE', 'Titanium'] },
+      { nombre: 'F-150', versiones: ['XL', 'XLT', 'Lariat'] },
+      'Escape',
+    ],
+  },
   { marca: 'Geely', modelos: [] },
   { marca: 'Great Wall', modelos: [] },
-  { marca: 'Honda', modelos: ['Civic', 'Accord', 'CR-V', 'Fit'] },
-  { marca: 'Hyundai', modelos: ['Accent', 'Elantra', 'Tucson', 'Santa Fe', 'Getz'] },
+  {
+    marca: 'Honda',
+    modelos: [
+      { nombre: 'Civic', versiones: ['LX', 'EX', 'EXL'] },
+      { nombre: 'Accord', versiones: ['LX', 'EXL'] },
+      { nombre: 'CR-V', versiones: ['LX', 'EX'] },
+      { nombre: 'Fit', versiones: ['LX', 'EX'] },
+    ],
+  },
+  {
+    marca: 'Hyundai',
+    modelos: [
+      { nombre: 'Accent', versiones: ['GL', 'GLS'] },
+      { nombre: 'Elantra', versiones: ['GLS', 'Limited'] },
+      { nombre: 'Tucson', versiones: ['GL', 'Limited'] },
+      'Santa Fe',
+      { nombre: 'Getz', versiones: ['GL'] },
+    ],
+  },
   { marca: 'JAC', modelos: [] },
-  { marca: 'Jeep', modelos: ['Grand Cherokee', 'Wrangler', 'Compass', 'Renegade'] },
-  { marca: 'Kia', modelos: ['Rio', 'Cerato', 'Sportage', 'Sorento', 'Picanto'] },
-  { marca: 'Mazda', modelos: ['2', '3', '6', 'CX-5'] },
-  { marca: 'Mitsubishi', modelos: ['Lancer', 'Montero', 'Outlander', 'L200'] },
-  { marca: 'Nissan', modelos: ['Sentra', 'Versa', 'X-Trail', 'Frontier'] },
-  { marca: 'Renault', modelos: ['Logan', 'Sandero', 'Duster', 'Symbol'] },
-  { marca: 'Suzuki', modelos: ['Grand Vitara', 'Swift'] },
-  { marca: 'Toyota', modelos: ['Corolla', 'Yaris', 'Hilux', 'Fortuner', '4Runner', 'Land Cruiser', 'RAV4'] },
-  { marca: 'Volkswagen', modelos: ['Gol', 'Polo', 'Jetta', 'Tiguan'] },
+  {
+    marca: 'Jeep',
+    modelos: [
+      { nombre: 'Grand Cherokee', versiones: ['Laredo', 'Limited'] },
+      { nombre: 'Wrangler', versiones: ['Sport', 'Sahara'] },
+      { nombre: 'Compass', versiones: ['Sport', 'Limited'] },
+      { nombre: 'Renegade', versiones: ['Sport', 'Longitude'] },
+    ],
+  },
+  {
+    marca: 'Kia',
+    modelos: [
+      { nombre: 'Rio', versiones: ['LX', 'EX'] },
+      { nombre: 'Cerato', versiones: ['LX', 'EX'] },
+      { nombre: 'Sportage', versiones: ['LX', 'EX'] },
+      'Sorento',
+      { nombre: 'Picanto', versiones: ['LX', 'EX'] },
+    ],
+  },
+  {
+    marca: 'Mazda',
+    modelos: [{ nombre: '2', versiones: ['Sport', 'Touring'] }, { nombre: '3', versiones: ['Sport', 'Touring'] }, '6', 'CX-5'],
+  },
+  {
+    marca: 'Mitsubishi',
+    modelos: [
+      { nombre: 'Lancer', versiones: ['GLX', 'Touring'] },
+      { nombre: 'Montero', versiones: ['GLS', 'Dakar'] },
+      'Outlander',
+      { nombre: 'L200', versiones: ['4x2', '4x4'] },
+    ],
+  },
+  {
+    marca: 'Nissan',
+    modelos: [
+      { nombre: 'Sentra', versiones: ['B13', 'Advance', 'SR'] },
+      { nombre: 'Versa', versiones: ['Sense', 'Advance'] },
+      'X-Trail',
+      { nombre: 'Frontier', versiones: ['4x2', '4x4'] },
+    ],
+  },
+  {
+    marca: 'Renault',
+    modelos: [
+      { nombre: 'Logan', versiones: ['Authentique', 'Expression'] },
+      { nombre: 'Sandero', versiones: ['Authentique', 'Stepway'] },
+      { nombre: 'Duster', versiones: ['Expression', 'Dynamique'] },
+      'Symbol',
+    ],
+  },
+  {
+    marca: 'Suzuki',
+    modelos: [{ nombre: 'Grand Vitara', versiones: ['JLX'] }, { nombre: 'Swift', versiones: ['GL', 'GLX'] }],
+  },
+  {
+    marca: 'Toyota',
+    modelos: [
+      { nombre: 'Corolla', versiones: ['LE', 'SE', 'XLI', 'GLI'] },
+      { nombre: 'Yaris', versiones: ['Sport', 'XLS', 'Sedán'] },
+      { nombre: 'Hilux', versiones: ['2.4 4x2', '2.7 4x4', '2.8 4x4'] },
+      { nombre: 'Fortuner', versiones: ['2.7', 'SR5', 'Dubai'] },
+      '4Runner',
+      'Land Cruiser',
+      { nombre: 'RAV4', versiones: ['LE', 'XLE'] },
+    ],
+  },
+  {
+    marca: 'Volkswagen',
+    modelos: [
+      { nombre: 'Gol', versiones: ['Power', 'Comfortline'] },
+      { nombre: 'Polo', versiones: ['Comfortline'] },
+      { nombre: 'Jetta', versiones: ['Trendline', 'Comfortline'] },
+      'Tiguan',
+    ],
+  },
   { marca: 'Otra marca', modelos: [] },
 ]
 
 // Etiqueta de la última opción de modelo, que habilita texto libre.
 export const OTRO_MODELO = 'Otro modelo'
+// Última opción del selector de versión.
+export const OTRA_VERSION = 'Otra / no la sé'
 
 export const LISTA_MARCAS = MARCAS.map((m) => m.marca)
+
+const nombreModelo = (m) => (typeof m === 'string' ? m : m.nombre)
+
+function buscarModelo(marca, modelo) {
+  const item = MARCAS.find((m) => m.marca === marca)
+  if (!item) return null
+  return item.modelos.find((m) => nombreModelo(m) === modelo) || null
+}
 
 // Devuelve los modelos de una marca + la opción "Otro modelo" al final.
 export function modelosDe(marca) {
   const item = MARCAS.find((m) => m.marca === marca)
-  const base = item ? item.modelos : []
+  const base = item ? item.modelos.map(nombreModelo) : []
   return [...base, OTRO_MODELO]
+}
+
+// Devuelve las versiones de un modelo + "Otra / no la sé" al final.
+export function versionesDe(marca, modelo) {
+  const mod = buscarModelo(marca, modelo)
+  const vers = mod && typeof mod === 'object' && Array.isArray(mod.versiones) ? mod.versiones : []
+  return [...vers, OTRA_VERSION]
 }

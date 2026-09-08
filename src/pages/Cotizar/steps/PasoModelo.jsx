@@ -14,7 +14,8 @@ function PasoModelo() {
   const valido = Boolean(modelo) && (!esOtro || modeloOtro.trim().length >= 2)
 
   const seleccionar = (val) => {
-    update('vehiculo', { modelo: val, ...(val !== OTRO_MODELO ? { modeloOtro: '' } : {}) })
+    // Al cambiar de modelo, limpiar la versión previa.
+    update('vehiculo', { modelo: val, version: '', ...(val !== OTRO_MODELO ? { modeloOtro: '' } : {}) })
   }
 
   return (
