@@ -8,8 +8,8 @@ export default async function handler(req, res) {
   if (!applyCommon(req, res, ['POST'])) return
 
   const { vehiculo, persona } = req.body || {}
-  if (!vehiculo || !vehiculo.valorUSD) {
-    return res.status(400).json({ error: 'Faltan datos del vehículo (valorUSD requerido)' })
+  if (!vehiculo || (!vehiculo.marca && !vehiculo.claseUso)) {
+    return res.status(400).json({ error: 'Faltan datos del vehículo para cotizar' })
   }
 
   try {

@@ -33,23 +33,51 @@ function round2(n) {
   return Math.round(Number(n) * 100) / 100
 }
 
+// DEMO: factores de tarifa RCV por clase de uso y por grupo de peso
+// (esquema clase + grupo de la Providencia, §10) en lugar de por valor.
+const CLASE_FACTOR = { particular: 1.0, carga: 1.45, moto: 0.7, transporte: 1.6 }
+const GRUPO_FACTOR = {
+  'Hasta 800 kg': 0.9,
+  '801-1500 kg': 1.0,
+  '1501-2500 kg': 1.2,
+  'Más de 2500 kg': 1.5,
+}
+// DEMO: valor estimado del vehículo por grupo de peso (para el precio de Casco,
+// ya que en el flujo RCV no se pregunta el valor).
+const VALOR_ESTIMADO = {
+  'Hasta 800 kg': 8000,
+  '801-1500 kg': 15000,
+  '1501-2500 kg': 28000,
+  'Más de 2500 kg': 45000,
+}
+
 // Devuelve la lista de planes (ordenada de menor a mayor prima) con precios
 // por frecuencia, coberturas y un badge sugerido.
 export function construirPlanes(vehiculo = {}, persona = {}) {
+  const grupoPeso = vehiculo.grupoPeso
   const base = {
     marca: vehiculo.marca,
     modelo: vehiculo.modelo,
     año: Number(vehiculo.anio) || new Date().getFullYear(),
     ceroKm: false,
     fechaNacimiento: persona.fechaNacimiento || '1990-01-01',
-    valorVehiculo: Number(vehiculo.valorUSD) || null,
+    // El Casco necesita un valor; en RCV no se pregunta, así que se estima
+    // desde el grupo de peso.
+    valorVehiculo: Number(vehiculo.valorUSD) || VALOR_ESTIMADO[grupoPeso] || 15000,
   }
 
-  // Plan principal: Casco (cobertura amplia). Además calculamos el RCV por
-  // aseguradora para mostrar la línea "RCV desde $X/mes" en cada tarjeta.
+  // Plan principal: Casco (cobertura amplia).
   const casco = compararCotizaciones({ ...base, cobertura: 'cobertura_amplia' })
-  const rcv = compararCotizaciones({ ...base, cobertura: 'rcv' })
-  const rcvPorAseg = Object.fromEntries(rcv.map((c) => [c.aseguradora, round2(c.primaMensual)]))
+
+  // RCV tarifado por clase de uso + grupo de peso (factores demo), tomando
+  // como base el RCV por aseguradora de las tarifas. La línea "RCV desde…"
+  // de las tarjetas sale de aquí.
+  const rcvBase = compararCotizaciones({ ...base, cobertura: 'rcv' })
+  const claseF = CLASE_FACTOR[vehiculo.claseUso] ?? 1
+  const grupoF = GRUPO_FACTOR[grupoPeso] ?? 1
+  const rcvPorAseg = Object.fromEntries(
+    rcvBase.map((c) => [c.aseguradora, round2(c.primaMensual * claseF * grupoF)]),
+  )
 
   return casco.map((c, i) => ({
     plan_id: `plan_${c.aseguradora.toLowerCase().replace(/\s+/g, '-')}`,
