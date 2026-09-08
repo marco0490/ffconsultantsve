@@ -1,27 +1,23 @@
 import { useState } from 'react'
 import WizardLayout from '../../../components/Cotizador/WizardLayout'
 import StepForm, { Field } from '../../../components/Cotizador/StepForm'
-import StepCards from '../../../components/Cotizador/StepCards'
 import StepSelectSearch from '../../../components/Cotizador/StepSelectSearch'
 import StepInput from '../../../components/Cotizador/StepInput'
 import { useCotizadorState } from '../../../components/Cotizador/useCotizadorState'
 import { pathSiguiente, pathAnterior } from '../../../components/Cotizador/steps.config'
 import { ESTADOS } from '../../../data/estados'
 
-const USOS = [
-  { value: 'particular', label: 'Particular', emoji: '🚗' },
-  { value: 'comercial', label: 'Comercial / transporte', emoji: '🚕', desc: 'Taxi, delivery, viajes compartidos' },
-]
-
 const PLACA_RE = /^[A-Z0-9]{6,7}$/
 
+// El uso del vehículo ahora se captura como "Clase de uso" (paso anterior);
+// aquí solo quedan el estado donde circula y la placa (opcional).
 function PasoUso() {
   const { state, update, next } = useCotizadorState()
   const [placaTouched, setPlacaTouched] = useState(false)
-  const { uso, estado, placa } = state.vehiculo
+  const { estado, placa } = state.vehiculo
 
   const placaOk = placa === '' || PLACA_RE.test(placa)
-  const valido = Boolean(uso) && Boolean(estado) && placaOk
+  const valido = Boolean(estado) && placaOk
   const placaError = placaTouched && !placaOk ? 'La placa debe tener entre 6 y 7 caracteres' : null
 
   const onPlaca = (v) => {
@@ -33,16 +29,12 @@ function PasoUso() {
   return (
     <WizardLayout
       paso={8}
-      avatarMsg="Dos preguntas rápidas más sobre el auto"
+      avatarMsg="¿Dónde circula tu auto? 📍"
       backTo={pathAnterior(8)}
       nextDisabled={!valido}
       onNext={() => valido && next(pathSiguiente(8))}
     >
       <StepForm>
-        <Field label="Uso del vehículo">
-          <StepCards options={USOS} value={uso} onChange={(v) => update('vehiculo', { uso: v })} />
-        </Field>
-
         <Field label="Estado donde circula">
           <StepSelectSearch
             options={ESTADOS}

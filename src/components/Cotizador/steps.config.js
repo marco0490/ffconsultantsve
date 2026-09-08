@@ -14,7 +14,7 @@ export const PASOS = [
   { paso: 4, key: 'transmision', path: '/cotizar/transmision' },
   { paso: 5, key: 'anio', path: '/cotizar/anio' },
   { paso: 6, key: 'tipo', path: '/cotizar/tipo' },
-  { paso: 7, key: 'valor', path: '/cotizar/valor' },
+  { paso: 7, key: 'clase-uso', path: '/cotizar/clase-uso' },
   { paso: 8, key: 'uso', path: '/cotizar/uso' },
   { paso: 9, key: 'datos', path: '/cotizar/datos' },
   { paso: 10, key: 'contacto', path: '/cotizar/contacto' },

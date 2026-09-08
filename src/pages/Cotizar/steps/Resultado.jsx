@@ -155,9 +155,8 @@ function Resultado() {
             onClick={() => setResumenAbierto((v) => !v)}
             className="w-full flex items-center justify-between px-4 h-12 rounded-2xl border-2 border-gray-200 bg-white text-gray-700"
           >
-            <span className="text-sm font-medium truncate">
-              {autoTexto || 'Tu vehículo'} · Uso {state.vehiculo.uso || '—'} · Suma USD{' '}
-              {state.vehiculo.valorUSD}
+            <span className="text-sm font-medium truncate capitalize">
+              {autoTexto || 'Tu vehículo'} · {state.vehiculo.claseUso || '—'}
             </span>
             <FiChevronDown className={`shrink-0 transition-transform ${resumenAbierto ? 'rotate-180' : ''}`} />
           </button>

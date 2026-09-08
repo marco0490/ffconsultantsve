@@ -32,7 +32,7 @@ import PasoVersion from './pages/Cotizar/steps/PasoVersion'
 import PasoTransmision from './pages/Cotizar/steps/PasoTransmision'
 import PasoAnio from './pages/Cotizar/steps/PasoAnio'
 import PasoTipo from './pages/Cotizar/steps/PasoTipo'
-import PasoValor from './pages/Cotizar/steps/PasoValor'
+import PasoClaseUso from './pages/Cotizar/steps/PasoClaseUso'
 import PasoUso from './pages/Cotizar/steps/PasoUso'
 import PasoDatos from './pages/Cotizar/steps/PasoDatos'
 import PasoContacto from './pages/Cotizar/steps/PasoContacto'
@@ -80,7 +80,7 @@ function App() {
           <Route path="transmision" element={<PasoTransmision />} />
           <Route path="anio" element={<PasoAnio />} />
           <Route path="tipo" element={<PasoTipo />} />
-          <Route path="valor" element={<PasoValor />} />
+          <Route path="clase-uso" element={<PasoClaseUso />} />
           <Route path="uso" element={<PasoUso />} />
           <Route path="datos" element={<PasoDatos />} />
           <Route path="contacto" element={<PasoContacto />} />
